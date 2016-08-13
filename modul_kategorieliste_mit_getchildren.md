@@ -3,7 +3,7 @@
 - [Beschreibung](#beschreibung)
 - [Moduleingabe](#moduleingabe)
 - [Modulausgabe](#modulausgabe)
-- [Modul erweiternn](#erweitern)
+- [Modul erweitern](#erweitern)
 
 <a name="beschreibung"></a>
 ## Beschreibung
