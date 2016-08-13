@@ -31,7 +31,7 @@ Im Ausgabe-Code finden Sie Kommentare, die das hier vorgestellte Modul erklären
     $catoutput = $cat = $cats = $catName = $catId = $catUrl = "";
     
     // Aktuelle Kategorie ermitteln
-    $cat = rex_category::get($this->getValue('category_id'));
+    $cat = rex_category::getCurrent();
    
     // Alternativ für eine bestimmte Kategorie, XX steht für die ID der Kategorie, diese kann ggf. durch ein REX_VALUE übergeben werden. 
     // $cat = rex_category::get(XX);
