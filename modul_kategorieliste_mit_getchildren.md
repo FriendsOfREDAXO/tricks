@@ -71,11 +71,12 @@ Im Ausgabe-Code finden Sie Kommentare, die das hier vorgestellte Modul erklären
 <a name="erweitern"></a>
 ## Modul erweitern
 
-Manchmal möchte man nicht die die Unterkategorien der aktuellen Kategorie ausgeben und stattdessen die Unterkategorien einer bestimmten Kategorie ausgeben. 
+Evtl. möchte man nicht die Unterkategorien der aktuellen Kategorie, sondern die Unterkategorien einer bestimmten Kategorie ausgeben. 
 
-Hierzu muss man das Modul verändern. 
+Hierzu muss man das Modul ein wenig verändern. 
 
 Zunächst benötigt mann eine Lösung eine Kategorie auswählen zu können. 
+
 Redaxo bietet hierzu jedoch kein fertiges Widget an. Man kann zwar auf die Linklist zurückgreifen und dann die Startartikel der jeweiligen Kategorie auswählen, dies erschließt sich jedoch einem Redakteur nicht unbedingt. Besser ist es eine reine Kategorieauswahl anzubieten. 
 
 Code für die Kategorie-Auswahl (Moduleingabe): 
