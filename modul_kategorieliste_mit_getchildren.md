@@ -78,7 +78,7 @@ Hierzu muss man das Modul verändern.
 Zunächst benötigt mann eine Lösung eine Kategorie auswählen zu können. 
 Redaxo bietet hierzu jedoch kein fertiges Widget an. Man kann zwar auf die Linklist zurückgreifen und dann die Startartikel der jeweiligen Kategorie auswählen, dies erschließt sich jedoch einem Redakteur nicht unbedingt. Besser ist es eine reine Kategorieauswahl anzubieten. 
 
-Code für die Kategorie Auswahl (Moduleingabe): 
+Code für die Kategorie-Auswahl (Moduleingabe): 
 
     <div class="form-group">
     	            <label class="col-sm-5 control-label">Kategorieauswahl</label>
