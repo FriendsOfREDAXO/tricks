@@ -14,18 +14,18 @@ Im Ausgabe-Code finden Sie Kommentare, die das hier vorgestellte Modul erklären
 
 <a name="moduleingabe"></a>
 ## Moduleingabe
-
+`
     <div class="panel panel-primary">
         <div class="panel-heading"><i class="fa fa-question-circle" aria-hidden="true"></i> Kategorieliste</div>
         <div class="panel-body">
             Erstellt eine Liste aller Unterkategorien dieser Kategorie-Ebene
         </div>
     </div>
- 
+` 
 
 <a name="modulausgabe"></a>
 ## Modulausgabe
-
+`
     <?php
     // Variablen setzen: 
     $catoutput = $cat = $cats = $catName = $catId = $catUrl = "";
@@ -64,3 +64,4 @@ Im Ausgabe-Code finden Sie Kommentare, die das hier vorgestellte Modul erklären
         unset ($cats);
     }
     ?>
+`
