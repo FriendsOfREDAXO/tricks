@@ -1,4 +1,4 @@
-# Modul Minibeispiel - Kategorieliste mit getChildren()
+# Modul Minibeispiel - interne Linkliste mit REX_LINKLIST
 
 - [Beschreibung](#beschreibung)
 - [Moduleingabe](#moduleingabe)
