@@ -2,14 +2,14 @@
     
 - Module
     - Minibeispiele
-        - [Artikelliste mit getArticles](modul_minibeispiel_artikelliste_mit_getarticles) <sup><b>offen</b></sup> <sup><i>skerbis</i></sup>
-        - [Interne Linkliste mit REX_LINKLIST](modul_minibeispiel_interne_linkliste) <sup><b>offen</b></sup> <sup><i>skerbis</i></sup>
-        - [Kategorieliste mit getChildren()](modul_kategorieliste_mit_getchildren) <sup><b>offen</b></sup> <sup><i>skerbis</i></sup>
+        - [Artikelliste mit getArticles](modul_minibeispiel_artikelliste_mit_getarticles.md) <sup><b>offen</b></sup> <sup><i>skerbis</i></sup>
+        - [Interne Linkliste mit REX_LINKLIST](modul_minibeispiel_interne_linkliste.md) <sup><b>offen</b></sup> <sup><i>skerbis</i></sup>
+        - [Kategorieliste mit getChildren()](modul_kategorieliste_mit_getchildren.md) <sup><b>offen</b></sup> <sup><i>skerbis</i></sup>
         
 
 - AddOns
-    - [YForm]
-        [Glossar / oder FAQ - Tableset + Ausgabe-Modul für Bootstrap](/yform_tableset_glossar_faq) <sup><b>offen</b></sup> <sup><i>skerbis</i></sup>
+    - YForm
+        - [Glossar / oder FAQ - Tableset + Ausgabe-Modul für Bootstrap](/yform_tableset_glossar_faq.md) <sup><b>offen</b></sup> <sup><i>skerbis</i></sup>
  
 
 - Projektverwaltung
