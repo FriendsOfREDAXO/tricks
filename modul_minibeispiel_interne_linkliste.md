@@ -13,7 +13,7 @@ Das Modul erstellt ein Bootstrap-Panel mit einer Artikelliste.
 
 <a name="moduleingabe"></a>
 ## Moduleingabe
-
+```
 <fieldset class="form-horizontal">
   <div class="form-group">
         <label class="col-sm-2 control-label">Interne Links</label>
@@ -22,12 +22,12 @@ Das Modul erstellt ein Bootstrap-Panel mit einer Artikelliste.
         </div>
   </div>
 </fieldset>
- 
+``` 
 
 <a name="modulausgabe"></a>
 ## Modulausgabe
 
-
+```
 <div class="panel panel-default">
 <div class="panel-heading"><i class="fa fa-paperclip"></i> REX_VALUE[2]</div>
 <div class="panel-body">
@@ -57,4 +57,4 @@ if (! empty($menu))
 ?></div>
   </div>
 </div>
-
+```
