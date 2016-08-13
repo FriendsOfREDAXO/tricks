@@ -23,28 +23,27 @@ Diese Lösung schützt nur Dateien die über /media/dateiname.xyz und über /ind
 		 
 		if ($fileName!='')
 		{
-		$fileName2 = rex_media::get($fileName);
-		$cat = $fileName2->getCategory();
-		$filecat = $fileName2->getValue('category_id');
-		$cattree = $cat->getPathAsArray();
-		$parentID = $cattree[0];
+			$fileName2 = rex_media::get($fileName);
+			$cat = $fileName2->getCategory();
+			$filecat = $fileName2->getValue('category_id');
+			$cattree = $cat->getPathAsArray();
+			$parentID = $cattree[0];
 		}
 		// Welche Medienkategorie beinhaltet die geschützten Dateien
 		// bei beiden Abfragen die ID der Kategorie eintragen 
 		if ($parentID =='4' or $filecat=='4')
 		{
-		if ($ycom_user)
-		{
-		
-		}
+			if ($ycom_user)
+			{
+			// Dinge die passieren könnten wenn jemand eingeloggt ist. 
+			}
 		else
-		{
-		// Artikel auf den umgeleitet werden soll, wenn der User nicht angemeldet ist.
-		rex_redirect(98);
-		exit();
-		}
+			{
+			// Artikel auf den umgeleitet werden soll, wenn der User nicht angemeldet ist.
+			rex_redirect(98);
+			exit();
+			}
 		}                             
-		
 		?>
 		
 		<?php 
@@ -52,15 +51,17 @@ Diese Lösung schützt nur Dateien die über /media/dateiname.xyz und über /ind
 		$finfo = finfo_open(FILEINFO_MIME_TYPE);
 		$fileType = finfo_file($finfo, $filePath);
 		finfo_close($finfo);
+		// Redaxo Outputbuffer löschen
 		rex_response::cleanOutputBuffers();
 		$file = $filePath;
 		
 		if (file_exists($file)) {
 		    $fileType = 'application/octet-stream';
-		     header('Content-Description: File Transfer');
+		    header('Content-Description: File Transfer');
 		    header('Content-Type: application/octet-stream');
 		    header("Cache-Control: private");
 		    header("Pragma: no-cache");
+		    // Download erzwingen
 		    header('Content-Disposition: attachment; filename="'.basename($file).'"');
 		    header("Expires: Mon, 01 Jan 2000 05:00:00 GMT"); // Date in the past
 		    header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");// always modified
@@ -82,7 +83,7 @@ Bei Verwendung von yrewrite direkt nach `RewriteBase /`
 Hier haben wir auch festgelegt welche Dateien geschützt sein sollen.
 Weitere Endungen können beliebig hinzugefügt werden z.B:  |eps|pptx|docx
 
-Fügt man nun das Template in allen Ausgabe-Template ein, sind die Dateien geschützt. 
+Fügt man nun das Templates in allen Ausgabe-Template ein, sind die Dateien geschützt. 
 XX steht für die ID des Templates
 
 REX_TEMPLATE[XX]
