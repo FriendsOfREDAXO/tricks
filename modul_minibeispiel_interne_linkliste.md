@@ -29,7 +29,7 @@ Das Modul erstellt ein Bootstrap-Panel mit einer Artikelliste.
 
 
 	<div class="panel panel-default">
-		<div class="panel-heading"><i class="fa fa-paperclip"></i> REX_VALUE[2]</div>
+		<div class="panel-heading"><i class="fa fa-paperclip"></i> Linkliste</div>
 		<div class="panel-body">
 			<div class="body-wrapper">
 	<?php
