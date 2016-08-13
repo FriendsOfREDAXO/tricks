@@ -13,9 +13,9 @@ Diese Lösung schützt nur Dateien die über /media/dateiname.xyz und über /ind
 ----------
 
 
- 1. Als erstes richten wir die Medienkategorie an.
- 2. Wir merken uns die ID der Kategorie 
- 3. Wir legen nachfolgendes Template an: 
+1. Als erstes richten wir die Medienkategorie an.
+2. Wir merken uns die ID der Kategorie 
+3. Wir legen nachfolgendes Template an (Kommentare beachten): 
 
 		<?php
 		$ycom_user = rex_ycom_auth::getUser();
@@ -75,11 +75,12 @@ Diese Lösung schützt nur Dateien die über /media/dateiname.xyz und über /ind
 
 **Jetzt muss die .htaccess-Datei ergänzt werden**
 
-Bei Verwendung von yrewrite direkt nach RewriteBase /
+Bei Verwendung von yrewrite direkt nach `RewriteBase /`
     
-	RewriteRule ^/?media/(.*\.(pdf|xlsx|xls|docx|ppt|pptx|rar|mpp|eps|txt|rtf|pub|pubx|doc|zip))$ /index.php?fileName=$1 [L]
+	RewriteRule ^/?media/(.*\.(pdf|doc|zip))$ /index.php?fileName=$1 [L]
 
-Hier haben wir auch festgelegt welche Dateien geschützt sein  sollen. 
+Hier haben wir auch festgelegt welche Dateien geschützt sein sollen.
+Weitere Endungen können beliebig hinzugefügt werden z.B:  |eps|pptx|docx
 
 Fügt man nun das Template in allen Ausgabe-Template ein, sind die Dateien geschützt. 
 XX steht für die ID des Templates
