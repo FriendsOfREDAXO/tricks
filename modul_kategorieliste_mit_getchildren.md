@@ -32,7 +32,10 @@ Im Ausgabe-Code finden Sie Kommentare, die das hier vorgestellte Modul erklären
     
     // Aktuelle Kategorie ermitteln
     $cat = rex_category::get($this->getValue('category_id'));
-    
+   
+    // Alternativ für eine bestimmte Kategorie, XX steht für die ID der Kategorie, diese kann ggf. durch ein REX_VALUE übergeben werden. 
+    // $cat = rex_category::get(XX);
+   
     // Kinder ermitteln
     $cats = $cat->getChildren();
     
