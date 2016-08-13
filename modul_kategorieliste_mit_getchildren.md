@@ -8,6 +8,8 @@
 ## Beschreibung
 
 Ausgabe der Kategorien der aktuellen Ebene
+Nach dem Auslesen der aktuellen Kategorie, kann man leicht mit getChildren() die Unterkategorien ermitteln und auflisten. 
+Im Ausgabe-Code finden Sie Kommentare, die das hier vorgestellte Modul erklären. 
 
 <a name="moduleingabe"></a>
 ## Moduleingabe
