@@ -1,4 +1,4 @@
-# Modul Minibeispiel - Kategorieliste mit getChildren()
+# Modul Minibeispiel - Kategorielisten mit getChildren()
 
 - [Beschreibung](#beschreibung)
 - [Moduleingabe](#moduleingabe)
@@ -8,7 +8,7 @@
 <a name="beschreibung"></a>
 ## Beschreibung
 
-Ausgabe der Kategorien der aktuellen Ebene
+Ausgabe der Kategorien der aktuellen Ebene oder einer ausgewählten Kategorie (siehe [Modul erweitern](#erweitern))
 
 Nach dem Auslesen der aktuellen Kategorie, kann man leicht mit getChildren() die Unterkategorien ermitteln und auflisten. 
 Im Ausgabe-Code finden Sie Kommentare, die das hier vorgestellte Modul erklären. 
