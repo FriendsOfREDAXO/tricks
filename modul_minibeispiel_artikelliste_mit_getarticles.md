@@ -60,7 +60,7 @@ So ist es später einfach einen eigenen Wrapper oder andere Formatierungen anzuw
 	    $articleName = $article->getName();
 	    
 	    // Weitere Daten  der Metainfos können wie folgt abgerufen werden:     
-	    // Beispiel für eine Meta-Info art_file
+	    // Beispiel für eine Meta-Info art_Image
 	    // $articleImage = $article->getValue("art_Image");
 	    
 	    // Ausgabe erstellen 
