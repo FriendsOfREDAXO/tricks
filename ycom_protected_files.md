@@ -24,9 +24,13 @@ Diese Lösung, schützt nur Dateien die über /media/dateiname.xyz und über /in
 		 
 		if ($fileName!='')
 		{
-			$fileName2 = rex_media::get($fileName);
+			// Datensatz auslesen und Eigenschaften ermitteln
+			$fileInfo = rex_media::get($fileName);
+			// Aktuelle Medienkategorie ermitteln
 			$cat = $fileName2->getCategory();
-			$filecat = $fileName2->getValue('category_id');
+			// ID der Medienkategorie ermitteln
+			$filecat = $fileInfo->getValue('category_id');
+			// Hauptkategorie ermitteln, hierzu wird der aktuelle Pfad ausgelesen.
 			$cattree = $cat->getPathAsArray();
 			$parentID = $cattree[0];
 		}
