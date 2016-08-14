@@ -17,8 +17,15 @@ Diese Lösung, schützt nur Dateien die über /media/dateiname.xyz und über /in
 3. Nachfolgendes Template anlegen (Kommentare beachten): 
 
 		<?php
+		// Welche Medienkategorie beinhaltet die geschützten Dateien? (Medienpool-Kategorie-ID)
+		$mediacatID = '4';
+		// Wohin soll bei einem unberechtigten Zugriff umgeleitet werden? (Artikel ID) 
+		$redirectArticle = '99'; 
+		
 		$ycom_user = rex_ycom_auth::getUser();
-		$fileName= $_REQUEST['fileName'];
+		// Auslesen des Dateinamens mit rex_get
+		$fileName = rex_get('fileName', 'string');
+		
 		// Redaxo Outputbuffer löschen
 		rex_response::cleanOutputBuffers();
 		 
@@ -34,9 +41,8 @@ Diese Lösung, schützt nur Dateien die über /media/dateiname.xyz und über /in
 			$cattree = $cat->getPathAsArray();
 			$parentID = $cattree[0];
 		}
-		// Welche Medienkategorie beinhaltet die geschützten Dateien
-		// bei beiden Abfragen die ID der Kategorie eintragen 
-		if ($parentID =='4' or $filecat=='4')
+		
+		if ($parentID ==$mediacatID or $filecat==$mediacatID)
 		{
 			if ($ycom_user)
 			{
@@ -44,8 +50,7 @@ Diese Lösung, schützt nur Dateien die über /media/dateiname.xyz und über /in
 			}
 		else
 			{
-			// Artikel-ID auf den umgeleitet werden soll, wenn der User nicht angemeldet ist.
-			rex_redirect(98);
+			rex_redirect($redirectArticle);
 			exit();
 			}
 		}                             
