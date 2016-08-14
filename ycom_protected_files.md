@@ -19,6 +19,8 @@ Diese Lösung, schützt nur Dateien die über /media/dateiname.xyz und über /in
 		<?php
 		$ycom_user = rex_ycom_auth::getUser();
 		$fileName= $_REQUEST['fileName'];
+		// Redaxo Outputbuffer löschen
+		rex_response::cleanOutputBuffers();
 		 
 		if ($fileName!='')
 		{
@@ -43,17 +45,8 @@ Diese Lösung, schützt nur Dateien die über /media/dateiname.xyz und über /in
 			exit();
 			}
 		}                             
-		?>
 		
-		<?php 
-		$filePath = rex_path::media().$fileName;
-		$finfo = finfo_open(FILEINFO_MIME_TYPE);
-		$fileType = finfo_file($finfo, $filePath);
-		finfo_close($finfo);
-		// Redaxo Outputbuffer löschen
-		rex_response::cleanOutputBuffers();
-		$file = $filePath;
-		
+		$file = rex_path::media().$fileName;
 		if (file_exists($file)) {
 		    $fileType = 'application/octet-stream';
 		    header('Content-Description: File Transfer');
