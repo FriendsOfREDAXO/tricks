@@ -7,7 +7,7 @@
 <a name="beschreibung"></a>
 ## Beschreibung
 
-Dieses Modul erstellt eine eine Artikelliste der aktuellen Kategorie. Es wird überprüft ob die Artikel online geschaltet ist und ob es sich beim Artikel um einen Startartikel handelt. 
+Dieses Modul erstellt eine eine Artikelliste der aktuellen Kategorie. Es wird überprüft ob die Artikel online geschaltet sind und ob es sich beim Artikel um einen Startartikel handelt. 
 
 <a name="moduleingabe"></a>
 ## Moduleingabe
