@@ -23,9 +23,13 @@ Das Modul erstellt ein Bootstrap-Panel mit einer Artikelliste.
 	  </div>
 	</fieldset>
 
+In der REX_Linklist werden die Werte (Artikel-IDs) kommasepariert gespeichert. 
 
 <a name="modulausgabe"></a>
 ## Modulausgabe
+
+In der Modulausgabe werden die Werte mitels explode (http://php.net/manual/de/function.explode.php) in einer foreach-Schleife ausgelesen.
+Anhand der ID holt man sich den Datensatz des Artikels. Wenn nur ein Link erzeugt werden soll, bietet sich die direkte Umwandlung des Datensatzes in einen Link mittels `->toLink()` an. 
 
 
 	<div class="panel panel-default">
