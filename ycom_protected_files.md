@@ -50,11 +50,12 @@ Diese Lösung, schützt nur Dateien die über /media/dateiname.xyz und über /in
 			}
 		else
 			{
+			// Umleitung auf die Fehlerseite
 			rex_redirect($redirectArticle);
 			exit();
 			}
 		}                             
-		
+		// Ausgabe des Mediums
 		$file = rex_path::media().$fileName;
 		if (file_exists($file)) {
 		    $fileType = 'application/octet-stream';
