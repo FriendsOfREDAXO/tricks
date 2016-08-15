@@ -13,6 +13,7 @@
         - [Glossar / oder FAQ - Tableset + Ausgabe-Modul für Bootstrap](yform_tableset_glossar_faq.md) <sup><b>offen</b></sup> <sup><i>skerbis</i></sup>
     - YCom
         - [Geschütze Dateien mit YCom ](ycom_protected_files.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
+            - MediaManager-Effekt als Ergänzung   <sup><b>offen</b></sup> 
 
 - Projektverwaltung
 
