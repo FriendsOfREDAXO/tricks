@@ -9,13 +9,13 @@ Dadurch kann der Redakteur leicht erkennen, dass es sich um einen eingebundenen 
 Die Abfrage ob wir uns im Backend oder Frontend erfolgt durch ´´if (rex::isBackend() == 1) {...´´
 
 ## Moduleingabe
-  <div class="form-horizontal">
-      <div class="form-group">
-          <label class="col-sm-2 control-label">Artikelauswahl:</label>
-          <div class="col-sm-8">
-             REX_LINK[id=1 widget=1]
+      <div class="form-horizontal">
+          <div class="form-group">
+              <label class="col-sm-2 control-label">Artikelauswahl:</label>
+              <div class="col-sm-8">
+                 REX_LINK[id=1 widget=1]
+              </div>
           </div>
-      </div>
 
 ## Modulausgabe
 
