@@ -6,7 +6,7 @@ Eine Möglichkeit ist das einbinden zentral abgelegter Artikel.
 Das nachfolgende Beispiel bindet den ausgewählten Artikel als Block ein. Darüber hinaus wird für eingeloggte Redakteure ein Bearbetungssymbol (fontawsome) eingebaut. 
 Dadurch kann der Redakteur leicht erkennen, dass es sich um einen eingebundenen Artikel handelt und kann direkt ins Backend zur Bearbeitung springen. 
 
-Die Abfrage ob wir uns im Backend oder Frontend erfolgt durch ´´if (rex::isBackend() == 1) {...´´
+Die Abfrage ob wir uns im Backend oder Frontend erfolgt durch `if (rex::isBackend() == 1) {...`
 
 ## Moduleingabe
       <div class="form-horizontal">
