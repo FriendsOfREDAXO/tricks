@@ -38,12 +38,16 @@ Die Abfrage ob wir uns im Backend oder Frontend erfolgt durch ´´if (rex::isBac
              // $art_description =  $art->getValue('art_description');    
         
          // Hinweisbox für's Backend
-              if (rex::isBackend() == 1) {
+              if (rex::isBackend() == 1) 
+              {
                   echo '<div class="alert alert-info">
-       <a href="
-       '.rex_url::backendPage('content/edit',['mode' => 'edit', 'clang' => rex_clang::getCurrentId(), 'article_id' => 'REX_LINK[id=1]']).'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Eingebundener Artikel: '.$art->getName().'</a>
-      </div>
-      ';           
+                   <a href="
+                   '.rex_url::backendPage('content/edit',
+                   ['mode' => 'edit',
+                   'clang' => rex_clang::getCurrentId(),
+                   'article_id' => 'REX_LINK[id=1]']).'">
+                   <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Eingebundener Artikel: '.$art->getName().'</a>
+                  </div>';           
               } // Ende Hinweisbox
           
               // Artikel ausgeben, für andere Ctypes Zahl ändern. Für den gesamten Artikel, die 1 entfernen
