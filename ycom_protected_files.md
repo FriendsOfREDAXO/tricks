@@ -37,7 +37,7 @@ Diese Lösung, schützt nur Dateien die über /media/dateiname.xyz und über /in
 			// Hauptkategorie ermitteln, hierzu wird der aktuelle Pfad ausgelesen.
 			$cattree = $cat->getPathAsArray();
 			$parentID = $cattree[0];
-		}
+		
 		
 		if ($parentID ==$mediacatID or $filecat==$mediacatID)
 		{
@@ -73,7 +73,7 @@ Diese Lösung, schützt nur Dateien die über /media/dateiname.xyz und über /in
 		    readfile($file);
 		    exit;
 		}
-		
+		}	
 		?>
 
 **Jetzt muss die .htaccess-Datei ergänzt werden**
