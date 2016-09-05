@@ -13,7 +13,7 @@
     - YForm
        
     - YCom
-        - [Geschütze Dateien mit YCom ](ycom_protected_files.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
+        - [Geschütze Dateien mit YCom ](addons_ycom_protected_files.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
             - MediaManager-Effekt als Ergänzung   <sup><b>offen</b></sup> 
 
 - Projektverwaltung
