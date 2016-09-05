@@ -26,9 +26,6 @@ Diese Lösung, schützt nur Dateien die über /media/dateiname.xyz und über /in
 		// Auslesen des Dateinamens mit rex_get
 		$fileName = rex_get('fileName', 'string');
 		
-		// Redaxo Outputbuffer löschen
-		rex_response::cleanOutputBuffers();
-		 
 		if ($fileName!='')
 		{
 			// Datensatz auslesen und Eigenschaften ermitteln
@@ -55,6 +52,9 @@ Diese Lösung, schützt nur Dateien die über /media/dateiname.xyz und über /in
 			exit();
 			}
 		}                             
+		// Redaxo Outputbuffer löschen
+		rex_response::cleanOutputBuffers();
+
 		// Ausgabe des Mediums
 		$file = rex_path::media().$fileName;
 		if (file_exists($file)) {
