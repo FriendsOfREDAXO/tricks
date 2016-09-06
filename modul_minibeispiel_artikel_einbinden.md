@@ -1,4 +1,4 @@
-# Artikel einbinden mit getArticle
+# Artikel einbinden mit rex_article::get
 
 Hin und wieder möchte man auf zentrale Daten zurückgreifen. Das können beispielsweise Öffnungszeiten oder Adressen sein. 
 Eine Möglichkeit ist das einbinden zentral abgelegter Artikel. 
