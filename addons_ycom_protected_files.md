@@ -36,9 +36,18 @@ Diese Lösung, schützt nur Dateien die über /media/dateiname.xyz und über /in
 			$cat = $fileInfo->getCategory();
 			// ID der Medienkategorie ermitteln
 			$filecat = $fileInfo->getValue('category_id');
-			// Hauptkategorie ermitteln, hierzu wird der aktuelle Pfad ausgelesen.
-			$cattree = $cat->getPathAsArray();
-			$parentID = $cattree[0];
+		
+			 if (filecat == 0) 
+			    {
+			    	$parentID = 0;
+			    }
+			    else
+			    { 
+				    // Hauptkategorie ermitteln, hierzu wird der aktuelle Pfad ausgelesen.
+				    $cattree = $cat->getPathAsArray();
+				    $parentID = $cattree[0];
+			    }
+		
 		
 		
 		if ($parentID ==$mediacatID or $filecat==$mediacatID)
