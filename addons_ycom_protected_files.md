@@ -24,7 +24,7 @@ Geeignet für Redaxo 5.2
 		$ycom_user = rex_ycom_auth::getUser();
 		// Auslesen des Dateinamens mit rex_get
 		$fileName = rex_get('fileName', 'string');
-		// Abfrage ob Datei existiert
+		// Was passiert, wenn Datei nicht existiert?
 		if (!file_exists(rex_path::media($fileName)))
 		{
 			// Weiterleitung zum $redirectArticle
@@ -42,36 +42,31 @@ Geeignet für Redaxo 5.2
 			$filecat = $fileInfo->getValue('category_id');
 		        
 		       	// Wenn die ermittelte Kategorie nicht gleich "keine Kategorie" ist 
-			    if ($filecat != 0) 
-			    { 
-			  
-				    $cattree = $cat->getPathAsArray();
-				    $parentID = $cattree[0];
-			    }
-		
-		
-		
-			if ($parentID ==$mediacatID or $filecat==$mediacatID)
+			if ($filecat != 0) 
+		    	{ 
+		    	$cattree = $cat->getPathAsArray();
+		    	$parentID = $cattree[0];
+		    	}
+			// Überprüfe ob sich die Datei in einer geschützten Kategorie befindet
+			if ($parentID == $mediacatID or $filecat == $mediacatID)
 			{
-				if ($ycom_user)
+			// Prüfe ob User eingeloggt
+			if ($ycom_user)
 				{
-				// Dinge die passieren könnten wenn jemand eingeloggt ist. 
+					// Dinge die passieren könnten wenn jemand eingeloggt ist. 
 				}
 			else
 				{
-				// Umleitung auf die Fehlerseite
-				rex_redirect($redirectArticle);
+					// Umleitung auf die Fehlerseite
+					rex_redirect($redirectArticle);
 				}
 			}                             
 	
 			// Ausgabe des Mediums
 			$file = rex_path::media().$fileName;
-			if (file_exists($file)) 
-				{
-				 	$contenttype = 'application/octet-stream';
-				 	// soll kein Download erzwungen werden, ändere attachment in inline
-		   			rex_response::sendFile($file,$contenttype, $contentDisposition = 'attachment');
-				}
+			$contenttype = 'application/octet-stream';
+			// soll kein Download erzwungen werden, ändere attachment in inline
+		   	rex_response::sendFile($file,$contenttype, $contentDisposition = 'attachment');
 		}	
 		?>
 
