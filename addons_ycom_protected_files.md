@@ -63,16 +63,15 @@ Geeignet für Redaxo 5.2
 			exit();
 			}
 		}                             
-		// Redaxo Outputbuffer löschen
-		rex_response::cleanOutputBuffers();
 
 		// Ausgabe des Mediums
 		$file = rex_path::media().$fileName;
-		if (file_exists($file)) {
-		 	$contenttype = 'application/octet-stream';
-		 	// soll kein Download erzwungen werden, ändere attachment in inline
-   			rex_response::sendFile($file,$contenttype, $contentDisposition = 'attachment');
-		}
+		if (file_exists($file)) 
+			{
+			 	$contenttype = 'application/octet-stream';
+			 	// soll kein Download erzwungen werden, ändere attachment in inline
+	   			rex_response::sendFile($file,$contenttype, $contentDisposition = 'attachment');
+			}
 		}	
 		?>
 
