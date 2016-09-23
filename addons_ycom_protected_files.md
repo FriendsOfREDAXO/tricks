@@ -21,7 +21,7 @@ Geeignet für Redaxo 5.2
 		$mediacatID = '4';
 		// Wohin soll bei einem unberechtigten Zugriff umgeleitet werden? (Artikel ID) 
 		$redirectArticle = '99'; 
-		
+		$parentID = 0;
 		$ycom_user = rex_ycom_auth::getUser();
 		// Auslesen des Dateinamens mit rex_get
 		$fileName = rex_get('fileName', 'string');
@@ -35,13 +35,8 @@ Geeignet für Redaxo 5.2
 			// ID der Medienkategorie ermitteln
 			$filecat = $fileInfo->getValue('category_id');
 		        
-		        // Wenn Datei in "Keine Kategorie" abgelegt ist. 
-			 if ($filecat == 0) 
-			    {
-			    	$parentID = 0;
-			    }
-			// Sonst: Hauptkategorie ermitteln, hierzu wird der aktuelle Pfad ausgelesen. 
-			    else
+		       	// Wenn die ermittelte Kategorie nich gleich "keine Kategorie" ist 
+			    if ($filecat != 0) 
 			    { 
 			  
 				    $cattree = $cat->getPathAsArray();
