@@ -33,13 +33,15 @@ Geeignet für Redaxo 5.2
 		
 		// Was passiert, wenn Datei nicht existiert?
 		
-		if (!file_exists(rex_path::media($fileName))) {
+		if (!file_exists(rex_path::media($fileName)))
+			{
 		
 			// Weiterleitung zum $redirectArticle
 		
 			rex_redirect($redirectArticle);
-		}
-		else {
+			}
+		  else
+			{
 		
 			// nicht ändern
 		
@@ -59,29 +61,33 @@ Geeignet für Redaxo 5.2
 		
 			// Wenn die ermittelte Kategorie nicht gleich "keine Kategorie" ist
 		
-			if ($filecat != 0) {
+			if ($filecat != 0)
+				{
 				$cattree = $cat->getPathAsArray();
 				$parentID = $cattree[0];
-			}
+				}
 		
 			// Überprüfe ob sich die Datei in einer geschützten Kategorie befindet
 		
-			if ($parentID == $mediacatID or $filecat == $mediacatID) {
+			if ($parentID == $mediacatID or $filecat == $mediacatID)
+				{
 		
 				// Prüfe ob User eingeloggt
 		
-				if ($ycom_user) {
+				if ($ycom_user)
+					{
 		
 					// Dinge die passieren könnten wenn jemand eingeloggt ist.
 		
-				}
-				else {
+					}
+				  else
+					{
 		
 					// Umleitung auf die Fehlerseite
 		
 					rex_redirect($redirectArticle);
+					}
 				}
-			}
 		
 			// Ausgabe des Mediums
 		
@@ -91,7 +97,7 @@ Geeignet für Redaxo 5.2
 			// soll kein Download erzwungen werden, ändere attachment in inline
 		
 			rex_response::sendFile($file, $contenttype, $contentDisposition = 'attachment');
-		}
+			}
 		
 		?>
 
