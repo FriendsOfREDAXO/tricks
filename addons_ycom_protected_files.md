@@ -50,28 +50,28 @@ Geeignet für Redaxo 5.2
 		
 		
 		
-		if ($parentID ==$mediacatID or $filecat==$mediacatID)
-		{
-			if ($ycom_user)
+			if ($parentID ==$mediacatID or $filecat==$mediacatID)
 			{
-			// Dinge die passieren könnten wenn jemand eingeloggt ist. 
-			}
-		else
-			{
-			// Umleitung auf die Fehlerseite
-			rex_redirect($redirectArticle);
-			exit();
-			}
-		}                             
-
-		// Ausgabe des Mediums
-		$file = rex_path::media().$fileName;
-		if (file_exists($file)) 
-			{
-			 	$contenttype = 'application/octet-stream';
-			 	// soll kein Download erzwungen werden, ändere attachment in inline
-	   			rex_response::sendFile($file,$contenttype, $contentDisposition = 'attachment');
-			}
+				if ($ycom_user)
+				{
+				// Dinge die passieren könnten wenn jemand eingeloggt ist. 
+				}
+			else
+				{
+				// Umleitung auf die Fehlerseite
+				rex_redirect($redirectArticle);
+				exit();
+				}
+			}                             
+	
+			// Ausgabe des Mediums
+			$file = rex_path::media().$fileName;
+			if (file_exists($file)) 
+				{
+				 	$contenttype = 'application/octet-stream';
+				 	// soll kein Download erzwungen werden, ändere attachment in inline
+		   			rex_response::sendFile($file,$contenttype, $contentDisposition = 'attachment');
+				}
 		}	
 		?>
 
