@@ -35,7 +35,7 @@ Geeignet für Redaxo 5.2
 			// ID der Medienkategorie ermitteln
 			$filecat = $fileInfo->getValue('category_id');
 		        
-		       	// Wenn die ermittelte Kategorie nich gleich "keine Kategorie" ist 
+		       	// Wenn die ermittelte Kategorie nicht gleich "keine Kategorie" ist 
 			    if ($filecat != 0) 
 			    { 
 			  
