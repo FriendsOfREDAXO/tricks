@@ -21,7 +21,7 @@ Geeignet für Redaxo 5.2
 		$mediacatID = '4';
 		// Wohin soll bei einem unberechtigten Zugriff umgeleitet werden? (Artikel ID) 
 		$redirectArticle = '99'; 
-		$parentID = 0;
+		$parentID = 0; // nicht ändern
 		$ycom_user = rex_ycom_auth::getUser();
 		// Auslesen des Dateinamens mit rex_get
 		$fileName = rex_get('fileName', 'string');
