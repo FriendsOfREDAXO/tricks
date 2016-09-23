@@ -17,57 +17,82 @@ Geeignet für Redaxo 5.2
 3. Nachfolgendes Template anlegen (Kommentare beachten): 
 
 		<?php
+		
 		// Welche Medienkategorie beinhaltet die geschützten Dateien? (Medienpool-Kategorie-ID)
+		
 		$mediacatID = '4';
-		// Wohin soll bei einem unberechtigten Zugriff umgeleitet werden? (Artikel ID) 
-		$redirectArticle = '99'; 
+		
+		// Wohin soll bei einem unberechtigten Zugriff umgeleitet werden? (Artikel ID)
+		
+		$redirectArticle = '99';
 		$ycom_user = rex_ycom_auth::getUser();
+		
 		// Auslesen des Dateinamens mit rex_get
+		
 		$fileName = rex_get('fileName', 'string');
+		
 		// Was passiert, wenn Datei nicht existiert?
-		if (!file_exists(rex_path::media($fileName)))
-		{
+		
+		if (!file_exists(rex_path::media($fileName))) {
+		
 			// Weiterleitung zum $redirectArticle
+		
 			rex_redirect($redirectArticle);
 		}
-		else
-		{
+		else {
+		
 			// nicht ändern
-			$parentID = 0; 
+		
+			$parentID = 0;
+		
 			// Datensatz auslesen und Eigenschaften ermitteln
+		
 			$fileInfo = rex_media::get($fileName);
+		
 			// Aktuelle Medienkategorie ermitteln
+		
 			$cat = $fileInfo->getCategory();
+		
 			// ID der Medienkategorie ermitteln
+		
 			$filecat = $fileInfo->getValue('category_id');
-		        
-		       	// Wenn die ermittelte Kategorie nicht gleich "keine Kategorie" ist 
-			if ($filecat != 0) 
-		    	{ 
-		    	$cattree = $cat->getPathAsArray();
-		    	$parentID = $cattree[0];
-		    	}
+		
+			// Wenn die ermittelte Kategorie nicht gleich "keine Kategorie" ist
+		
+			if ($filecat != 0) {
+				$cattree = $cat->getPathAsArray();
+				$parentID = $cattree[0];
+			}
+		
 			// Überprüfe ob sich die Datei in einer geschützten Kategorie befindet
-			if ($parentID == $mediacatID or $filecat == $mediacatID)
-			{
-			// Prüfe ob User eingeloggt
-			if ($ycom_user)
-				{
-					// Dinge die passieren könnten wenn jemand eingeloggt ist. 
+		
+			if ($parentID == $mediacatID or $filecat == $mediacatID) {
+		
+				// Prüfe ob User eingeloggt
+		
+				if ($ycom_user) {
+		
+					// Dinge die passieren könnten wenn jemand eingeloggt ist.
+		
 				}
-			else
-				{
+				else {
+		
 					// Umleitung auf die Fehlerseite
+		
 					rex_redirect($redirectArticle);
 				}
-			}                             
-	
+			}
+		
 			// Ausgabe des Mediums
-			$file = rex_path::media().$fileName;
+		
+			$file = rex_path::media() . $fileName;
 			$contenttype = 'application/octet-stream';
+		
 			// soll kein Download erzwungen werden, ändere attachment in inline
-		   	rex_response::sendFile($file,$contenttype, $contentDisposition = 'attachment');
-		}	
+		
+			rex_response::sendFile($file, $contenttype, $contentDisposition = 'attachment');
+		}
+		
 		?>
 
 **Jetzt muss die .htaccess-Datei ergänzt werden**
