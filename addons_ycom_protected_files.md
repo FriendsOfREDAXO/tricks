@@ -27,6 +27,7 @@ Geeignet für Redaxo 5.2
 		// Abfrage ob Datei existiert
 		if (!file_exists(rex_path::media($fileName)))
 		{
+			// Weiterleitung zum $redirectArticle
 			rex_redirect($redirectArticle);
 		}
 		else
