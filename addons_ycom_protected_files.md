@@ -55,7 +55,6 @@ Geeignet für Redaxo 5.2
 				{
 				// Umleitung auf die Fehlerseite
 				rex_redirect($redirectArticle);
-				exit();
 				}
 			}                             
 	
