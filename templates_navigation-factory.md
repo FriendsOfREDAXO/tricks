@@ -57,7 +57,7 @@ Für die Ausgabe von Breadcrumbs gibt es die separate Methode `showBreadcrumb`.
     // Beispiele für Callbacks
     $nav->addCallback(function (rex_category $category, $depth, &$li, &$a) {
     
-        // Ergänze eigene Klasse, wenn eine Listenelement über Kindelemente verfügt
+        // Ergänze eigene Klasse, wenn ein Listenelement über Kindelemente verfügt
         if ($category->getChildren()) {
             $li['class'][] = 'item-has-children';
         }
