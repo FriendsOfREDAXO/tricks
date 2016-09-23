@@ -84,7 +84,7 @@ Diese Lösung, schützt nur Dateien die über /media/dateiname.xyz und über /in
 		    header('Pragma: public');
 		    header('Content-Length: ' . filesize($file));
 		    readfile($file);
-		    exit;
+		    exit();
 		}
 		}	
 		?>
