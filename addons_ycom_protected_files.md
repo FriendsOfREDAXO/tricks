@@ -98,8 +98,7 @@ Bei Verwendung von yrewrite direkt nach `RewriteBase /`
 Hier wurde festgelegt welche Dateien geschützt sein sollen.
 Weitere Endungen können beliebig hinzugefügt werden z.B:  |eps|pptx|docx …
 
-----------
+
 Fügt man nun das Template in allen Ausgabe-Templates am Anfang ein, sind die Dateien geschützt. 
 XX steht für die ID des Templates
 REX_TEMPLATE[XX]
-----------
