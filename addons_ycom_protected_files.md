@@ -1,8 +1,6 @@
 # Geschütze Dateien mit YCom
 
-Geeignet für Redaxo 5.2
-
-Wie kann man Dateien in Verbindung mit YCom (Community Addon) einfach schützen?
+###Wie kann man Dateien in Verbindung mit YCom (Community Addon) einfach schützen?
 Da Redaxo aktuell nur einen Medienordner hat und so von außen alle Dateien in diesem Ordner öffentlich zugänglich sind, benötigt man eine Lösung, die den Dateiaufruf überprüft und entscheidet ob es sich um eine geschützte Datei oder einer öffentlichen Datei handelt. 
 
 Hier verwenden wir eine .htaccess Rewrite-Rule und ein Template um dies zu realisieren.  Dateien, die in einer bestimmten Medienpool-Hauptkategorie und deren Unterkategorien im Medienpool liegen, können so vor unerlaubten Zugriff geschützt werden. 
@@ -12,7 +10,7 @@ Hier verwenden wir eine .htaccess Rewrite-Rule und ein Template um dies zu reali
 Diese Lösung, schützt nur Dateien die über /media/dateiname.xyz und über /index.php?fileName=dateiname.xyz aufgerufen werden. Eine Ausweitung auf z.B: Mediamanager Urls ist denkbar. Eine Unterscheidung nach Nutzergruppen findet nicht statt. 
 
 ----------
-
+Geeignet für Redaxo 5.2
 
 1. Medienkategorie anlegen
 2. ID der Kategorie merken 
@@ -99,6 +97,12 @@ Hier wurde festgelegt welche Dateien geschützt sein sollen.
 Weitere Endungen können beliebig hinzugefügt werden z.B:  |eps|pptx|docx …
 
 
-Fügt man nun das Template in allen Ausgabe-Templates am Anfang ein, sind die Dateien geschützt. 
+Fügt man nun das Template in allen Ausgabe-Templates **am Anfang** ein, sind die Dateien geschützt. 
 XX steht für die ID des Templates
 REX_TEMPLATE[XX]
+
+
+----------
+**Achtung!** Vor dem Template darf auf keinem Fall eine Ausgabe von Inhalten erfolgen.
+Bei Problemen bitte unbedingt prüfen ob sich Leerzeichen / -zeilen vor und nach dem Template eingeschlichen haben.  
+
