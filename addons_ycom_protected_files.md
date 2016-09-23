@@ -21,13 +21,18 @@ Geeignet für Redaxo 5.2
 		$mediacatID = '4';
 		// Wohin soll bei einem unberechtigten Zugriff umgeleitet werden? (Artikel ID) 
 		$redirectArticle = '99'; 
-		$parentID = 0; // nicht ändern
 		$ycom_user = rex_ycom_auth::getUser();
 		// Auslesen des Dateinamens mit rex_get
 		$fileName = rex_get('fileName', 'string');
-		
-		if ($fileName!='')
+		// Abfrage ob Datei existiert
+		if (!file_exists(rex_path::media($fileName)))
 		{
+			rex_redirect($redirectArticle);
+		}
+		else
+		{
+			// nicht ändern
+			$parentID = 0; 
 			// Datensatz auslesen und Eigenschaften ermitteln
 			$fileInfo = rex_media::get($fileName);
 			// Aktuelle Medienkategorie ermitteln
