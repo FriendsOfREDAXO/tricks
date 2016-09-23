@@ -7,7 +7,7 @@ Hier verwenden wir eine .htaccess Rewrite-Rule und ein Template um dies zu reali
 
 ----------
 **Achtung**
-Diese Lösung, schützt nur Dateien die über /media/dateiname.xyz und über /index.php?fileName=dateiname.xyz aufgerufen werden. Eine Ausweitung auf z.B: Mediamanager Urls ist über einen entsprechenden Effekt denkbar. Eine Unterscheidung nach Nutzergruppen findet nicht statt. 
+Diese Lösung, schützt nur Dateien die über /media/dateiname.xyz und über /index.php?fileName=dateiname.xyz aufgerufen werden. Eine Ausweitung auf z.B: Mediamanager Urls ist über einen entsprechenden Effekt denkbar. Eine Unterscheidung nach Nutzergruppen findet nicht statt. Es wird nur überprüft ob der User in YCOM eingeloggt ist. 
 
 ----------
 Geeignet für Redaxo 5.2
