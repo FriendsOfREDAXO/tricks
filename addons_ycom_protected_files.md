@@ -69,20 +69,9 @@ Geeignet für Redaxo 5.2
 		// Ausgabe des Mediums
 		$file = rex_path::media().$fileName;
 		if (file_exists($file)) {
-		    $fileType = 'application/octet-stream';
-		    header('Content-Description: File Transfer');
-		    header('Content-Type: application/octet-stream');
-		    header("Cache-Control: private");
-		    header("Pragma: no-cache");
-		    // Download erzwingen
-		    header('Content-Disposition: attachment; filename="'.basename($file).'"');
-		    header("Expires: Mon, 01 Jan 2000 05:00:00 GMT"); // Date in the past
-		    header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");// always modified
-		    header('Cache-Control: must-revalidate');
-		    header('Pragma: public');
-		    header('Content-Length: ' . filesize($file));
-		    readfile($file);
-		    exit();
+		 	$contenttype = 'application/octet-stream';
+		 	// soll kein Download erzwungen werden, ändere attachment in inline
+   			rex_response::sendFile($file,$contenttype, $contentDisposition = 'attachment');
 		}
 		}	
 		?>
