@@ -77,8 +77,13 @@ Für die Ausgabe von Breadcrumbs gibt es die separate Methode `showBreadcrumb`.
     // 4. Zeige Offline-Elemente (Standard: FALSE, Offline-Elemente werden also angezeigt)
     $navHtml = $nav->get(0, -1, TRUE, TRUE);
     
+    // Ersetze REDAXO-Klassen durch eigene
+    $navHtml = str_replace(
+        array('rex-current', 'rex-active'),
+        array('my-current', 'my-active'),
+        $navHtml);
+
     // Gebe die Navigation aus
-    // Alternativ hättest du zuvor auch `$nav->show(…)` verwenden können 
     echo $navHtml;
     
 Beachte die Kommentare im Code, sie erklären die einzelnen Methoden und ihre Parameter.
