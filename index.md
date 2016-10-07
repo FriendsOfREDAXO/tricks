@@ -11,6 +11,9 @@
 
 
 - AddOns
+    
+    - Project
+        - [Paginierungsklasse einbinden mit Project-Addon](addons_project_class_pagination.md)<sup><b>überprüfen</b></sup>sup><i>alexplusde</i></sup>
     - YForm
        
     - YCom
