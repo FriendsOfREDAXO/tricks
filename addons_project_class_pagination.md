@@ -58,18 +58,18 @@ Diesen Code bspw. in Redaxo unter `/redaxo/src/addons/project/lib/` abspeichern,
 
 class Pagination {
 
-	public $limit;
-	public $offset;
-	public $total;
-	public $page;
+	private $limit;
+	private $offset;
+	private $total;
+	private $page;
 	
-	public $page_max;
+	private $page_max;
 	
-	public $html = array();
-	public $text = array();
-	public $option = array();
-	public $url = array();
-	public $params = array();
+	private $html = array();
+	private $text = array();
+	private $option = array();
+	private $url = array();
+	private $params = array();
 
 
 	private $elements = array();
@@ -93,41 +93,34 @@ class Pagination {
 		$this->text['next'] = '›';
 
 		$this->option['show_max'] = 5;				// Anzahl der Seiten-Links um die aktuelle Seite herum
-		$this->option['show_skip'] = true;			// Zeige Erste / Letzte
+		$this->option['show_skip'] = 
+		;			// Zeige Erste / Letzte
 		$this->option['show_neighbours'] = true;	// Zeige Vor / Zurück
 
 		$this->url['id'] = "REX_ARTICLE_ID";		// Ziel-Artikel-ID
-		$this->url['hash'] = "";					// Ziel-ID (ohne "#")
-
-		return true;
+		$this->url['hash'] = "";			// Ziel-ID (ohne "#")
 	}
 
 
     public function setHtml($key, $value) {
 		$this->html[$key] = $value;
-		return true;
     }
     public function setText($key, $value) {
 		$this->text[$key] = $value;
-		return true;
     }
     public function setOption($key, $value) {
 		$this->option[$key] = $value;
-		return true;
     }
     public function setHash($hash) {
 		$this->url['hash'] = $hash;
-		return true;
     }
 
     public function setId($id) {
 		$this->url['id'] = $hash;
-		return true;
     }
 
     public function addParams($key, $value) {
 		$this->params[$key] = $value;
-		return true;
     }
 
 
