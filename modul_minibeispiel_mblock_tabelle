@@ -1,0 +1,65 @@
+# einfache Tabelle mit MBlock
+
+
+
+> Benötigt die FOR-Addons `mform` und `mblock`
+
+## Eingabe
+
+```
+<?            
+$mform1 = new MForm();
+$mform1->addFieldset('Zeile');
+$mform1->addTextField("1.0.a", array('label'=>'Spalte 1'));
+$mform1->addTextField("1.0.b", array('label'=>'Spalte 2'));
+$mform1->addTextField("1.0.c", array('label'=>'Spalte 3'));
+$mform1->addTextField("1.0.d", array('label'=>'Spalte 4'));
+echo MBlock::show(1, $mform1->show(), array('min'=>1,'max'=>50));
+?>
+```
+
+## Ausgabe
+
+```
+<section class="modul modul-mblocktable" id="modul-REX_SLICE_ID">
+    <div class="wrapper">
+        <?
+$rows = rex_var::toArray("REX_VALUE[1]");
+        ?>
+        <table>
+            <? 
+$i = 0;
+foreach ($rows as $row) 
+{ 
+    if($i === 0) { 
+            ?>
+            <thead>
+                <tr>
+                    <th class="col-a"><?php echo $row['a']; ?></th>
+                    <th class="col-b"><?php echo $row['b']; ?></th>
+                    <th class="col-c"><?php echo $row['c']; ?></th>
+                    <th class="col-d"><?php echo $row['d']; ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <? 
+    } else {
+                ?>
+                <tr>
+                    <td class="col-a"><?php echo $row['a']; ?></td>
+                    <td class="col-b"><?php echo $row['b']; ?></td>
+                    <td class="col-c"><?php echo $row['c']; ?></td>
+                    <td class="col-d"><?php echo $row['d']; ?></td>
+                </tr>
+                <? 
+    }
+    $i++;
+} // foreach ($rows as $row) 
+                ?>
+            </tbody>
+            <tfoot>
+            </tfoot>
+        </table>
+    </div>
+</section>
+```
