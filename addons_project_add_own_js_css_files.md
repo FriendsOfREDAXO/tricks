@@ -17,7 +17,9 @@ Das AddOn wird nur im Bereich **Addons** im Backend angezeigt. Die Dateien des A
 **Addon: project - Struktur**
 
 /boot.php
+
 /package.yml
+
 /lib/.redaxo
     
 ----------
@@ -35,6 +37,7 @@ Die im project/assets/ Verzeichnis abgelegten Dateien in der boot.php einfügen
 /redaxo/src/addons/project/boot.php
 
     <?php
+    // add Files to Backend
     if (rex::isBackend() && rex::getUser()) {
         // add CSS File to backend
         rex_view::addCssFile($this->getAssetsUrl('my_backend.css'));
@@ -43,3 +46,6 @@ Die im project/assets/ Verzeichnis abgelegten Dateien in der boot.php einfügen
     }
     ?>
 
+**Addon im REDAXO CMS Backend re-install**
+
+Anschließend das AddOn: project im backen re-installieren. Danach stehen die Dateien im Backend zur Verfügung
