@@ -1,81 +1,122 @@
+# Geschütze Dateien mit YCom
 
-# Seitenüberschrift
-- [Kopfbereich](#kopfbereich)
-- [Überschriften](#ueberschriften)
-- [Links](#links)
-- [Listen](#listen)
-- [Tabellen](#tabellen)
-- [Code](#code)
-- [Hinweise](#hinweise)
-- [Anker 3](#anker-3)
-    - [Anker 3a](#anker-3a)
-    - [Anker 3b](#anker-3b)
-    - [Anker 3c](#anker-3c)
-- [Anker 4](#anker-4)
-<a name="kopfbereich"></a>
-## Kopfbereich
-1. Seitenüberschrift als h1 auszeichnen
-2. TOC Liste mit Anker erstellen, Die erste Ebene wird im Text mit `h2` die zweite Ebene mit `h3` ausgezeichnet
-**Beispiel**
-    # Seitenüberschrift
+###Wie kann man Dateien in Verbindung mit YCom (Community Addon) einfach schützen?
+Da Redaxo aktuell nur einen Medienordner hat und so von außen alle Dateien in diesem Ordner öffentlich zugänglich sind, benötigt man eine Lösung, die den Dateiaufruf überprüft und entscheidet ob es sich um eine geschützte Datei oder einer öffentlichen Datei handelt. 
+
+Hier verwenden wir eine .htaccess Rewrite-Rule und ein Template um dies zu realisieren.  Dateien, die in einer bestimmten Medienpool-**Hauptkategorie** und deren Unterkategorien im Medienpool liegen, können so vor unerlaubten Zugriff geschützt werden. 
+
+----------
+**Achtung**
+Diese Lösung, schützt nur Dateien die über /media/dateiname.xyz und über /index.php?fileName=dateiname.xyz aufgerufen werden. Eine Ausweitung auf z.B: Mediamanager Urls ist über einen entsprechenden Effekt denkbar. Eine Unterscheidung nach Nutzergruppen findet nicht statt. Es wird nur überprüft ob der User in YCOM eingeloggt ist. 
+
+----------
+Geeignet für Redaxo 5.2
+
+1. Medienkategorie anlegen
+2. ID der Kategorie merken 
+3. Nachfolgendes Template anlegen (Kommentare beachten): 
+
+		<?php
+		
+		// Welche Medienkategorie beinhaltet die geschützten Dateien? (Medienpool-Kategorie-ID)
+		
+		$mediacatID = '4';
+		
+		// Wohin soll bei einem unberechtigten Zugriff umgeleitet werden? (Artikel ID)
+		
+		$redirectArticle = '99';
+		$ycom_user = rex_ycom_auth::getUser();
+		
+		// Auslesen des Dateinamens mit rex_get
+		
+		$fileName = rex_get('fileName', 'string');
+		
+		// Was passiert, wenn Datei nicht existiert?
+		
+		if (!file_exists(rex_path::media($fileName)))
+			{
+		
+			// Weiterleitung zum $redirectArticle
+		
+			rex_redirect($redirectArticle);
+			}
+		  else
+			{
+		
+			// nicht ändern
+		
+			$parentID = 0;
+		
+			// Datensatz auslesen und Eigenschaften ermitteln
+		
+			$fileInfo = rex_media::get($fileName);
+		
+			// Aktuelle Medienkategorie ermitteln
+		
+			$cat = $fileInfo->getCategory();
+		
+			// ID der Medienkategorie ermitteln
+		
+			$filecat = $fileInfo->getValue('category_id');
+		
+			// Wenn die ermittelte Kategorie nicht gleich "keine Kategorie" ist
+		
+			if ($filecat != 0)
+				{
+				$cattree = $cat->getPathAsArray();
+				$parentID = $cattree[0];
+				}
+		
+			// Überprüfe ob sich die Datei in einer geschützten Kategorie befindet
+		
+			if ($parentID == $mediacatID or $filecat == $mediacatID)
+				{
+		
+				// Prüfe ob User eingeloggt
+		
+				if ($ycom_user)
+					{
+		
+					// Dinge die passieren könnten wenn jemand eingeloggt ist.
+		
+					}
+				  else
+					{
+		
+					// Umleitung auf die Fehlerseite
+		
+					rex_redirect($redirectArticle);
+					}
+				}
+		
+			// Ausgabe des Mediums
+		
+			$file = rex_path::media() . $fileName;
+			$contenttype = 'application/octet-stream';
+		
+			// soll kein Download erzwungen werden, ändere attachment in inline
+		
+			rex_response::sendFile($file, $contenttype, $contentDisposition = 'attachment');
+			}
+		
+		?>
+
+**Jetzt muss die .htaccess-Datei ergänzt werden**
+
+Bei Verwendung von yrewrite direkt nach `RewriteBase /`
     
-    - [Überschrift](#anker-zur-ueberschrift)
-    - [Anker 2](#anker-2)
-        - [Anker 2a](#anker2a)
-    - [Anker 3](#anker-3)
-        - [Anker 3a](#anker-3a)
-        - [Anker 3b](#anker-3b)
-        - [Anker 3c](#anker-3c)
-    - [Anker 4](#anker-4)
-<a name="ueberschriften"></a>
-## Überschriften mit Anker setzen
-**Beispiel**
-    <a name="anker-zur-ueberschrift"></a>
-    ## Überschrift
- 
-<a name="links"></a>
-## Links
-Die Platzhalter `{{path}}` und `{{version}}` werden später auf redaxo.org angepasst
-**Beispiel**
-    [Linktitel](/{{path}}/{{version}}/md-datei-ohne-endung)
-<a name="listen"></a>
-## Listen
-**Beispiel**
-    - Listenpunkt 1
-    - Listenpunkt 2
-    - Listenpunkt 3
-    - Listenpunkt 4
-<a name="tabellen"></a>
-## Tabellen
-**Beispiel**
-```
-Alt| Neu
-------------- | -------------
-`$REX['SERVERNAME']`  |  `rex::getServername()`
-```
-<a name="code"></a>
-## Code
-**Beispiel Code Block**
-    
-        <?php
-        // Code wird einfach nur via Tabs eingerückt
-        // Nicht die ``` verwenden
-        $article = rex_article::get();
-        
-**weiteres Beispiel**
-        
-        /**
-         * Code wird einfach nur eingerückt
-         *
-         * @var bool
-         */
-        public $code = true;
-   
-**Beispiel Code Inline**
-Code innerhalb eines Text wird `ganz normal` ausgezeichnet
- 
-<a name="hinweise"></a>
-## Hinweise
-Hinweise werden später blau unterlegt.
-    > **Hinweis:** Zweitens: ich habe erklärt mit diese zwei Spieler: nach Dortmund brauchen vielleicht Halbzeit Pause. Ich habe auch andere Mannschaften gesehen in Europa nach diese Mittwoch. Ich habe gesehen auch zwei Tage die Training.
-> **Hinweis:** Zweitens: ich habe erklärt mit diese zwei Spieler: nach Dortmund brauchen vielleicht Halbzeit Pause. Ich habe auch andere Mannschaften gesehen in Europa nach diese Mittwoch. Ich habe gesehen auch zwei Tage die Training.
+	RewriteRule ^/?media/(.*\.(pdf|doc|zip))$ /index.php?fileName=$1 [L]
+
+Hier wurde festgelegt welche Dateien geschützt sein sollen.
+Weitere Endungen können beliebig hinzugefügt werden z.B:  |eps|pptx|docx …
+
+
+Fügt man nun das Template in allen Ausgabe-Templates **am Anfang** ein, sind die Dateien geschützt. 
+XX steht für die ID des Templates
+REX_TEMPLATE[XX]
+
+
+----------
+**Achtung!** Vor dem Template darf auf keinem Fall eine Ausgabe von Inhalten erfolgen.
+Bei Problemen bitte unbedingt prüfen ob sich Leerzeichen / -zeilen vor und nach dem Template eingeschlichen haben.  
+
