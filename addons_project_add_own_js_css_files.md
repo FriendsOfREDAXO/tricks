@@ -1,6 +1,6 @@
 # Eigene JS/CSS Dateien im Addon:projects
 
-Um eigene JS/CSS Dateien in das Backend/Frontend des REDAXO CMS zur Verfügung zu stellen, sollte man das Addon: project nutzen. Das Addon: project wird bei einem Update des System nicht berücksichtig und somit bleiben die projektbezogenen Änderungen erhalten.
+Um eigene JS/CSS Dateien in das Backend/Frontend des REDAXO CMS zur Verfügung zu stellen, sollte man das Addon: project nutzen. Das Addon: project wird bei einem Update des System nicht berücksichtig. Somit bleiben die projektbezogenen Änderungen erhalten.
 
 ----------
 Geeignet für Redaxo 5.x
