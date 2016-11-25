@@ -9,7 +9,9 @@ Geeignet für Redaxo 5.x
 
 **Hinweis**
 
-Das AddOn wird nur im Bereich **Addons** im Backend angezeigt. Die Dateien des Addons befinden sich unter
+Das AddOn wird im REDAXO CMS **nur im Bereich Addons** angezeigt.
+
+Die Daten des AddOns befinden sich unter
 /redaxo/src/addons/project.
 
 ----------
@@ -26,7 +28,9 @@ Das AddOn wird nur im Bereich **Addons** im Backend angezeigt. Die Dateien des A
 
 **Addon: project /assets/**
 
-Das /assets/ Verzeichnis muss noch angelegt werden. Dort können die JS/CSS Dateien abgelegt werden. Nach einen Re-Install des AddOns: project im Backend /AddOns/ werden alle dort abgelegten Dateien zusätzlich auch in das (root) /assets/addons/project/ - Verzeichnis abgelegt. Somit könenn diese, bei Bedarf auch für das Frontend verwendet werden.
+Das /assets/ Verzeichnis muss noch angelegt werden
+
+Dort können die JS/CSS Dateien abgelegt werden. Nach einen Re-Install des AddOns: project im Backend /AddOns/ werden alle dort abgelegten Dateien zusätzlich auch in das (root) /assets/addons/project/ - Verzeichnis abgelegt. Somit können diese, bei Bedarf, auch für das Frontend verwendet werden.
 
 ----------
 
@@ -48,4 +52,5 @@ Die im project/assets/ Verzeichnis abgelegten Dateien in der boot.php einfügen
 
 **Addon im REDAXO CMS Backend re-install**
 
-Anschließend das AddOn: project im backen re-installieren. Danach stehen die Dateien im Backend zur Verfügung
+Anschließend das AddOn: project im REDAXO CMS Backend re-installieren.
+Danach stehen die Dateien im Backend zur Verfügung.
