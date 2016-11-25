@@ -52,5 +52,6 @@ Die im project/assets/ Verzeichnis abgelegten Dateien in der boot.php einfügen
 
 **Addon im REDAXO CMS Backend re-install**
 
-Anschließend das AddOn: project im REDAXO CMS Backend re-installieren.
+Anschließend das AddOn: project im REDAXO CMS Backend **re-installieren**.
+
 Danach stehen die Dateien im Backend zur Verfügung.
