@@ -5,10 +5,12 @@ Um eigene JS/CSS Dateien in das Backend/Frontend des REDAXO CMS zur Verfügung z
 ----------
 Geeignet für Redaxo 5.x
 
+----------
+**Hinweis**
 Das AddOn wird nicht im Backend angezeigt und befindet sich unter
 /redaxo/src/addons/project.
 
-
+----------
 **Addon: project - Struktur**
 
 /boot.php
