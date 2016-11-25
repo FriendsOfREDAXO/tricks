@@ -30,8 +30,16 @@ Das /assets/ Verzeichnis muss noch angelegt werden. Dort können die JS/CSS Date
 
 **Eigene JS/CSS Dateien includen**
 
-<?php
-echo 'foo';
+Die im project/assets/ Verzeichnis abgelegten Dateien in der boot.php einfügen
 
-?>
+/redaxo/src/addons/project/boot.php
+
+    <?php
+    if (rex::isBackend() && rex::getUser()) {
+        // add CSS File to backend
+        rex_view::addCssFile($this->getAssetsUrl('my_backend.css'));
+        // add JS File to backend
+        rex_view::addJsFile($this->getAssetsUrl('my_backend.js'));
+    }
+    ?>
 
