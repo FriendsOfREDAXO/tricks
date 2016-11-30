@@ -18,14 +18,13 @@
     - Project
         - [Paginierungsklasse einbinden mit Project-Addon](addons_project_class_pagination.md) <sup><b>überprüfen</b></sup> <sup><i>alexplusde</i></sup>
         - [Eigene CSS/JS Dateien im Backend hinzufügen](addons_project_add_own_js_css_files.md) <sup><b>abgeschlosssen</b></sup> <sup><i>darwin</i></sup>
+         - [Tipps für Sprachen in Redaxo](addons_project_clang.md) <sup><b>überprüfen</b></sup> <sup><i>alexplusde</i></sup>
     - YForm
        
     - YCom
         - [Geschütze Dateien mit YCom ](addons_ycom_protected_files.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
             - MediaManager-Effekt als Ergänzung   <sup><b>offen</b></sup> 
-
-- Projektverwaltung
-
+  
 
 
 ##### Labels vergeben
