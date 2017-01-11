@@ -1,5 +1,20 @@
 #Artikelliste als RSS-FEED
 
+- Erstellt eine Artikelliste als RSS-Feed. 
+- Listet Seitentitel und Beschreibung des Artikels auf. 
+- Die Sortierung erfolgt nach PRIO
+
+> Ein Metainfofeld art_description wird benötigt. 
+
+## Anleitung
+**Mögliche Vorgehensweise für die Ausgabe:** 
+Als Block einsetzen und mit einem Template mit folgendem Inhalt verbinden:
+        <?php 
+        // Senden des Headers mit korrekter Kodierung mittels rex_response
+        rex_response::sendContentType('application/xml; charset=utf-8');
+        print $this->getArticle(1); 
+        ?>
+
 ##Eingabe
     <div class="form-group">
                   <label class="col-sm-5 control-label">Kategorie mit News</label>
@@ -82,8 +97,9 @@
     $atom->addAttribute('href', $base); // atom node attribut
     $atom->addAttribute('rel', 'self');
     $atom->addAttribute('type', 'application/rss+xml');
-
+    // Seitentitel
     $channel->addChild("title", "REX_VALUE[2]");
+    // URL der Website
     $channel->addChild("link", "REX_VALUE[3]");
     $channel->addChild("description", "REX_VALUE[4]");
     $channel->addChild("language", "de-de");
@@ -103,8 +119,10 @@
                 $artId = $child->getId();
                 // Ermitteln der URL des Posting-Artikels
                 $url   = rex_getUrl($artId);
+                // Titel des Artikels auslesen
                 $item->addChild("title", $child->getName());
-                $item->addChild("link", 'REX_VALUE[3]' . $url);
+                // Link des Artikels generieren
+                $item->addChild("link", 'REX_VALUE[3]' . $url);
                 $item->addChild("guid", 'REX_VALUE[3]' . $url);
                 // Datum und Uhrezeit des Postings
                 $rssdate = date("D, d M Y H:i:s +0100", $child->getCreateDate());
