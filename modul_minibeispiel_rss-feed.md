@@ -120,9 +120,11 @@ Als Block einsetzen und mit einem Template mit folgendem Inhalt verbinden:
                 $artId = $child->getId();
                 // Ermitteln der URL des Posting-Artikels
                 $url   = rex_getUrl($artId);
-                // Titel des Artikels auslesen
+           
+           // Titel des Artikels auslesen
                 $item->addChild("title", $child->getName());
-                // Link des Artikels generieren
+           
+           // Link des Artikels generieren
                 $item->addChild("link", 'REX_VALUE[3]' . $url);
                 $item->addChild("guid", 'REX_VALUE[3]' . $url);
                 // Datum und Uhrezeit des Postings
