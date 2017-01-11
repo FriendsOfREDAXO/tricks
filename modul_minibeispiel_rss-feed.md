@@ -123,9 +123,7 @@ Als Block einsetzen und mit einem Template mit folgendem Inhalt verbinden:
            
            // Titel des Artikels auslesen
                 $item->addChild("title", $child->getName());
-           
-           // Link des Artikels generieren
-                $item->addChild("link", 'REX_VALUE[3]' . $url);
+                $item->addChild("link", 'REX_VALUE[3]' . $url); // Link des Artikels generieren
                 $item->addChild("guid", 'REX_VALUE[3]' . $url);
                 // Datum und Uhrezeit des Postings
                 $rssdate = date("D, d M Y H:i:s +0100", $child->getCreateDate());
