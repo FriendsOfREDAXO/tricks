@@ -8,20 +8,15 @@
         - [Artikelliste als RSS-FEED ausgeben](modul_minibeispiel_rss-feed.md) <sup><b>überprüfen</b></sup> <sup><i>skerbis</i></sup>
         - [Interne Linkliste mit REX_LINKLIST](modul_minibeispiel_interne_linkliste.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
         - [Kategorielisten mit getChildren()](modul_minibeispiel_kategorieliste_mit_getchildren.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
-        - [Einfache Tabelle mit MForm MBlock](modul_minibeispiel_mblock_tabelle.md) <sup><b>abgeschlossen</b></sup> <sup><i>alexplusde / Skerbis</i></sup>
-        
-      
-        
 
-
-- AddOns
-    
+- AddOns   
     - Project
         - [Paginierungsklasse einbinden mit Project-Addon](addons_project_class_pagination.md) <sup><b>überprüfen</b></sup> <sup><i>alexplusde</i></sup>
         - [Eigene CSS/JS Dateien im Backend hinzufügen](addons_project_add_own_js_css_files.md) <sup><b>abgeschlosssen</b></sup> <sup><i>darwin</i></sup>
         - [Tipps für Sprachen in Redaxo](addons_project_clang.md) <sup><b>überprüfen</b></sup> <sup><i>alexplusde</i></sup>
     - MForm /MBlock
         - [CustomLink auslesen](addons_mform_customlink.md) <sup><b>überprüfen</b></sup> <sup><i>skerbis</i></sup>
+        - [Einfache Tabelle mit MForm MBlock](modul_minibeispiel_mblock_tabelle.md) <sup><b>abgeschlossen</b></sup> <sup><i>alexplusde / Skerbis</i></sup>
        
     - YCom
         - [Geschütze Dateien mit YCom ](addons_ycom_protected_files.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
