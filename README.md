@@ -24,6 +24,8 @@
   
 - Snippets
     - [Checkbox in einem Modul verwenden](snippet_checkbox_in_out.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
+    - [bloecks: Status im Modul setzen](snippet_bloecks_status_im_Modul_setzen.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
+    
 
 ##### Labels vergeben
 
