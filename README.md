@@ -22,7 +22,8 @@
         - [Geschütze Dateien mit YCom ](addons_ycom_protected_files.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
             - MediaManager-Effekt als Ergänzung   <sup><b>offen</b></sup> 
   
-
+- Snippets
+    - [Checkbox in einem Modul verwenden](snippet_checkbox_in_out.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
 
 ##### Labels vergeben
 
