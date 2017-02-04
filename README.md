@@ -1,3 +1,6 @@
+- Installation
+    - [Reddaxo Loader `rex_navigation::factory()`](install_redaxo_loader.md) <sup><b>in Bearbeitung</b></sup> <sup><i>skerbis</i></sup>
+
 - Templates
     - [Navigationen erstellen mittels `rex_navigation::factory()`](templates_navigation-factory.md) <sup><b>abgeschlossen</b></sup> <sup><i>schuer</i></sup>
 
