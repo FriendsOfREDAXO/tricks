@@ -2,6 +2,7 @@
 
 * Untenstehendes Skript in eine Datei im Projektroot speichern
 * `$categoryId` und `$targetId` anpassen
+* Backup erstellen (Empfehlung) 
 * Skript über die Konsole aufrufen
 * Skript wieder entfernen
 
@@ -9,8 +10,8 @@
 <?php
 
 // hier IDs anpassen
-$categoryId = 0;
-$targetId = 0;
+$categoryId = 0; // Quelle
+$targetId = 0; // Zielkategorie
 
 // REDAXO laden
 unset($REX);
