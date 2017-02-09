@@ -20,8 +20,8 @@
     - MForm /MBlock
         - [CustomLink auslesen](addons_mform_customlink.md) <sup><b>überprüfen</b></sup> <sup><i>skerbis</i></sup>
         - [Einfache Tabelle mit MForm MBlock](modul_minibeispiel_mblock_tabelle.md) <sup><b>abgeschlossen</b></sup> <sup><i>alexplusde / Skerbis</i></sup>
-        - Struktur
-             - [Kategorie duplizieren](addons_structure_duplicate_category.md) <sup><b>abgeschlossen</b></sup> <sup><i>gharlan</i></sup>
+     - Struktur
+        - [Kategorie duplizieren](addons_structure_duplicate_category.md) <sup><b>abgeschlossen</b></sup> <sup><i>gharlan</i></sup>
     - YCom
         - [Geschütze Dateien mit YCom ](addons_ycom_protected_files.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
             - MediaManager-Effekt als Ergänzung   <sup><b>offen</b></sup> 
