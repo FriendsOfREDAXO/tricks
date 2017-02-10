@@ -87,7 +87,7 @@ $navHtml = $nav->get(0, -1, TRUE, TRUE);
 // Ersetze REDAXO-Klassen durch eigene
 $navHtml = str_replace(
     array('rex-current', 'rex-active'),
-    array('my-current', 'my-active'),
+    array('rex-current', 'my-active'),
     $navHtml);
 
 // Gebe die Navigation aus
