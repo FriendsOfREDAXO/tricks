@@ -25,19 +25,7 @@
     - YCom
         - [Geschütze Dateien mit YCom ](addons_ycom_protected_files.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
             - MediaManager-Effekt als Ergänzung   <sup><b>offen</b></sup> 
-</sup>
-    - YFom 'widget' mit dem man im modul yform tabelleneinträge a la medialist oder linklist auswählen kann
-    
-Eingabe:
-REX_YFORM_TABLE_DATA[id=1 output="widget" table="rex_yform_table" field="field_a,'/',field_b"]
-Ausgabe
-$item = yform_table::query()->findId('REX_VALUE[1]');
 
-text|geburtstag|Geburtstag*|||#required:required|#grid:,datepicker
-
-die Zwischen-Pipes kannst du übrigens weglassen. mit der `#`-Notation kann man allgemein einzelne Elemente auch überspringen, da man mit `#` die Keys explizit angibt.
-
-`text|geburtstag|Geburtstag*|#required:required|#grid:,datepicker`
 
 - Snippets
     - [Checkbox in einem Modul verwenden](snippet_checkbox_in_out.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
