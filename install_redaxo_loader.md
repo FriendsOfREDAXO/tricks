@@ -1,4 +1,4 @@
-# Redaxo Loader
+# REDAXO Loader
 Skript zum Download und Entpacken der aktuellen Redaxo Version.
 (Basiert auf ein Gist von Jan Kristinus)
 
