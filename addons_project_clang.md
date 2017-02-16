@@ -1,4 +1,4 @@
-# Tipps für Sprachen in Redaxo
+# Tipps für Sprachen in REDAXO
 
 ## Datum in korrekter Sprache ausgeben
 
