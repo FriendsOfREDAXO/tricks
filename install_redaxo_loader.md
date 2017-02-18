@@ -24,7 +24,7 @@ Skript zum Download und Entpacken der aktuellen Redaxo Version.
       exit();
       }
 
-
+    // Funktion die file_get_contents mit curl ersetzt
     function curl_file_get_contents($url) {
         $curly = curl_init();
 
