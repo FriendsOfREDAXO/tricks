@@ -3,7 +3,7 @@
 Wer mitmachen möchte, beachte bitte bei der Einpflege die [Vorlage](_vorlage.md). 
 
 - Installation
-    - [REDAXO Loader - REDAXO laden und entpacken](install_redaxo_loader.md) <sup><b>in Bearbeitung</b></sup> <sup><i>skerbis</i></sup>
+    - [REDAXO Loader - REDAXO laden und entpacken](install_redaxo_loader.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
 
 - Templates
     - [Navigationen erstellen mittels `rex_navigation::factory()`](templates_navigation-factory.md) <sup><b>abgeschlossen</b></sup> <sup><i>schuer</i></sup>
