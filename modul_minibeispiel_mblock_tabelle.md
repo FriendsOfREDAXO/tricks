@@ -27,7 +27,7 @@
                     <?php
                     // Auslesen der Mblock-Daten als Array. 
                     $rows = rex_var::toArray("REX_VALUE[1]");
-                    // Mit dump($rows); kann man sich das Array für Testzwecke ausgeben lassen. 
+                    // Mit dump($rows); kann man sich das Array seit REDAXO 5.3 für Testzwecke ausgeben lassen. 
                     ?>
                     <table>
                         <?php 
