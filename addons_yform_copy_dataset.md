@@ -11,7 +11,7 @@ include (rex_path::addon('project', 'backend/yform_copy.php'));
 
 > **Hinweis** 
 Das hier abgebildete Skript ändert Felder ab. Hier: name und status. 
-Die Zeilen 19 `case: 'name'` und 22 `case: 'status'` müssten ggf. von Tabelle zu Tabelle angepasst werden. Dort wird dem Feld "name" das Wort " Kopie" angehangen und das Feld "status" wird fest auf "0" gesetzt
+Die Zeilen 19 `case: 'name'` und 22 `case: 'status'` müssten ggf. von Tabelle zu Tabelle angepasst werden. Dort wird dem Feld "name" das Wort " Kopie" angehangen und das Feld "status" wird auf "0" gesetzt.
 
 <a name="skript"></a>
 ```php
