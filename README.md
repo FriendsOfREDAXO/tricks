@@ -26,6 +26,8 @@ Wer mitmachen möchte, beachte bitte bei der Einpflege die [Vorlage](_vorlage.md
         - [Einfache Tabelle mit MForm MBlock](modul_minibeispiel_mblock_tabelle.md) <sup><b>abgeschlossen</b></sup> <sup><i>alexplusde / Skerbis</i></sup>
     - Struktur
         - [Kategorie duplizieren](addons_structure_duplicate_category.md) <sup><b>abgeschlossen</b></sup> <sup><i>gharlan</i></sup>
+    - YForm
+        - [YForm datensatz Kopieren]( addons_yform_copy_dataset.md) <sup><b>überprüfen</b></sup> <sup><i>tbaddade</i></sup> 
     - YCom
         - [Geschütze Dateien mit YCom ](addons_ycom_protected_files.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
 
