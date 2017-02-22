@@ -1,7 +1,7 @@
 # Kopieren eines YForm-Datensatzes
 
-    1. Das Skript als yform_copy.php im Project-AddOn im Ordner **backend** speichern.
-    2. YForm Feld "php" in der gewünschten Tabelle anlegen und dort die 3 Zeilen notieren 
+1. Das [Skript](#skript) als yform_copy.php im Project-AddOn im Ordner **backend** speichern.
+2. YForm Feld "php" in der gewünschten Tabelle anlegen und dort die 3 Zeilen notieren 
 
 ```php
 <?php
@@ -13,6 +13,7 @@ include (rex_path::addon('project', 'backend/yform_copy.php'));
 Das hier abgebildete Skript ändert Felder ab. Hier: name und status. 
 Die Zeilen 19 `case: 'name'` und 22 `case: 'status'` müssten ggf. von Tabelle zu Tabelle angepasst werden. Dort wird dem Feld "name" das Wort " Kopie" angehangen und das Feld "status" wird fest auf "0" gesetzt
 
+<a name="skript"></a>
 ```php
 <?php
 $orgTable = rex_request('table_name', 'string', '');
