@@ -10,8 +10,8 @@ include (rex_path::addon('project', 'backend/yform_copy.php'));
 ```
 
 > **Hinweis** 
-Das hier abgebildete Skript ändert Felder ab. Hier: name und status. 
-Die Zeilen 19 `case: 'name'` und 22 `case: 'status'` müssten ggf. von Tabelle zu Tabelle angepasst werden. Dort wird dem Feld "name" das Wort " Kopie" angehangen und das Feld "status" wird auf "0" gesetzt.
+Das hier abgebildete Skript sucht die Felder name und status. Werden diese Felder gefunden, wird an name eine "kopie" vorangestellt und der Status auf 0 gesetzt.  
+Die Zeilen 19 `case: 'name'` und 22 `case: 'status'` müssen ggf. von Tabelle zu Tabelle angepasst werden, wenn diese Funktion erwünscht ist. Das Kopieren des Datensatzes funktioniert jedoch auch, wenn diese Felder nicht vorhanden sind. 
 
 <a name="skript"></a>
 ```php
