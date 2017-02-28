@@ -1,6 +1,6 @@
 # REDAXO Loader
 Skript zum Download und Entpacken der aktuellen Redaxo Version.
-(Basiert auf ein Gist von Jan Kristinus)
+(Basiert auf einem Gist von Jan Kristinus)
 
 - Datei load_redaxo.php erstellen und nachfolgenden Quellcode reinkopieren
 - load_redaxo.php in den Ordner / oder Webroot laden, wo redaxo installiert werden soll
