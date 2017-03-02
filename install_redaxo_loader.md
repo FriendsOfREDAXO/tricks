@@ -1,5 +1,5 @@
 # REDAXO Loader
-Skript zum Download und Entpacken der aktuellen Redaxo Version.
+Skript zum Download und Entpacken der aktuellen REDAXO-Version.
 (Basiert auf einem Gist von Jan Kristinus)
 
 - Datei load_redaxo.php erstellen und nachfolgenden Quellcode reinkopieren
