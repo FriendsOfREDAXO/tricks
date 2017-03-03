@@ -2,7 +2,8 @@
 
 Eine vollständige nginx config für YRewrite. Hierbei werden auch die Ordner ***/redaxo/src, /redaxo/cache und /redaxo/addons*** geschützt.
 
-```charset utf-8;
+
+	charset utf-8;
 
 		# OPTIONAL von HTTP auf HTTPS weiterleiten, Kommentare entfernen falls nötig
 		#if ($https !~ "on"){
@@ -35,4 +36,4 @@ Eine vollständige nginx config für YRewrite. Hierbei werden auch die Ordner **
 		# Zugriff auf diese Verzeichnisse verbieten
 		location ^~ /redaxo/src { deny  all; }
 		location ^~ /redaxo/data { deny  all; }
-		location ^~ /redaxo/cache { deny  all; }
+		location ^~ /redaxo/cache { deny  all; }```
