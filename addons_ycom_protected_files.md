@@ -101,11 +101,19 @@ Geeignet für Redaxo 5.2
 		
 		?>
 
-**Jetzt muss die .htaccess-Datei ergänzt werden**
+**Jetzt müssen Rewrite-Direktiven ergänzt werden**
 
-Bei Verwendung von yrewrite direkt nach `RewriteBase /`
+APACHE:
+
+> Bei Verwendung von yrewrite direkt nach `RewriteBase /`
     
 	RewriteRule ^/?media/(.*\.(pdf|doc|zip))$ /index.php?fileName=$1 [L]
+
+NGINX Direktive:
+
+	location / {
+	rewrite ^/?media/(.*\.(pdf|doc|zip))$ /index.php?fileName=$1 break;
+	}
 
 Hier wurde festgelegt welche Dateien geschützt sein sollen.
 Weitere Endungen können beliebig hinzugefügt werden z.B:  |eps|pptx|docx …
