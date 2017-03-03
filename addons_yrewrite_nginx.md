@@ -1,4 +1,4 @@
-# NGINX Konfiguration für YRewrite
+# NGINX-Konfiguration für YRewrite
 
 Eine vollständige nginx config für YRewrite. Hierbei werden auch die Ordner ***/redaxo/src, /redaxo/cache und /redaxo/addons*** geschützt.
 Die Direktiven wurden nicht in einer Multidomainumgebung getestet. 
@@ -42,7 +42,7 @@ Die Direktiven wurden nicht in einer Multidomainumgebung getestet.
 		location ^~ /redaxo/cache { deny  all; }
 		
 
-In einigen Fällen,könnte folgende Anweisung zusätlich sinnvoll sein
+In einigen Fällen könnte folgende Anweisung zusätlich sinnvoll sein. 
 
 		location ~ /\.(ttf|eot|woff|woff2)$ {
 			add_header Access-Control-Allow-Origin *;
