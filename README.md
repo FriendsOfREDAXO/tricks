@@ -30,7 +30,9 @@ Wer mitmachen möchte, beachte bitte bei der Einpflege die [Vorlage](_vorlage.md
         - [YForm Datensatz Kopieren]( addons_yform_copy_dataset.md) <sup><b>überprüfen</b></sup> <sup><i>tbaddade</i></sup> 
     - YCom
         - [Geschütze Dateien mit YCom ](addons_ycom_protected_files.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
-
+    - YRewrite
+        - [YRewrite NGINX Konfiguration](addons_yrewrite_nginx.md) <sup><b>überprüfen</b></sup> <sup><i>hirbod</i></sup> 
+  
 - Snippets
     - [Checkbox in einem Modul verwenden](snippet_checkbox_in_out.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
     - [bloecks: Status im Modul setzen](snippet_bloecks_status_im_Modul_setzen.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
