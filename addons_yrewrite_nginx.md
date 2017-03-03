@@ -5,6 +5,7 @@ Die Direktiven wurden nicht in einer Multidomainumgebung getestet.
 
 > Hinweis für PLESK-Websites: Die Direktiven können unter ***Einstellungen für Apache & nginx*** der gewünschten Domain im Abschnitt ***Zusätzliche nginx-Anweisungen*** hinterlegt werden. 
 
+
 	charset utf-8;
 
 		# OPTIONAL von HTTP auf HTTPS weiterleiten, Kommentare entfernen falls nötig
