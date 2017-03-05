@@ -2,10 +2,33 @@
 
 Seit Redaxo Version 5.3 kann die Klasse `rex_media` erweitert werden. Damit ist es möglich, fehlende Funktionen über eine Kind-Klasse nachzurüsten.
 
-Beispiel:
-Erweitern der Klasse `rex_media` um 
-* eine Methode, die eine Datei-URL mit Medientyp ausgibt 
-* eine Methode, um mehrsprachige Medien-Metadaten abzufragen  
+## Beispiel:
+###Erweitern der Klasse `rex_media` um eine Methode, die eine Datei-URL mit Medientyp ausgibt 
+```
+// Das in REX_MEDIA[1] gespeicherte Bild wird mit dem Medientyp 'bootstrap_jumbotron' ausgegeben
+// da die Ausgabe wahrscheinlich recht groß für das Backend ist, wird das Bild im Backend als Thumbnail ausgegeben
+$media = new my_media(REX_MEDIA[1]); 
+$url = $media->getMediaUrl('bootstrap_jumbotron', true)
+```
+
+###Erweitern der Klasse `rex_media` um eine Methode, um mehrsprachige Medien-Metadaten abzufragen 
+```
+$media = new my_media(REX_MEDIA[1]); 
+// Das Feld 'metafield_1' wird ausgegeben
+$metafield = $media->getValueTranslated('metafield', 1);  
+
+// Das Feld 'metafield' wird abhängig von der aktuellen Sprache zurückgegeben
+// Ist die Sprach-ID 1, also 'metafield_1', ist die Sprach-ID 2, 'metafield_2',
+// ist die Sprach-ID 1 und 'metafield_1' existiert nicht, wird 'metafield' zurückgegeben,
+// so kann die Methode auch mit nachträglich mehrsprachig erweiterten Websites arbeiten
+$media = new my_media(REX_MEDIA[1]); 
+$metafield = $media->getValueTranslated('metafield'); 
+
+// Falls das Metafeld 'metafield_*' leer ist, wird ein Default-Wert zurückgegeben
+$media = new my_media(REX_MEDIA[1]);  
+$metafield = $media->getValueTranslated('metafield',, 'Das Feld ist leer'); 
+```
+
 
 ```
 class my_media extends rex_media
