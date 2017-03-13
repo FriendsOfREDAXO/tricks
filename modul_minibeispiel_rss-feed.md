@@ -114,7 +114,7 @@ Als Block einsetzen und mit einem Template mit folgendem Inhalt verbinden:
     if (is_array($children)) {
         foreach ($children as $child) {
 
-            //Nur wenn Kategorie online
+            //Nur wenn Artikel online
             if ($child->isOnline()):
                 $item  = $channel->addChild("item");
                 $artId = $child->getId();
