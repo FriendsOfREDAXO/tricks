@@ -34,6 +34,7 @@ Wer mitmachen möchte, beachte bitte bei der Einpflege die [Vorlage](_vorlage.md
         - [YRewrite NGINX-Konfiguration](addons_yrewrite_nginx.md) <sup><b>abgeschlossen</b></sup> <sup><i>hirbod</i></sup> 
   
 - Snippets
+    - [Class rex_media erweitern (ab redaxo 5.3)](snippet_klasse_rex_media_erweitern.md) <sup><b>abgeschlossen</b></sup> <sup><i>Daniel Weitenauer</i></sup>
     - [Checkbox in einem Modul verwenden](snippet_checkbox_in_out.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
     - [bloecks: Status im Modul setzen](snippet_bloecks_status_im_Modul_setzen.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
     
