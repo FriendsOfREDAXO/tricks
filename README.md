@@ -8,6 +8,8 @@ Wer mitmachen möchte, beachte bitte bei der Einpflege die [Vorlage](_vorlage.md
 - Templates
     - [Navigationen erstellen mittels `rex_navigation::factory()`](templates_navigation-factory.md) <sup><b>abgeschlossen</b></sup> <sup><i>schuer</i></sup>
 
+- Backend
+    - [Styling von Select-Feldern](backend_sytling-select.md) <sup><b>in Bearbeitung</b></sup> <sup><i>skerbis</i></sup>
 - Module
     - Minibeispiele
         - [Artikel einbinden](modul_minibeispiel_artikel_einbinden.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
