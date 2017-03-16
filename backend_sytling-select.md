@@ -60,7 +60,7 @@ echo $mform->show();
 Anwendung unter **Individuelle Attribute**: 
 {"class": "selectpicker", "data-live-search": "true"}
 
-> Die Selects können mit noch weitaus mehr Funktionen ausgestattet werden, mehr dazu unter: https://silviomoreto.github.io/bootstrap-select/examples/
+> Die Selects können mit weitaus mehr Funktionen ausgestattet werden, mehr dazu unter: https://silviomoreto.github.io/bootstrap-select/examples/
 
 
 
