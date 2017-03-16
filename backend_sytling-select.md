@@ -42,9 +42,9 @@ Beispiel:
   <option>und so weiter</option>
 </select>
 ```
-### Anwendung in mForm
-```php
+### Anwendung in MForm
 
+```PHP
 $mform = new MForm();
 // select use add method attributes parameter
 $mform->addSelectField("2.0", array(1 => 'option 1', 2 => 'option 2'), array(
