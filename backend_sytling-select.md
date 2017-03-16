@@ -42,6 +42,19 @@ Beispiel:
   <option>und so weiter</option>
 </select>
 ```
+### Anwendung in mForm
+```php
+
+$mform = new MForm();
+// select use add method attributes parameter
+$mform->addSelectField("2.0", array(1 => 'option 1', 2 => 'option 2'), array(
+    'label'=>'Select Label',
+    'class'=>'selectpicker',
+    'data-live-search'=>'true',
+    'default-value'=>2));
+echo $mform->show();
+```
+
 
 ### Anwendung in yForm
 Anwendung unter **Individuelle Attribute**: 
