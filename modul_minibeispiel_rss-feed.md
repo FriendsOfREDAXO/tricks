@@ -1,4 +1,4 @@
-#Artikelliste als RSS-FEED
+# Artikelliste als RSS-FEED
 
 - Erstellt eine Artikelliste als RSS-Feed. 
 - Listet Seitentitel und Beschreibung des Artikels auf. 
