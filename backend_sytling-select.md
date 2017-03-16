@@ -7,12 +7,12 @@ Beispiel:
 
 ```php
 <div class="col-sm-3">
-          <div class="rex-select-style">   
-				 	<select id="REX_INPUT_VALUE[12]" class="form-control" name="REX_INPUT_VALUE[12]">
-				 	<option value="nein">nicht anzeigen</option>
-				 	<option value='ja' <?php if ("REX_VALUE[12]" == 'ja') echo 'selected'; ?>>anzeigen </option >
-			 	  </select>
-        </div>
+	<div class="rex-select-style">   
+		<select id="REX_INPUT_VALUE[12]" class="form-control" name="REX_INPUT_VALUE[12]">
+		<option value="nein">nicht anzeigen</option>
+		<option value='ja' <?php if ("REX_VALUE[12]" == 'ja') echo 'selected'; ?>>anzeigen </option >
+		</select>
+	</div>
 </div>
 
 ```
