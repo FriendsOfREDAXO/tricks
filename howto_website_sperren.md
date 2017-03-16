@@ -60,7 +60,8 @@ if ($code2) {
 
 // Ausgabe abbrechen, wenn der übermittelte Code nicht stimmt. 
 if ($_SESSION['vorschau'] !== $code and !rex_backend_login::hasSession()) {
-  exit();
+ echo '<strong>Unberechtigter Zugriff</strong>';
+ exit();
 }
 
 ?>
