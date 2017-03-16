@@ -25,7 +25,7 @@ Siehe http://php.net/manual/de/features.http-auth.php, Beispiel 3.
 
 Diesen Code am Anfang des aktivierten Templates einbauen. Hierbei muss für den Kunden ein Redaxo-Benutzer angelegt sein. Der Kunde muss sich zunächst in Redaxo einloggen, anschließend kann er die Website aufrufen. 
 
-```
+```PHP
 <?php
 if (!rex::isBackend()) {
 	if ($this->getConfig('status') != 'deaktiviert') {
@@ -42,8 +42,9 @@ if (!rex::isBackend()) {
 ## Via GET-Parameter im Template
 
 Diesen Code am Anfang der aktiven Templates einbauen, dem Kunden anschließend die URL `meine-website.de/?vorschau=abc123` übermitteln.
-Die hier gezeigte Lösung erlaubt es auch Nutzern, die sich im Backend eingeloggt haben die Seiten zu sehen, da der Status von rex_backend_login::hasSession()`überprüft wird. 
-```
+Die hier gezeigte Lösung erlaubt es auch Nutzern, die sich im Backend eingeloggt haben die Seiten zu sehen, da der Status von `rex_backend_login::hasSession()`überprüft wird. 
+
+```PHP
 <?php 
 
 session_start();
