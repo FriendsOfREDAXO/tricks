@@ -42,11 +42,14 @@ if (!rex::isBackend()) {
 ## Via GET-Parameter im Template
 
 Diesen Code am Anfang der aktiven Templates einbauen, dem Kunden anschließend die URL `meine-website.de/?vorschau=abc123` übermitteln.
+Die hier gezeigte Lösung erlaubt es auch Nutzern, die sich im Backend eingeloggt haben die Seiten zu sehen, da der Status von rex_backend_login::hasSession()`überprüft wird. 
 ```
 <?php 
 
 session_start();
+// Festlegen des Sicherheitscodes
 $code = "abc123";
+// GET-Parameter abfragen
 $code2 = rex_request('vorschau', 'string', 0);
 
 // speichert den Code in der Session
@@ -55,7 +58,7 @@ if ($code2) {
 }
 
 // Ausgabe abbrechen, wenn der übermittelte Code nicht stimmt. 
-if ($_SESSION['vorschau'] !== $code) {
+if ($_SESSION['vorschau'] !== $code and !rex_backend_login::hasSession()) {
   exit();
 }
 
