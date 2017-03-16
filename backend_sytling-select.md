@@ -1,5 +1,22 @@
 # Select-Felder Styling
 
+## REDAXO eigener Select-Stil rex-select-style
+Zur Anwendung des Redaxo-Stils für Selects muss im übergeordneten DIV die CSS-Class **rex-select-style** eingesetzt werden. 
+
+Beispiel: 
+
+```php
+<div class="col-sm-3">
+          <div class="rex-select-style">   
+				 	<select id="REX_INPUT_VALUE[12]" class="form-control" name="REX_INPUT_VALUE[12]">
+				 	<option value="nein">nicht anzeigen</option>
+				 	<option value='ja' <?php if ("REX_VALUE[12]" == 'ja') echo 'selected'; ?>>anzeigen </option >
+			 	  </select>
+        </div>
+</div>
+
+```
+
 ## Bootstrap-Select
 In Redaxo ist bereits Bootstrap-Select https://silviomoreto.github.io/bootstrap-select/ integriert. 
 Hiermit können die Select-Felder schöner in REDAXO gestaltet werden. Darüber hinaus ist es möglich auch eine Suche leicht in die Selects zu integrieren. 
