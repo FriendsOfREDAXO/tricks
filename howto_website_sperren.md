@@ -1,4 +1,4 @@
-# Website sperren 
+# Website sperren / Wartungsarbeiten
 
 Wenn sich eine Redaxo-Website in der Entwicklung befindet, kann es sein, dass der Kunde bereits einen Blick auf die Website werfen will, ohne, dass die Website für Unbefugte erreichbar ist. Da auf unbestimmtem Wege auch eine halbfertige Website im Google-Index landen kann, sollte eine (Redaxo-)Website vor der Veröffentlichung durch einen der nachfolgendenen Techniken geschützt werden.
 
