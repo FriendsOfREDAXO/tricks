@@ -6,8 +6,7 @@ Wenn sich eine Redaxo-Website in der Entwicklung befindet, kann es sein, dass de
 
 ## via Wartungsarbeiten-Plugin des Addons Out5
 
-Die aktuell einfachste Möglichkeit einen Wartungsmodus zu aktivieren. 
-Ist der User nicht im Backend angemeldet, kann auf eine beliebige URL umgeleitet werden. 
+Die aktuell einfachste Möglichkeit einen Wartungsmodus zu aktivieren. Ist der User nicht im Backend angemeldet, kann auf eine beliebige URL umgeleitet werden. Das Addon Out5 findet man im Installer. 
 https://github.com/FriendsOfREDAXO/out5
 
 
