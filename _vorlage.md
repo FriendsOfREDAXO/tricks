@@ -3,6 +3,7 @@
 - [Kopfbereich](#kopfbereich)
 - [Überschriften](#ueberschriften)
 - [Links](#links)
+- [Bilder](#bilder)
 - [Listen](#listen)
 - [Tabellen](#tabellen)
 - [Code](#code)
@@ -43,12 +44,16 @@
  
 <a name="links"></a>
 ## Links
-
-Die Platzhalter `{{path}}` und `{{version}}` werden später auf redaxo.org angepasst
+Links bitte immer mit Beschreibung angeben
 
 **Beispiel**
 
-    [Linktitel](/{{path}}/{{version}}/md-datei-ohne-endung)
+    [REDAXO Loader - REDAXO laden und entpacken](install_redaxo_loader.md)
+
+<a name="bilder"></a>
+## Bilder
+Bilder bitte im Assets-Ordner hinterlegen. 
+1200px breit
 
 
 <a name="listen"></a>
