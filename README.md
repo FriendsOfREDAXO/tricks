@@ -1,6 +1,6 @@
 # Eine Sammlung nützlicher Tricks zu REDAXO ab Version 5
 
-Wer mitmachen möchte, beachte bitte bei der Einpflege die [Vorlage](_vorlage.md). 
+> Wer mitmachen möchte, beachte bitte bei der Einpflege die [Vorlage](_vorlage.md). 
 
 - Installation
     - [REDAXO Loader - REDAXO laden und entpacken](install_redaxo_loader.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
