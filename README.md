@@ -35,7 +35,7 @@ Wer mitmachen möchte, beachte bitte bei der Einpflege die [Vorlage](_vorlage.md
     - YRewrite
         - [YRewrite NGINX-Konfiguration](addons_yrewrite_nginx.md) <sup><b>abgeschlossen</b></sup> <sup><i>hirbod</i></sup> 
 - HowTo
-    - [Website sperren / Wartungsarbeiten](howto_website_sperren.md) <sup><b>überprüfen</b></sup> <sup><i>alexplusde</i></sup>
+    - [Website sperren / Wartungsarbeiten](howto_website_sperren.md) <sup><b>abgeschlossen</b></sup> <sup><i>alexplusde / skerbis</i></sup>
 
 - Snippets
     - [Class rex_media erweitern (ab redaxo 5.3)](snippet_klasse_rex_media_erweitern.md) <sup><b>abgeschlossen</b></sup> <sup><i>Daniel Weitenauer</i></sup>
