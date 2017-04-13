@@ -64,7 +64,7 @@ So ist es später einfach einen eigenen Wrapper oder andere Formatierungen anzuw
 	    // $articleImage = $article->getValue("art_Image");
 	    
 	    // Ausgabe erstellen 
-	    $artOutput .= '<li><a href="'.rex_getUrl($articleId).'">'.$articleName.'<a></li>'."\n"; 
+	    $artOutput .= '<li><a href="'.rex_getUrl($articleId).'">'.$articleName.'</a></li>'."\n"; 
 	   }
 	
 	 }
