@@ -10,7 +10,7 @@ Hier verwenden wir eine Rewerite-Direktive und ein Template um es zu realisieren
 Diese Lösung, schützt nur Dateien die über /media/dateiname.xyz und über /index.php?fileName=dateiname.xyz aufgerufen werden. Eine Ausweitung auf z.B: Mediamanager Urls ist über einen entsprechenden Effekt denkbar. Eine Unterscheidung nach Nutzergruppen findet nicht statt. Es wird nur überprüft ob der User in YCOM eingeloggt ist. 
 
 ----------
-Geeignet für Redaxo 5.2
+Geeignet für Redaxo ab 5.2
 
 1. Medienkategorie anlegen
 2. ID der Kategorie merken 
