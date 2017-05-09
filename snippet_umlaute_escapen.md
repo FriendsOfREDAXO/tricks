@@ -1,4 +1,4 @@
-# Umlaute mit R5 Boardmittel escpaen
+# Umlaute (Ää,Üü,Öö,ß) mit R5 Boardmittel umschreiben
 
 ```php 
 <?php
