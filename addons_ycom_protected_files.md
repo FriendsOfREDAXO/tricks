@@ -122,11 +122,8 @@ Weitere Endungen können beliebig hinzugefügt werden z.B:  |eps|pptx|docx …
 Wenn man nachfolgenden Code in allen Ausgabe-Templates **am Anfang** einfügt, sind die Dateien geschützt. 
 XX steht für die ID des Templates
 
-	<?php if (rex_get('fileName', 'string')!='')
-	{
-	?>
 	REX_TEMPLATE[XX]
-	<?php } ?>
+
 
 ----------
 **Achtung!** Vor dem Template darf auf keinen Fall eine Ausgabe von Inhalten erfolgen.
