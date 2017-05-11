@@ -3,7 +3,7 @@
 ### Wie kann man Dateien in Verbindung mit YCom (Community Addon) einfach schützen?
 Da Redaxo aktuell nur einen Medienordner hat und so von außen alle Dateien in diesem Ordner öffentlich zugänglich sind, benötigt man eine Lösung, die den Dateiaufruf überprüft und entscheidet ob es sich um eine geschützte Datei oder einer öffentlichen Datei handelt. 
 
-Hier verwenden wir eine Rewerite-Direktive und ein Template um es zu realisieren.  Dateien, die in einer festgelegten Medienpool-**Hauptkategorie** und deren Unterkategorien im Medienpool liegen, können so vor unerlaubtem Zugriff geschützt werden. 
+Hier verwenden wir eine Rewrite-Direktive und ein Template um es zu realisieren.  Dateien, die in einer festgelegten Medienpool-**Hauptkategorie** und deren Unterkategorien im Medienpool liegen, können so vor unerlaubtem Zugriff geschützt werden. 
 
 ----------
 **Achtung**
