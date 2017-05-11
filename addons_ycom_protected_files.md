@@ -12,7 +12,7 @@ Diese Lösung, schützt nur Dateien die über /media/dateiname.xyz und über /in
 ----------
 Geeignet für Redaxo ab 5.2
 
-1. Medienkategorie anlegen
+1. Medienkategorie erster Ebene anlegen
 2. ID der Kategorie merken 
 3. Nachfolgendes Template anlegen (Kommentare beachten): 
 
