@@ -105,7 +105,7 @@ Geeignet für Redaxo ab 5.2
 
 APACHE:
 
-> Bei Verwendung von yrewrite direkt nach `RewriteBase /`
+> Bei Verwendung von yrewrite direkt nach `RewriteRule ^imagetypes/…`
     
 	RewriteRule ^/?media/(.*\.(pdf|doc|zip))$ /index.php?fileName=$1 [L]
 
