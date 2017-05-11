@@ -18,6 +18,9 @@ Geeignet für Redaxo ab 5.2
 
 		<?php
 		
+		if (rex_get('fileName', 'string')!='')
+                {
+		
 		// Welche Medienkategorie beinhaltet die geschützten Dateien? (Medienpool-Kategorie-ID)
 		
 		$mediacatID = '4';
@@ -98,7 +101,7 @@ Geeignet für Redaxo ab 5.2
 		
 			rex_response::sendFile($file, $contenttype, $contentDisposition = 'attachment');
 			}
-		
+		}
 		?>
 
 **Jetzt müssen Rewrite-Direktiven ergänzt werden**
