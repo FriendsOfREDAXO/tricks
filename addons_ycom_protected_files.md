@@ -119,10 +119,14 @@ Hier wurde festgelegt welche Dateien geschützt sein sollen.
 Weitere Endungen können beliebig hinzugefügt werden z.B:  |eps|pptx|docx …
 
 
-Fügt man nun das Template in allen Ausgabe-Templates **am Anfang** ein, sind die Dateien geschützt. 
+Wenn man nachfolgenden Code in allen Ausgabe-Templates **am Anfang** einfügt, sind die Dateien geschützt. 
 XX steht für die ID des Templates
-REX_TEMPLATE[XX]
 
+	<?php if (rex_get('fileName', 'string')!='')
+	{
+	?>
+	REX_TEMPLATE[XX]
+	<?php } ?>
 
 ----------
 **Achtung!** Vor dem Template darf auf keinen Fall eine Ausgabe von Inhalten erfolgen.
