@@ -16,10 +16,11 @@ Geeignet für Redaxo ab 5.2
 2. ID der Kategorie merken 
 3. Nachfolgendes Template anlegen (Kommentare beachten): 
 
-		<?php
-		
-		if (rex_get('fileName', 'string')!='')
-                {
+```php
+<?php
+    // Prüfe ob eine Datei übergeben wurde
+	if (rex_get('fileName', 'string')!='')
+    {
 		
 		// Welche Medienkategorie beinhaltet die geschützten Dateien? (Medienpool-Kategorie-ID)
 		
@@ -102,7 +103,8 @@ Geeignet für Redaxo ab 5.2
 			rex_response::sendFile($file, $contenttype, $contentDisposition = 'attachment');
 			}
 		}
-		?>
+?>
+```
 
 **Jetzt müssen Rewrite-Direktiven ergänzt werden**
 
