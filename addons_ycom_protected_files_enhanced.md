@@ -49,132 +49,132 @@ Nun können Dateien in den oben definierten Medienkategorien mit entsprechenden 
 
 #### 3. Nachfolgendes Template anlegen (Kommentare beachten): 
 
-```php
+```
 <?php
-	$requested_file = trim(rex_get('f', 'string', ''));
-	$file_ok = false;
+  $requested_file = trim(rex_get('f', 'string', ''));
+  $file_ok = false;
 
-	// Welche Medienkategorien beinhaltet die geschützten Dateien? (Medienpool-Kategorie-ID)
-	$secured_categories = [1];
-		
-	// Wohin soll bei einem unberechtigten Zugriff umgeleitet werden? (Artikel ID)
-	$redirect_article = rex_article::getNotfoundArticleId();
+  // Welche Medienkategorien beinhaltet die geschützten Dateien? (Medienpool-Kategorie-ID)
+  $secured_categories = [1];
+    
+  // Wohin soll bei einem unberechtigten Zugriff umgeleitet werden? (Artikel ID)
+  $redirect_article = rex_article::getNotfoundArticleId();
 
-	$metafield_ycom_file_users = 'med_ycom_users'; // das Metafeld mit den Nutzerzuordnungen
-	$metafield_ycom_file_groups = 'med_ycom_groups'; // das Metafeld mit den Gruppenzuordnungen
+  $metafield_ycom_file_users = 'med_ycom_users'; // das Metafeld mit den Nutzerzuordnungen
+  $metafield_ycom_file_groups = 'med_ycom_groups'; // das Metafeld mit den Gruppenzuordnungen
 
-	// Prüfe ob eine Datei übergeben wurde
-	if ($requested_file !== '')
-    {		
-		// Was passiert, wenn Datei nicht existiert?
-		if (file_exists(rex_path::media($requested_file)))
-		{
-			$file_ok = true;
+  // Prüfe ob eine Datei übergeben wurde
+  if ($requested_file !== '')
+  {    
+    // Was passiert, wenn Datei nicht existiert?
+    if (file_exists(rex_path::media($requested_file)))
+    {
+      $file_ok = true;
 
-			// Datensatz auslesen und Eigenschaften ermitteln
-			$file_info = rex_media::get($requested_file);
+      // Datensatz auslesen und Eigenschaften ermitteln
+      $file_info = rex_media::get($requested_file);
 
-			if($file_info)
-			{
-				// Aktuelle Medienkategorie ermitteln
-				$file_categories = [(int) $file_info->getCategoryId()];
+      if($file_info)
+      {
+        // Aktuelle Medienkategorie ermitteln
+        $file_categories = [(int) $file_info->getCategoryId()];
 
-				if(!in_array(0, $file_categories))
-				{
-					$file_categories = array_merge($file_categories, $file_info->getCategory()->getPathAsArray());
-				}
+        if(!in_array(0, $file_categories))
+        {
+          $file_categories = array_merge($file_categories, $file_info->getCategory()->getPathAsArray());
+        }
 
-				if ( count ( array_intersect($file_categories, $secured_categories) ) > 0 )
-    			{
-    				// Datei ist in einer geschützten Kategorie, also per se erstmal verbieten
-    				$file_ok = false;
+        if ( count ( array_intersect($file_categories, $secured_categories) ) > 0 )
+        {
+          // Datei ist in einer geschützten Kategorie, also per se erstmal verbieten
+          $file_ok = false;
 
-					$ycom_user = class_exists('rex_ycom_auth') ? rex_ycom_auth::getUser() : null;
-					$ycom_auth = rex_addon::get('ycom') ? rex_addon::get('ycom')->getPlugin('auth') : null;
+          $ycom_user = class_exists('rex_ycom_auth') ? rex_ycom_auth::getUser() : null;
+          $ycom_auth = rex_addon::get('ycom') ? rex_addon::get('ycom')->getPlugin('auth') : null;
 
-					if($ycom_auth)
-					{
-						$redirect_article = $ycom_auth->getConfig('article_id_jump_denied');
-					}
+          if($ycom_auth)
+          {
+            $redirect_article = $ycom_auth->getConfig('article_id_jump_denied');
+          }
 
-					if($ycom_user)
-					{
-						$valid_user = true;
-						$valid_group = true;
+          if($ycom_user)
+          {
+            $valid_user = true;
+            $valid_group = true;
 
-						// nach Nutzerzuordnungen suchen wenn Datei nicht erlaubt ist...
-						if($file_info->hasValue($metafield_ycom_file_users))
-						{
-				    		// Nutzerzuordnung der Datei aus dem Feld med_ycom_users auslesen
-				    		$ycom_file_users = explode(',', str_replace('|', ',', $file_info->getValue($metafield_ycom_file_users)));
-				    		$ycom_file_users = array_filter($ycom_file_users);
+            // nach Nutzerzuordnungen suchen wenn Datei nicht erlaubt ist...
+            if($file_info->hasValue($metafield_ycom_file_users))
+            {
+              // Nutzerzuordnung der Datei aus dem Feld med_ycom_users auslesen
+              $ycom_file_users = explode(',', str_replace('|', ',', $file_info->getValue($metafield_ycom_file_users)));
+              $ycom_file_users = array_filter($ycom_file_users);
 
-				    		if(!empty($ycom_file_users))
-				    		{
-				    			// Nutzer erlauben wenn in Nutzerzuordnung enthalten 
-				    			$valid_user =  in_array($ycom_user->getValue('id'), $ycom_file_users);
-				    		}
-				    		unset($valid_file_users);
-						}
+              if(!empty($ycom_file_users))
+              {
+                // Nutzer erlauben wenn in Nutzerzuordnung enthalten 
+                $valid_user =  in_array($ycom_user->getValue('id'), $ycom_file_users);
+              }
+              unset($valid_file_users);
+            }
 
-						// nach Gruppenzuordnungen suchen
-						if($ycom_user->hasValue('ycom_groups') && $file_info->hasValue($metafield_ycom_file_groups))
-						{
-				    		// Gruppenzuordnung der Datei aus dem Feld med_ycom_groups auslesen
-				    		$ycom_file_groups = explode(',', str_replace('|', ',', $file_info->getValue($metafield_ycom_file_groups)));
-				    		$ycom_file_groups = array_filter($ycom_file_groups);
+            // nach Gruppenzuordnungen suchen
+            if($ycom_user->hasValue('ycom_groups') && $file_info->hasValue($metafield_ycom_file_groups))
+            {
+              // Gruppenzuordnung der Datei aus dem Feld med_ycom_groups auslesen
+              $ycom_file_groups = explode(',', str_replace('|', ',', $file_info->getValue($metafield_ycom_file_groups)));
+              $ycom_file_groups = array_filter($ycom_file_groups);
 
-				    		if(!empty($ycom_file_groups))
-				    		{
-				        		// Nutzergruppen auslesen
-				        		$ycom_user_groups = explode(',', $ycom_user->getValue('ycom_groups'));
-				        		$ycom_user_groups = array_filter($ycom_user_groups);
+              if(!empty($ycom_file_groups))
+              {
+              // Nutzergruppen auslesen
+              $ycom_user_groups = explode(',', $ycom_user->getValue('ycom_groups'));
+              $ycom_user_groups = array_filter($ycom_user_groups);
 
-		        				// Wenn mindestens eine Gruppe übereinstimmt, dann erlauben!
-			        			$valid_group = count ( array_intersect($ycom_user_groups, $ycom_file_groups) ) > 0;
-				    		}
-				    		unset($ycom_file_groups);
-						}
+              // Wenn mindestens eine Gruppe übereinstimmt, dann erlauben!
+              $valid_group = count ( array_intersect($ycom_user_groups, $ycom_file_groups) ) > 0;
+              }
+              unset($ycom_file_groups);
+            }
 
-						$file_ok = $valid_user && $valid_group;
+            $file_ok = $valid_user && $valid_group;
 
-						unset($valid_user, $valid_group);
-					}
+            unset($valid_user, $valid_group);
+          }
 
-					unset($ycom_user, $ycom_auth);
-    			}
+          unset($ycom_user, $ycom_auth);
+        }
 
-    			unset($file_categories);
-    		}
+        unset($file_categories);
+      }
 
-    		unset($file_info);
-    	}
+      unset($file_info);
+    }
 
-    	if($file_ok)
-		{
-			// Nutzer darf auf die Datei zugreifen...
-			$file = rex_path::media() . $requested_file;
-			$contenttype = 'application/octet-stream';
+    if($file_ok)
+    {
+      // Nutzer darf auf die Datei zugreifen...
+      $file = rex_path::media() . $requested_file;
+      $contenttype = 'application/octet-stream';
 
-			// soll kein Download erzwungen werden, ändere attachment in inline		
-			rex_response::sendFile($file, $contenttype, $contentDisposition = 'attachment');
-			exit();
-		}
+      // soll kein Download erzwungen werden, ändere attachment in inline    
+      rex_response::sendFile($file, $contenttype, $contentDisposition = 'attachment');
+      exit();
+    }
 
-		// um Endlosweiterleitungen zu verhindern prüfen, ob die Weiterleitungs-ID unterschiedlich vom aktuellen Artikel ist
-		if($redirect_article != rex_article::getCurrentId())
-		{
-			$url = rex_getUrl($redirect_article);
-			$url = preg_replace('/^\.\//','../',$url); // sonst würde man auf /media/index.php weitergeleitet werden...
+    // um Endlosweiterleitungen zu verhindern prüfen, ob die Weiterleitungs-ID unterschiedlich vom aktuellen Artikel ist
+    if($redirect_article != rex_article::getCurrentId())
+    {
+      $url = rex_getUrl($redirect_article);
+      $url = preg_replace('/^\.\//','../',$url); // sonst würde man auf /media/index.php weitergeleitet werden...
 
-			rex_response::sendRedirect($url);
-		}
+      rex_response::sendRedirect($url);
+    }
 
-		// bei ungültigen Weiterleitungszielen einfach einen Fehler auswerfen.
-		throw new rex_exception('Datei ' . $requested_file . ' wurde nicht gefunden');
+    // bei ungültigen Weiterleitungszielen einfach einen Fehler auswerfen.
+    throw new rex_exception('Datei ' . $requested_file . ' wurde nicht gefunden');
 
-		exit;
-    } 
+    exit;
+}
 ?>
 ```
 
