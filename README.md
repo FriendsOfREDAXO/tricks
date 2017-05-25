@@ -29,7 +29,8 @@
     - YForm
         - [YForm Datensatz Kopieren]( addons_yform_copy_dataset.md) <sup><b>abgeschlossen</b></sup> <sup><i>tbaddade</i></sup> 
     - YCom
-        - [Geschütze Dateien mit YCom ](addons_ycom_protected_files.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
+        - [Geschütze Dateien mit YCom ](addons_ycom_protected_files.md) <sup><b>abgeschlossen</b></sup><sup><i>skerbis</i></sup>
+            - [Geschütze Dateien mit YCom enhanced](addons_ycom_protected_files_enhanced.md) <sup><b>abgeschlossen</b></sup><sup><i>tgoellner</i></sup>        
     - YRewrite
         - [YRewrite NGINX-Konfiguration](addons_yrewrite_nginx.md) <sup><b>abgeschlossen</b></sup> <sup><i>hirbod</i></sup> 
 - HowTo
