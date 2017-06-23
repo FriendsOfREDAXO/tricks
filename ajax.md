@@ -389,6 +389,7 @@ Die Überschriften erhalten eine Click-Funktion zugewiesen, die zwei Aufgaben er
                      if ( textStatus == "success") return;
                      responseText = JSON.parse(responseText);
                      alert(responseText.message);
+		     hook.unbind('click').addClass('ich-bin-raus');
                  }
             );
         }
@@ -461,8 +462,8 @@ Im Kern ist die API-Funktion aus dem obigen Kapiteln bekannt. Die wesentliche Er
             }
 
             // Artikel senden
-            $content = $article->getArticle();
-            self::httpSuccess( $content,'text/html' );
+            header('Content-Type: text/html; charset=UTF-8');
+            die( $article->getArticle() );
         }
 
         public static function httpError( $result )
@@ -479,7 +480,7 @@ Diese API-Klasse muss an einer Stelle platziert werden, an der sie auch gesehen 
 <a name="demo-lang"></a>
 ### Die Sprachdatei(en)
 
-Etwas fehlt noch. Oben wurde ja schon beschrieben, dass es sinnvoller ist, die Fehlermeldungen vom Server in der eingestellten Sprache generieren zu lassen.  
+Etwas fehlt noch. [Oben](#besser-returncode) wurde ja schon beschrieben, dass es sinnvoller ist, die Fehlermeldungen vom Server in der eingestellten Sprache generieren zu lassen.  
 
 Im API-Code ist das bereits mit
 
@@ -528,9 +529,11 @@ Das kann auch zu Problemen führen. In der ersten, vorzuziehenden Variante wäre
 
 Aus Backend-Seiten führt die erste Variante dazu, dass noch vor der Ausführung von **rex\_api\_xyz->execute()** auf die Default-Seite **page=structure** umgeleitet wird. Wählt man die zweite Variante, unterbleibt die Umleitung und das API wird ausgeführt.
 
-Der Grund ist wieder die automatische URL-Ergänzung, über die eine gültige Seitenangabe in die URL gelangt.
+Der Grund ist wieder die automatische URL-Ergänzung, über die im zweiten Fsll eine gültige Seitenangabe in die URL gelangt.
 
     index.php?page=irgendwas&rex_api_call=xyz&article_id=5
+
+Im ersten Fall fehlt die page-Angabe und der Backend-Prozesser läuft in die Weiterleitung auf den Startartikel (**page=structure**). Da die page-Überprüfung vor der API-Ausführung liegt, kommt das Programm nie beim API an.
 
 Alternativ kann die Seite **page=structure** auch in die Paramaterzeile geschrieben werden:
 
