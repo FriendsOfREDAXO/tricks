@@ -36,7 +36,7 @@
 - HowTo
     - [Kategorie einer REDAXO Instanz (Quelle) in eine andere Instanz (Ziel) kopieren](howto_kategorie_in_eine_andere_redaxo_instanz_kopieren.md) <sup><b>unvollständig</b></sup> <sup><i>tbaddade</i></sup>
     - [Website sperren / Wartungsarbeiten](howto_website_sperren.md) <sup><b>abgeschlossen</b></sup> <sup><i>alexplusde / skerbis</i></sup>
-    - [AJAX mit dem rex_api](howto_ajax_rexapi)<sup><b>überprüfen</b></sup><sup><i>christophboecker</i></sup>
+    - [AJAX mit dem rex_api](howto_ajax_rexapi.md)<sup><b>überprüfen</b></sup><sup><i>christophboecker</i></sup>
 
 - Snippets
     - [Class rex_media erweitern (ab redaxo 5.3)](snippet_klasse_rex_media_erweitern.md) <sup><b>abgeschlossen</b></sup> <sup><i>Daniel Weitenauer</i></sup>
