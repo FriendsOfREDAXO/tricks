@@ -15,12 +15,12 @@ Hier der Versuch einer Antwort.
 	- [Text oder JSON - was erwartet der Client](#besser-mime)
 	- [Darf der das - Rechte abprüfen](#besser-permit)
 - [JS-Jalousie mit Selbstbedienung - ein Beispiel](#demo)
-        - [Das HTML](#demo-html)
-        - [Das CSS](#demo-css)
-        - [Das JS](#demo-js)
-        - [Das MODUL](#demo-modul)
-        - [rex_api_xyz - Der PHP-Code des API](#demo-api)
-        - [Die Sprachdatei(en)](#demo-lang)
+	- [Das HTML](#demo-html)
+    - [Das CSS](#demo-css)
+    - [Das JS](#demo-js)
+    - [Das MODUL](#demo-modul)
+    - [rex_api_xyz - Der PHP-Code des API](#demo-api)
+    - [Die Sprachdatei(en)](#demo-lang)
 - [Frontend vs. Backend - Merkwürdige Dinge geschehen](#febe)
 
 
