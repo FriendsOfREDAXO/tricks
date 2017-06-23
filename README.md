@@ -1,7 +1,7 @@
 # Eine Sammlung nützlicher Tricks zu REDAXO ab Version 5
 
-> Wer mitmachen möchte, beachte bitte bei der Einpflege die [Vorlage](_vorlage.md). 
-> Die github-page ist hier: https://friendsofredaxo.github.io/tricks/ 
+> Wer mitmachen möchte, beachte bitte bei der Einpflege die [Vorlage](_vorlage.md).
+> Die github-page ist hier: https://friendsofredaxo.github.io/tricks/
 
 - Installation
     - [REDAXO Loader - REDAXO laden und entpacken](install_redaxo_loader.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
@@ -27,15 +27,16 @@
     - Struktur
         - [Kategorie duplizieren](addons_structure_duplicate_category.md) <sup><b>abgeschlossen</b></sup> <sup><i>gharlan</i></sup>
     - YForm
-        - [YForm Datensatz Kopieren]( addons_yform_copy_dataset.md) <sup><b>abgeschlossen</b></sup> <sup><i>tbaddade</i></sup> 
+        - [YForm Datensatz Kopieren]( addons_yform_copy_dataset.md) <sup><b>abgeschlossen</b></sup> <sup><i>tbaddade</i></sup>
     - YCom
         - [Geschütze Dateien mit YCom ](addons_ycom_protected_files.md) <sup><b>abgeschlossen</b></sup><sup><i>skerbis</i></sup>
             - [Geschütze Dateien mit YCom enhanced](addons_ycom_protected_files_enhanced.md) <sup><b>abgeschlossen</b></sup><sup><i>tgoellner</i></sup>        
     - YRewrite
-        - [YRewrite NGINX-Konfiguration](addons_yrewrite_nginx.md) <sup><b>abgeschlossen</b></sup> <sup><i>hirbod</i></sup> 
+        - [YRewrite NGINX-Konfiguration](addons_yrewrite_nginx.md) <sup><b>abgeschlossen</b></sup> <sup><i>hirbod</i></sup>
 - HowTo
     - [Kategorie einer REDAXO Instanz (Quelle) in eine andere Instanz (Ziel) kopieren](howto_kategorie_in_eine_andere_redaxo_instanz_kopieren.md) <sup><b>unvollständig</b></sup> <sup><i>tbaddade</i></sup>
     - [Website sperren / Wartungsarbeiten](howto_website_sperren.md) <sup><b>abgeschlossen</b></sup> <sup><i>alexplusde / skerbis</i></sup>
+    - [AJAX mit dem rex_api](howto_ajax_rexapi)<sup><b>überprüfen</b></sup><sup><i>christophboecker</i></sup>
 
 - Snippets
     - [Class rex_media erweitern (ab redaxo 5.3)](snippet_klasse_rex_media_erweitern.md) <sup><b>abgeschlossen</b></sup> <sup><i>Daniel Weitenauer</i></sup>
