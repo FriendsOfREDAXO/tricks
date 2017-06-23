@@ -169,7 +169,7 @@ Ergänzend sollte dann auch ein "verständlicher" Fehlercode und/oder eine Klart
 geschickt werden. Es ist auch möglich, Fehlermeldungen zu sammeln und als Array an den Client zu
 übermitteln.
 
-Serverseitig ist es wesentlich einfacher, in mehrsprachigen Applikaionen den jeweils passenden Text zu generieren. Der Text sollte daher immer geschickt werden und nicht im JS-Code stehen.
+Serverseitig ist es wesentlich einfacher, in mehrsprachigen Applikationen den jeweils passenden Text zu generieren. Der Text sollte daher immer geschickt werden und nicht im JS-Code stehen.
 
 **Unser Beispiel sieht jetzt so aus:**
 
@@ -409,7 +409,8 @@ Seine Aufgabe ist einfach. Für die aktuelle Kategorie (**REX\_CATEGORY\_ID**) w
     <div class="klapp-auf-und-zu">
     <?php
     $cat = rex_category::get( 'REX_CATEGORY_ID');
-    $articles = array_merge ( $cat->getArticles(), $cat->getChildren() );
+    $offline = rex_backend_login::hasSession();
+    $articles = array_merge ( $cat->getArticles($offline), $cat->getChildren($offline) );
     $startarticle = $cat->getStartArticle()->getId();
 
     foreach( $articles as $article )
