@@ -10,8 +10,8 @@ Hier der Versuch einer Antwort.
 - [Wie funktioniert rex_api - Chronologie einer gestörten Erwartungshaltung](#api)
 - [Wenn Du den Ausgang sucht, nimm die Tür - Die Exit-Strategie](#exit)
 - [Es geht besser - sinnvolle Erweiterungen](#besser)
-	- [## Was will der denn? - frag die Parameter](#besser-parameter)
-	- [Fehlercodes und Erfolgsmeldungen - auf den Header koomt es an](#besser-returncode)
+	- [Was will der von mir - frag die Parameter](#besser-parameter)
+	- [Fehlercodes und Erfolgsmeldungen - auf den Header kommt es an](#besser-returncode)
 	- [Text oder JSON - was erwartet der Client](#besser-mime)
 	- [Darf der das - Rechte abprüfen](#besser-permit)
 - [JS-Jalousie mit Selbstbedienung - ein Beispiel](#demo)
@@ -112,7 +112,7 @@ Ziel erreicht? Im Prinzip ja, aber es geht besser und richtiger.
 ## Es geht besser - sinnvolle Erweiterungen
 
 <a name="besser-parameter"></a>
-## Was will der denn? - frag die Parameter
+## Was will der von mir - frag die Parameter
 
 Wie schon [oben](#api) in der Beispiel-URL dargestellt, kann dem AJAX-Aufruf auch über Parameter mitgegeben werden,
 was im Detail zu tun und zu beachten ist.
