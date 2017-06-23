@@ -389,7 +389,7 @@ Die Überschriften erhalten eine Click-Funktion zugewiesen, die zwei Aufgaben er
                      if ( textStatus == "success") return;
                      responseText = JSON.parse(responseText);
                      alert(responseText.message);
-		     hook.unbind('click').addClass('ich-bin-raus');
+                     hook.unbind('click').addClass('ich-bin-raus');
                  }
             );
         }
