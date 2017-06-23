@@ -112,7 +112,7 @@ Ziel erreicht? Im Prinzip ja, aber es geht besser und richtiger.
 ## Es geht besser - sinnvolle Erweiterungen
 
 <a name="besser-parameter"></a>
-## Was will der von mir - frag die Parameter
+### Was will der von mir - frag die Parameter
 
 Wie schon [oben](#api) in der Beispiel-URL dargestellt, kann dem AJAX-Aufruf auch über Parameter mitgegeben werden,
 was im Detail zu tun und zu beachten ist.
@@ -148,7 +148,7 @@ Fehlercode an den Client zurückzusenden. Dazu mehr im [nächsten Kapitel](#bess
 	}
 
 <a name="besser-returncode"></a>
-## Fehlercodes und Erfolgsmeldungen - auf den Header kommt es an
+### Fehlercodes und Erfolgsmeldungen - auf den Header kommt es an
 
 Im JavaScript kann abgefragt werden, ob ein AJAX-Call erfolgreich war oder nicht. Das klappt mit
 nativem JS ebenso wie mit JQuery. Ob ein Aufruf erfolgreich war oder nicht, wird mittels
@@ -198,7 +198,7 @@ Serverseitig ist es wesentlich einfacher, in mehrsprachigen Applikaionen den jew
     }
 
 <a name="besser-mime"></a>
-## Text oder JSON - was erwartet der Client
+### Text oder JSON - was erwartet der Client
 
 Ebenfalls über die Header kann dem Client mitgeteilt werden, welche Art Daten er geschickt
 bekommt (Mime-Type). Das ist kein Muss, erleichtert aber dem Client-Browser die Arbeit. Im Beispiel wird die
@@ -232,7 +232,7 @@ Fehlermeldung als JSON und das Ergebnis als Text übermittelt
 
 
 <a name="besser-permit"></a>
-## Darf der das? - Rechte abprüfen
+### Darf der das? - Rechte abprüfen
 
 Redaxo verfügt über eine Zugriffsverwaltung. Evtl. ist es ja nötig und sinnvoll, auch in der
 API-Funktion die Rechte zu überprüfen und ggf. den Zugriff abzulehnen. (Das Beispiel ist jetzt sehr unkonkret.)
@@ -274,7 +274,7 @@ API-Funktion die Rechte zu überprüfen und ggf. den Zugriff abzulehnen. (Das Be
     }
 
 <a name="demo"></a>
-# JS-Jalousie mit Selbstbedienung - ein Beispiel
+## JS-Jalousie mit Selbstbedienung - ein Beispiel
 
 Und damit kommen wir zu einem Anwendungsbeispiel für eine Redaxo-Seite. Das Ziel ist ein Modul, das
 
@@ -298,7 +298,7 @@ Für Kategorie **Addons** wird ein neuer Startartikel mit dem Beispiel-Modul ges
 
 
 <a name="demo-html"></a>
-## Das HTML
+### Das HTML
 
 Das Modul soll HTML-Code generieren, der ungefähr so aussieht:
 
@@ -312,7 +312,7 @@ Das Modul soll HTML-Code generieren, der ungefähr so aussieht:
     </div>
 
 <a name="demo-css"></a>
-## Das CSS
+### Das CSS
 
 Formatiert wird natürlich mittels CSS. Das hier soll einfach nur für die nette Optik sorgen.
 
@@ -360,7 +360,7 @@ Außerdem können nicht aktive Elemente ausgegraut werden. Das passiert im [JS-T
     }
 
 <a name="demo-js"></a>
-## Das JS
+### Das JS
 
 Die Überschriften erhalten eine Click-Funktion zugewiesen, die zwei Aufgaben erfüllt:
 
@@ -401,7 +401,7 @@ Es ist nur eine von mehreren Möglichkeiten, AJAX mittels **$.load** zu nutzen.
 
 
 <a name="demo-modul"></a>
-## Das Modul
+### Das Modul
 
 Seine Aufgabe ist einfach. Für die aktuelle Kategorie (**REX\_CATEGORY\_ID**) werden alle Artikel und Startartikel der Unterkategorien ermittelt und der (oben)[#demo-html] beschriebene HTML-Code generiert.
 
@@ -420,7 +420,7 @@ Seine Aufgabe ist einfach. Für die aktuelle Kategorie (**REX\_CATEGORY\_ID**) w
     </div>
 
 <a name="demo-api"></a>
-## rex\_api\_xyz - Der PHP-Code des API
+### rex\_api\_xyz - Der PHP-Code des API
 
 Im Kern ist die API-Funktion aus dem obigen Kapiteln bekannt. Die wesentliche Erweiterung besteht in der zusätzlichen Methode zum Senden der Fehlermeldung: **httpError**. Es soll den Code etwas übersichtlicher machen.
 
@@ -477,7 +477,7 @@ Im Kern ist die API-Funktion aus dem obigen Kapiteln bekannt. Die wesentliche Er
 Diese API-Klasse muss an einer Stelle platziert werden, an der sie auch gesehen und geladen wird. Das kann z.B. im Project-Addon erfolgen (Verzeichnis **lib**).
 
 <a name="demo-lang"></a>
-## Die Sprachdatei(en)
+### Die Sprachdatei(en)
 
 Etwas fehlt noch. Oben wurde ja schon beschrieben, dass es sinnvoller ist, die Fehlermeldungen vom Server in der eingestellten Sprache generieren zu lassen.  
 
@@ -498,7 +498,7 @@ eingebaut. Die korespondierenden **.lang**-Einträge können ebenfalls im Projec
     api_xyz_no_permission = Zugriff auf Artikel '{0}' nicht möglich
 
 <a name="febe"></a>
-# Frontend vs. Backend - Merkwürdige Dinge geschehen
+## Frontend vs. Backend - Merkwürdige Dinge geschehen
 
 Nur um es erwähnt zu haben.
 
