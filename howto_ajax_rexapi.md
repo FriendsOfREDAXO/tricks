@@ -536,7 +536,7 @@ Der Grund ist wieder die automatische URL-Ergänzung, über die im zweiten Fsll 
 
 Im ersten Fall fehlt die page-Angabe und der Backend-Prozesser läuft in die Weiterleitung auf den Startartikel (**page=structure**). Da die page-Überprüfung vor der API-Ausführung liegt, kommt das Programm nie beim API an.
 
-Alternativ kann die Seite **page=structure** auch in die Paramaterzeile geschrieben werden:
+Alternativ kann die Seite **page=structure** auch in die Parameterzeile geschrieben werden:
 
 **Die Backend-Varianten sind also**
 
