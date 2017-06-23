@@ -403,7 +403,7 @@ Es ist nur eine von mehreren Möglichkeiten, AJAX mittels **$.load** zu nutzen.
 <a name="demo-modul"></a>
 ### Das Modul
 
-Seine Aufgabe ist einfach. Für die aktuelle Kategorie (**REX\_CATEGORY\_ID**) werden alle Artikel und Startartikel der Unterkategorien ermittelt und der (oben)[#demo-html] beschriebene HTML-Code generiert.
+Seine Aufgabe ist einfach. Für die aktuelle Kategorie (**REX\_CATEGORY\_ID**) werden alle Artikel und Startartikel der Unterkategorien ermittelt und der [oben](#demo-html) beschriebene HTML-Code generiert. Ersteinmal sind alle Elemente geschlossen und erhalten deshalb die Klasse **mach-zu**.
 
     <div class="klapp-auf-und-zu">
     <?php
