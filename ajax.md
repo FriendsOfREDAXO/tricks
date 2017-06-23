@@ -78,7 +78,7 @@ Die Klasse für das eigene API wird von **rex\_api\_function** abgeleitet. Nur `
 Womit wir bei der gestörten Erwartungshaltung sind. Beim Browser landet zwar *auch* der Text, aber zudem
 Kauderwelsch in der Art
 
-    <p>mach mal was sinnvolles</p>../%?)=((=)&(&%/&(%(&
+![Kauderwelsch](assets/ajax_mit_rexapi_01.jpg "Kauderwelsch")
     
 Analyse von Beispielen zeigt am Ende, dass dem `return` eigentlich ein Objekt der Klasse
 **rex\_api\_result** mitgegeben werden soll. Aber die weiteren Tests führten am Ende zur Erkenntnis, dass nach
