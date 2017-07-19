@@ -28,6 +28,7 @@
         - [Kategorie duplizieren](addons_structure_duplicate_category.md) <sup><b>abgeschlossen</b></sup> <sup><i>gharlan</i></sup>
     - YForm
         - [YForm Datensatz Kopieren]( addons_yform_copy_dataset.md) <sup><b>abgeschlossen</b></sup> <sup><i>tbaddade</i></sup>
+        - [YForm Daten von Version 1.x auf 2.x konvertieren](addons_yform_convert.md) <sup><b>unvollständig</b></sup> <sup><i>tbaddade</i></sup>
     - YCom
         - [Geschütze Dateien mit YCom ](addons_ycom_protected_files.md) <sup><b>abgeschlossen</b></sup><sup><i>skerbis</i></sup>
             - [Geschütze Dateien mit YCom enhanced](addons_ycom_protected_files_enhanced.md) <sup><b>abgeschlossen</b></sup><sup><i>tgoellner</i></sup>        
