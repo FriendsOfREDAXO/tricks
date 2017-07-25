@@ -34,7 +34,7 @@ Hier erstellen wir eine UL-LI-Liste (unordered List) als Ausgabe. Die einzelnen 
 So ist es später einfach einen eigenen Wrapper oder andere Formatierungen anzuwenden. 
 
 	<?php 
-	$articleId = $articleName =  $artOutput = "";  
+	$articleId = $class = $articleName =  $artOutput = "";  
 	
 	// Aktuelle Kategorie ermitteln und Artikel auslesen
 	$articles = rex_category::getCurrent()->getArticles();
