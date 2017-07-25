@@ -11,7 +11,7 @@
 - Module
     - Minibeispiele
         - [Artikel einbinden](modul_minibeispiel_artikel_einbinden.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
-        - [Artikelliste mit getArticles](modul_minibeispiel_artikelliste_mit_getarticles.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
+        - [Artikelliste mit getArticles / toLink](modul_minibeispiel_artikelliste_mit_getarticles.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
         - [Artikelliste als RSS-FEED ausgeben](modul_minibeispiel_rss-feed.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
         - [Interne Linkliste mit REX_LINKLIST](modul_minibeispiel_interne_linkliste.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
         - [Kategorielisten mit getChildren()](modul_minibeispiel_kategorieliste_mit_getchildren.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
