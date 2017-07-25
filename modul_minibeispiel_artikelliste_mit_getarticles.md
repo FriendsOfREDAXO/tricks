@@ -1,8 +1,9 @@
-# Modul Minibeispiel - Einfache Artikelliste mit getArticles
+# Modul Minibeispiel - Einfache Artikelliste / getArticles / toLink
 
 - [Beschreibung](#beschreibung)
 - [Moduleingabe](#moduleingabe)
 - [Modulausgabe](#modulausgabe)
+- [Linkausgabe mit toLink()](#modulausgabe2)
 
 <a name="beschreibung"></a>
 ## Beschreibung
@@ -47,8 +48,14 @@ So ist es später einfach einen eigenen Wrapper oder andere Formatierungen anzuw
 	   
 	   if ($article->isOnline())
 	   {
-	    // Überspringen wenn aktueller Artikel gefunden. 
-	    if ( $article->getId() == 'REX_ARTICLE_ID') continue; 
+	    // Überspringen wenn aktueller Artikel gefunden. (auskommentieren) 
+	    // if ( $article->getId() == 'REX_ARTICLE_ID') continue; 
+	    
+	    // Aktive CSS-Classe festlegen 
+	    if ( $article->getId() == 'REX_ARTICLE_ID')
+	    {
+	    $class="active";
+	    }
 	    
 	    // Überspringen wenn Startartikel gefunden 
 	    if ( $article->isStartArticle()) continue;
@@ -64,7 +71,7 @@ So ist es später einfach einen eigenen Wrapper oder andere Formatierungen anzuw
 	    // $articleImage = $article->getValue("art_Image");
 	    
 	    // Ausgabe erstellen 
-	    $artOutput .= '<li><a href="'.rex_getUrl($articleId).'">'.$articleName.'</a></li>'."\n"; 
+	    $artOutput .= '<li class="'.$class.'"><a "'.$class.'" href="'.rex_getUrl($articleId).'">'.$articleName.'</a></li>'."\n"; 
 	   }
 	
 	 }
@@ -73,3 +80,23 @@ So ist es später einfach einen eigenen Wrapper oder andere Formatierungen anzuw
 	 unset ($articles);
 	}
 	?>
+
+<a name="modulausgabe2"></a>
+## Linkausgabe mit toLink()
+Die Links können auch mit toLink() erstellt werden. Hierbei können Parameter-, Attribute und auch der Surrounding-Tag mit Parameter übergeben werden.  $artOutput einfach durch den nachfolgenden Code ersetzen. Hier wird als Parameter noch pdf=1 angehängt um z.B. die PDF-Erzeugung anzustoßen. 
+
+
+	$artOutput .= $article->toLink( 
+		[ 'pdf' => '1'
+		],
+		[
+		'class' =>  $class,
+		'rel' => '_blank', 
+		'alt' => $articleName
+		],
+		'li',
+		[
+		'class' =>  $class,
+		'title' => $articleName 
+		] 
+	);
