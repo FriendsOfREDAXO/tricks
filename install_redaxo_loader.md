@@ -1,4 +1,7 @@
 # REDAXO Loader
+
+> Achtung! Ist seit der neuen REDAXO.org Seite 2017 nicht mehr in dieser Form möglich
+
 Skript zum Download und Entpacken der aktuellen REDAXO-Version.
 (Basiert auf einem Gist von Jan Kristinus)
 
