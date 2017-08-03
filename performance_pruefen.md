@@ -17,8 +17,10 @@ public static function sendPage($content, $lastModified = null)
 ```php
 public static function sendPage($content, $lastModified = null)
 {
-    // header('X-COUNT: '.array_sum(rex_sql::$count));
-    // ob_start();dump(rex_sql::$count);$content = ob_get_clean().$content;
+    header('X-COUNT: '.array_sum(rex_sql::$count));
+    if (rex::isDebugMode()) {
+        ob_start();dump(rex_sql::$count);$content = ob_get_clean().$content;
+    }
 
 ```
 
@@ -89,15 +91,11 @@ try {
     $this->rows = $this->stmt->rowCount();
 ```
 
-### 3. Anzahl der Queries immer ausgeben
+### 3. Anzahl der Queries immer einsehen
 
-In der Datei `/redaxo/src/core/lib/response.php` den Kommentar vor der eingefügten Zeile `// header('X-COUNT: '.array_sum(rex_sql::$count));` löschen
-
-Im Response-Header steht unter X-Count dann die Anzahl aller Queries.
+Im Response-Header steht unter X-Count die Anzahl aller Queries.
 
 
 ### 4. Welche Queries wurden aufgerufen
 
-In der Datei `/redaxo/src/core/lib/response.php` den Kommentar vor der eingefügten Zeile `// ob_start();dump(rex_sql::$count);$content = ob_get_clean().$content;` löschen
-
-Auf der Website erscheint ein Dump mit der Anzahl der Queries und deren Aufrufe.
+Schaltet man im Backend unter System den Debug Modus an, erscheint auf der Website ein Dump mit der Anzahl der Queries und deren Aufrufe.
