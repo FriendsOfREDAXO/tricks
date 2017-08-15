@@ -1,10 +1,11 @@
 # URL_Schemes für YRewrite
+YRewrite kann durch Schemes erweitert werden. Nachfolgend listen wir hier ein paar Beispiele. 
 
 ## URL-Replacer
 
-Ersetzt die URLs leerer Elternkategorien mit den URLs der nächsten inhaltversehenen Kindkategorien
-der Elternkategorie hinterlegt sind.
-Basiert auf: https://gist.github.com/gharlan/a70704b1c309cb1281c1
+Ersetzt URLs leerer Elternkategorien mit den URLs der nächsten mit inhalt versehenen (online-)Kindkategorie.
+
+> Basiert auf: https://gist.github.com/gharlan/a70704b1c309cb1281c1
 
 **Installation**
 - Als Datei im Projekt-AddOn-Lib-Ordner ablegen. 
