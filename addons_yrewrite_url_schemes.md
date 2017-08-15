@@ -2,9 +2,12 @@
 
 ## URL-Replacer
 
-Ersetzt die URLs leerer Elternkategorien mit den URLs der nächsten inhaltversehenen Kindkategorien.*****
+Ersetzt die URLs leerer Elternkategorien mit den URLs der nächsten inhaltversehenen Kindkategorien.
+Ursprung: SLACK-Beitrag von Gregor Harlan. 
 
-***Installation**
+**Installation**
+Alst Datei im Projekt-AddOn-Lib-Ordner ablegen. 
+Dateiname: rex_yrewrite_scheme_gh.php
 
       <?php
 
