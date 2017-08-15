@@ -2,8 +2,8 @@
 
 ## URL-Replacer
 
-Ersetzt die URLs leerer Elternkategorien mit den URLs der nächsten inhaltversehenen Kindkategorien.
-Ursprung: SLACK-Beitrag von Gregor Harlan. 
+Ersetzt die URLs leerer Elternkategorien mit den URLs der nächsten inhaltversehenen Kindkategorien, sofern keine Inhalte im Startartikel der Elternkategorie hinterlegt sind.
+Basiert auf: https://gist.github.com/gharlan/a70704b1c309cb1281c1
 
 **Installation**
 Als Datei im Projekt-AddOn-Lib-Ordner ablegen. 
