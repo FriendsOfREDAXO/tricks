@@ -1,4 +1,4 @@
-# URL_Schemes für yrewrite
+# URL_Schemes für YRewrite
 
 ## URL-Replacer
 
