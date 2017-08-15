@@ -49,3 +49,8 @@ Ersetzt URLs leerer Elternkategorien mit den URLs der nächsten mit inhalt verse
               return false;
           }
       }
+
+
+## Addons, die eigene Schemes mitbringen:
+
+- yrewrite_one-level-no-suffix: https://github.com/FriendsOfREDAXO/yrewrite_one-level-no-suffix
