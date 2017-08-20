@@ -9,16 +9,16 @@ YRewrite kann durch Schemes erweitert werden.
 Nachfolgend listen wir hier ein paar Beispiele. 
 
 ## Endung auf .html setzen
-class rex_yrewrite_scheme_mysuffix extends rex_yrewrite_scheme
-  {
-      protected $suffix = '.html';
-  }
+      class rex_yrewrite_scheme_mysuffix extends rex_yrewrite_scheme
+        {
+            protected $suffix = '.html';
+        }
   
 ## Trailing Slash entfernen
-class rex_yrewrite_scheme_mysuffix extends rex_yrewrite_scheme
-  {
-      protected $suffix = Null;
-  }  
+      class rex_yrewrite_scheme_mysuffix extends rex_yrewrite_scheme
+        {
+            protected $suffix = Null;
+        }  
   
 
 ## URL-Replacer
