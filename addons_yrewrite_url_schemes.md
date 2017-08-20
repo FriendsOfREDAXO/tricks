@@ -1,16 +1,31 @@
 # URL_Schemes für YRewrite
-YRewrite kann durch Schemes erweitert werden. Nachfolgend listen wir hier ein paar Beispiele. 
+YRewrite kann durch Schemes erweitert werden. 
+
+**Installation**
+- Als Datei im Projekt-AddOn-Lib-Ordner ablegen. 
+- Dateiname: eigene_rewrite_class.php (
+- In die boot.php des project-AddOns: `rex_yrewrite::setScheme(new eigene_rewrite_class());` einsetzen
+
+Nachfolgend listen wir hier ein paar Beispiele. 
+
+## Endung auf .html setzen
+class rex_yrewrite_scheme_mysuffix extends rex_yrewrite_scheme
+  {
+      protected $suffix = '.html';
+  }
+  
+## Trailing Slash entfernen
+class rex_yrewrite_scheme_mysuffix extends rex_yrewrite_scheme
+  {
+      protected $suffix = Null;
+  }  
+  
 
 ## URL-Replacer
 
 Ersetzt URLs leerer Elternkategorien mit den URLs der nächsten mit inhalt versehenen (online-)Kindkategorie.
 
 > Basiert auf: https://gist.github.com/gharlan/a70704b1c309cb1281c1
-
-**Installation**
-- Als Datei im Projekt-AddOn-Lib-Ordner ablegen. 
-- Dateiname: rex_yrewrite_scheme_gh.php
-- In die boot.php des project-AddOns: `rex_yrewrite::setScheme(new rex_yrewrite_scheme_gh());` einsetzen
 
 
 ### Weiterleitung egal ob Inhalt in Startartikel der Elternkategorie
@@ -50,7 +65,7 @@ Ersetzt URLs leerer Elternkategorien mit den URLs der nächsten mit inhalt verse
           }
       }
 
-
 ## Addons, die eigene Schemes mitbringen:
 
 - yrewrite_one-level-no-suffix: https://github.com/FriendsOfREDAXO/yrewrite_one-level-no-suffix
+- xcore: https://github.com/RexDude/xcore
