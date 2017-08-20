@@ -3,7 +3,7 @@ YRewrite kann durch Schemes erweitert werden.
 
 **Installation**
 - Als Datei im Projekt-AddOn-Lib-Ordner ablegen. 
-- Dateiname: eigene_rewrite_class.php (
+- Dateiname: eigene_rewrite_class.php
 - In die boot.php des project-AddOns: `rex_yrewrite::setScheme(new eigene_rewrite_class());` einsetzen
 
 Nachfolgend listen wir hier ein paar Beispiele. 
