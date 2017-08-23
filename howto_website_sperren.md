@@ -9,6 +9,24 @@ Wenn sich eine Redaxo-Website in der Entwicklung befindet, kann es sein, dass de
 Die aktuell einfachste Möglichkeit einen Wartungsmodus zu aktivieren. Ist der User nicht im Backend angemeldet, kann auf eine beliebige URL umgeleitet werden. Das Addon Out5 findet man im Installer. 
 https://github.com/FriendsOfREDAXO/out5
 
+## via XOutputFilter
+
+im Frontend-Plugin folgende Einstellungen setzen:
+
+Name: Wartungsmodus
+aktiviert: ja
+Ersetzungstyp: PHP-Code
+Marker: `<html>`
+Ersetzung:
+```
+<?php
+$session = rex_backend_login::hasSession();
+if (!$session) {
+    echo 'Wartungsmodus';
+    exit;
+}
+?>
+```
 
 ## via .htpasswd
 
