@@ -14,9 +14,13 @@ https://github.com/FriendsOfREDAXO/out5
 im Frontend-Plugin folgende Einstellungen setzen:
 
 Name: Wartungsmodus
+
 aktiviert: ja
+
 Ersetzungstyp: PHP-Code
+
 Marker: `<html>`
+
 Ersetzung:
 ```
 <?php
