@@ -52,7 +52,7 @@ URL an das Ziel "index.php" wird das gewünscht API ausgewählt. Zusätzliche Pa
 
 **Das kann so aussehen:**
 
-    index.php?rex_api_call=xyz&id=17
+    index.php?rex-api-call=xyz&id=17
 
 Im Beispiel wird das API **xyz** aufgerufen und zusätzlich der Parameter **id=17** mitgegeben.
 
@@ -522,17 +522,17 @@ gleichwertig. Oder doch nicht?
 
 Da der Browser fehlende Angaben, hier die Zieladresse, aus der aktuelle URL ergänzt, wird tatsächlich die Abruf-URL für die zweite Variante lauten:
 
-    index.php?article_id=16&clang=1&rex_api_call=xyz&article_id=5
+    index.php?article_id=16&clang=1&rex-api-call=xyz&article_id=5
 
 Das kann auch zu Problemen führen. In der ersten, vorzuziehenden Variante wäre die URL korrekter:
 
-    index.php?rex_api_call=xyz&article_id=5
+    index.php?rex-api-call=xyz&article_id=5
 
 Aus Backend-Seiten führt die erste Variante dazu, dass noch vor der Ausführung von **rex\_api\_xyz->execute()** auf die Default-Seite **page=structure** umgeleitet wird. Wählt man die zweite Variante, unterbleibt die Umleitung und das API wird ausgeführt.
 
 Der Grund ist wieder die automatische URL-Ergänzung, über die im zweiten Fsll eine gültige Seitenangabe in die URL gelangt.
 
-    index.php?page=irgendwas&rex_api_call=xyz&article_id=5
+    index.php?page=irgendwas&rex-api-call=xyz&article_id=5
 
 Im ersten Fall fehlt die page-Angabe und der Backend-Prozesser läuft in die Weiterleitung auf den Startartikel (**page=structure**). Da die page-Überprüfung vor der API-Ausführung liegt, kommt das Programm nie beim API an.
 
