@@ -46,4 +46,5 @@ Sie kann auch allgemein dazu verwendet werden, einen unbekannten Link zu identif
     }
     
 // Anwendungsbeispiel: 
+    
     echo getcustomLink($url='10',$text='Hallo ich bin ein Link');
