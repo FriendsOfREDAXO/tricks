@@ -35,6 +35,7 @@
     - YRewrite
         - [YRewrite NGINX-Konfiguration](addons_yrewrite_nginx.md) <sup><b>abgeschlossen</b></sup> <sup><i>hirbod</i></sup>
         - [YRewrite Schemes](addons_yrewrite_url_schemes.md) <sup><b>Mithilfe erwünscht</b></sup> <sup><i>skerbis</i></sup>
+        - [YRewrite Kategorie = /media](addons_yrewrite_cat_ismedia.md) <sup>in Bearbeitung</b></sup> <sup><i>skerbis</i></sup>
 - HowTo
     - [Kategorie einer REDAXO Instanz (Quelle) in eine andere Instanz (Ziel) kopieren](howto_kategorie_in_eine_andere_redaxo_instanz_kopieren.md) <sup><b>unvollständig</b></sup> <sup><i>tbaddade</i></sup>
     - [Website sperren / Wartungsarbeiten](howto_website_sperren.md) <sup><b>abgeschlossen</b></sup> <sup><i>alexplusde / skerbis</i></sup>
