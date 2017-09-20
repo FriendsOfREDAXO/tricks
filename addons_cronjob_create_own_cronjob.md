@@ -147,7 +147,7 @@ class rex_cronjob_archive_status extends rex_cronjob
 
             $this->setMessage('Updated articles: ' . $rows );
             if ($this->getParam('error-mail') == '|1|') {
-                mail(rex::getErrorEmail(), "REDAXO CMS CRONJOB - Artikel-Archiv-Status - ndbde", "Der REDAXO CMS CRONJOB 'Artikel-Archiv-Status' wurde ausgeführt! (" . rex::getServer() . ")");
+                mail(rex::getErrorEmail(), "REDAXO CMS CRONJOB - Artikel-Archiv-Status", "Der REDAXO CMS CRONJOB 'Artikel-Archiv-Status' wurde ausgeführt! (" . rex::getServer() . ")");
             }
             return true;
         } else {
