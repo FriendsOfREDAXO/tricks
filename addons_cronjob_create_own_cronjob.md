@@ -27,8 +27,8 @@ Nun könnt Ihr ein paar Test-Artikel in der Kategorie "News" anlegen und den jew
 
 3. Datei cronjob.php anlegen und im CMS Dateisystem ablegen
 
-In diesem Beispiel wird dazu das AddOn:project verwendet. In dem `project`-Addon (redaxo/src/addons/project/) eine Datei (cronjob.php) in das Unter-Verzeichnis /lib/ erstellen bzw. hochladen.
-Info: Die Datei muss nicht zwingend cronjob.php lauten. Wird aber i.R. so auch bei anderen Addons verwendet
+In diesem Beispiel wird das `project`-Addon verwendet. In dem `project`-Addon (redaxo/src/addons/project/) eine Datei (cronjob.php) in das Unter-Verzeichnis /lib/ erstellen bzw. hochladen.
+Info: Die Datei muss nicht zwingend cronjob.php lauten. Wird aber i.R. so auch bei anderen Addons verwendet.
 
 
 4. Im `project`-Addon in der /lib/`cronjob.php` wird der Code für den eigenen CRONJOB eingefügt:
@@ -39,11 +39,13 @@ class rex_cronjob_archive_status extends rex_cronjob
 {
 }
 ```
+Dann werden die benötigten Methoden der rex_cronjob eingefügt:
 
 folgende Methoden werden benötigt
 - execute() Das eigentliche Script, was ausgeführt werden soll
 - getTypeName() = Bezeichnung des CronJobScripts in der Auswahl des AddOns:Cronjob
 - getParamFields() = Hier können weitere Felder dem CronJob im backend hinzugefügt werden
+
 In diesem Beispiel werden 3 ParamFields an den CRONjob hinzugefügt:
 -- LINK-Auswahl "News Artikel/Kategorie"
 -- LINK-Auswahl "News-Archiv Artikel/Kategorie"
