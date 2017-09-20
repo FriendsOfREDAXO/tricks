@@ -202,6 +202,7 @@ rex_cronjob_manager::registerType('rex_cronjob_archive_status');
 
 
 **Neuen CronJob im AddOn anlegen**
+
 Nun sollte im AddOn:CRONJOB (im redaxo Backend -> neue Cronjob erstellen (+) ) in der Auswahl der gerade erstellte CRONJOB "Artikel-Archiv-Status stehen.
 
 
