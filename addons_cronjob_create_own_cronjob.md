@@ -39,6 +39,7 @@ class rex_cronjob_archive_status extends rex_cronjob
 {
 }
 ```
+
 folgende Methoden werden benötigt
 - execute() Das eigentliche Script, was ausgeführt werden soll
 - getTypeName() = Bezeichnung des CronJobScripts in der Auswahl des AddOns:Cronjob
@@ -64,7 +65,6 @@ Info: Diversen Typen (type) können dafür verwendet werden:
 - radio
 
 Beispiel type:`text`
-
 ```
 'label' => 'Die URL',
 'name' => 'url',
@@ -83,10 +83,113 @@ Beispiel type:`select`
     3 => rex_i18n::msg('search_it_generate_articles')],
 'default' => '1',
 'notice' => rex_i18n::msg('search_it_generate_actions_title')
-
+```
 
 
 5. Der komplette Code der cronjob.php (redaxo/src/addons/project/lib/cronjob.php)
+```
+<?php
+class rex_cronjob_archive_status extends rex_cronjob
+{
+    public function execute()
+    {
+        $metaInfoField_Select = 'art_archive_period';
+
+        $sql = rex_sql::factory();
+        $sql->setQuery('
+            SELECT  name
+            FROM    ' . rex::getTablePrefix() . 'metainfo_field
+            WHERE   name="'.$metaInfoField_Select.'"
+        ');
+        $rows = $sql->getRows();
+        if ($rows < 1) {
+            if ($rows == 0) {
+                $msg = 'Metainfo field "' . $metaInfoField_Select . '" not found';
+            }
+            $this->setMessage($msg);
+            return false;
+        }
+
+        $newsArticleCategoryId = $this->getParam('newsid');
+        $newsArchiveCategoryId = $this->getParam('newsarchiveid');
+
+        $time = time();
+        $sql->setQuery('
+            SELECT  id, clang_id, createdate, parent_id, '.$metaInfoField_Select.'
+            FROM    ' . rex::getTablePrefix() . 'article
+            WHERE
+                parent_id = '.$newsArticleCategoryId .'
+            AND '.$metaInfoField_Select.' != ""
+            AND status = 1');
+
+        $rows = $sql->getRows();
+
+        if($rows > 0) {
+
+          for ($i = 0; $i < $rows; ++$i) {
+
+                if ($sql->getValue($metaInfoField_Select) == 0) {
+                    # mach nichts;
+                } else {
+
+                    $createDate = strtotime($sql->getValue('createdate'));
+                    $archiveTime = $createDate + ($sql->getValue($metaInfoField_Select) * 24 * 60 * 60);
+
+                    if ($time >= $archiveTime) {
+                        rex_article_service::moveArticle($sql->getValue('id'), $sql->getValue('parent_id'),
+                            $newsArchiveCategoryId);
+                    }
+                }
+                $sql->next();
+            }
+
+            $this->setMessage('Updated articles: ' . $rows );
+            if ($this->getParam('error-mail') == '|1|') {
+                mail(rex::getErrorEmail(), "REDAXO CMS CRONJOB - Artikel-Archiv-Status - ndbde", "Der REDAXO CMS CRONJOB 'Artikel-Archiv-Status' wurde ausgeführt! (" . rex::getServer() . ")");
+            }
+            return true;
+        } else {
+            $this->setMessage("Keine Artikel für das Archiv gefunden!");
+            return true;
+        }
+    }
+
+    public function getTypeName()
+    {
+        return 'Artikel-Archiv-Status';
+    }
+
+
+    public function getParamFields()
+    {
+        $fields = [
+            [
+                'label' => 'News Kategorie',
+                'name' => 'newsid',
+                'type' => 'link',
+                'notice' => 'Artikel/Kategroie-ID zu den News mit dem MetaInfoFeld: art_archive_period',
+            ],
+            [
+                'label' => 'Archiv Kategorie',
+                'name' => 'newsarchiveid',
+                'type' => 'link',
+                'notice' => 'Artikel/Kategroie-ID zum Archiv mit dem MetaInfoFeld: art_archive_period',
+            ],
+            [
+                'name' => 'error-mail',
+                'type' => 'checkbox',
+                'options' => [1 => 'E-Mail Benachrichtgung erhalten'],
+                'notice' => 'Die Nachricht wird an die im <a href="index.php?page=system/settings">System</a> hinterlegte Admin E-Mail Adresse gesendet ('.rex::getErrorEmail().')'
+            ]
+        ];
+
+        return $fields;
+    }
+
+
+}
+?>
+```
 
 6. Im `project`-Addon in der `boot.php` noch folgenden Code einfügen um das Script noch am AddOn-CRONJOB zu registrieren
 ```
@@ -95,7 +198,9 @@ rex_cronjob_manager::registerType('rex_cronjob_archive_status');
 }
 ```
 
+
 **Neuen CronJob im AddOn anlegen**
 Nun sollte im AddOn:CRONJOB (im redaxo Backend -> neue Cronjob erstellen (+) ) in der Auswahl der gerade erstellte CRONJOB "Artikel-Archiv-Status stehen.
+
 
 **Fertig**
