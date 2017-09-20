@@ -23,7 +23,7 @@ Was wird benötigt:
   In allen Kategorien verfügbar: Neine (abgehakt)
   Nur in folgenden Kategorien verfügbar: News, News-Archiv
 ```
-Nun könnt Ihr ein paar Test-Artikel in der Kategorie "News" anlegen und den jeweiligen Zeitraum unterschiedlich einstellen (rein zum testen)
+Nun könnt Ihr ein paar Test-Artikel in der Kategorie "News" anlegen und den jeweiligen Zeitraum in der gerade erstellten MetaInfo-Selectbox, unterschiedlich einstellen (rein zum testen)
 
 3. Datei cronjob.php anlegen und im CMS Dateisystem ablegen
 
