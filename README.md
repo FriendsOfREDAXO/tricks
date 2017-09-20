@@ -18,7 +18,7 @@
 
 - AddOns
     - Cronjobs
-        - [Eigenen Redaxo Cronjob erstellen]( tricks/addons_cronjob_create_own_cronjob.md ) <sup><b>überprüfen</b></sup> <sup><i>skerbis</i></sup>
+        - [Eigenen internen Redaxo CMS Cronjob erstellen](addons_cronjob_create_own_cronjob.md) <sup><b>überprüfen</b></sup> <sup><i>skerbis</i></sup>
     - Project
         - [Paginierungsklasse einbinden mit Project-Addon](addons_project_class_pagination.md) <sup><b>überprüfen</b></sup> <sup><i>alexplusde</i></sup>
         - [Eigene CSS/JS Dateien im Backend hinzufügen](addons_project_add_own_js_css_files.md) <sup><b>abgeschlosssen</b></sup> <sup><i>darwin</i></sup>
