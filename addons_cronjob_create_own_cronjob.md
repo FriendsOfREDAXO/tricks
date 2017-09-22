@@ -146,7 +146,7 @@ class rex_cronjob_archive_status extends rex_cronjob
             }
 
             $this->setMessage('Updated articles: ' . $rows );
-            if ($this->getParam('error-mail') == '|1|') {
+            if ($this->getParam('sendmail') == '|1|') {
                 mail(rex::getErrorEmail(), "REDAXO CMS CRONJOB - Artikel-Archiv-Status", "Der REDAXO CMS CRONJOB 'Artikel-Archiv-Status' wurde ausgeführt! (" . rex::getServer() . ")");
             }
             return true;
@@ -178,7 +178,7 @@ class rex_cronjob_archive_status extends rex_cronjob
                 'notice' => 'Artikel/Kategroie-ID zum Archiv mit dem MetaInfoFeld: art_archive_period',
             ],
             [
-                'name' => 'error-mail',
+                'name' => 'sendmail',
                 'type' => 'checkbox',
                 'options' => [1 => 'E-Mail Benachrichtgung erhalten'],
                 'notice' => 'Die Nachricht wird an die im <a href="index.php?page=system/settings">System</a> hinterlegte Admin E-Mail Adresse gesendet ('.rex::getErrorEmail().')'
