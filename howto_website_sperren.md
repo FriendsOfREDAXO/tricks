@@ -5,8 +5,6 @@ Wenn sich eine Redaxo-Website in der Entwicklung befindet, kann es sein, dass de
 > Tipp: Für die Entwicklungs-Website nutzen viele Redaxo-Entwickler eine Subdomain, z. B. `neu.domain.de`, `dev.domain.de`, `beta.domain.de`. 
 
 ## via Maintenance-AddOn
-
-Die aktuell einfachste Möglichkeit einen Wartungsmodus zu aktivieren. Ist der User nicht im Backend angemeldet, kann auf eine beliebige URL umgeleitet werden. Zusätzlich kann eine IP angegeben werden, die immer Zugriff erhält.
 https://github.com/FriendsOfREDAXO/maintenance
 
 ## via XOutputFilter
