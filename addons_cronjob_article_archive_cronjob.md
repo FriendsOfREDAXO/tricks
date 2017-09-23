@@ -1,4 +1,4 @@
-# Eigenen Redaxo Cronjob erstellen
+# Artikel-Autoarchivierung mittels Cronjob
 
 **Ziel: Archivieren von Artikeln mit dem ADDON:CRONJOB (nach vorgegeben Zeitraum)** 
 
