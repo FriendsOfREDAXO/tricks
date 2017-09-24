@@ -18,7 +18,7 @@
 
 - AddOns
     - Cronjobs
-        - [Auto-Artikelarchivierung mittels Cronjob](addons_cronjob_article_archive_cronjob.md) <sup><b>überprüfen</b></sup> <sup><i>skerbis</i></sup>
+        - [Auto-Artikelarchivierung mittels Cronjob](addons_cronjob_article_archive_cronjob.md) <sup><b>abgeschlossen</b></sup> <sup><i>darwin26</i></sup>
     - Project
         - [Paginierungsklasse einbinden mit Project-Addon](addons_project_class_pagination.md) <sup><b>überprüfen</b></sup> <sup><i>alexplusde</i></sup>
         - [Eigene CSS/JS Dateien im Backend hinzufügen](addons_project_add_own_js_css_files.md) <sup><b>abgeschlosssen</b></sup> <sup><i>darwin</i></sup>
