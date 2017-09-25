@@ -64,6 +64,45 @@ Ersetzt URLs leerer Elternkategorien mit den URLs der nächsten mit inhalt verse
               return false;
           }
       }
+      
+## URL manipulieren, hier mit dem AddOn Sprog
+
+So kann als Kategoriename ein Platzhalter wie {{contact}} verwendet werden und durch die in Sprog hinterlegten Sprachvarianten ersetzt werden. 
+
+One Level, Kategoriename-Ersetzung durch Sprog.
+
+            <?php
+                class translate_url_with_sprog extends rex_yrewrite_scheme
+                {
+
+                    public function appendCategory($path, rex_category $cat, rex_yrewrite_domain $domain)
+                    {
+                        return $path;
+                    }
+
+                    public function appendArticle($path, rex_article $art, rex_yrewrite_domain $domain)
+                    {
+                        return $path . '/' . $this->normalize(sprogdown($art->getName(), $art->getClang()), $art->getClang()) . '/';
+                    }
+                }
+
+Multilevel, Kategoriename-Ersetzung durch Sprog.
+
+            <?php
+                class translate_url_with_sprog extends rex_yrewrite_scheme
+                {
+                    public function appendCategory($path, rex_category $cat, rex_yrewrite_domain $domain)
+                    {
+                        return $path . '/' . $this->normalize(sprogdown($cat->getName(), $cat->getClang()), $cat->getClang());
+                    }
+                }
+
+
+
+
+
+
+
 
 ## Addons, die eigene Schemes mitbringen:
 
