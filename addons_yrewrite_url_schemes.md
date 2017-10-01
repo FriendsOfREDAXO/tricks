@@ -1,4 +1,5 @@
-# URL_Schemes für YRewrite
+# URL-Schemes für YRewrite
+
 YRewrite kann durch Schemes erweitert werden. 
 
 **Installation**
