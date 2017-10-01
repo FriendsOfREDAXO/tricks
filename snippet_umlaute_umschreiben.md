@@ -1,4 +1,4 @@
-# Umlaute (Ää,Üü,Öö,ß) mit R5 Boardmittel umschreiben
+# String ( z.B. mit Ää,Üü,Öö,ß) mit R5 Boardmittel url-geeignet umschreiben
 
 ```php 
 <?php
