@@ -3,6 +3,8 @@
 > Wer mitmachen möchte, beachte bitte bei der Einpflege die [Vorlage](_vorlage.md).
 > Die github-page ist hier: https://friendsofredaxo.github.io/tricks/
 
+- Website-Entwicklung
+    - [Nützliches und Helferlein für die Website-Entwicklung](developer_resources.md) <sup><b>in Bearbeitung</b></sup> <sup><i>skerbis</i></sup>
 - Installation
     - [REDAXO Loader - REDAXO laden und entpacken](install_redaxo_loader.md) <sup><b>Veraltet</b></sup> <sup><i>skerbis</i></sup>
 
