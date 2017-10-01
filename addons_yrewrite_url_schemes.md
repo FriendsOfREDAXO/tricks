@@ -106,5 +106,5 @@ Multilevel, Kategoriename-Ersetzung durch Sprog.
 
 ## Addons, die eigene Schemes mitbringen:
 
-- yrewrite_one-level-no-suffix: https://github.com/FriendsOfREDAXO/yrewrite_one-level-no-suffix
+- yrewrite_one_level: https://github.com/FriendsOfREDAXO/yrewrite_one_level
 - xcore: https://github.com/RexDude/xcore
