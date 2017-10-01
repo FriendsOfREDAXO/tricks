@@ -20,11 +20,11 @@ Nachfolgend listen wir hier nützliche Informationen, AddOns und Links, die die 
 
 Das Cheatsheet-AddOn scant die REDAXO-Installation nach Extenstion-Points im Core und den installierten AddOns und listet deren Position im Quellcode auf. 
 
-**Installation per aus Github-Repo:** https://github.com/tbaddade/redaxo_cheatsheet
+**Installation aus Github-Repo:** https://github.com/tbaddade/redaxo_cheatsheet
 
 <a name="ytraduko"></a>
 ### YTraduko - Übersetzungshelfer 
 
 Ytraduko hilft bei der Übersetzung der eigenen AddOns. Anstelle selbst für die weiteren Sprachen neue .lang - Dateien anzulegen, erledigt dieses AddOn es selbst. Die Übersetzungen können übersichtlich und schnell eingepflegt werden. 
 
-**Installation per aus Github-Repo:** https://github.com/yakamara/ytraduko
+**Installation aus Github-Repo:** https://github.com/yakamara/ytraduko
