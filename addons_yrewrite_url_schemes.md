@@ -28,7 +28,7 @@ class rex_yrewrite_scheme_mysuffix extends rex_yrewrite_scheme
 ## Trailing Slash entfernen
 
 ```php
-<php
+<?php
 class rex_yrewrite_scheme_mysuffix extends rex_yrewrite_scheme
 {
     protected $suffix = Null;
