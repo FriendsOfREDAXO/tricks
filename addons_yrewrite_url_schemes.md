@@ -15,16 +15,15 @@ Nachfolgend listen wir hier ein paar Beispiele.
 
 ## Endung auf .html setzen
       class rex_yrewrite_scheme_mysuffix extends rex_yrewrite_scheme
-        {
-            protected $suffix = '.html';
-        }
-  
+      {
+          protected $suffix = '.html';
+      }
+
 ## Trailing Slash entfernen
       class rex_yrewrite_scheme_mysuffix extends rex_yrewrite_scheme
-        {
-            protected $suffix = Null;
-        }  
-  
+      {
+          protected $suffix = Null;
+      }
 
 ## URL-Replacer
 
@@ -34,8 +33,8 @@ Ersetzt URLs leerer Elternkategorien mit den URLs der nächsten mit inhalt verse
 
 
 ### Weiterleitung egal ob Inhalt in Startartikel der Elternkategorie
-      <?php
 
+      <?php
       class rex_yrewrite_scheme_gh extends rex_yrewrite_scheme
       {
           protected $suffix = '/';
@@ -54,7 +53,6 @@ Ersetzt URLs leerer Elternkategorien mit den URLs der nächsten mit inhalt verse
 ### Weiterleitung nur wenn kein Inhalt im Startartikel der Elternkategorie
 
       <?php
-
       class rex_yrewrite_scheme_gh extends rex_yrewrite_scheme
       {
           protected $suffix = '/';
@@ -66,7 +64,7 @@ Ersetzt URLs leerer Elternkategorien mit den URLs der nächsten mit inhalt verse
                   return $cats[0];
               }
 
-              return false;
+          return false;
           }
       }
       
@@ -76,38 +74,31 @@ So kann als Kategoriename ein Platzhalter wie {{contact}} verwendet werden und d
 
 One Level, Kategoriename-Ersetzung durch Sprog.
 
-            <?php
-                class translate_url_with_sprog extends rex_yrewrite_scheme
-                {
+      <?php
+      class translate_url_with_sprog extends rex_yrewrite_scheme
+      {
 
-                    public function appendCategory($path, rex_category $cat, rex_yrewrite_domain $domain)
-                    {
-                        return $path;
-                    }
+          public function appendCategory($path, rex_category $cat, rex_yrewrite_domain $domain)
+          {
+              return $path;
+          }
 
-                    public function appendArticle($path, rex_article $art, rex_yrewrite_domain $domain)
-                    {
-                        return $path . '/' . $this->normalize(sprogdown($art->getName(), $art->getClang()), $art->getClang()) . '/';
-                    }
-                }
+          public function appendArticle($path, rex_article $art, rex_yrewrite_domain $domain)
+          {
+              return $path . '/' . $this->normalize(sprogdown($art->getName(), $art->getClang()), $art->getClang()) . '/';
+          }
+      }
 
 Multilevel, Kategoriename-Ersetzung durch Sprog.
 
-            <?php
-                class translate_url_with_sprog extends rex_yrewrite_scheme
-                {
-                    public function appendCategory($path, rex_category $cat, rex_yrewrite_domain $domain)
-                    {
-                        return $path . '/' . $this->normalize(sprogdown($cat->getName(), $cat->getClang()), $cat->getClang());
-                    }
-                }
-
-
-
-
-
-
-
+      <?php
+      class translate_url_with_sprog extends rex_yrewrite_scheme
+      {
+          public function appendCategory($path, rex_category $cat, rex_yrewrite_domain $domain)
+          {
+              return $path . '/' . $this->normalize(sprogdown($cat->getName(), $cat->getClang()), $cat->getClang());
+          }
+      }
 
 ## Addons, die eigene Schemes mitbringen:
 
