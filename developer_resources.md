@@ -2,7 +2,7 @@
 
 - [Beschreibung](#beschreibung)
 - [Nützliche AddOns](#addons)
-  - [Cheatsheat für Extenstionpoints](#cheatsheet)
+  - [Cheatsheat für Extensionpoints](#cheatsheet)
   - [YTraduko - Übersetzungshelfer](#ytraduko)
 - [Software und Workflows](#)
 - [Nützliche Links](#)
@@ -18,7 +18,7 @@ Nachfolgend listen wir hier nützliche Informationen, AddOns und Links, die die 
 <a name="addons"></a>
 ### Cheatsheet
 
-Das Cheatsheet-AddOn scant die REDAXO-Installation nach Extenstion-Points im Core und den installierten AddOns und listet deren Position im Quellcode auf. 
+Das Cheatsheet-AddOn scant die REDAXO-Installation nach Extension-Points im Core und den installierten AddOns und listet deren Position im Quellcode auf. 
 
 **Installation aus Github-Repo:** https://github.com/tbaddade/redaxo_cheatsheet
 
