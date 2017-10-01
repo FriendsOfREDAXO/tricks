@@ -185,7 +185,7 @@ Serverseitig ist es wesentlich einfacher, in mehrsprachigen Applikationen den je
             {
                 echo 'HTTP/1.1 500 Internal Server Error';
                 $result = [ 'errorcode' => 1, 'message' => rex_i18n::msg('my_api_xyz_no_id',$article_id ) ];
-                die( json_encode( $result ) );
+                exit( json_encode( $result ) );
             }
 
             // Inhalt zusammenbauen
@@ -217,7 +217,7 @@ Fehlermeldung als JSON und das Ergebnis als Text übermittelt
                 header( 'HTTP/1.1 500 Internal Server Error' );
                 header( 'Content-Type: application/json; charset=UTF-8' );
                 $result = [ 'errorcode' => 1, 'message' => 'Parameter "id" is missing' ];
-                die( json_encode( $result ) );
+                exit( json_encode( $result ) );
             }
 
             // Inhalt zusammenbauen
@@ -251,7 +251,7 @@ API-Funktion die Rechte zu überprüfen und ggf. den Zugriff abzulehnen. (Das Be
                 header( 'HTTP/1.1 500 Internal Server Error' );
                 header( 'Content-Type: application/json; charset=UTF-8' );
                 $result = [ 'errorcode' => 1, 'message' => 'Parameter "id" is missing' ];
-                die( json_encode( $result ) );
+                exit( json_encode( $result ) );
             }
 
             // Zugriffsrechte prüfen
@@ -260,7 +260,7 @@ API-Funktion die Rechte zu überprüfen und ggf. den Zugriff abzulehnen. (Das Be
                 header( 'HTTP/1.1 500 Internal Server Error' );
                 header( 'Content-Type: application/json; charset=UTF-8' );
                 $result = [ 'errorcode' => 1, 'message' => 'No permisson on object "'.$id.'"' ];
-                die( json_encode( $result ) );
+                exit( json_encode( $result ) );
             }
 
             // Inhalt zusammenbauen
@@ -464,14 +464,14 @@ Im Kern ist die API-Funktion aus dem obigen Kapiteln bekannt. Die wesentliche Er
 
             // Artikel senden
             header('Content-Type: text/html; charset=UTF-8');
-            die( $article->getArticle() );
+            exit( $article->getArticle() );
         }
 
         public static function httpError( $result )
         {
             header( 'HTTP/1.1 500 Internal Server Error' );
             header('Content-Type: application/json; charset=UTF-8');
-            die( json_encode( $result ) );
+            exit( json_encode( $result ) );
         }
     }
     ?>
