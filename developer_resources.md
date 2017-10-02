@@ -43,6 +43,6 @@ Ytraduko hilft bei der Übersetzung der eigenen AddOns. Anstelle selbst für die
 
 Das ZIP-Install ermöglicht es gezippte AddOns ohne Umweg per FTP auf den Server zu laden und zu entpacken. Ganz praktisch vor allem, wenn es sich um AddOns handelt, die es nur als GitHub-Repo gibt und nicht im Installer zur Vefügung stehen.  
 
-**Installation per Installer:**
+**Installation per Installer**
 
 **GitHub-Repo:** https://github.com/FriendsOfREDAXO/zip_install
