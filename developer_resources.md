@@ -27,9 +27,11 @@ Das Cheatsheet-AddOn scant die REDAXO-Installation nach Extension-Points im Core
 <a name="developer"></a>
 ### Developer
 
-Module, Templates und Aktionen über das Dateisystem bearbeiten (mit beliebigen Editor). Developer kopiert und synct Module, Templates und Aktionen zwischen Dateisystem und Datenbank, so werden diese leicht für externe Editoren und per FTP zugänglich.
+Developer kopiert und synct Module, Templates und Aktionen zwischen Dateisystem und Datenbank, so werden diese leicht für externe Editoren und per FTP zugänglich.
 
-**Installation aus Github-Repo:** https://github.com/tbaddade/redaxo_cheatsheet
+**Installation per Installer**
+
+**Github-Repo:** https://github.com/tbaddade/developer
 
 <a name="ytraduko"></a>
 ### YTraduko - Übersetzungshelfer 
