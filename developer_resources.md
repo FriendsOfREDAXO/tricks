@@ -6,7 +6,9 @@
   - [Developer - Module, Templates und Aktionen syncen](#developer)
   - [YTraduko - Übersetzungshelfer](#ytraduko)
   - [ZIP-Install](#zip)
-- [Software und Workflows](#)
+- [Software und Workflows](#swork)
+  - [REDAXO mit Docker](#docker)
+  - [REDAXO mit Bimmelbam](#bimmelbam)
 - [Nützliche Links](#)
 
 <a name="beschreibung"></a>
@@ -31,7 +33,7 @@ Developer kopiert und synct Module, Templates und Aktionen zwischen Dateisystem 
 
 **Installation per Installer**
 
-**Github-Repo:** https://github.com/tbaddade/developer
+**Github-Repo:** https://github.com/FriendsOfREDAXO/developer
 
 <a name="ytraduko"></a>
 ### YTraduko - Übersetzungshelfer 
@@ -48,3 +50,23 @@ Das ZIP-Install ermöglicht es gezippte AddOns ohne Umweg per FTP auf den Server
 **Installation per Installer**
 
 **GitHub-Repo:** https://github.com/FriendsOfREDAXO/zip_install
+
+
+## Software und Workflows
+
+<a name="bimmelbam"></a>
+### REDAXO mit Gulp, Browserify, PostCSS und Bimmelbam
+
+Ein Frontend-Workflow auch für REDAXO
+
+Frontendentwicklung wird immer aufwändiger, SCSS wollen kompiliert werden, Bilder komprimiert werden, JS schöner werde, HTML-Prootypen wollen erzeugt werden. ***REDAXO mit Bimmelbam*** zeigt hierfür einen ausbaufähigen Weg. 
+
+**GitHub-Repo:** https://github.com/FriendsOfREDAXO/redaxo-mit-bimmelbam
+
+
+<a name="docker"></a>
+### REDAXO mit Docker
+
+***MAMP und XAMP waren gestern!*** REDAXO kann jetzt leicht systemunabhängig mit Docker verwendet werden. Die Vorteile: Möglichkeit der zentralen Installation und Bearbeitung, Versionierbarkeit, Ausbaufähigkeit. REDAXO-mit-Docker liefert alle Ressourcen und eine einsteigergeignete Anleitung. Und damit man nicht bei Null anfangen muss, kann eine Demo gleich automatisiert installiert werden. ***REDAXO mit Docker und Bimmelbam*** sind leicht miteinander kombinierbar. Weiter Infos in den jeweiligen REPOS. 
+
+**GitHub-Repo:** https://github.com/FriendsOfREDAXO/redaxo-mit-docker
