@@ -67,6 +67,6 @@ Frontendentwicklung wird immer aufwändiger, SCSS wollen kompiliert werden, Bild
 <a name="docker"></a>
 ### REDAXO mit Docker
 
-***MAMP und XAMPP waren gestern!*** REDAXO kann leicht, systemunabhängig mit Docker verwendet werden. Die Vorteile: Möglichkeit der zentralen Installation und Bearbeitung, Versionierbarkeit, Ausbaufähigkeit. REDAXO-mit-Docker liefert alle Ressourcen und eine einsteigergeignete Anleitung. Und damit man nicht bei Null anfangen muss, kann eine Demo gleich automatisiert installiert werden. ***REDAXO mit Docker und Bimmelbam*** sind übrigens leicht miteinander kombinierbar. Weiter Infos in den jeweiligen REPOS. 
+***MAMP und XAMPP waren gestern!*** REDAXO kann leicht, systemunabhängig mit Docker verwendet werden. Die Vorteile: Möglichkeit der zentralen Installation und Bearbeitung, Versionierbarkeit, Ausbaufähigkeit. REDAXO-mit-Docker liefert alle Ressourcen und eine einsteigergeignete Anleitung. Und damit man nicht bei Null anfangen muss, kann eine Demo gleich automatisiert installiert werden. ***REDAXO mit Docker und Bimmelbam*** sind übrigens leicht miteinander kombinierbar. Weitere Infos in den jeweiligen REPOS. 
 
 **GitHub-Repo:** https://github.com/FriendsOfREDAXO/redaxo-mit-docker
