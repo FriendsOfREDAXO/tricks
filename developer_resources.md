@@ -4,6 +4,8 @@
 - [Nützliche AddOns](#addons)
   - [Cheatsheat für Extensionpoints](#cheatsheet)
   - [Developer - Module, Templates und Aktionen syncen](#developer)
+  - [Project - Schnell mal eine PHP-Class einbinden](#project)
+  - [Theme - Verwalten aller Projektdateien für Frontend und Backend](#theme)
   - [YTraduko - Übersetzungshelfer](#ytraduko)
   - [ZIP-Install](#zip)
 - [Software und Workflows](#swork)
@@ -34,6 +36,24 @@ Developer kopiert und synct Module, Templates und Aktionen zwischen Dateisystem 
 **Installation per Installer**
 
 **Github-Repo:** https://github.com/FriendsOfREDAXO/developer
+
+<a name="project"></a>
+### Project
+
+In REDAXO bereits vorhanden, ist das Project-AddOn. Hier können einfach eigene PHP-Classes und Assets eingebunden werden, die nach einem Update nicht gelöscht werden. Man erspart sich so also die Entwicklung eines eigenen AddOns, wenn man das System einfach nur mit einer PHP-Class bereichern möchte. 
+
+**Installation in der AddOn-Verwaltungr**
+
+
+<a name="theme"></a>
+### Theme
+
+Das Theme-AddOn erleichtert die Verwaltung aller für das Projekt erforderlichen Prajektdateien in einem zusätzlichen /theme-Ordner im Web-Root. Theme erlaubt es auch das System oder die Website mit zusätzlichen CSS, JS und PHP-Classes zu breichern. Ist das Developer-AddOn installiert, synct es sich mit diesem um die Modul- und Template-Dateien an einer zugänglicheren Stelle bereitzustellen. 
+
+**Installation per Installer**
+
+**Github-Repo:** https://github.com/FriendsOfREDAXO/theme
+
 
 <a name="ytraduko"></a>
 ### YTraduko - Übersetzungshelfer 
