@@ -7,8 +7,8 @@
   - [YTraduko - Übersetzungshelfer](#ytraduko)
   - [ZIP-Install](#zip)
 - [Software und Workflows](#swork)
-  - [REDAXO mit Docker](#docker)
   - [REDAXO mit Bimmelbam](#bimmelbam)
+  - [REDAXO mit Docker](#docker)
 - [Nützliche Links](#)
 
 <a name="beschreibung"></a>
