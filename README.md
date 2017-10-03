@@ -5,8 +5,6 @@
 
 - Website-Entwicklung
     - [Nützliches und Helferlein für Developer](developer_resources.md) <sup><b>in Bearbeitung</b></sup> <sup><i>skerbis</i></sup>
-- Installation
-    - [REDAXO Loader - REDAXO laden und entpacken](install_redaxo_loader.md) <sup><b>Veraltet</b></sup> <sup><i>skerbis</i></sup>
 
 - Backend
     - [Styling von Select-Feldern](backend_sytling-select.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
@@ -50,6 +48,13 @@
     - [Checkbox in einem Modul verwenden](snippet_checkbox_in_out.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
     - [bloecks: Status im Modul setzen](snippet_bloecks_status_im_Modul_setzen.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
     - [function: Umlaute im String ersetzen](snippet_umlaute_umschreiben.md) <sup><b>abgeschlossen</b></sup> <sup><i>darwin</i></sup>
+
+## Muss aktualisiert werden. 
+- Installation
+    - [REDAXO Loader - REDAXO laden und entpacken](install_redaxo_loader.md) <sup><b>Veraltet</b></sup> <sup><i>skerbis</i></sup>
+
+
+
 
 ##### Labels vergeben
 
