@@ -120,5 +120,5 @@ class translate_url_with_sprog extends rex_yrewrite_scheme
 
 ## Addons, die eigene Schemes mitbringen:
 
-- yrewrite_one_level: https://github.com/FriendsOfREDAXO/yrewrite_one_level
+- YRewrite scheme: https://github.com/FriendsOfREDAXO/yrewrite_scheme
 - xcore: https://github.com/RexDude/xcore
