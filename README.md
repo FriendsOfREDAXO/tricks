@@ -3,8 +3,8 @@
 > Wer mitmachen möchte, beachte bitte bei der Einpflege die [Vorlage](_vorlage.md).
 > Die github-page ist hier: https://friendsofredaxo.github.io/tricks/
 
-- Website-Entwicklung
-    - [Nützliches und Helferlein für Developer](developer_resources.md) <sup><b>in Bearbeitung</b></sup> <sup><i>skerbis</i></sup>
+- Entwicklung
+    - [Nützliches und Helferlein für Developer](developer_resources.md) <sup><i>skerbis</i></sup>
 
 - Backend
     - [Styling von Select-Feldern](backend_sytling-select.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
