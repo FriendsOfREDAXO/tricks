@@ -1,6 +1,6 @@
 # Hilfsfunktionen
 
-In Redaxo sind zahlreiche Hilfsfunktionen enthalten, mit denen man in Modulen, Templates, Addons etc arbeiten kann. 
+In Redaxo sind zahlreiche Hilfsfunktionen enthalten, mit denen man in Modulen, Templates, Addons etc. arbeiten kann. 
 
 ## rex_markdown
 
@@ -15,3 +15,8 @@ Mit dieser Funktion können unhandliche Datenwerte in menschenlesbare Formate um
 
 'echo rex_formatter::bytes($media->getValue("size"))'
 
+## rex_addon und rex_config
+
+Wenn man weiß, dass ein Array in einem rex_addon- oder rex_config-Wert existiert, kann man dieses auch direkt abfragen, z.B. so in der Art:
+`rex_addon::get('addonname')->getProperty('arrayroot')['key']['subkey']`
+`rex_config::get('key')->getProperty('arrayroot')['key']['subkey']`
