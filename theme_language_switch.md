@@ -1,6 +1,6 @@
 # Theme AddOn - Language Switcher
 
-> Benötig das [Theme Addon](https://github.com/FriendsOfREDAXO/theme)
+> Benötigt das [Theme Addon](https://github.com/FriendsOfREDAXO/theme)
 
 - [Was macht es?](#was-macht-es)
 - [Die Funktion](#die-funktion)
