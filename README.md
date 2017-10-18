@@ -23,18 +23,21 @@
         - [Paginierungsklasse einbinden mit Project-Addon](addons_project_class_pagination.md) <sup><b>überprüfen</b></sup> <sup><i>alexplusde</i></sup>
         - [Eigene CSS/JS Dateien im Backend hinzufügen](addons_project_add_own_js_css_files.md) <sup><b>abgeschlosssen</b></sup> <sup><i>darwin</i></sup>
         - [Tipps für Sprachen in REDAXO](addons_project_clang.md) <sup><b>überprüfen</b></sup> <sup><i>alexplusde</i></sup>
-    - MForm /MBlock
+    - MForm [:link:](https://github.com/FriendsOfREDAXO/mform) / MBlock [:link:](https://github.com/FriendsOfREDAXO/mblock)
         - [CustomLink auslesen](addons_mform_customlink.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
         - [Einfache Tabelle mit MForm MBlock](modul_minibeispiel_mblock_tabelle.md) <sup><b>abgeschlossen</b></sup> <sup><i>alexplusde / Skerbis</i></sup>
     - Struktur
         - [Kategorie duplizieren](addons_structure_duplicate_category.md) <sup><b>abgeschlossen</b></sup> <sup><i>gharlan</i></sup>
-    - YForm
+    - Theme [:link:](https://github.com/FriendsOfREDAXO/theme)
+        - [Theme Debug Module](theme_debug_module.md) <sup><b>abgeschlossen</b></sup> <sup><i>elricco</i></sup>
+        - [Theme Language Switch](theme_language_switch.md) <sup><b>abgeschlossen</b></sup> <sup><i>elricco</i></sup>        
+    - YForm [:link:](https://github.com/yakamara/redaxo_yform)
         - [YForm Datensatz Kopieren]( addons_yform_copy_dataset.md) <sup><b>abgeschlossen</b></sup> <sup><i>tbaddade</i></sup>
         - [YForm Daten von Version 1.x auf 2.x konvertieren](addons_yform_convert.md) <sup><b>unvollständig</b></sup> <sup><i>tbaddade</i></sup>
-    - YCom
+    - YCom [:link:](https://github.com/yakamara/redaxo_ycom)
         - [Geschütze Dateien mit YCom ](addons_ycom_protected_files.md) <sup><b>abgeschlossen</b></sup><sup><i>skerbis</i></sup>
             - [Geschütze Dateien mit YCom enhanced](addons_ycom_protected_files_enhanced.md) <sup><b>abgeschlossen</b></sup><sup><i>tgoellner</i></sup>        
-    - YRewrite
+    - YRewrite [:link:](https://github.com/yakamara/redaxo_yrewrite)
         - [YRewrite NGINX-Konfiguration](addons_yrewrite_nginx.md) <sup><b>abgeschlossen</b></sup> <sup><i>hirbod</i></sup>
         - [YRewrite Schemes](addons_yrewrite_url_schemes.md) <sup><b>Mithilfe erwünscht</b></sup> <sup><i>skerbis</i></sup>
         - [YRewrite Kategorie = /media](addons_yrewrite_cat_ismedia.md) <sup>in Bearbeitung</b></sup> <sup><i>skerbis</i></sup>
