@@ -29,7 +29,7 @@ if(!function_exists("debug_module"))
         //get core version
         $coreVersion = rex_config::get('core', 'version');
         $returnDebug = '';
-        //show debug
+        //build debug
         if ($coreVersion < '5.3.0') {
             $returnDebug .= '<h6>'.$label.'</h6>'.
                 '<pre>' .
@@ -39,6 +39,7 @@ if(!function_exists("debug_module"))
             $returnDebug .= '<h6>'.$label.'</h6>' .
                 dump($value);
         }
+        //return debug
         return $returnDebug;
     }
 }
@@ -63,9 +64,11 @@ if (!rex::isBackend()) {
 } else {
     // Backend
 
+    //get REDAXO config file
     $configFile = rex_path::coreData('config.yml');
     $config = rex_file::getConfig($configFile);
 
+    //when debug is set and true, include function(s)
     if (isset($config['debug']) && $config['debug'] === true) {
         include('backend/debug_module.php');
     }
@@ -80,13 +83,15 @@ Und nun kann -immer wenn der Haken bei `Debug-Modus` unter `System` drin ist- di
 ```php
 <?php
 
-//get config from mfrom
+//get config from mform
 $owlConfiguration = rex_var::toArray("REX_VALUE[20]");
 
 //fetch items from mform
 $items = rex_var::toArray("REX_VALUE[1]");
 
+//when function is present
 if(function_exists('debug_module')) {
+    //show debug module output
     echo debug_module($items);
     echo debug_module($owlConfiguration, 'Configuration');
     echo debug_module("REX_VALUE[5]", 'REX_VALUE 5');
