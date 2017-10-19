@@ -19,29 +19,30 @@ Eine kleine Funktion um die Inhalte der REX_VALUES auszugeben. Vor allem hilfrei
 Lege eine Datei namens `debug_module.php` im [Theme Addon](https://github.com/FriendsOfREDAXO/theme) im Ordner `theme/private/inc/backend` an.
 
 **Inhalt der Datei**
-    
-    <?php
-    
-    if(!function_exists("debug_module"))
+
+```php
+<?php
+if(!function_exists("debug_module"))
+{
+    function debug_module($value,$label = 'VALUE')
     {
-        function debug_module($value,$label = 'VALUE')
-        {
-            //get core version
-            $coreVersion = rex_config::get('core', 'version');
-            $returnDebug = '';
-            //show debug
-            if ($coreVersion < '5.3.0') {
-                $returnDebug .= '<h6>'.$label.'</h6>'.
-                    '<pre>' .
-                    print_r($value) .
-                    '</pre>';
-            } else {
-                $returnDebug .= '<h6>'.$label.'</h6>' .
-                    dump($value);
-            }
-            return $returnDebug;
+        //get core version
+        $coreVersion = rex_config::get('core', 'version');
+        $returnDebug = '';
+        //show debug
+        if ($coreVersion < '5.3.0') {
+            $returnDebug .= '<h6>'.$label.'</h6>'.
+                '<pre>' .
+                print_r($value) .
+                '</pre>';
+        } else {
+            $returnDebug .= '<h6>'.$label.'</h6>' .
+                dump($value);
         }
+        return $returnDebug;
     }
+}
+```
 
 <a name="einbinden-in-theme"></a>
 ## Einbinden in Theme
@@ -50,53 +51,46 @@ Anschließend wird die Datei `debug_module.php` in die `functions.php` im Ordner
 
 **z.B so:**
 
-    <?php
-    
-    if (!rex::isBackend()) {
-    //////////////////////////////////////////////////////////////////////////////////////////////////
-    // Frontend //////////////////////////////////////////////////////////////////////////////////////
-    //
-    
-    //     include('frontend/clang_switch.php');
-        
-    //
-    // Frontend //////////////////////////////////////////////////////////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////////////////////////////
-    } else {
-    //////////////////////////////////////////////////////////////////////////////////////////////////
-    // Backend ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    
-        $configFile = rex_path::coreData('config.yml');
-        $config = rex_file::getConfig($configFile);
-    
-        if (isset($config['debug']) && $config['debug'] === true) {
-            include('backend/debug_module.php');
-        }
-    
-    //
-    // Backend ///////////////////////////////////////////////////////////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////////////////////////////
+```php
+<?php
+
+if (!rex::isBackend()) {
+    // Frontend
+
+    include('frontend/clang_switch.php');
+
+} else {
+    // Backend
+
+    $configFile = rex_path::coreData('config.yml');
+    $config = rex_file::getConfig($configFile);
+
+    if (isset($config['debug']) && $config['debug'] === true) {
+        include('backend/debug_module.php');
     }
+}
+```
 
 <a name="ausgabe-im-modul"></a>
 ## Ausgabe im Modul
 
 Und nun kann -immer wenn der Haken bei `Debug-Modus` unter `System` drin ist- die Ausgabe im Backend des Moduls ein und ausgeschaltet werden. Ausgegeben wird es im Modul dann z.B.:
 
-    <?php
-    
-    //get config from mfrom
-    $owlConfiguration = rex_var::toArray("REX_VALUE[20]");
-    
-    //fetch items from mform
-    $items = rex_var::toArray("REX_VALUE[1]");
-    
-    if(function_exists('debug_module')) {
-        echo debug_module($items);
-        echo debug_module($owlConfiguration, 'Configuration');
-        echo debug_module("REX_VALUE[5]", 'REX_VALUE 5');
-    }
+```php
+<?php
+
+//get config from mfrom
+$owlConfiguration = rex_var::toArray("REX_VALUE[20]");
+
+//fetch items from mform
+$items = rex_var::toArray("REX_VALUE[1]");
+
+if(function_exists('debug_module')) {
+    echo debug_module($items);
+    echo debug_module($owlConfiguration, 'Configuration');
+    echo debug_module("REX_VALUE[5]", 'REX_VALUE 5');
+}
+```
 
 <a name="theme-language-switch"></a>
 ## Theme Language Switch
