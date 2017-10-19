@@ -57,7 +57,8 @@ Anschließend wird die Datei `debug_module.php` in die `functions.php` im Ordner
 if (!rex::isBackend()) {
     // Frontend
 
-    include('frontend/clang_switch.php');
+    // Optional language switch - Infos: https://github.com/FriendsOfREDAXO/tricks/blob/master/theme_language_switch.md
+    //include('frontend/clang_switch.php');
 
 } else {
     // Backend
