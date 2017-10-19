@@ -20,38 +20,40 @@ Lege eine Datei namens `clang_switch.php` im [Theme Addon](https://github.com/Fr
 
 **Inhalt der Datei**
     
-    <?php
-    /* ----- Language Switch -----
-    $showCurLang : true / false - if the current language shall be displayed
-    $wrappingList: true / false - adds wrapping ul with extra css if given
-    $countryCode : true / false - Shows Country Code as Name
-    $css_extra   : adds extra css classes
-       ----- Language Switch ----- */
-    
-    if(!function_exists("getLangNav"))
+```php
+<?php
+/* ----- Language Switch -----
+$showCurLang : true / false - if the current language shall be displayed
+$wrappingList: true / false - adds wrapping ul with extra css if given
+$countryCode : true / false - Shows Country Code as Name
+$css_extra   : adds extra css classes
+   ----- Language Switch ----- */
+
+if(!function_exists("getLangNav"))
+{
+    function getLangNav($showCurLang = true, $wrappingList = true, $countryCode = true, $css_extra = '')
     {
-        function getLangNav($showCurLang = true, $wrappingList = true, $countryCode = true, $css_extra = '')
-        {
-            $langOutput = '';
-    
-            $langOutput  .= ($wrappingList ? '<ul class="lang--nav '.$css_extra.'">' : '');
-            foreach(rex_clang::getAll() as $lang) {
-                if(rex_clang::getCurrentId() == $lang->getId()) {
-                    if($showCurLang) {
-                        $langOutput .= '<li class="lang--item lang--item__active lang--'.$lang->getCode().'">'.($countryCode ? $lang->getCode() : $lang->getName()).'</li>';
-                    }
-                }
-                else {
-                    if($lang->isOnline()) {
-                        $langOutput .= '<li class="lang--item lang--item__inactive lang--'.$lang->getCode().'"><a title="'.$lang->getName().'" href="'.rex_getUrl('',$lang->getId()).'">'.($countryCode ? $lang->getCode() : $lang->getName()).'</a></li>';
-                    }
+        $langOutput = '';
+
+        $langOutput  .= ($wrappingList ? '<ul class="lang--nav '.$css_extra.'">' : '');
+        foreach(rex_clang::getAll() as $lang) {
+            if(rex_clang::getCurrentId() == $lang->getId()) {
+                if($showCurLang) {
+                    $langOutput .= '<li class="lang--item lang--item__active lang--'.$lang->getCode().'">'.($countryCode ? $lang->getCode() : $lang->getName()).'</li>';
                 }
             }
-            $langOutput .= ($wrappingList ? '</ul>' : '');
-            //return
-            return $langOutput;
+            else {
+                if($lang->isOnline()) {
+                    $langOutput .= '<li class="lang--item lang--item__inactive lang--'.$lang->getCode().'"><a title="'.$lang->getName().'" href="'.rex_getUrl('',$lang->getId()).'">'.($countryCode ? $lang->getCode() : $lang->getName()).'</a></li>';
+                }
+            }
         }
+        $langOutput .= ($wrappingList ? '</ul>' : '');
+        //return languagelist
+        return $langOutput;
     }
+}
+```
 
 <a name="einbinden-in-theme"></a>
 ## Einbinden in Theme
@@ -60,43 +62,38 @@ Anschließend wird die Datei `clang_switch.php` in die `functions.php` im Ordner
 
 **z.B so:**
 
-    <?php
-    
-    if (!rex::isBackend()) {
-    //////////////////////////////////////////////////////////////////////////////////////////////////
-    // Frontend //////////////////////////////////////////////////////////////////////////////////////
-    //
-    
-        include('frontend/clang_switch.php');
-        
-    //
-    // Frontend //////////////////////////////////////////////////////////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////////////////////////////
-    } else {
-    //////////////////////////////////////////////////////////////////////////////////////////////////
-    // Backend ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    
-    //  $configFile = rex_path::coreData('config.yml');
-    //  $config = rex_file::getConfig($configFile);
-    
-    //  if (isset($config['debug']) && $config['debug'] === true) {
-    //    include('backend/debug_module.php');
-    //  }
-    
-    //
-    // Backend ///////////////////////////////////////////////////////////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////////////////////////////
+```php
+<?php
+
+if (!rex::isBackend()) {
+    // Frontend 
+
+    include('frontend/clang_switch.php');
+
+} else {
+    // Backend 
+
+    //get REDAXO config file
+    $configFile = rex_path::coreData('config.yml');
+    $config = rex_file::getConfig($configFile);
+
+    if (isset($config['debug']) && $config['debug'] === true) {
+        // Optional Debug Module Function - Infos: https://github.com/FriendsOfREDAXO/tricks/blob/master/theme_debug_module.md
+        //include('backend/debug_module.php');
     }
+}
+```
 
 <a name="ausgabe-im-template"></a>
 ## Ausgabe im Template
 
 Jetzt kann die Ausgabe der Funktion an beliebiger Stelle im Template ausgegeben werden.
 
-    <?php
-    
-    echo getLangNav(true, true, true, 'my--class');
+```php
+<?php
+
+echo getLangNav(true, true, true, 'my--class');
+```
 
 <a name="theme-debug-module"></a>
 ## Theme Debug Module
