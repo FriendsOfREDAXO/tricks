@@ -15,9 +15,11 @@
   - [REDAXO mit Docker](#docker)
 
 - [Nützliche Links](#)
-  - [Demo Addon - Zeigt den Aufbau und Basisfunktionalität von AddOns](https://github.com/FriendsOfREDAXO/demo_addon)
-  - [Addon Viewer](https://github.com/gupi/addon_viewer)
-  - [Addon Template - Ein AddOn-Struktur Generator](https://redaxo.org/download/addons/template/)
+  - [Front-End Checklist](https://github.com/thedaviddias/Front-End-Checklist)
+  - Weitere AddOns 
+    - [Demo Addon - Zeigt den Aufbau und Basisfunktionalität von AddOns](https://github.com/FriendsOfREDAXO/demo_addon)
+    - [Addon Viewer - Durch AddOns browsen](https://github.com/gupi/addon_viewer)
+    - [Addon Template - AddOn-Struktur Generator](https://redaxo.org/download/addons/template/)
 
 <a name="beschreibung"></a>
 ## Beschreibung
