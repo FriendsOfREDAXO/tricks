@@ -62,7 +62,7 @@ Das Theme-AddOn erleichtert die Verwaltung aller für das Projekt erforderlichen
 <a name="yconverter"></a>
 ### YConverter
 
-Eiene REDAXO 4.x - Datenbank kann mit Hilfe dieses AddOns für REDAXO 5.x vorbereitet werden und migriert werden. Hierbei werden bekannte Class- und Methodenaufrufe, REX_VARS und sogar xform-Tabellen nach yform konvertiert. 
+Eine REDAXO 4.x - Datenbank kann mit Hilfe dieses AddOns für REDAXO 5.x vorbereitet werden und migriert werden. Hierbei werden bekannte Class- und Methodenaufrufe, REX_VARS für REDAXO 5.x vorbereitet und sogar xform-Tabellen nach yform konvertiert. 
 
 **Github-Repo:** https://github.com/yakamara/yconverter
 
