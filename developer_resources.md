@@ -6,15 +6,18 @@
   - [Developer - Module, Templates und Aktionen syncen](#developer)
   - [Project - Schnell mal eine PHP-Class einbinden](#project)
   - [Theme - Verwalten aller Projektdateien für Frontend und Backend](#theme)
+  - [YConverter - Migration REDAXO 4.x zu 5.x](#yconverter)
   - [YTraduko - Übersetzungshelfer](#ytraduko)
   - [ZIP-Install](#zip)
-  - [Demo Addon - Zeigt den Aufbau und Basisfunktionalität von AddOns](https://github.com/FriendsOfREDAXO/demo_addon)
-  - [Addon Viewer](https://github.com/gupi/addon_viewer)
-  - [Addon Template - Ein AddOn-Struktur Generator](https://redaxo.org/download/addons/template/)
+  
 - [Software und Workflows](#swork)
   - [REDAXO mit Bimmelbam](#bimmelbam)
   - [REDAXO mit Docker](#docker)
+
 - [Nützliche Links](#)
+  - [Demo Addon - Zeigt den Aufbau und Basisfunktionalität von AddOns](https://github.com/FriendsOfREDAXO/demo_addon)
+  - [Addon Viewer](https://github.com/gupi/addon_viewer)
+  - [Addon Template - Ein AddOn-Struktur Generator](https://redaxo.org/download/addons/template/)
 
 <a name="beschreibung"></a>
 ## Beschreibung
@@ -47,7 +50,6 @@ In REDAXO bereits vorhanden, ist das Project-AddOn. Hier können einfach eigene 
 
 **Installation in der AddOn-Verwaltungr**
 
-
 <a name="theme"></a>
 ### Theme
 
@@ -57,6 +59,12 @@ Das Theme-AddOn erleichtert die Verwaltung aller für das Projekt erforderlichen
 
 **Github-Repo:** https://github.com/FriendsOfREDAXO/theme
 
+<a name="yconverter"></a>
+### YConverter
+
+Eiene REDAXO 4.x - Datenbank kann mit Hilfe dieses AddOns für REDAXO 5.x vorbereitet werden und migriert werden. Hierbei werden bekannte Class- und Methodenaufrufe, REX_VARS und sogar xform-Tabellen nach yform konvertiert. 
+
+**Github-Repo:** https://github.com/yakamara/yconverter
 
 <a name="ytraduko"></a>
 ### YTraduko - Übersetzungshelfer 
