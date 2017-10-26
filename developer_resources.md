@@ -34,7 +34,7 @@ Nachfolgend listen wir hier nützliche Informationen, AddOns und Links, die die 
 
 Das Cheatsheet-AddOn scant die REDAXO-Installation nach Extension-Points im Core und den installierten AddOns und listet deren Position im Quellcode auf. 
 
-**Installation aus Github-Repo:** https://github.com/tbaddade/redaxo_cheatsheet
+[**Installation aus Github-Repo:**](https://github.com/tbaddade/redaxo_cheatsheet)
 
 <a name="developer"></a>
 ### Developer
@@ -43,7 +43,7 @@ Developer kopiert und synct Module, Templates und Aktionen zwischen Dateisystem 
 
 **Installation per Installer**
 
-**Github-Repo:** https://github.com/FriendsOfREDAXO/developer
+[**Github-Repo:**](https://github.com/FriendsOfREDAXO/developer)
 
 <a name="project"></a>
 ### Project
@@ -59,21 +59,21 @@ Das Theme-AddOn erleichtert die Verwaltung aller für das Projekt erforderlichen
 
 **Installation per Installer**
 
-**Github-Repo:** https://github.com/FriendsOfREDAXO/theme
+[**Github-Repo:**](https://github.com/FriendsOfREDAXO/theme)
 
 <a name="yconverter"></a>
 ### YConverter
 
 Eine REDAXO 4.x - Datenbank kann mit Hilfe dieses AddOns für REDAXO 5.x vorbereitet werden und migriert werden. Hierbei werden bekannte Class- und Methodenaufrufe, REX_VARS für REDAXO 5.x vorbereitet und sogar xform-Tabellen nach yform konvertiert. 
 
-**Github-Repo:** https://github.com/yakamara/yconverter
+[**Github-Repo:**](https://github.com/yakamara/yconverter)
 
 <a name="ytraduko"></a>
 ### YTraduko - Übersetzungshelfer 
 
 Ytraduko hilft bei der Übersetzung der eigenen AddOns. Anstelle selbst für die weiteren Sprachen neue .lang - Dateien anzulegen, erledigt dieses AddOn es selbst. Die Übersetzungen können übersichtlich und schnell eingepflegt werden. 
 
-**Installation aus Github-Repo:** https://github.com/yakamara/ytraduko
+[**Installation aus Github-Repo:**](https://github.com/yakamara/ytraduko)
 
 <a name="zip"></a>
 ### ZIP-Install 
@@ -82,7 +82,7 @@ Das ZIP-Install ermöglicht es gezippte AddOns ohne Umweg per FTP auf den Server
 
 **Installation per Installer**
 
-**GitHub-Repo:** https://github.com/FriendsOfREDAXO/zip_install
+[**GitHub-Repo:**](https://github.com/FriendsOfREDAXO/zip_install)
 
 
 ## Software und Workflows
@@ -94,7 +94,7 @@ Ein Frontend-Workflow auch für REDAXO
 
 Frontendentwicklung wird immer aufwändiger, SCSS wollen kompiliert werden, Bilder komprimiert werden, JS schöner werden, HTML-Prototypen wollen erzeugt werden. ***REDAXO mit Bimmelbam*** zeigt hierfür einen ausbaufähigen Weg. 
 
-**GitHub-Repo:** https://github.com/FriendsOfREDAXO/redaxo-mit-bimmelbam
+[**GitHub-Repo:**](https://github.com/FriendsOfREDAXO/redaxo-mit-bimmelbam)
 
 
 <a name="docker"></a>
@@ -102,4 +102,4 @@ Frontendentwicklung wird immer aufwändiger, SCSS wollen kompiliert werden, Bild
 
 ***MAMP und XAMPP waren gestern!*** REDAXO kann leicht, systemunabhängig mit Docker verwendet werden. Die Vorteile: Möglichkeit der zentralen Installation und Bearbeitung, Versionierbarkeit, Ausbaufähigkeit. REDAXO-mit-Docker liefert alle Ressourcen und eine einsteigergeignete Anleitung. Und damit man nicht bei Null anfangen muss, kann eine Demo gleich automatisiert installiert werden. ***REDAXO mit Docker und Bimmelbam*** sind übrigens leicht miteinander kombinierbar. Weitere Infos in den jeweiligen REPOS. 
 
-**GitHub-Repo:** https://github.com/FriendsOfREDAXO/redaxo-mit-docker
+[**GitHub-Repo:**](https://github.com/FriendsOfREDAXO/redaxo-mit-docker)
