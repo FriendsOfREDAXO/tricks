@@ -8,6 +8,7 @@
 
 - Backend
     - [Styling von Select-Feldern](backend_sytling-select.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
+    - [YForm Tabellen oberhalb der AddOns platzieren](Create be_navi.md)<sup><b>abgeschlossen</b></sup> <sup><i>tbaddade</i></sup>
 - Module
     - Minibeispiele
         - [Artikel einbinden](modul_minibeispiel_artikel_einbinden.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
@@ -47,10 +48,11 @@
     - [AJAX mit dem rex_api](howto_ajax_rexapi.md) <sup><b>überprüfen</b></sup><sup><i>christophboecker</i></sup>
 
 - Snippets
-    - [Class rex_media erweitern (ab redaxo 5.3)](snippet_klasse_rex_media_erweitern.md) <sup><b>abgeschlossen</b></sup> <sup><i>Daniel Weitenauer</i></sup>
-    - [Checkbox in einem Modul verwenden](snippet_checkbox_in_out.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
     - [bloecks: Status im Modul setzen](snippet_bloecks_status_im_Modul_setzen.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
+    - [Checkbox in einem Modul verwenden](snippet_checkbox_in_out.md) <sup><b>abgeschlossen</b></sup> <sup><i>skerbis</i></sup>
+    - [Class rex_media erweitern (ab redaxo 5.3)](snippet_klasse_rex_media_erweitern.md) <sup><b>abgeschlossen</b></sup> <sup><i>Daniel Weitenauer</i></sup>
     - [function: Umlaute im String ersetzen](snippet_umlaute_umschreiben.md) <sup><b>abgeschlossen</b></sup> <sup><i>darwin</i></sup>
+    - [Nützliche Queries](queries.md) <sup><b>abgeschlossen</b></sup> <sup><i>tbaddade</i></sup>
 
 ## Muss aktualisiert werden. 
 - Installation
