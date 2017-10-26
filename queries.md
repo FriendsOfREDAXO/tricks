@@ -11,7 +11,7 @@
 Die Methoden basieren auf Yorm und gehören in eine Class wie zum Beispiel
 
 ```
-class News extends \rex_yform_manager_dataset
+class News extends rex_yform_manager_dataset
 {
 }
 ```
