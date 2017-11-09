@@ -80,14 +80,14 @@ Alt| Neu
 
 <a name="code"></a>
 ## Code
+    Zur Code-Auszeichnung bitte ``` verwenden
 
 **Beispiel Code Block**
     
-        <?php
-        // Code wird einfach nur via Tabs eingerückt
-        // Nicht die ``` verwenden
+        ```php 
         $article = rex_article::get();
-        
+        ```
+        
 **weiteres Beispiel**
         
         /**
