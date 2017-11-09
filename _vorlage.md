@@ -86,7 +86,9 @@ Alt| Neu
     
         ```php 
         $article = rex_article::get();
-        ```
+        
+        ```
+        
         
 **weiteres Beispiel**
         
