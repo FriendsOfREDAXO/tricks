@@ -43,7 +43,7 @@ if(!function_exists("getLangNav"))
                 }
             }
             else {
-                if($lang->isOnline()) {
+                if($lang->isOnline() && rex_article::getCurrent($lang->getId())->isOnline()) {
                     $langOutput .= '<li class="lang--item lang--item__inactive lang--'.$lang->getCode().'"><a title="'.$lang->getName().'" href="'.rex_getUrl('',$lang->getId()).'">'.($countryCode ? $lang->getCode() : $lang->getName()).'</a></li>';
                 }
             }
