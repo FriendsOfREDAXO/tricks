@@ -5,7 +5,7 @@
   - [Cheatsheat für Extensionpoints](#cheatsheet)
   - [Developer - Module, Templates und Aktionen syncen](#developer)
   - [Project - Schnell mal eine PHP-Class einbinden](#project)
-  - [Strukturierte Daten - HilfsAddOn für Jason-LD] (#strucdata)
+  - [Strukturierte Daten - HilfsAddOn für Jason-LD](#strucdata)
   - [Theme - Verwalten aller Projektdateien für Frontend und Backend](#theme)
   - [YConverter - Migration REDAXO 4.x zu 5.x](#yconverter)
   - [YTraduko - Übersetzungshelfer](#ytraduko)
