@@ -36,8 +36,8 @@
         - [YForm Datensatz Kopieren]( addons_yform_copy_dataset.md) <sup><i>tbaddade</i></sup>
         - [YForm Daten von Version 1.x auf 2.x konvertieren](addons_yform_convert.md) <sup><b>unvollständig</b></sup> <sup><i>tbaddade</i></sup>
     - YCom [:link:](https://github.com/yakamara/redaxo_ycom)
-        - [Geschütze Dateien mit YCom ](addons_ycom_protected_files.md) <sup><b>abgeschlossen</b></sup><sup><i>skerbis</i></sup>
-            - [Geschütze Dateien mit YCom enhanced](addons_ycom_protected_files_enhanced.md) <sup><i>tgoellner</i></sup>        
+        - [Geschütze Dateien mit YCom ](addons_ycom_protected_files.md) <sup><i>skerbis</i></sup>
+            - [Geschütze Dateien mit YCom enhanced](addons_ycom_protected_files_enhanced.md) <sup><b>überprüfen</b></sup>  <sup><i>tgoellner</i></sup>        
     - YRewrite [:link:](https://github.com/yakamara/redaxo_yrewrite)
         - [YRewrite NGINX-Konfiguration](addons_yrewrite_nginx.md) <sup><i>hirbod</i></sup>
         - [YRewrite Schemes](addons_yrewrite_url_schemes.md) <sup><b>Mithilfe erwünscht</b></sup> <sup><i>skerbis</i></sup>
