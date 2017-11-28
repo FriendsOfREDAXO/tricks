@@ -108,7 +108,7 @@ Geeignet für Redaxo ab 5.2
 
 **Jetzt müssen Rewrite-Direktiven ergänzt werden**
 
-APACHE:
+APACHE in die .htacces von yRewrite:
 
 > Bei Verwendung von yrewrite direkt nach `RewriteRule ^imagetypes/…`
     
