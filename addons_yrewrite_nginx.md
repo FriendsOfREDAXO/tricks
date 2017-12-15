@@ -34,15 +34,19 @@ Die Direktiven wurden nicht in einer Multidomainumgebung getestet.
 		}
 
 		#!!! WICHTIG !!! Zugriff auf alle Dateien mit . verbieten (könnte ja eine alte .htpasswd enthalten sein)
+		# ACHTUNG: nicht nutzen, falls auf der selben Instanz Let's Encrypt läuft, da ansonsten .acme-challange fehlschlägt.
+		# In diesem Fall bitte die nächste Zeile mit # auskommentieren
 		location ~ /\. { deny  all; }
 
 		# Zugriff auf diese Verzeichnisse verbieten
 		location ^~ /redaxo/src { deny  all; }
 		location ^~ /redaxo/data { deny  all; }
 		location ^~ /redaxo/cache { deny  all; }
+		# Ab REDAXO 5.4 muss folgende Zeile dazu
+		location ^~ /redaxo/bin { deny  all; }
 		
 
-In einigen Fällen könnte folgende Anweisung zusätlich sinnvoll sein. 
+		# In einigen Fällen könnte folgende Anweisung zusätlich sinnvoll sein. 
 
 		location ~ /\.(ttf|eot|woff|woff2)$ {
 			add_header Access-Control-Allow-Origin *;
