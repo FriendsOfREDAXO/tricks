@@ -1,6 +1,6 @@
 # Eine Sammlung nützlicher Tricks zu REDAXO ab Version 5
 
-> Wer mitmachen möchte, beachte bitte bei der Einpflege die [Vorlage](_vorlage.md).
+> Wer mitmachen möchte, beachte bitte bei der Einpflege die [Vorlage](vorlage.md).
 > Die github-page ist hier: https://friendsofredaxo.github.io/tricks/
 
 - Entwicklung
