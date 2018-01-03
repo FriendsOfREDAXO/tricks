@@ -52,7 +52,7 @@ URL an das Ziel "index.php" wird das gewünscht API ausgewählt. Zusätzliche Pa
 
 **Das kann so aussehen:**
 
-    index.php?rex_api_call=xyz&id=17
+    index.php?rex-api-call=xyz&id=17
 
 Im Beispiel wird das API **xyz** aufgerufen und zusätzlich der Parameter **id=17** mitgegeben.
 
@@ -185,7 +185,7 @@ Serverseitig ist es wesentlich einfacher, in mehrsprachigen Applikationen den je
             {
                 echo 'HTTP/1.1 500 Internal Server Error';
                 $result = [ 'errorcode' => 1, 'message' => rex_i18n::msg('my_api_xyz_no_id',$article_id ) ];
-                die( json_encode( $result ) );
+                exit( json_encode( $result ) );
             }
 
             // Inhalt zusammenbauen
@@ -217,7 +217,7 @@ Fehlermeldung als JSON und das Ergebnis als Text übermittelt
                 header( 'HTTP/1.1 500 Internal Server Error' );
                 header( 'Content-Type: application/json; charset=UTF-8' );
                 $result = [ 'errorcode' => 1, 'message' => 'Parameter "id" is missing' ];
-                die( json_encode( $result ) );
+                exit( json_encode( $result ) );
             }
 
             // Inhalt zusammenbauen
@@ -251,7 +251,7 @@ API-Funktion die Rechte zu überprüfen und ggf. den Zugriff abzulehnen. (Das Be
                 header( 'HTTP/1.1 500 Internal Server Error' );
                 header( 'Content-Type: application/json; charset=UTF-8' );
                 $result = [ 'errorcode' => 1, 'message' => 'Parameter "id" is missing' ];
-                die( json_encode( $result ) );
+                exit( json_encode( $result ) );
             }
 
             // Zugriffsrechte prüfen
@@ -260,7 +260,7 @@ API-Funktion die Rechte zu überprüfen und ggf. den Zugriff abzulehnen. (Das Be
                 header( 'HTTP/1.1 500 Internal Server Error' );
                 header( 'Content-Type: application/json; charset=UTF-8' );
                 $result = [ 'errorcode' => 1, 'message' => 'No permisson on object "'.$id.'"' ];
-                die( json_encode( $result ) );
+                exit( json_encode( $result ) );
             }
 
             // Inhalt zusammenbauen
@@ -464,14 +464,14 @@ Im Kern ist die API-Funktion aus dem obigen Kapiteln bekannt. Die wesentliche Er
 
             // Artikel senden
             header('Content-Type: text/html; charset=UTF-8');
-            die( $article->getArticle() );
+            exit( $article->getArticle() );
         }
 
         public static function httpError( $result )
         {
             header( 'HTTP/1.1 500 Internal Server Error' );
             header('Content-Type: application/json; charset=UTF-8');
-            die( json_encode( $result ) );
+            exit( json_encode( $result ) );
         }
     }
     ?>
@@ -522,17 +522,17 @@ gleichwertig. Oder doch nicht?
 
 Da der Browser fehlende Angaben, hier die Zieladresse, aus der aktuelle URL ergänzt, wird tatsächlich die Abruf-URL für die zweite Variante lauten:
 
-    index.php?article_id=16&clang=1&rex_api_call=xyz&article_id=5
+    index.php?article_id=16&clang=1&rex-api-call=xyz&article_id=5
 
 Das kann auch zu Problemen führen. In der ersten, vorzuziehenden Variante wäre die URL korrekter:
 
-    index.php?rex_api_call=xyz&article_id=5
+    index.php?rex-api-call=xyz&article_id=5
 
 Aus Backend-Seiten führt die erste Variante dazu, dass noch vor der Ausführung von **rex\_api\_xyz->execute()** auf die Default-Seite **page=structure** umgeleitet wird. Wählt man die zweite Variante, unterbleibt die Umleitung und das API wird ausgeführt.
 
 Der Grund ist wieder die automatische URL-Ergänzung, über die im zweiten Fsll eine gültige Seitenangabe in die URL gelangt.
 
-    index.php?page=irgendwas&rex_api_call=xyz&article_id=5
+    index.php?page=irgendwas&rex-api-call=xyz&article_id=5
 
 Im ersten Fall fehlt die page-Angabe und der Backend-Prozesser läuft in die Weiterleitung auf den Startartikel (**page=structure**). Da die page-Überprüfung vor der API-Ausführung liegt, kommt das Programm nie beim API an.
 

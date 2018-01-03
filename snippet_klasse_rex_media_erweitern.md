@@ -34,9 +34,17 @@ $metafield = $media->getValueTranslated('metafield',, 'Das Feld ist leer');
 class my_media extends rex_media
 {
     /**
+     * Necessary for PHP 5.6
+     */
+    public function __construct()
+    {
+    }
+    
+    /**
      * Extended getUrl method, that allows the passing of a mediatype into the method,
      * as well as into the extension point. The Url will be prettyfied if yrewrite is available.
      * In addition it is possible to force a thumbnail-sized output in the backend.
+     *
      * @param string $media_type  The desired mediatype as 
      * @param bool $backend_thumbnail  True, if the image shall be output as thumbnail in the backend
      * @return string
@@ -72,6 +80,7 @@ class my_media extends rex_media
      * You simply hav to pass the meta value name to this method and it tries 
      * to get the appropriate value from metadata. If the metafield does not exist, 
      * it gradually falls back to a non-suffixed name and finally apassed default value.    
+     *
      * @param string $value  The name of the meta value
      * @param int $clang_id  The optional clang id, if none is passed, the current id is used
      * @param string|null $default  An optional default value

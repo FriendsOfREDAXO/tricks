@@ -58,7 +58,7 @@ echo $mform->show();
 
 ### Anwendung in yForm
 Anwendung unter **Individuelle Attribute**: 
-{"class": "selectpicker", "data-live-search": "true"}
+{"class": "form-control selectpicker", "data-live-search": "true"}
 
 > Die Selects können mit weitaus mehr Funktionen ausgestattet werden, mehr dazu unter: https://silviomoreto.github.io/bootstrap-select/examples/
 

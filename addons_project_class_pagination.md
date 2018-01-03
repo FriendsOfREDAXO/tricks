@@ -31,10 +31,10 @@ Die Klasse benötigt zunächst nur 3 Parameter:
 		# $pagination->setHtml('a', '<a href="###href###" class="###class###">###text###</a>');
 
 		// Text der Navigations-Links überschreiben
-		# $pagination->text['first'] = '«'; 
-		# $pagination->text['last'] = '»';
-		# $pagination->text['prev'] = '‹';
-		# $pagination->text['next'] = '›';
+		# $pagination->setText['first'] = '«'; 
+		# $pagination->setText['last'] = '»';
+		# $pagination->setText['prev'] = '‹';
+		# $pagination->setText['next'] = '›';
 
 		// Pagination ausgeben
 		echo $pagination->show();
@@ -76,11 +76,11 @@ Diesen Code bspw. in Redaxo unter `/redaxo/src/addons/project/lib/` abspeichern,
 			private $return = "";
 
 			public function __construct($total = 50, $page = 1, $limit = 10) {
-				$this->total = $total; 						// Letzter Eintrag
-				$this->page = $page;						// Aktuelle Seite
-				$this->limit = $limit; 						// Einträge pro Seite
-				$this->offset = $page * $limit; 			// Aktueller Eintrag 
-				$this->page_max = (int) ($total / $limit); 	// Letzte Seite
+				$this->total = $total; 				// Letzter Eintrag
+				$this->page = $page;				// Aktuelle Seite
+				$this->limit = $limit; 				// Einträge pro Seite
+				$this->offset = $page * $limit; 		// Aktueller Eintrag 
+				$this->page_max = (int) ceil($total / $limit); 	// Letzte Seite
 
 				$this->html['ul'] = '<ul class="###class###">###items###</ul>';
 				$this->html['li'] = '<li class="###class###">###anchor###</li>'; 
@@ -92,9 +92,8 @@ Diesen Code bspw. in Redaxo unter `/redaxo/src/addons/project/lib/` abspeichern,
 				$this->text['prev'] = '‹';
 				$this->text['next'] = '›';
 
-				$this->option['show_max'] = 5;				// Anzahl der Seiten-Links um die aktuelle Seite herum
-				$this->option['show_skip'] = 
-				;			// Zeige Erste / Letzte
+				$this->option['show_max'] = 5;			// Anzahl der Seiten-Links um die aktuelle Seite herum
+				$this->option['show_skip'] = true;		// Zeige Erste / Letzte
 				$this->option['show_neighbours'] = true;	// Zeige Vor / Zurück
 
 				$this->url['id'] = "REX_ARTICLE_ID";		// Ziel-Artikel-ID
@@ -116,7 +115,7 @@ Diesen Code bspw. in Redaxo unter `/redaxo/src/addons/project/lib/` abspeichern,
 		    }
 
 		    public function setId($id) {
-				$this->url['id'] = $hash;
+				$this->url['id'] = $id;
 		    }
 
 		    public function addParams($key, $value) {
@@ -202,7 +201,7 @@ Diesen Code bspw. in Redaxo unter `/redaxo/src/addons/project/lib/` abspeichern,
 				$span = str_replace("###text###",$text,$this->html['span']);
 				$anchor = str_replace("###text###",$span,$this->html['a']);
 				$anchor = str_replace("###href###",$href,$anchor);
-				$anchor = str_replace("###key###",$key,$anchor);
+				//$anchor = str_replace("###key###",$key,$anchor);
 				return $anchor;
 			}
 

@@ -51,7 +51,7 @@ Nun können Dateien in den oben definierten Medienkategorien mit entsprechenden 
 
 ```
 <?php
-  $requested_file = trim(rex_get('f', 'string', ''));
+  $requested_file = trim(rex_get('fileName', 'string', ''));
   $file_ok = false;
 
   // Welche Medienkategorien beinhaltet die geschützten Dateien? (Medienpool-Kategorie-ID)
@@ -182,14 +182,25 @@ Nun können Dateien in den oben definierten Medienkategorien mit entsprechenden 
 
 APACHE:
 
-	<IfModule mod_rewrite.c>
-	  RewriteEngine On
-	  RewriteRule ^/?media/(.*\.[^\.]+)$ /index.php?f=$1 [L]
-	</IfModule>
+/.htaccess editieren
 
 > Bei Verwendung von yrewrite direkt nach `RewriteRule ^imagetypes/…`
     
-	RewriteRule ^/?media/(.*\.(pdf|doc|zip))$ /index.php?fileName=$1 [L]
+```
+RewriteRule ^/?media/(.*\.(pdf|doc|zip))$ /index.php?fileName=$1 [L]
+```
+
+
+> Bei Verwendung ohne Rewriter, eine .htaccess-Datei im Root der Website anlegen und folgenden Inhalt einfügen. 
+
+```
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^/?media/(.*\.[^\.]+)$ /index.php?fileName=$1 [L]
+</IfModule>
+```
+
+
 
 NGINX Direktive:
 

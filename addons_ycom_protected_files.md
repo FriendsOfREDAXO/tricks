@@ -1,5 +1,9 @@
 # Geschütze Dateien mit YCom
 
+Benötigte AddOns: 
+- YRewrite
+- YCom
+
 ### Wie kann man Dateien in Verbindung mit YCom (Community Addon) einfach schützen?
 Da Redaxo aktuell nur einen Medienordner hat und so von außen alle Dateien in diesem Ordner öffentlich zugänglich sind, benötigt man eine Lösung, die den Dateiaufruf überprüft und entscheidet ob es sich um eine geschützte Datei oder einer öffentlichen Datei handelt. 
 
@@ -108,7 +112,7 @@ Geeignet für Redaxo ab 5.2
 
 **Jetzt müssen Rewrite-Direktiven ergänzt werden**
 
-APACHE:
+APACHE in die .htacces von YRewrite:
 
 > Bei Verwendung von yrewrite direkt nach `RewriteRule ^imagetypes/…`
     
