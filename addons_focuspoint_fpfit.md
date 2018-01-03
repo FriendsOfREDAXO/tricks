@@ -20,14 +20,11 @@ und dem darin enthalten Effekt **Focuspoint-Fit** der MediaManager verlässliche
 <a name="A"></a>
 ## Das Problem - warum ein neuer MM-Effekt **Fit** entstand
 
-Bei einem Projekt wurden für Teaser quadratische Bilder benötigte. So sollte es aussehen
+Bei einem Projekt wurden für Teaser quadratische Bilder benötigte. So in der Art sollte es aussehen:
 
-<bild vom Teaser1>
-<bild vom Teaser2>
+![Beispiel](assets/addons_focuspoint_fpfit/beispiel.jpg "Beispiel")
 
 Das Quell-Material war jedoch wild gemischt was Größe und Format (Aspect-Ratio, AR) anbelangt. 
-
-<originalbild 1> <originalbild 2
 
 Eine Lösung wäre gewesen, bearbeitete Kopien der Originalbilder einzusetzen. Das fand ich
 vom Workflow her schom immer lästig und per Saldo fehleranfällig - abgesehen davon, dass
