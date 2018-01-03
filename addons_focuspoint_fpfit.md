@@ -27,7 +27,7 @@ Bei einem Projekt wurden für Teaser quadratische Bilder benötigte. So in der A
 Das Quell-Material war jedoch wild gemischt was Größe und Format (Aspect-Ratio, AR) anbelangt. 
 
 Eine Lösung wäre gewesen, bearbeitete Kopien der Originalbilder einzusetzen. Das fand ich
-vom Workflow her schom immer lästig und per Saldo fehleranfällig - abgesehen davon, dass
+vom Workflow her schon immer lästig und per Saldo fehleranfällig - abgesehen davon, dass
 am Ende mehrere Versionen eines Bildes im Medienpool stehen. Und was ist bei Layout-Änderungen? 
 
 Eine andere Variante wäre, den dafür vorgesehenen MediaManager die Arbeit erledigen zu lassen. Bei wirrem
@@ -53,7 +53,7 @@ Der Fit-Effekt wäre somit eine intelligente Mischung aus Resize und Crop mit de
 <a name="B"></a>
 ## Die Sache mit dem Fokuspunkt
 
-Mit dem Kappen der Überstände ist es so eine Sache. Wie soll die Kappung eigendlich verteilt werden?
+Mit dem Kappen der Überstände ist es so eine Sache. Wie soll die Kappung eigentlich verteilt werden?
 Verbreitet sind die Methoden
 
 - "gleichverteilt", also links/rechts bzw. oben/unten je 50% des Überstandes
@@ -78,7 +78,7 @@ Es geht also um die Frage, wo eigentlich der Teil des Bildes ist, der unbedingt 
 
 Das Addon [**Focuspoint**](https://github.com/FriendsOfREDAXO/focuspoint/) ermöglicht, für ein Bild im Medienpool
 festzulegen, wo der optischen Mittelpunkt des Bildes liegt. Um genau diesen Punkt herum sollten
-Bildauschnitte platziert werden. Darüber läßt sich die Kappungs-Verteilung elegant steuern. 
+Bildauschnitte platziert werden. So läßt sich die Kappungs-Verteilung elegant steuern. 
 
 Aus dem Effekt **Fit** wird der Effekt **Focuspoint-Fit**.
 
@@ -92,7 +92,7 @@ das ganze Boot, nur der Rumpf, Segelnummer, Personen, .... Man muss sich halt f�
 Die Anforderungen waren also:
 
 - Arbeite mit beliebigen Bildgrößen und Formaten (Aspect-Ratio)
-- Erstelle ein Zielbild in verlässlicher Größe bzw. Format.
+- Erstelle ein Zielbild in verlässlicher Größe und damit Format.
 - Das Zielformat hat **immer** Priorität, ggf. werden überstehende Teile abgeschnitten.
 - Ermögliche Zoom bzw. Auschnittsvergrößerung
 - Orientierung am Fokuspunkt des Bildes (z.B. mit dem Addon **Focuspoint** zugewiesen)
@@ -131,7 +131,7 @@ Engpass-Dimension aus den Aspect-Ratios errechnet:
 ### Den Ausschnitt berechnen
 
 Im zweiten Rechenschritt wird der Ausschnittsrahmen genau in der Größe des Zielbildes definiert, 
-also hier 300 x 300 groß. Legen wir
+also hier 300 x 300 groß. Zur Visualisierung legen wir
 ihn erst einmal oben links in die Ecke des Originalbildes (roter Rahmen):
 
 ![Step 2: Ausschnitt einfügen](assets/addons_focuspoint_fpfit/demo_step2.jpg "Step 2: Ausschnitt einfügen") 
@@ -180,7 +180,7 @@ Die Wirkung wäre also faktisch die Vergrößerung des Originalbildes. Der Zoom-
 
 ### Zielbild erzeugen
 
-Zum Schluß wird per **imagecopyresized** aus dem Originalbild das Zielbild in der Zielgröße errechnet.
+Zum Schluß wird per **imagecopyresized** in nur einem Transformations-Schritt aus dem Originalbild das Zielbild in der Zielgröße errechnet.
 
 ![Zielbild](assets/addons_focuspoint_fpfit/demo_final.jpg "Zielbild") 
 
@@ -204,27 +204,27 @@ Tatsächlich bietet die Effekt-Parametrisierung an, Fallback-Werte selbst festzu
 In dem Fall wird man den Zoom-Faktor auf 100% stellen, um möglichst viel vom Originalbild in das Zielbild zu 
 überführen. Dank des Fokuspunktes wird dort gekappt wird, wo es am wenigsten weh tut.
 
-Das obige Beispiel mit Zoom = 100% ergäbe;
+Das obige Beispiel mit Zoom = 100% ergibt
 
 ![Zielbild maximiert](assets/addons_focuspoint_fpfit/demo_final_100.jpg "Zielbild maximiert") 
 
 ### Bilder für Kopfzeilen/Banner erstellen
 
 Die Bilder werden breit, aber nicht hoch. Auch hier würde sich Zoom = 100% anbieten. Das konkrete Zielformat hängt u.a.
-vom Layout ab. Hier ein Beispiele siehe oben.
+vom Layout ab. Beispiele siehe oben.
 	
 ### Details herausheben
 
 Das ist ein Anwendungsfall für Zoom-Faktoren unter 100%. Wenn das Zielformat und das Quellformat sehr deutlich voneinander
 abweichen, kann ein Zoom-Faktor von 0% problematisch werden, da der Ausschnitt sehr klein wäre.
 
-Sind die Originalbilder nur wenig (na ja, so bis 20%) größer als das Zielformat, bietet sich die 0%-Variante an.
+Sind die Originalbilder nur wenig (na ja, so bis 20%) größer als das Zielformat, bietet sich die oft die 0%-Variante an.
 
 
 ### Gleichformatige und formatähnliche Originalbilder
 
 Liegen die Quellbilder in einem verlässlichen Format vor und haben einen sehr ähnlichen Fokuspunkt (z.B. eine Reihe Portrait-Fotos)
-kann man auch ohne bildindividuellen Fokuspunkt zum Ziel kommen. Hier ein Beispiel, bei dem Bilder in Format 3:4 vorliegen und 
+kann man auch ohne bildindividuellen Fokuspunkt zum Ziel kommen. Angenommen die "Passbilder" liegen im Format 3:4 vor und sollen
 auf 1:1 gekappt werden mit 10% Kappung oben.
 
 Rechenbeispiel? Die Original-Bilder sind in der Größe 900x1200, das Zielformat ist 300x300, der Zoom-Faktor 100%. 
@@ -244,8 +244,21 @@ Das entspricht einem Fokuspunkt vertikal von 47%; der horizontale ist 50%.
 Die Bildgröße kann auch relativ angegeben werden. Allerdings sind relative Werte immer bezogen auf das Originalbild. Damit ist
 am Ende kein verlässliches Zielformat zu erzeugen. Dennoch kann es tricky sein, diese Variante zu nutzen.
 
+#### Nur Breite angeben, keine Höhe
+
 Setze man die Zielbreite fest und gibt keine Zielhöhe an, wird ein Zielbild erzeugt, dass eben genau die Zielbreite
-aufweist. Der Aspect-ratio ergibt sich aus dem AR des   
+aufweist. Der Aspect-Ratio ergibt sich aus dem AR des Originalbildes. Alle Blder haben also unabhängig vom Original-AR immer die gleiche Breite. Nur die Höhe variiert.
+Nützlich für Bilder untereinander in einer Spalte.
+
+(funktioniert auch mit vorgegebener Höhe; dann variiert die Breite. Nüzlich für Bilder in einer Zeile)
+
+#### Nur Breite angeben als %-Satz, keine Höhe
+
+Das führt zu einem Relativen Resize des Bildes. Ein Zielbreite von 50% würde also das Bild in Breite **und** Höhe um 50% verkleinern.
+
+(Höhenangabe statt Breite funktioniert analog und führt zum selben Ergebnis.)
+
+###
 
 -.......
 .......
