@@ -13,6 +13,7 @@ und dem darin enthalten Effekt **Focuspoint-Fit** der MediaManager verlässliche
 - [Anforderungen an den neuen Effekt **Focuspoint-Fit**](#C)
 - [Wie **Focuspoint-Fit** rechnet](#D)
 - [Fit ohne Fokuspunkt?](#E)
+- [Höhe und Breite steuern das Ergebnis](#H)
 - [Typische Anwendungen](#F)
 - [**Focuspoint-Fit** ohne **Focuspoint-Addon**](#G)
 
@@ -31,10 +32,7 @@ vom Workflow her schon immer lästig und per Saldo fehleranfällig - abgesehen d
 am Ende mehrere Versionen eines Bildes im Medienpool stehen. Und was ist bei Layout-Änderungen? 
 
 Eine andere Variante wäre, den dafür vorgesehenen MediaManager die Arbeit erledigen zu lassen. Bei wirrem
-Ausgangsmaterial-Mix (mal höher, mal breiter) kommen die mitgelieferten Effekte an Ihre Grenzen. 
-Resize z.B. passt entweder die eine Dimension genau ein und lässt die andere überstehen 
-(keine verlässliche Zielgröße bzw. Zielformat) oder macht das Bild schmaler. Oder 
-das Zielbild ist genau in ein vorgegebenes Format gebracht, aber bei abweichendem AR verzerrt. 
+Ausgangsmaterial-Mix kommen die mitgelieferten Effekte an Ihre Grenzen.
 
 | zu schmal<br />(255x300) | zu hoch<br />(300x400) | verzerrt<br />(300x300) |
 | ---------- | -------------- | -------- |
@@ -112,11 +110,7 @@ Die Einzelheiten werden jetzt Schritt für Schritt erklärt.
 
 ![Eingabemaske](assets/addons_focuspoint_fpfit/eingabe.jpg "Eingabemaske") 
 
-### Zielformat
-
 Die Zielbildgröße wird fest vorgegeben. Es geht auch anders, zu diesem Sonderfall [später](#F1) mehr. 
-
-![Eingabemaske Höhe/Breite](assets/addons_focuspoint_fpfit/eingabe_size.jpg "Eingabemaske Höhe/Breite") 
 
 ### Den Engpass ermitteln
 
@@ -138,7 +132,7 @@ ihn erst einmal oben links in die Ecke des Originalbildes (roter Rahmen):
 
 Der gelbe senkrechte Strich markiert in der Engpass-Dimension den Platz, der zwischen Ausschnittshöhe und Originalhöhe verbleibt. 
 Dieser Restplatz, im Beispiel 2004px, kann mit der Einstellung __"Zoom des Ausschnitts"__ in das Zielbild genommen weren. 
-Entsprechend muss immer auch die jeweils andere Dimension des Ausschnitts neu berechnet werden, denn der AR des Zielbildes 
+Die jeweils andere Dimension des Ausschnitts wird auch neu berechnet werden, denn der AR des Zielbildes 
 ist unbedingt einzuhalten.
 
 ![Eingabemaske Zoom](assets/addons_focuspoint_fpfit/eingabe_zoom.jpg "Eingabemaske Zoom") 
@@ -173,14 +167,14 @@ den zweiten Weg. Nach dem fünften Rechenschritt haben wir also folgende Ausschn
 
 ![Ausschnitt final](assets/addons_focuspoint_fpfit/demo_target.jpg "Ausschnitt final") 
 
-*Achtung - Nebenwirkung "Vergrößerung"*: Was pssiert eigentlich, wenn schon der ursprüngliche Ausschnittsrahmen (=Zielgröße) 
+> *Achtung - Nebenwirkung "Vergrößerung"*: Was pssiert eigentlich, wenn schon der ursprüngliche Ausschnittsrahmen (=Zielgröße) 
 größer ist als das Originalbild?
 Dann wird der Ausschittsrahmen unter Einhaltung des Ziel-AR soweit verkleinert, dass er in der Engpass-Dimmension wieder passt. 
 Die Wirkung wäre also faktisch die Vergrößerung des Originalbildes. Der Zoom-Faktor bleibt dabei ohne Wirkung, logisch.  
 
 ### Zielbild erzeugen
 
-Zum Schluß wird per **imagecopyresized** in nur einem Transformations-Schritt aus dem Originalbild das Zielbild in der Zielgröße errechnet.
+Zum Schluß wird per **imagecopyresampled** in nur einem Transformations-Schritt aus dem Originalbild das Zielbild errechnet.
 
 ![Zielbild](assets/addons_focuspoint_fpfit/demo_final.jpg "Zielbild") 
 
@@ -195,6 +189,54 @@ Bildmitte liegt (50%/50%). Aber das wäre ja zu einfach.
 Tatsächlich bietet die Effekt-Parametrisierung an, Fallback-Werte selbst festzulegen und deren Gültigkeit zu steuern.
 
 ![Fallback](assets/addons_focuspoint_fpfit/fallback.jpg "Fallback") 
+
+<a name="H"></a>
+## Das Zielformat festlegen: Breite und Höhe
+
+Focuspoint-Fit soll Bilder in verlässlicher Größe erzeugen. Dazu müssen Breite und Höhe des 
+Zielbildes bekannt sein. Als Größenangaben sind dennoch auch variable Werte möglich. In dem Fall wird 
+die Zielformatgröße aus Abmessungen des Originalbildes abgeleitet.
+
+Was in welcher Kombination passiert zeigt die nachfolgende Tabelle. Die Beispielberechnungen beruhen
+auf einem Originalbild der Abmessungen 1600x1200 (AR 4:3) bzw. 1200x1600 (AR 3:4). Das angestrebte Zielformat ist 300x300.
+
+| Nr | Breite | Höhe | Erklärung | Zielformat<br />quer | Zielformat<br />hoch |
+| --- | --- | --- | --- | --- | --- |
+| 1 | 300 | 300 | Normalfall wie oben beschrieben; | 300 x 300 | 300 x 300 |
+| 2a | 300 | | Höhe wird über den AR des Bildes ermittelt | 300 x 225 | 300 x 400 |
+| 2b | | 300 | Breite wird über den AR des Bildes ermittelt | 400 x 300 | 225 x 300 |
+| 3a | 300 | 20% | Höhe ist 20% der Höhe des Originalbildes | 300 x 240 | 300 x 320 |
+| 3b | 20% | 300 | Breite ist 20% der Breite des Originalbildes | 320 x 300 | 240 x 300 |
+| 4a | 20% | | Breite ist 20% der Breite des Originalbildes<br />Höhe wird über den AR des Bildes ermittelt<br />(wirkt also wie "20%, 20%") | 320 x 240 | 240 x 320 |
+| 4b | | 20% | Höhe ist 20% der Höhe des Originalbildes<br />Breite wird über den AR des Bildes ermittelt<br />(wirkt also wie "20%, 20%") | 320 x 240 | 240 x 320 |
+| 5 | 40% | 20% | Höhe und Breite sind jeweils x% der Abmessung des Originalbildes | 640 x 240 | 480 x 320 |
+| 6 | 16fr | 9fr | Kappt das Bild in das Format 16:9 | 1600 x 900 | 1200 x 675 |
+
+### Bilder fester Größe (1)
+
+Nur in Variante 1 wird die angestrebte verlässliche Zielgröße erzeugt. Dies ist auch der Hauptanwendungszweck für Focuspoint-Fit.
+
+### Bild im vorgegebenen Format, also Aspect-Ratio (6)
+
+Hiermit wird ein Bild mit einem fest vorgegebenen Aspect-Ratio erzeugt. 
+Mangels Angabe einer Zielgröße (dann würde Variante 1 greifen) wird das Bild maximal groß werden.
+
+**Beide** Eingabefelder müssen einen fr-Wert aufweisen. Der voreingestellte Wert des Zoom-Faktors wird ignoriert. Statt
+dessen wird intern mit 100% gerechnet, um ein maximal großes Bild zu erzielen.
+
+Dies ist die zweitbeste Variante bezogen auf die angestrebte Zielsetzung, zumindest ein verlässliches Format (AR) zu erzeugen.
+
+### Bilder fester Breite oder Höhe (2,3)
+
+In diesen Varianten ist eine Dimension fest vorgegeben. Bilder fester Breite eignen sich für vertikale Anordnung 
+direkt untereinander, Bilder fester Höhe für zeilenweise Anordnung nebeneinander.
+
+### Ausschnitte (4,5)
+
+Die Größen werden in Prozent der Originaldimension angegeben. Ansonsten funktioniert es wie Variante 2. Der Ergebnisse sind, betrachtet 
+man die absolute Größe, nur schwer vorher abschätzbar, wenn das Ausgangsgmaterial sich stark unterscheidet.
+
+In der Variante 4 ist die Zoom-Option 100% sinnlos, da am Ende wieder das Originalbild entstehen würde.
 
 <a name="F"></a>
 ## Typische Anwendungen
