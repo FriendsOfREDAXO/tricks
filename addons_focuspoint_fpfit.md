@@ -80,8 +80,8 @@ Bildauschnitte platziert werden. So läßt sich die Kappungs-Verteilung elegant 
 
 Aus dem Effekt **Fit** wird der Effekt **Focuspoint-Fit**.
 
-(Ja, das Beispiel mit dem Bootsbild zeigt auch, dass je nach Zielsetzung auch andere Fokuspunkte sinnvoll sein können:
-das ganze Boot, nur der Rumpf, Segelnummer, Personen, .... Man muss sich halt für einen FP entscheiden.)
+> Ja, das Beispiel mit dem Bootsbild zeigt auch, dass je nach Zielsetzung auch andere Fokuspunkte sinnvoll sein können:
+das ganze Boot, nur der Rumpf, Segelnummer, Personen, .... Man muss sich halt für einen FP entscheiden.
 
 
 <a name="C"></a>
@@ -202,7 +202,7 @@ auf einem Originalbild der Abmessungen 1600x1200 (AR 4:3) bzw. 1200x1600 (AR 3:4
 
 | Nr | Breite | Höhe | Erklärung | Zielformat<br />quer | Zielformat<br />hoch |
 | --- | --- | --- | --- | --- | --- |
-| 1 | 300 | 300 | Normalfall wie oben beschrieben; | 300 x 300 | 300 x 300 |
+| 1 | 300 | 300 | Normalfall wie oben beschrieben | 300 x 300 | 300 x 300 |
 | 2a | 300 | | Höhe wird über den AR des Bildes ermittelt | 300 x 225 | 300 x 400 |
 | 2b | | 300 | Breite wird über den AR des Bildes ermittelt | 400 x 300 | 225 x 300 |
 | 3a | 300 | 20% | Höhe ist 20% der Höhe des Originalbildes | 300 x 240 | 300 x 320 |
@@ -216,9 +216,9 @@ auf einem Originalbild der Abmessungen 1600x1200 (AR 4:3) bzw. 1200x1600 (AR 3:4
 
 Nur in Variante 1 wird die angestrebte verlässliche Zielgröße erzeugt. Dies ist auch der Hauptanwendungszweck für Focuspoint-Fit.
 
-### Bild im vorgegebenen Format, also vorgegebener Aspect-Ratio (6)
+### Bild im vorgegebenen Format/Aspect-Ratio (6)
 
-Hiermit wird ein Bild mit einem fest vorgegebenen Aspect-Ratio erzeugt. 
+Hiermit wird ein Bild mit einem fest vorgegebenen Aspect-Ratio erzeugt.
 Mangels Angabe einer Zielgröße (dann würde Variante 1 greifen) wird das Bild maximal groß werden.
 
 **Beide** Eingabefelder müssen einen fr-Wert aufweisen. Der voreingestellte Wert des Zoom-Faktors wird ignoriert. Statt
@@ -252,7 +252,7 @@ Das obige Beispiel mit Zoom = 100% ergibt
 
 ### Bilder für Kopfzeilen/Banner erstellen
 
-Die Bilder werden breit, aber nicht hochmit einem AR von 4:1 oder 5:1. Zur Umsetzung gibt es zwei Varianten:
+Die Bilder werden breit, aber nicht hoch mit einem AR von z.B. 4:1 oder 5:1. Zur Umsetzung gibt es zwei Varianten:
 
 - Ein Bild fester Größe erzeugen, indem die Abmessungen vorgegeben und der Zoomfaktor z.B. auf 75% oder 100% gestellt wird.
 - Alternativ kann auch nur der Aspect-Ratio angegeben werden. Die Breite wäre z.B. als 4fr und die Höhe als 1fr anzugeben.
@@ -262,7 +262,7 @@ Die Bilder werden breit, aber nicht hochmit einem AR von 4:1 oder 5:1. Zur Umset
 Das ist ein Anwendungsfall für Zoom-Faktoren unter 100%. Wenn das Zielformat und das Quellformat sehr deutlich voneinander
 abweichen, kann ein Zoom-Faktor von 0% problematisch werden, da der Ausschnitt sehr klein wäre.
 
-Sind die Originalbilder nur wenig (na ja, so bis 20%) größer als das Zielformat, bietet sich die oft die 0%-Variante an.
+Sind die Originalbilder nur wenig (na ja, so bis 20%) größer als das Zielformat, bietet sich die oft eh die 0%-Variante an.
 
 ### Passbilder
 
@@ -286,19 +286,13 @@ Das entspricht einem Fokuspunkt vertikal von 47%; der horizontale ist 50%.
 Die Bildgröße kann auch relativ angegeben werden. Allerdings sind relative Werte immer bezogen auf das Originalbild. Damit ist
 am Ende kein verlässliches Zielformat zu erzeugen. Dennoch kann es tricky sein, diese Variante zu nutzen.
 
-**Nur Breite angeben, keine Höhe**
+**Nur Breite angeben**
 
 Setze man die Zielbreite fest und gibt keine Zielhöhe an, wird ein Zielbild erzeugt, dass eben genau die Zielbreite
-aufweist. Der Aspect-Ratio ergibt sich aus dem AR des Originalbildes. Alle Blder haben also unabhängig vom Original-AR immer die gleiche Breite. Nur die Höhe variiert.
-Nützlich für Bilder untereinander in einer Spalte.
+aufweist. Der Aspect-Ratio ergibt sich aus dem AR des Originalbildes. Alle Blder haben also unabhängig vom Original-AR immer die gleiche Breite. Nur die Höhe variiert. 
 
 (funktioniert auch mit vorgegebener Höhe; dann variiert die Breite. Nüzlich für Bilder in einer Zeile)
 
-**Nur Breite angeben als %-Satz, keine Höhe**
-
-Das führt zu einem Relativen Resize des Bildes. Ein Zielbreite von 50% würde also das Bild in Breite **und** Höhe um 50% verkleinern.
-
-(Höhenangabe statt Breite funktioniert analog und führt zum selben Ergebnis.)
 
 <a name="G"></a>
 ## **Focuspoint-Fit** ohne **Focuspoint-Addon**
@@ -309,17 +303,18 @@ Der Effekt Focuspoint-Fit ist zwar Teil des Addons, wird aber faktisch in den Me
 Focuspoint-Addon herunterladen, die Effekt-Datei in ein anderes Addon (z.B. Projekt-Addon) kopieren und über dessen `boot.php`
 aktivieren. Hier die Schritte im Detail:
 
-- Kopiere `focuspoint/lib/class.rex\_effect\_focuspoint\_fit.php` nach `project/lib/class.rex\_effect\_focuspoint\_fit.php`.
-- Übertrage die zum Effekt gehörenden Texte aus `focuspoint/lang/xx\_xx.lang` in die lang-Datei des Projektes.
-- Aktiviere den Effekt in der `project/boot.php` mit dem Befehl `rex\_media\_manager::addEffect('rex\_effect\_focuspoint\_fit');`.
+- Kopiere `focuspoint/lib/class.rex_effect_focuspoint_fit.php` nach `project/lib/`.
+- Übertrage die zum Effekt gehörenden Texte aus `focuspoint/lang/xx_xx.lang` in die lang-Datei des Projektes.
+- Aktiviere den Effekt in der `project/boot.php` mit dem Befehl `rex_media_manager::addEffect('rex_effect_focuspoint_fit');`.
 
 Ab dieser Stelle ist der Effekt verfügbar. Allerdings kann er nur auf Basis der vorab eingestellten Fallback-Werte
 für Bilder ohne Fokuspunkt eingesetzt werden.  
 
 Bildindividuelle Fokuspunkte werden möglich, wenn die Tabelle rex\_media mit einem zusätzlichen Meta-Feld versehen wird.
-Von den zwei Feldern, die das Fokuspoint-Addon hinzufügt, nutzt Focuspoint-Fit nur den %-Wert im Feld med\_focuspoint\_css.
-Dieses Feld müsste angelegt werden. Es tauch dann in den Metadaten der medien auf und kann befüllt werden. Eingaben müssen die
-Form `x%, y%` habe. X und Y sind ganze Zahlen. Wenn man sich nicht an das Format hält -> kann klappen, kann auch nicht - im Zweifel "Pech gehabt".
+Von den zwei Feldern, die das Fokuspoint-Addon hinzufügt, nutzt Focuspoint-Fit nur den %-Wert im Feld `med_focuspoint_css`.
+Feldinhalte müssen das Format `x%, y%` habe. X und Y sind ganze Zahlen. Wenn man sich nicht an das Format hält -> kann klappen, kann auch nicht - im Zweifel "Pech gehabt".
 
-Fazit: ja, es geht. Aber es ist wesentlich einfacher und im Handling komfortabler, das Fokuspoint-Addon zu installieren. 
+Dieses Feld müsste also angelegt werden. Wie es bearbeitet wird, ist eine andere Sache. Auch dazu müsste ersteinmal Code geschrieben und aktiviert werden. 
+
+> Fazit: Ja, es geht. Aber es ist wesentlich einfacher und im Handling komfortabler, das Fokuspoint-Addon zu installieren. 
 Und Updates spielen sich auch einfacher ein.
