@@ -34,10 +34,6 @@ am Ende mehrere Versionen eines Bildes im Medienpool stehen. Und was ist bei Lay
 Eine andere Variante wäre, den dafür vorgesehenen MediaManager die Arbeit erledigen zu lassen. Bei wirrem
 Ausgangsmaterial-Mix kommen die mitgelieferten Effekte an Ihre Grenzen.
 
-| zu schmal<br />(255x300) | zu hoch<br />(300x400) | verzerrt<br />(300x300) |
-| ---------- | -------------- | -------- |
-| ![zu schmal](assets/addons_focuspoint_fpfit/test_resize_300x300_225x300.jpg "zu schmal") | ![zu hoch](assets/addons_focuspoint_fpfit/test_resize_300x300_300x400.jpg "zu hoch") | ![verzerrt](assets/addons_focuspoint_fpfit/test_resize_300x300_300x300.jpg "verzerrt") |
-
 So entstand die Idee für einen neuen Effekt "Fit", bei dem ein verlässliches Zielformat (AR)
 oder noch besser eine genau vorgegebene Zielbildgröße sichergestellt wird. 
 Der Preis dafür: Teile des Quellbildes müssen abgeschnitten werden, wenn die Aspect-Ratios (AR) nicht übereinstimmen. 
