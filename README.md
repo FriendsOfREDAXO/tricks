@@ -20,7 +20,7 @@
 - AddOns
     - Cronjobs
         - [Auto-Artikelarchivierung mittels Cronjob](addons_cronjob_article_archive_cronjob.md) <sup><i>darwin26</i></sup>
-    - Focuspoint
+    - Focuspoint [:link:](https://github.com/FriendsOfREDAXO/focuspoint/) [:link:](https://github.com/FriendsOfREDAXO/focuspoint/)
         - [Fokuspoint und der MM-Effekt Fokuspoint-Fit](addons_focuspoint_fpfit.md) <sup><i>christophboecker</i></sup>
     - MForm [:link:](https://github.com/FriendsOfREDAXO/mform) / MBlock [:link:](https://github.com/FriendsOfREDAXO/mblock)
         - [CustomLink auslesen](addons_mform_customlink.md) <sup><i>skerbis</i></sup>
