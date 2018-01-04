@@ -110,7 +110,7 @@ Die Einzelheiten werden jetzt Schritt für Schritt erklärt.
 
 ![Eingabemaske](assets/addons_focuspoint_fpfit/eingabe.jpg "Eingabemaske") 
 
-Die Zielbildgröße wird fest vorgegeben. Es geht auch anders, zu diesem Sonderfall [später](#F1) mehr. 
+Die Zielbildgröße wird fest vorgegeben. Es geht auch anders, zu diesem Sonderfall [später](#H) mehr. 
 
 ### Den Engpass ermitteln
 
@@ -216,7 +216,7 @@ auf einem Originalbild der Abmessungen 1600x1200 (AR 4:3) bzw. 1200x1600 (AR 3:4
 
 Nur in Variante 1 wird die angestrebte verlässliche Zielgröße erzeugt. Dies ist auch der Hauptanwendungszweck für Focuspoint-Fit.
 
-### Bild im vorgegebenen Format, also Aspect-Ratio (6)
+### Bild im vorgegebenen Format, also vorgegebener Aspect-Ratio (6)
 
 Hiermit wird ein Bild mit einem fest vorgegebenen Aspect-Ratio erzeugt. 
 Mangels Angabe einer Zielgröße (dann würde Variante 1 greifen) wird das Bild maximal groß werden.
@@ -243,7 +243,7 @@ In der Variante 4 ist die Zoom-Option 100% sinnlos, da am Ende wieder das Origin
 
 ### Bilder größtmöglich auf ein Zielformat bringen
 
-In dem Fall wird man den Zoom-Faktor auf 100% stellen, um möglichst viel vom Originalbild in das Zielbild zu 
+Breite und Höhe werden fest vorgegeben und der Zoom-Faktor auf 100% gestellt, um möglichst viel vom Originalbild in das Zielbild zu 
 überführen. Dank des Fokuspunktes wird dort gekappt wird, wo es am wenigsten weh tut.
 
 Das obige Beispiel mit Zoom = 100% ergibt
@@ -252,8 +252,10 @@ Das obige Beispiel mit Zoom = 100% ergibt
 
 ### Bilder für Kopfzeilen/Banner erstellen
 
-Die Bilder werden breit, aber nicht hoch. Auch hier würde sich Zoom = 100% anbieten. Das konkrete Zielformat hängt u.a.
-vom Layout ab. Beispiele siehe oben.
+Die Bilder werden breit, aber nicht hochmit einem AR von 4:1 oder 5:1. Zur Umsetzung gibt es zwei Varianten:
+
+- Ein Bild fester Größe erzeugen, indem die Abmessungen vorgegeben und der Zoomfaktor z.B. auf 75% oder 100% gestellt wird.
+- Alternativ kann auch nur der Aspect-Ratio angegeben werden. Die Breite wäre z.B. als 4fr und die Höhe als 1fr anzugeben.
 	
 ### Details herausheben
 
@@ -262,15 +264,14 @@ abweichen, kann ein Zoom-Faktor von 0% problematisch werden, da der Ausschnitt s
 
 Sind die Originalbilder nur wenig (na ja, so bis 20%) größer als das Zielformat, bietet sich die oft die 0%-Variante an.
 
-
-### Gleichformatige und formatähnliche Originalbilder
+### Passbilder
 
 Liegen die Quellbilder in einem verlässlichen Format vor und haben einen sehr ähnlichen Fokuspunkt (z.B. eine Reihe Portrait-Fotos)
 kann man auch ohne bildindividuellen Fokuspunkt zum Ziel kommen. Angenommen die "Passbilder" liegen im Format 3:4 vor und sollen
 auf 1:1 gekappt werden mit 10% Kappung oben.
 
 Rechenbeispiel? Die Original-Bilder sind in der Größe 900x1200, das Zielformat ist 300x300, der Zoom-Faktor 100%. 
-Der Bildausschnitt ist also 900x900. Der verbleibende Rest von 300 px 
+Der Bildausschnitt ist also 900x960. Der verbleibende Rest von 300 px 
 in der Höhe muss gekappt werden. Oben werden 10% des Bildes gekappt = 120px. Der Rest (180px) wird unten gekappt. 
 Das entspricht einem Fokuspunkt vertikal von 47%; der horizontale ist 50%.
 
@@ -278,15 +279,14 @@ Das entspricht einem Fokuspunkt vertikal von 47%; der horizontale ist 50%.
 
 | Original | Ziel |
 | -------- | ---- |
-| ![olien](assets/addons_focuspoint_fpfit/oliver.jpg "olien") | ![olien](assets/addons_focuspoint_fpfit/oliver2.jpg "olien")  |
+| ![cb](assets/addons_focuspoint_fpfit/cb.jpg "bc") | ![cb](assets/addons_focuspoint_fpfit/cb2.jpg "cb")  |
 
-<a href="F1"></a>
-### Bilder fester Breite und variabler Höhe
+### Gleich breite Bilder für Spalten, bzw. gleich hohe Bilder für Zeilen
 
 Die Bildgröße kann auch relativ angegeben werden. Allerdings sind relative Werte immer bezogen auf das Originalbild. Damit ist
 am Ende kein verlässliches Zielformat zu erzeugen. Dennoch kann es tricky sein, diese Variante zu nutzen.
 
-#### Nur Breite angeben, keine Höhe
+**Nur Breite angeben, keine Höhe**
 
 Setze man die Zielbreite fest und gibt keine Zielhöhe an, wird ein Zielbild erzeugt, dass eben genau die Zielbreite
 aufweist. Der Aspect-Ratio ergibt sich aus dem AR des Originalbildes. Alle Blder haben also unabhängig vom Original-AR immer die gleiche Breite. Nur die Höhe variiert.
@@ -294,18 +294,11 @@ Nützlich für Bilder untereinander in einer Spalte.
 
 (funktioniert auch mit vorgegebener Höhe; dann variiert die Breite. Nüzlich für Bilder in einer Zeile)
 
-#### Nur Breite angeben als %-Satz, keine Höhe
+**Nur Breite angeben als %-Satz, keine Höhe**
 
 Das führt zu einem Relativen Resize des Bildes. Ein Zielbreite von 50% würde also das Bild in Breite **und** Höhe um 50% verkleinern.
 
 (Höhenangabe statt Breite funktioniert analog und führt zum selben Ergebnis.)
-
-###
-
--.......
-.......
-
-
 
 <a name="G"></a>
 ## **Focuspoint-Fit** ohne **Focuspoint-Addon**
