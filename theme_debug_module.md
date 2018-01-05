@@ -28,19 +28,18 @@ if(!function_exists("debug_module"))
     {
         //get core version
         $coreVersion = rex_config::get('core', 'version');
-        $returnDebug = '';
         //build debug
         if ($coreVersion < '5.3.0') {
-            $returnDebug .= '<h6>'.$label.'</h6>'.
+            //return debug
+            echo '<h6>'.$label.'</h6>'.
                 '<pre>' .
-                print_r($value) .
+                print_r($value,1) .
                 '</pre>';
         } else {
-            $returnDebug .= '<h6>'.$label.'</h6>' .
+            //return debug
+            echo '<h6>'.$label.'</h6>';
                 dump($value);
         }
-        //return debug
-        return $returnDebug;
     }
 }
 ```
@@ -92,9 +91,9 @@ $items = rex_var::toArray("REX_VALUE[1]");
 //when function is present
 if(function_exists('debug_module')) {
     //show debug module output
-    echo debug_module($items);
-    echo debug_module($owlConfiguration, 'Configuration');
-    echo debug_module("REX_VALUE[5]", 'REX_VALUE 5');
+    debug_module($items);
+    debug_module($owlConfiguration, 'Configuration');
+    debug_module("REX_VALUE[5]", 'REX_VALUE 5');
 }
 ```
 
