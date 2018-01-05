@@ -84,12 +84,11 @@ Alt| Neu
 
 **Beispiel Code Block**
     
-        ```php 
-        $article = rex_article::get();
-        
-        ```
-        
-        
+```php 
+<?php
+$article = rex_article::get();
+```
+  
 **weiteres Beispiel**
         
         /**
