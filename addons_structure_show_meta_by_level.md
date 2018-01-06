@@ -1,6 +1,6 @@
 # MetaInfos nur für bestimmte Ebenen einblenden
 
-REDAXO bietet aktuell zwar die Möglichkeit Meta-Felder ab einer bestimmten Kategorie darzustellen. Mit der nachfolgenden Lösung ist es möglich, Metafelder nur in einem festgelegten Level der Struktur anzuzeigen. Zur Steuerung der Dartsellung werden hier Fieldsets verwendet, die nur eingeblendet werden, wenn man sich im gewünschten Level befindet. 
+REDAXO bietet aktuell zwar die Möglichkeit Meta-Felder ab einer bestimmten Kategorie darzustellen, mit der nachfolgenden Lösung ist es jedoch möglich, Metafelder nur in einem festgelegten Level der Struktur anzuzeigen. Zur Steuerung der Dartsellung werden hier Fieldsets verwendet, die nur eingeblendet werden, wenn man sich im gewünschten Level befindet. 
 
 >**Achtung!** Die Felder werden nur per CSS ausgeblendet. Es sollten ggf. Maßnahmen ergriffen werden ein Autofill zu vermeiden. 
 
