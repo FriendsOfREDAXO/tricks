@@ -29,6 +29,7 @@
         - [Einfache Tabelle mit MForm MBlock](modul_minibeispiel_mblock_tabelle.md) <sup><i>alexplusde / Skerbis</i></sup>
     - Struktur
         - [Kategorie duplizieren](addons_structure_duplicate_category.md) <sup><i>gharlan</i></sup>
+        - [MetaInfos nur für bestimmte Ebenen einblenden](addons_structure_show_meta_by_level.md) <sup><i>tbaddade</i></sup>
     - Theme [:link:](https://github.com/FriendsOfREDAXO/theme)
         - [Theme Debug Module](theme_debug_module.md) <sup><i>elricco</i></sup>
         - [Theme Language Switch](theme_language_switch.md) <sup><i>elricco</i></sup>        
