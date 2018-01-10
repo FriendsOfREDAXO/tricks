@@ -12,11 +12,14 @@ Skript zum Download und Entpacken der aktuellen REDAXO-Release aus GitHub.
 ```php
     <?php
 /**
- * Download latest REDAXO release from github release articats
+ * Download latest REDAXO release from github
  * License: Public Domain
  */
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
+$install_path = './';
+$install_file = $install_path . 'redaxo.zip';
+$loader_file = $install_path . 'redaxo_loader.php';
 define('REPO', 'redaxo/redaxo');
 $opts = ['http' => ['method' => 'GET', 'header' => ['User-Agent: PHP']]];
 $context = stream_context_create($opts);
@@ -31,7 +34,7 @@ $folder = "./redaxo";
 if (is_dir($folder))
  {
  echo '<pre>Es existiert schon ein Ordner /redaxo 
-    Bitte pr&uuml;fen.
+      Bitte pr&uuml;fen.
     <pre>';
  exit();
  }
@@ -50,9 +53,6 @@ function curl_file_get_contents($url)
  return $content;
  }
 
-$install_path = './';
-$install_file = $install_path . 'redaxo.zip';
-$loader_file = $install_path . 'redaxo_loader.php';
 echo '<pre>Folgende aktuelle Datei wurde gefunden: ' . $url . '</pre>';
 $redaxo_core = curl_file_get_contents($url);
 file_put_contents($install_file, $redaxo_core);
