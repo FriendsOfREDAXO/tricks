@@ -11,7 +11,7 @@ Skript zum Download und Entpacken der aktuellen REDAXO-Version.
 
 > load_redaxo.php läd und enpackt die aktuelle Redaxo-Version. 
 
-
+```php
     <?php 
 
     error_reporting(E_ALL);
@@ -68,3 +68,4 @@ Skript zum Download und Entpacken der aktuellen REDAXO-Version.
       echo 'Beim Entpacken ist ein Fehler aufgetreten';
 
     }
+```
