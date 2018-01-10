@@ -5,7 +5,8 @@
 
 - Entwicklung
     - [Nützliches und Helferlein für Developer](developer_resources.md) <sup><i>skerbis</i></sup>
-
+- Installation
+    - [REDAXO Loader - REDAXO laden und entpacken](install_redaxo_loader.md) <sup><b>Veraltet</b></sup> <sup><i>skerbis</i></sup>
 - Backend
     - [Styling von Select-Feldern](backend_sytling-select.md) <sup><i>skerbis</i></sup>
     - [YForm Tabellen oberhalb der AddOns platzieren](be_navi.md)<sup><i>tbaddade</i></sup>
@@ -54,11 +55,6 @@
     - [Class rex_media erweitern (ab redaxo 5.3)](snippet_klasse_rex_media_erweitern.md) <sup><i>Daniel Weitenauer</i></sup>
     - [function: Umlaute im String ersetzen](snippet_umlaute_umschreiben.md) <sup><i>darwin</i></sup>
     - [Nützliche Queries](queries.md) <sup><i>tbaddade</i></sup>
-
-## Muss aktualisiert werden. 
-- Installation
-    - [REDAXO Loader - REDAXO laden und entpacken](install_redaxo_loader.md) <sup><b>Veraltet</b></sup> <sup><i>skerbis</i></sup>
-
 
 
 
