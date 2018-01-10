@@ -6,7 +6,7 @@
 - Entwicklung
     - [Nützliches und Helferlein für Developer](developer_resources.md) <sup><i>skerbis</i></sup>
 - Installation
-    - [REDAXO Loader - REDAXO laden und entpacken](install_redaxo_loader.md) <sup><b>Veraltet</b></sup> <sup><i>skerbis</i></sup>
+    - [REDAXO Loader - REDAXO laden und entpacken](install_redaxo_loader.md) <sup><i>skerbis</i></sup>
 - Backend
     - [Styling von Select-Feldern](backend_sytling-select.md) <sup><i>skerbis</i></sup>
     - [YForm Tabellen oberhalb der AddOns platzieren](be_navi.md)<sup><i>tbaddade</i></sup>
