@@ -1,71 +1,77 @@
 # REDAXO Loader
 
-> Achtung! Ist seit der neuen REDAXO.org Seite 2017 nicht mehr in dieser Form möglich
-
-Skript zum Download und Entpacken der aktuellen REDAXO-Version.
+Skript zum Download und Entpacken der aktuellen REDAXO-Release aus GitHub.
 (Basiert auf einem Gist von Jan Kristinus)
 
-- Datei load_redaxo.php erstellen und nachfolgenden Quellcode reinkopieren
-- load_redaxo.php in den Ordner / oder Webroot laden, wo redaxo installiert werden soll
-- load_redaxo.php aufrufen. 
+- Datei redaxo_loader.php erstellen und nachfolgenden Quellcode reinkopieren
+- redaxo_loader.php in den Ordner / oder Webroot laden, wo redaxo installiert werden soll
+- redaxo_loader.php aufrufen. 
 
 > load_redaxo.php läd und enpackt die aktuelle Redaxo-Version. 
 
 ```php
-    <?php 
+    <?php
+/**
+ * Download latest REDAXO release from github release articats
+ * License: Public Domain
+ */
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+define('REPO', 'redaxo/redaxo');
+$opts = ['http' => ['method' => 'GET', 'header' => ['User-Agent: PHP']]];
+$context = stream_context_create($opts);
+$releases = file_get_contents('https://api.github.com/repos/' . REPO . '/releases', false, $context);
+$releases = json_decode($releases);
+$url = $releases[0]->assets[0]->browser_download_url;
 
-    error_reporting(E_ALL);
-    ini_set("display_errors",1);
+// check if folder redaxo exists
 
-    // check if folder redaxo exists
-    $folder = "./redaxo";
-    if(is_dir($folder))
-      {
-    echo '<pre>Es existiert schon ein Ordner /redaxo 
+$folder = "./redaxo";
+
+if (is_dir($folder))
+ {
+ echo '<pre>Es existiert schon ein Ordner /redaxo 
     Bitte pr&uuml;fen.
     <pre>';
-      exit();
-      }
+ exit();
+ }
 
-    // Funktion die file_get_contents mit curl ersetzt
-    function curl_file_get_contents($url) {
-        $curly = curl_init();
+// Funktion die file_get_contents mit curl ersetzt
 
-        curl_setopt($curly, CURLOPT_HEADER, 0);
-        curl_setopt($curly, CURLOPT_RETURNTRANSFER, 1); //Return Data
-        curl_setopt($curly, CURLOPT_URL, $url);
+function curl_file_get_contents($url)
+ {
+ $curly = curl_init();
+ curl_setopt($curly, CURLOPT_HEADER, 0);
+ curl_setopt($curly, CURLOPT_RETURNTRANSFER, 1); //Return Data
+ curl_setopt($curly, CURLOPT_FOLLOWLOCATION, 1);
+ curl_setopt($curly, CURLOPT_URL, $url);
+ $content = curl_exec($curly);
+ curl_close($curly);
+ return $content;
+ }
 
-        $content = curl_exec($curly);
-        curl_close($curly);
+$install_path = './';
+$install_file = $install_path . 'redaxo.zip';
+$loader_file = $install_path . 'redaxo_loader.php';
+echo '<pre>Folgende aktuelle Datei wurde gefunden: ' . $url . '</pre>';
+$redaxo_core = curl_file_get_contents($url);
+file_put_contents($install_file, $redaxo_core);
+echo '<pre>redaxo.zip wurde erstellt und wird nun entpackt</pre>';
+$zip = new ZipArchive;
+$res = $zip->open($install_file);
 
-        return $content;
-    }
-    $current_version_path = curl_file_get_contents("http://www.redaxo.org/de/_system/_version/5/");
-    $install_path = './';
-    $install_file = $install_path.'redaxo.zip';
-    $loader_file = $install_path.'load_redaxo.php';
-
-    echo '<pre>Folgende aktuelle Datei wurde gefunden: '.$current_version_path.'</pre>';
-
-    $redaxo_core = curl_file_get_contents($current_version_path);
-    file_put_contents($install_file, $redaxo_core);
-
-    echo '<pre>redaxo.zip wurde erstellt und wird nun entpackt</pre>';
-
-    $zip = new ZipArchive;
-    $res = $zip->open($install_file);
-    if ($res === TRUE) {
-      $zip->extractTo($install_path);
-      $zip->close();
-
-      echo '<pre>REDAXO wurde erfolgreich entpackt</pre>';
-      $loader = file_get_contents($loader_file);
-      $loader = str_replace("\n".'// info','',$loader);
-      file_put_contents($loader_file, $loader);
-      unlink($install_file);
-
-    } else {
-      echo 'Beim Entpacken ist ein Fehler aufgetreten';
-
-    }
+if ($res === TRUE)
+ {
+ $zip->extractTo($install_path);
+ $zip->close();
+ echo '<pre>REDAXO wurde erfolgreich entpackt</pre>';
+ $loader = file_get_contents($loader_file);
+ $loader = str_replace("\n" . '// info', '', $loader);
+ file_put_contents($loader_file, $loader);
+ unlink($install_file);
+ }
+  else
+ {
+ echo 'Beim Entpacken ist ein Fehler aufgetreten';
+ }
 ```
