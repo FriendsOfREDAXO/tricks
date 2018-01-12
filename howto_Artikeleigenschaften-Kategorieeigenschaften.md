@@ -12,30 +12,15 @@ Die Sammelstelle für Artikel- und Kategorie-Tricks. Anwendungen entsprechend ht
 In REDAXO werden der ursprüngliche Autor (CreateUser) und die Person die den Artikel zuletzt aktualisiert hat (UpdateUser) im Artikel hinterlegt. 
 Möchte man diese auslesen erhält man deren Logins wie folgt: 
 
-### 1. CreateUser des aktuellen Artikels
+### User ermitteln
 
-```php
-$author = rex_article::getCurrent()->getCreateUser();
-```
+**geeignete Methoden:** `->getCreateUser();` oder  `->getUpdateUser();`
 
-### 2. CreateUser eines bestimmten Arikels
+Für den aktuellen Artikel
+`$author = rex_article::getCurrent()->`**Methode();**
 
-```php
-$author = rex_article::get($id_des_artikels)->getCreateUser();
-```
-
-### 3. UpdateUser des aktuellen Arikels
-
-```php
-$author = rex_article::getCurrent()->getUpdateUser();
-```
-
-### 4. UpdateUser eines bestimmten Arikels
-
-```php
-$author = get($id_des_artikels)->getUpdateUser();
-```
-
+Für einen bestimmten Artikel 
+`$author = rex_article::getCurrent()->`**Methode();**
 
 ### Function zum auslesen des Benutzernamens
 
