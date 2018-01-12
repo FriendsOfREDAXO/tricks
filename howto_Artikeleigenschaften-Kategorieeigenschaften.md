@@ -22,7 +22,7 @@ Für den aktuellen Artikel
 
 Für einen bestimmten Artikel 
 
-`$author = rex_article::getCurrent()->`**Methode();**
+`$author = rex_article::get($artikelID)->`**Methode();**
 
 ### Function zum auslesen des Benutzernamens
 
