@@ -6,7 +6,7 @@ Die Sammelstelle für Artikel- und Kategorie-Tricks
 -   [Autoren auslesen](#autoren)
 
 
-<a name="#autoren"></a>
+<a name="autoren"></a>
 ## Autoren auslesen
 
 In REDAXO werden der ursprüngliche Autor (CreateUser) und die Person die den Artikel zuletzt aktualisiert hat (UpdateUser) im Artikel hinterlegt. Möchte man diese auslesen erhält man deren Logins wie folgt: 
