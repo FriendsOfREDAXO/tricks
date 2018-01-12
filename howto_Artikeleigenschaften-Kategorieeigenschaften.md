@@ -1,6 +1,6 @@
 # Artikeleigenschaften / Kategorieeigenschaften
 
-Die Sammelstelle für Artikel- und Kategorie-Tricks
+Die Sammelstelle für Artikel- und Kategorie-Tricks. Anwendungen entsprechend https://redaxo.org/api/master/class-rex_article.html 
 
 - Artikel
 -   [Autoren auslesen](#autoren)
@@ -9,7 +9,8 @@ Die Sammelstelle für Artikel- und Kategorie-Tricks
 <a name="autoren"></a>
 ## Autoren auslesen
 
-In REDAXO werden der ursprüngliche Autor (CreateUser) und die Person die den Artikel zuletzt aktualisiert hat (UpdateUser) im Artikel hinterlegt. Möchte man diese auslesen erhält man deren Logins wie folgt: 
+In REDAXO werden der ursprüngliche Autor (CreateUser) und die Person die den Artikel zuletzt aktualisiert hat (UpdateUser) im Artikel hinterlegt. 
+Möchte man diese auslesen erhält man deren Logins wie folgt: 
 
 ### 1. CreateUser des aktuellen Artikels
 
