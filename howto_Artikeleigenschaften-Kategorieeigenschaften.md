@@ -3,7 +3,7 @@
 Die Sammelstelle für Artikel- und Kategorie-Tricks
 
 - Artikel
--   [Autoren auslesen(#autoren)
+-   [Autoren auslesen](#autoren)
 
 
 <a name="#autoren"></a>
