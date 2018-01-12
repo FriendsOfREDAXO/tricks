@@ -32,7 +32,7 @@ $author = rex_article::getCurrent()->getUpdateUser();
 ### 4. UpdateUser eines bestimmten Arikels
 
 ```php
-$author = get($id_des_artikels->getUpdateUser();
+$author = get($id_des_artikels)->getUpdateUser();
 ```
 
 
