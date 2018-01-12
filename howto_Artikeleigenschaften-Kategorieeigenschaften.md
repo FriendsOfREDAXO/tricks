@@ -17,9 +17,11 @@ Möchte man diese auslesen erhält man deren Logins wie folgt:
 **geeignete Methoden:** `->getCreateUser();` oder  `->getUpdateUser();`
 
 Für den aktuellen Artikel
+
 `$author = rex_article::getCurrent()->`**Methode();**
 
 Für einen bestimmten Artikel 
+
 `$author = rex_article::getCurrent()->`**Methode();**
 
 ### Function zum auslesen des Benutzernamens
