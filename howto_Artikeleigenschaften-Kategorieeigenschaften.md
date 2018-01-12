@@ -3,7 +3,7 @@
 Die Sammelstelle für Artikel- und Kategorie-Tricks. Anwendungen entsprechend https://redaxo.org/api/master/class-rex_article.html 
 
 - Artikel
--   [Autoren auslesen](#autoren)
+   -  [Autoren auslesen](#autoren)
 
 
 <a name="autoren"></a>
