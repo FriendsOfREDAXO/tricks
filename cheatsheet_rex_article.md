@@ -19,4 +19,10 @@ $categoryId       = $article->getCategoryId()
 ```php
 // Artikelnamen ausgeben
 echo rex_article::getCurrent()->getName()
+
+// Artikelnamen nach Erstellungsdatum sortieren
+$articles = rex_article::getRootArticles();
+usort($articles, function ($a, $b) {
+    return $a->getCreateDate() > $b->getCreateDate();
+});
 ```
