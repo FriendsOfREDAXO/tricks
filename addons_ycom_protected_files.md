@@ -11,8 +11,8 @@ Da Redaxo aktuell nur einen Medienordner hat und so von außen alle Dateien in d
 
 Geeignet für Redaxo ab 5.2
 
-1. Medienkategorie erster Ebene anlegen
-2. ID der Kategorie merken 
+1. Medienkategorien erster Ebene anlegen
+2. IDs der Kategorien merkenund bei `$mediacats2protect=` hinterlegen
 3. Nachfolgenden Code in die boot.php des Projekt-AddOn einbinden
 4. In der package.yml des AddOns den key `load: early` anlegen
 
