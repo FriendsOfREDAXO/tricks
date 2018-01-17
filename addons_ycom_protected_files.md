@@ -11,10 +11,9 @@ Da Redaxo aktuell nur einen Medienordner hat und so von außen alle Dateien in d
 
 Geeignet für Redaxo ab 5.2
 
-1. Medienkategorien erster Ebene anlegen
-2. IDs der Kategorien merkenund bei `$mediacats2protect=` hinterlegen
+1. Medienkategorie(n) erster Ebene anlegen
+2. ID(s) der Kategorie(n) merken und bei `$mediacats2protect=` hinterlegen
 3. Nachfolgenden Code in die boot.php des Projekt-AddOn einbinden
-4. In der package.yml des AddOns den key `load: early` anlegen
 
 ```php
 <?php
@@ -70,13 +69,16 @@ rex_extension::register('FE_OUTPUT', function () {
 });
 
 // check fileperm fuer media manager dateiaufrufe
-$filename = rex_get('rex_media_file', 'string');
-if ($filename && file_exists(rex_path::media($filename)))
+if (!rex::isBackend())
 {
-    if (!ycom_check_fileperm($filename, true))
+    $filename = rex_get('rex_media_file', 'string');
+    if ($filename && file_exists(rex_path::media($filename)))
     {
-        header('HTTP/1.1 403 Forbidden');
-        exit;
+        if (!ycom_check_fileperm($filename, true))
+        {
+            header('HTTP/1.1 403 Forbidden');
+            exit;
+        }
     }
 }
 ```
