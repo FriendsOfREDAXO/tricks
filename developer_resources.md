@@ -1,7 +1,8 @@
-# Nützliches und Helferlein für Developer
+# Nützliches für Developer
 
 - [Beschreibung](#beschreibung)
 - [Nützliche AddOns](#addons)
+  - [Adminer](#adminer)
   - [Cheatsheat für Extensionpoints](#cheatsheet)
   - [Developer - Module, Templates und Aktionen syncen](#developer)
   - [Project - Schnell mal eine PHP-Class einbinden](#project)
@@ -36,6 +37,15 @@ Nachfolgend listen wir hier nützliche Informationen, AddOns und Links, die die 
 Das Cheatsheet-AddOn scant die REDAXO-Installation nach Extension-Points im Core und den installierten AddOns und listet deren Position im Quellcode auf. 
 
 [**Installation aus Github-Repo:**](https://github.com/tbaddade/redaxo_cheatsheet)
+
+<a name="developer"></a>
+### Adminer
+
+Adminer für REDAXO. Seit Version 1.3.0 kann der rex_sql_table code für die ausgewählte Tabelle in der Tabellenstruktur angezeigt werden. Sehr hilfreich bei der AddOn-Erstellung für die install.php. 
+
+**Installation per Installer**
+
+[**Github-Repo**]https://github.com/FriendsOfREDAXO/adminer)
 
 <a name="developer"></a>
 ### Developer
