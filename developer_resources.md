@@ -45,7 +45,7 @@ Adminer für REDAXO. Seit Version 1.3.0 kann der rex_sql_table code für die aus
 
 **Installation per Installer**
 
-[**Github-Repo**]https://github.com/FriendsOfREDAXO/adminer)
+[**Github-Repo**](https://github.com/FriendsOfREDAXO/adminer)
 
 <a name="developer"></a>
 ### Developer
