@@ -31,14 +31,7 @@ Nachfolgend listen wir hier nützliche Informationen, AddOns und Links, die die 
 <a name="addons"></a>
 ## AddOns
 
-<a name="addons"></a>
-### Cheatsheet
-
-Das Cheatsheet-AddOn scant die REDAXO-Installation nach Extension-Points im Core und den installierten AddOns und listet deren Position im Quellcode auf. 
-
-[**Installation aus Github-Repo:**](https://github.com/tbaddade/redaxo_cheatsheet)
-
-<a name="developer"></a>
+<a name="adminer"></a>
 ### Adminer
 
 Adminer für REDAXO. Seit Version 1.3.0 kann der rex_sql_table code für die ausgewählte Tabelle in der Tabellenstruktur angezeigt werden. Sehr hilfreich bei der AddOn-Erstellung für die install.php. 
@@ -46,6 +39,13 @@ Adminer für REDAXO. Seit Version 1.3.0 kann der rex_sql_table code für die aus
 **Installation per Installer**
 
 [**Github-Repo**](https://github.com/FriendsOfREDAXO/adminer)
+
+<a name="cheatsheet"></a>
+### Cheatsheet
+
+Das Cheatsheet-AddOn scant die REDAXO-Installation nach Extension-Points im Core und den installierten AddOns und listet deren Position im Quellcode auf. 
+
+[**Installation aus Github-Repo:**](https://github.com/tbaddade/redaxo_cheatsheet)
 
 <a name="developer"></a>
 ### Developer
