@@ -39,7 +39,7 @@ if (!function_exists('getAuthor'))
 
 **Aufruf**
 
-`$author` ermitteln mit einem der vorherigen Codes aus 1.- 4., dann kann man den Benutzernamen wie folgt ermitteln: 
+`$author` ermitteln mit einem der vorherigen Codes, dann kann man den Benutzernamen wie folgt ermitteln: 
  
 ```php
 $username = getAuthor($author);
