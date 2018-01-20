@@ -21,13 +21,15 @@
 - AddOns
     - Cronjobs
         - [Auto-Artikelarchivierung mittels Cronjob](addons_cronjob_article_archive_cronjob.md) <sup><i>darwin26</i></sup>
+    - Focuspoint [:link:](https://github.com/FriendsOfREDAXO/focuspoint/)
+        - [Fokuspoint und der MM-Effekt Fokuspoint-Fit](addons_focuspoint_fpfit.md) <sup><i>christophboecker</i></sup>
+    - MForm [:link:](https://github.com/FriendsOfREDAXO/mform) / MBlock [:link:](https://github.com/FriendsOfREDAXO/mblock)
+        - [CustomLink auslesen](addons_mform_customlink.md) <sup><i>skerbis</i></sup>
+        - [Einfache Tabelle mit MForm MBlock](modul_minibeispiel_mblock_tabelle.md) <sup><i>alexplusde / Skerbis</i></sup>
     - Project
         - [Paginierungsklasse einbinden mit Project-Addon](addons_project_class_pagination.md) <sup><b>überprüfen</b></sup> <sup><i>alexplusde</i></sup>
         - [Eigene CSS/JS Dateien im Backend hinzufügen](addons_project_add_own_js_css_files.md) <sup><i>darwin</i></sup>
         - [Tipps für Sprachen in REDAXO](addons_project_clang.md) <sup><b>überprüfen</b></sup> <sup><i>alexplusde</i></sup>
-    - MForm [:link:](https://github.com/FriendsOfREDAXO/mform) / MBlock [:link:](https://github.com/FriendsOfREDAXO/mblock)
-        - [CustomLink auslesen](addons_mform_customlink.md) <sup><i>skerbis</i></sup>
-        - [Einfache Tabelle mit MForm MBlock](modul_minibeispiel_mblock_tabelle.md) <sup><i>alexplusde / Skerbis</i></sup>
     - Struktur
         - [Kategorie duplizieren](addons_structure_duplicate_category.md) <sup><i>gharlan</i></sup>
         - [MetaInfos nur für bestimmte Ebenen einblenden](addons_structure_show_meta_by_level.md) <sup><i>tbaddade</i></sup>
@@ -47,7 +49,7 @@
 - HowTo
     - [Kategorie einer REDAXO Instanz (Quelle) in eine andere Instanz (Ziel) kopieren](howto_kategorie_in_eine_andere_redaxo_instanz_kopieren.md) <sup><b>unvollständig</b></sup> <sup><i>tbaddade</i></sup>
     - [Website sperren / Wartungsarbeiten](howto_website_sperren.md) <sup><i>alexplusde / skerbis</i></sup>
-    - [AJAX mit dem rex_api](howto_ajax_rexapi.md) <sup><b>überprüfen</b></sup> <sup><i>christophboecker</i></sup>
+    - [AJAX mit dem rex_api](howto_ajax_rexapi.md) <i>christophboecker</i></sup>
 
 - Snippets
     - [bloecks: Status im Modul setzen](snippet_bloecks_status_im_Modul_setzen.md) <sup><i>skerbis</i></sup>
