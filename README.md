@@ -52,7 +52,7 @@
     - [AJAX mit dem rex_api](howto_ajax_rexapi.md) <i>christophboecker</i></sup>
 
 - Snippets
-    - [Artikel-Autor auslesen](snippet_artikel_autor.md) <sup><i>madiko, skerbis</i></sup>
+    - [Artikel-Autor auslesen](snippet_artikel_autor.md) <sup><i>alexplus_de madiko, skerbis</i></sup>
     - [bloecks: Status im Modul setzen](snippet_bloecks_status_im_Modul_setzen.md) <sup><i>skerbis</i></sup>
     - [Checkbox in einem Modul verwenden](snippet_checkbox_in_out.md) <sup><i>skerbis</i></sup>
     - [Class rex_media erweitern (ab redaxo 5.3)](snippet_klasse_rex_media_erweitern.md) <sup><i>Daniel Weitenauer</i></sup>
