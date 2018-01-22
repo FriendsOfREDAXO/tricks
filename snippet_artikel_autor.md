@@ -1,10 +1,4 @@
-# Artikeleigenschaften / Kategorieeigenschaften
-
-Die Sammelstelle für Artikel- und Kategorie-Tricks. Anwendungen entsprechend https://redaxo.org/api/master/class-rex_article.html 
-
-- Artikel
-   -  [Autoren auslesen](#autoren)
-
+# Artikel-Autor auslesen
 
 <a name="autoren"></a>
 ## Autoren auslesen
@@ -45,7 +39,7 @@ if (!function_exists('getAuthor'))
 
 **Aufruf**
 
-`$author` ermitteln mit einem der vorherigen Codes aus 1.- 4., dann kann man den Benutzernamen wie folgt ermitteln: 
+`$author` ermitteln mit einem der vorherigen Codes, dann kann man den Benutzernamen wie folgt ermitteln: 
  
 ```php
 $username = getAuthor($author);

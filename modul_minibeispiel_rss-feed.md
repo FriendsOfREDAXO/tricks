@@ -9,14 +9,16 @@
 ## Anleitung
 **Mögliche Vorgehensweise für die Ausgabe:** 
 Als Block einsetzen und mit einem Template mit folgendem Inhalt verbinden:
-       
+```php       
        <?php 
         // Senden des Headers mit korrekter Kodierung mittels rex_response
         rex_response::sendContentType('application/xml; charset=utf-8');
         print $this->getArticle(1); 
-        ?>
+```
 
-##Eingabe
+## Eingabe
+
+```php 
     <div class="form-group">
                   <label class="col-sm-5 control-label">Kategorie mit News</label>
                   <div class="col-sm-7">
@@ -54,8 +56,11 @@ Als Block einsetzen und mit einem Template mit folgendem Inhalt verbinden:
     <input class="form-control" placeholder="Unsere aktuellen Meldungen" type="text" name="REX_INPUT_VALUE[4]" value="REX_VALUE[4]" />
     </div>
     </div>
+```
 
 ## Ausgabe
+
+```php
     <?php
     /*
      *=============================================
@@ -138,5 +143,4 @@ Als Block einsetzen und mit einem Template mit folgendem Inhalt verbinden:
     // Ausgabe des RSS-Feeds
     echo $xml->asXML();
 
-
-    ?>
+```

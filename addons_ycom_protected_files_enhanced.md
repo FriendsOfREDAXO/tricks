@@ -1,6 +1,4 @@
-# Geschütze Dateien mit YCom
-
-Dies ist eine Erweiterung zum Trick (addons_ycom_protected_files.md)[https://github.com/FriendsOfREDAXO/tricks/blob/master/addons_ycom_protected_files.md].
+# Geschütze Dateien mit YCom - per Template
 
 ### Wie kann man Dateien in Verbindung mit YCom (Community Addon) einfach schützen?
 Da Redaxo aktuell nur einen Medienordner hat und so von außen alle Dateien in diesem Ordner öffentlich zugänglich sind, benötigt man eine Lösung, die den Dateiaufruf überprüft und entscheidet ob es sich um eine geschützte Datei oder einer öffentlichen Datei handelt. 

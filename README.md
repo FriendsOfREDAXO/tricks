@@ -3,8 +3,10 @@
 > Wer mitmachen möchte, beachte bitte bei der Einpflege die [Vorlage](vorlage.md).
 > Die github-page ist hier: https://friendsofredaxo.github.io/tricks/
 
+- Kunden-Kommunikation
+    - [Argumentationshilfe für REDAXO](redaxo-argumentationshilfe.md) <sup><i>alexplusde</i></sup>
 - Entwicklung
-    - [Nützliches und Helferlein für Developer](developer_resources.md) <sup><i>skerbis</i></sup>
+    - [Nützliches für Developer](developer_resources.md) <sup><i>skerbis</i></sup>
 - Installation
     - [REDAXO Loader - REDAXO laden und entpacken](install_redaxo_loader.md) <sup><i>skerbis</i></sup>
 - Backend
@@ -21,13 +23,15 @@
 - AddOns
     - Cronjobs
         - [Auto-Artikelarchivierung mittels Cronjob](addons_cronjob_article_archive_cronjob.md) <sup><i>darwin26</i></sup>
+    - Focuspoint [:link:](https://github.com/FriendsOfREDAXO/focuspoint/)
+        - [Fokuspoint und der MM-Effekt Fokuspoint-Fit](addons_focuspoint_fpfit.md) <sup><i>christophboecker</i></sup>
+    - MForm [:link:](https://github.com/FriendsOfREDAXO/mform) / MBlock [:link:](https://github.com/FriendsOfREDAXO/mblock)
+        - [CustomLink auslesen](addons_mform_customlink.md) <sup><i>skerbis</i></sup>
+        - [Einfache Tabelle mit MForm MBlock](modul_minibeispiel_mblock_tabelle.md) <sup><i>alexplusde / Skerbis</i></sup>
     - Project
         - [Paginierungsklasse einbinden mit Project-Addon](addons_project_class_pagination.md) <sup><b>überprüfen</b></sup> <sup><i>alexplusde</i></sup>
         - [Eigene CSS/JS Dateien im Backend hinzufügen](addons_project_add_own_js_css_files.md) <sup><i>darwin</i></sup>
         - [Tipps für Sprachen in REDAXO](addons_project_clang.md) <sup><b>überprüfen</b></sup> <sup><i>alexplusde</i></sup>
-    - MForm [:link:](https://github.com/FriendsOfREDAXO/mform) / MBlock [:link:](https://github.com/FriendsOfREDAXO/mblock)
-        - [CustomLink auslesen](addons_mform_customlink.md) <sup><i>skerbis</i></sup>
-        - [Einfache Tabelle mit MForm MBlock](modul_minibeispiel_mblock_tabelle.md) <sup><i>alexplusde / Skerbis</i></sup>
     - Struktur
         - [Kategorie duplizieren](addons_structure_duplicate_category.md) <sup><i>gharlan</i></sup>
         - [MetaInfos nur für bestimmte Ebenen einblenden](addons_structure_show_meta_by_level.md) <sup><i>tbaddade</i></sup>
@@ -38,12 +42,15 @@
         - [YForm Datensatz Kopieren]( addons_yform_copy_dataset.md) <sup><i>tbaddade</i></sup>
         - [YForm Daten von Version 1.x auf 2.x konvertieren](addons_yform_convert.md) <sup><b>unvollständig</b></sup> <sup><i>tbaddade</i></sup>
     - YCom [:link:](https://github.com/yakamara/redaxo_ycom)
-        - [Geschütze Dateien mit YCom ](addons_ycom_protected_files.md) <sup><i>skerbis</i></sup>
-            - [Geschütze Dateien mit YCom enhanced](addons_ycom_protected_files_enhanced.md) <sup><b>überprüfen</b></sup>  <sup><i>tgoellner</i></sup>        
+        - [Geschütze Dateien mit YCom/Projekt-AddOn](addons_ycom_protected_files.md) <sup><i>FOR</i></sup>
+        - [Geschütze Dateien mit YCom - per Template](addons_ycom_protected_files_enhanced.md) <sup><i>tgoellner / skerbis</i></sup>        
     - YRewrite [:link:](https://github.com/yakamara/redaxo_yrewrite)
         - [YRewrite NGINX-Konfiguration](addons_yrewrite_nginx.md) <sup><i>hirbod</i></sup>
         - [YRewrite Schemes](addons_yrewrite_url_schemes.md) <sup><b>Mithilfe erwünscht</b></sup> <sup><i>skerbis</i></sup>
         - [YRewrite Kategorie = /media](addons_yrewrite_cat_ismedia.md) <sup><b>in Bearbeitung</b></sup> <sup><i>skerbis</i></sup>
+- Cheatsheets
+   - [Artikel Cheatsheet](cheatsheet_rex_article.md)<sup><b>unvollständig, Hilfe erwünscht</b></sup>
+
 - HowTo
     - [Kategorie einer REDAXO Instanz (Quelle) in eine andere Instanz (Ziel) kopieren](howto_kategorie_in_eine_andere_redaxo_instanz_kopieren.md) <sup><b>unvollständig</b></sup> <sup><i>tbaddade</i></sup>
     - [Website sperren / Wartungsarbeiten](howto_website_sperren.md) <sup><i>alexplusde / skerbis</i></sup>
@@ -51,6 +58,7 @@
     - [IP-Adressen geocodieren via Maxmind-API](howto_geocode_maxmind.md) <sup><b>ungetestet</b></sup> <sup><i>alexplusde</i></sup>
 
 - Snippets
+    - [Artikel-Autor auslesen](snippet_artikel_autor.md) <sup><i>alexplus_de madiko, skerbis</i></sup>
     - [bloecks: Status im Modul setzen](snippet_bloecks_status_im_Modul_setzen.md) <sup><i>skerbis</i></sup>
     - [Checkbox in einem Modul verwenden](snippet_checkbox_in_out.md) <sup><i>skerbis</i></sup>
     - [Class rex_media erweitern (ab redaxo 5.3)](snippet_klasse_rex_media_erweitern.md) <sup><i>Daniel Weitenauer</i></sup>

@@ -5,136 +5,105 @@ Benötigte AddOns:
 - YCom
 
 ### Wie kann man Dateien in Verbindung mit YCom (Community Addon) einfach schützen?
+
 Da Redaxo aktuell nur einen Medienordner hat und so von außen alle Dateien in diesem Ordner öffentlich zugänglich sind, benötigt man eine Lösung, die den Dateiaufruf überprüft und entscheidet ob es sich um eine geschützte Datei oder einer öffentlichen Datei handelt. 
 
-Hier verwenden wir eine Rewrite-Direktive und ein Template um es zu realisieren.  Dateien, die in einer festgelegten Medienpool-**Hauptkategorie** und deren Unterkategorien im Medienpool liegen, können so vor unerlaubtem Zugriff geschützt werden. 
 
-----------
-**Achtung**
-Diese Lösung, schützt nur Dateien die über /media/dateiname.xyz und über /index.php?fileName=dateiname.xyz aufgerufen werden. Eine Ausweitung auf z.B: Mediamanager Urls ist über einen entsprechenden Effekt denkbar. Eine Unterscheidung nach Nutzergruppen findet nicht statt. Es wird nur überprüft ob der User in YCOM eingeloggt ist. 
-
-----------
 Geeignet für Redaxo ab 5.2
 
-1. Medienkategorie erster Ebene anlegen
-2. ID der Kategorie merken 
-3. Nachfolgendes Template anlegen (Kommentare beachten): 
+1. Medienkategorie(n) erster Ebene anlegen
+2. ID(s) der Kategorie(n) merken und bei `$mediacats2protect=` hinterlegen
+3. Nachfolgenden Code in die boot.php des Projekt-AddOn einbinden
 
 ```php
 <?php
-    // Prüfe ob eine Datei übergeben wurde
-	if (rex_get('fileName', 'string')!='')
+function ycom_check_fileperm($filename, $do_ycom_login = false)
+{
+    // zu schuetzende mediacats, bitte nach bedarf anpassen
+    $mediacats2protect = [14, 15];
+
+    // eltern mediacat der datei holen
+    $media = rex_media::get($filename);
+    $mediacat2check = $media->getCategoryId();
+    $mediacat = $media->getCategory();
+    if (is_object($mediacat) && count($mediacat->getPathAsArray()))
     {
-		
-		// Welche Medienkategorie beinhaltet die geschützten Dateien? (Medienpool-Kategorie-ID)
-		
-		$mediacatID = '4';
-		
-		// Wohin soll bei einem unberechtigten Zugriff umgeleitet werden? (Artikel ID)
-		
-		$redirectArticle = '99';
-		$ycom_user = rex_ycom_auth::getUser();
-		
-		// Auslesen des Dateinamens mit rex_get
-		
-		$fileName = rex_get('fileName', 'string');
-		
-		// Was passiert, wenn Datei nicht existiert?
-		
-		if (!file_exists(rex_path::media($fileName)))
-			{
-		
-			// Weiterleitung zum $redirectArticle
-		
-			rex_redirect($redirectArticle);
-			}
-		  else
-			{
-		
-			// nicht ändern
-		
-			$parentID = 0;
-		
-			// Datensatz auslesen und Eigenschaften ermitteln
-		
-			$fileInfo = rex_media::get($fileName);
-		
-			// Aktuelle Medienkategorie ermitteln
-		
-			$cat = $fileInfo->getCategory();
-		
-			// ID der Medienkategorie ermitteln
-		
-			$filecat = $fileInfo->getValue('category_id');
-		
-			// Wenn die ermittelte Kategorie nicht gleich "keine Kategorie" ist
-		
-			if ($filecat != 0)
-				{
-				$cattree = $cat->getPathAsArray();
-				$parentID = $cattree[0];
-				}
-		
-			// Überprüfe ob sich die Datei in einer geschützten Kategorie befindet
-		
-			if ($parentID == $mediacatID or $filecat == $mediacatID)
-				{
-		
-				// Prüfe ob User eingeloggt
-		
-				if ($ycom_user)
-					{
-		
-					// Dinge die passieren könnten wenn jemand eingeloggt ist.
-		
-					}
-				  else
-					{
-		
-					// Umleitung auf die Fehlerseite
-		
-					rex_redirect($redirectArticle);
-					}
-				}
-		
-			// Ausgabe des Mediums
-		
-			$file = rex_path::media() . $fileName;
-			$contenttype = 'application/octet-stream';
-		
-			// soll kein Download erzwungen werden, ändere attachment in inline
-		
-			rex_response::sendFile($file, $contenttype, $contentDisposition = 'attachment');
-			}
-		}
-?>
+        $mediacat2check = $mediacat->getPathAsArray()[0];
+    }
+    // datei ist nicht zu schuetzen
+    if (!in_array($mediacat2check, $mediacats2protect))
+    {
+        return true;
+    }
+
+    // bei aufruf ueber media manager ycom nutzer einloggen
+    if ($do_ycom_login)
+    {
+        rex_ycom::addTable('rex_ycom_user');
+        rex_yform_manager_dataset::setModelClass('rex_ycom_user', rex_ycom_user::class);
+        $auth = rex_ycom_auth::login([]);
+    }
+
+    $ycom_user = rex_ycom_auth::getUser();
+
+    if ($ycom_user)
+    {
+        // hier ggfs weitere abfragen
+        return true;
+    }
+    return false;
+}
+
+// check fileperm fuer direkte dateiaufrufe
+rex_extension::register('FE_OUTPUT', function () {
+    $filename = rex_get('ycom_file', 'string');
+    if ($filename && file_exists(rex_path::media($filename)))
+    {
+        if (!ycom_check_fileperm($filename))
+        {
+            rex_redirect(rex_plugin::get('ycom', 'auth')->getConfig('article_id_jump_denied'));
+        }
+        $managed_media = new rex_managed_media(rex_path::media($filename));
+        (new rex_media_manager($managed_media))->sendMedia();
+    }
+});
+
+// check fileperm fuer media manager dateiaufrufe
+if (!rex::isBackend())
+{
+    $filename = rex_get('rex_media_file', 'string');
+    if ($filename && file_exists(rex_path::media($filename)))
+    {
+        if (!ycom_check_fileperm($filename, true))
+        {
+            header('HTTP/1.1 403 Forbidden');
+            exit;
+        }
+    }
+}
 ```
 
 **Jetzt müssen Rewrite-Direktiven ergänzt werden**
 
-APACHE in die .htacces von YRewrite:
+**APACHE** in die .htacces von YRewrite:
 
 > Bei Verwendung von yrewrite direkt nach `RewriteRule ^imagetypes/…`
     
-	RewriteRule ^/?media/(.*\.(pdf|doc|zip))$ /index.php?fileName=$1 [L]
+	RewriteRule ^/?media/(.*)$ /index.php?ycom_file=$1 [L]
+	
+Variante wenn nur bestimmte Dateitypen geschützt werden sollen 
 
-NGINX Direktive:
+	# RewriteRule ^/?media/(.*\.(pdf|doc|zip))$ /index.php?ycom_file=$1 [L]
+
+**NGINX** 
+
+Direktive für bestimmte Dateitypen:
 
 	location / {
 	rewrite ^/?media/(.*\.(pdf|doc|zip))$ /index.php?fileName=$1 break;
 	}
 
 Hier wurde festgelegt welche Dateien geschützt sein sollen.
-Weitere Endungen können beliebig hinzugefügt werden z.B:  |eps|pptx|docx …
-
-
-Wenn man nachfolgenden Code in allen Ausgabe-Templates **am Anfang** einfügt, sind die Dateien geschützt. 
-XX steht für die ID des Templates
-
-	REX_TEMPLATE[XX]
-
-
-----------
-**Achtung!** Vor dem Template darf auf keinen Fall eine Ausgabe von Inhalten erfolgen.
-Bei Problemen bitte unbedingt prüfen ob sich Leerzeichen / -zeilen vor und nach dem Template eingeschlichen haben.  
+Weitere Endungen können beliebig hinzugefügt werden z.B:  |pdf|doc|zip …
+ 
 
