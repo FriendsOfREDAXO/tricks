@@ -54,7 +54,8 @@
 - HowTo
     - [Kategorie einer REDAXO Instanz (Quelle) in eine andere Instanz (Ziel) kopieren](howto_kategorie_in_eine_andere_redaxo_instanz_kopieren.md) <sup><b>unvollständig</b></sup> <sup><i>tbaddade</i></sup>
     - [Website sperren / Wartungsarbeiten](howto_website_sperren.md) <sup><i>alexplusde / skerbis</i></sup>
-    - [AJAX mit dem rex_api](howto_ajax_rexapi.md) <i>christophboecker</i></sup>
+    - [AJAX mit dem rex_api](howto_ajax_rexapi.md) <sup><b>überprüfen</b></sup> <sup><i>christophboecker</i></sup>
+    - [IP-Adressen geocodieren via Maxmind-API](howto_geocode_maxmind.md) <sup><b>ungetestet</b></sup> <sup><i>alexplusde</i></sup>
 
 - Snippets
     - [Artikel-Autor auslesen](snippet_artikel_autor.md) <sup><i>alexplus_de madiko, skerbis</i></sup>
