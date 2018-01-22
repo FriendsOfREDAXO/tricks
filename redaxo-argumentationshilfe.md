@@ -1,4 +1,4 @@
-# Argumente für REDAXO (Entwurf)
+# Argumente für REDAXO
 
 Kunden, die Redaxo nicht kennen, erkundigen sich nach den Vorteilen von REDAXO. Sei es, weil sie von REDAXO noch nicht gehört haben, oder ein anderes CMS bereits kennen / einsetzen.
 
@@ -102,3 +102,7 @@ REDAXO bietet von Haus aus keinen zusätzlichen Spamschutz. Für einen ausreiche
 4. Die Zugangsdaten zu REDAXO sowie dem Webserver und dem Mail-Postfach sollten vertraulich behandelt werden, um nicht in fremde Hände zu geraten.
 
 Zudem kann ein Addon zur sog. "E-Mail obfuscation" eingesetzt werden. Dabei wird die E-Mail-Adresse vor der Ausgabe verschlüsselt und mittels JavaScript entschlüsselt. Hierfür bietet REDAXO 5 derzeit 2 Addons. Die Verwendung wird für barrierefreie Websites jedoch nicht empfohlen.
+
+## Weitere Argumente / Ergänzungen
+
+Vorschläge werden gerne bei [FriendsOfREDAXO auf GitHub](https://github.com/FriendsOfREDAXO/tricks/issues/) als Issue entgegengenommen.
