@@ -3,6 +3,8 @@
 > Wer mitmachen möchte, beachte bitte bei der Einpflege die [Vorlage](vorlage.md).
 > Die github-page ist hier: https://friendsofredaxo.github.io/tricks/
 
+- Kunden-Kommunikation
+    - [Argumentationshilfe für REDAXO](redaxo-argumentationshilfe.md) <sup><i>alexplusde</i></sup>
 - Entwicklung
     - [Nützliches für Developer](developer_resources.md) <sup><i>skerbis</i></sup>
 - Installation
