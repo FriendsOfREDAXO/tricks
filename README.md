@@ -46,7 +46,7 @@
         - [Geschütze Dateien mit YCom - per Template](addons_ycom_protected_files_enhanced.md) <sup><i>tgoellner / skerbis</i></sup>        
     - YRewrite [:link:](https://github.com/yakamara/redaxo_yrewrite)
         - [YRewrite NGINX-Konfiguration](addons_yrewrite_nginx.md) <sup><i>hirbod</i></sup>
-        - [YRewrite Schemes](addons_yrewrite_url_schemes.md) <sup><b>Mithilfe erwünscht</b></sup> <sup><i>skerbis</i></sup>
+        - [YRewrite Schemes](addons_yrewrite_url_schemes.md) <sup><b>Beitrag demnächst in der AddOn-Hilfe</b></sup> <sup><i>skerbis</i></sup>
         - [YRewrite Kategorie = /media](addons_yrewrite_cat_ismedia.md) <sup><b>in Bearbeitung</b></sup> <sup><i>skerbis</i></sup>
 - Cheatsheets
    - [Artikel Cheatsheet](cheatsheet_rex_article.md)<sup><b>unvollständig, Hilfe erwünscht</b></sup>
