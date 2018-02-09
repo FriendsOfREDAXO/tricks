@@ -62,6 +62,7 @@
     - [Checkbox in einem Modul verwenden](snippet_checkbox_in_out.md) <sup><i>skerbis</i></sup>
     - [Class rex_media erweitern (ab redaxo 5.3)](snippet_klasse_rex_media_erweitern.md) <sup><i>Daniel Weitenauer</i></sup>
     - [function: Umlaute im String ersetzen](snippet_umlaute_umschreiben.md) <sup><i>darwin</i></sup>
+    - [Kopfzeilen-Bild rekursiv ausgeben](snippet_kopfzeilenbild.md) <sup><i>alexplus_de</i></sup>
     - [Nützliche Queries](queries.md) <sup><i>tbaddade</i></sup>
 
 
