@@ -4,7 +4,7 @@
 
 ### Uploads
 
-> **Hinweis** Das [Skript](#skript) ist nur ein Beispiel, wie man die Upload-Dateien für eine 2.x Version konvertierz. Daher muss das zuvor Skript der jeweiligen Instanz angepasst werden.
+> **Hinweis** Das [Skript](#skript) ist nur ein Beispiel, wie man die Upload-Dateien für eine 2.x Version konvertiert. Daher muss das zuvor Skript der jeweiligen Instanz angepasst werden.
 
 #### Was macht das Skript
 
