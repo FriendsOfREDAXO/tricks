@@ -48,7 +48,7 @@ Die 125 ist natürlich durch die eigene 410er Fehlerseiten Id zu ersetzen.
 <a name="hinweise"></a>
 ## Hinweise
 
-    > **Hinweis:** Bitte selber gut testen. Das hier wurde mit Redaxo 5.5 umgesetzt. Möglicherweise gibt es in yrewrite mal eine Ergänzung und dieser Hack ist dann nicht mehr nötig.
+> **Hinweis:** Bitte selber gut testen. Das hier wurde mit Redaxo 5.5 umgesetzt. Möglicherweise gibt es in yrewrite mal eine Ergänzung und dieser Hack ist dann nicht mehr nötig.
 
 
 
