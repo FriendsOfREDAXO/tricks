@@ -37,13 +37,14 @@
         - [MetaInfos nur für bestimmte Ebenen einblenden](addons_structure_show_meta_by_level.md) <sup><i>tbaddade</i></sup>
     - Theme [:link:](https://github.com/FriendsOfREDAXO/theme)
         - [Theme Debug Module](theme_debug_module.md) <sup><i>elricco</i></sup>
-        - [Theme Language Switch](theme_language_switch.md) <sup><i>elricco</i></sup>        
+        - [Theme Language Switch](theme_language_switch.md) <sup><i>elricco</i></sup>
     - YForm [:link:](https://github.com/yakamara/redaxo_yform)
         - [YForm Datensatz Kopieren]( addons_yform_copy_dataset.md) <sup><i>tbaddade</i></sup>
         - [YForm Daten von Version 1.x auf 2.x konvertieren](addons_yform_convert.md) <sup><b>unvollständig</b></sup> <sup><i>tbaddade</i></sup>
+        - [YForm Tabellen als Sub-Page im eigenen Addon](addons_yform_im-addon.md) <sup><i>christophboecker</i></sup>
     - YCom [:link:](https://github.com/yakamara/redaxo_ycom)
         - [Geschütze Dateien mit YCom/Projekt-AddOn](addons_ycom_protected_files.md) <sup><i>FOR</i></sup>
-        - [Geschütze Dateien mit YCom - per Template](addons_ycom_protected_files_enhanced.md) <sup><i>tgoellner / skerbis</i></sup>        
+        - [Geschütze Dateien mit YCom - per Template](addons_ycom_protected_files_enhanced.md) <sup><i>tgoellner / skerbis</i></sup>
     - YRewrite [:link:](https://github.com/yakamara/redaxo_yrewrite)
         - [YRewrite NGINX-Konfiguration](addons_yrewrite_nginx.md) <sup><i>hirbod</i></sup>
         - [YRewrite Kategorie = /media](addons_yrewrite_cat_ismedia.md) <i>IngoWinter</i></sup>
@@ -53,10 +54,10 @@
 - HowTo
     - [Kategorie einer REDAXO Instanz (Quelle) in eine andere Instanz (Ziel) kopieren](howto_kategorie_in_eine_andere_redaxo_instanz_kopieren.md) <sup><b>unvollständig</b></sup> <sup><i>tbaddade</i></sup>
     - [Website sperren / Wartungsarbeiten](howto_website_sperren.md) <sup><i>alexplusde / skerbis</i></sup>
-    - [AJAX mit dem rex_api](howto_ajax_rexapi.md) <sup><b>überprüfen</b></sup> <sup><i>christophboecker</i></sup>
+    - [AJAX mit dem rex_api](howto_ajax_rexapi.md) <sup><i>christophboecker</i></sup>
     - [IP-Adressen geocodieren via Maxmind-API](howto_geocode_maxmind.md) <sup><b>ungetestet</b></sup> <sup><i>alexplusde</i></sup>
     - [Status Code 410 setzen](howto_errorcode_410.md) <sup><i>dtpop</i></sup>
-    
+
 
 - Snippets
     - [Artikel-Autor auslesen](snippet_artikel_autor.md) <sup><i>alexplus_de madiko, skerbis</i></sup>
