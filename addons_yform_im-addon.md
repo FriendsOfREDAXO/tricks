@@ -10,7 +10,7 @@
 
 YForm bietet sich an, Tabellen zu verwalten. Damit stehen auch jede Menge Feldtypen
 und Validierungen zur Verfügung. Man findet dort auch so schöne Feldtypen wie
-google/osm_geomap zur Karteneinbindung. Und es gib eine Suchfunktion, und Massenänderung,
+google/osm_geomap zur Karteneinbindung. Und es gib eine Suchfunktion, und die Massenänderung,
  ...
 
 Viele Addon basieren auf eigenen Tabellen und bauen sie z.B. mit rex_form und rex_list zusammen.
@@ -110,7 +110,7 @@ Addons und die Welt von YForm zusammenzubringen:
 2. **YForm mitteilen, dass die Tabellen/Formulare im Addon angezeigt werden**
 
     Dazu reicht es aus, den Url-Parameter "page" statt auf 'yform/manager/data_edit' auf
-    die aktuelle Seite zu leiten. Deren Adresse steht ja aktuell schon in "page".
+    die aktuelle Seite zu leiten. Deren Adresse steht aktuell schon in "page".
 
 Die neue, eigene `lib/data_edit.php` könnte so aussehen:
 
@@ -164,7 +164,7 @@ if ($table && rex::getUser() && (rex::getUser()->isAdmin() || rex::getUser()->ge
 ### 3.1 Titelzeile
 
 Die Titelzeile kann wohl nicht komplett unterdrückt werden. Sie kann nur entweder per
-CSS ausgeblendet werden (wie im Code oben gezeigt) oder per Output-Filter herausgenommen werden. Schöner wäre es, wenn sie garnicht erzeugt werden würde.
+CSS ausgeblendet werden (wie im Code oben gezeigt) oder per Output-Filter herausgenommen werden. Schöner wäre es, wenn sie garnicht erst erzeugt werden würde.
 
 Die Titelzeile kann alternativ via EP "PAGE_TITLE" auf "leer" gesetzt werden. Der entsprechende `<header>`-Tag wird trotzdem eingebaut. Er wäre zwar unsichtbar, aber in Systemen mit dem Addon [quick_navigation](https://github.com/FriendsOfREDAXO/quick_navigation) hilft das
 auch nicht weiter, da die Quick-Navigation in den `<header>`-Tag gehängt wird.
