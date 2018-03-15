@@ -1,6 +1,6 @@
 # Argumente für REDAXO
 
-Kunden, die Redaxo nicht kennen, erkundigen sich nach den Vorteilen von REDAXO. Sei es, weil sie von REDAXO noch nicht gehört haben, oder ein anderes CMS bereits kennen / einsetzen.
+Kunden, die REDAXO nicht kennen, erkundigen sich nach den Vorteilen von REDAXO. Sei es, weil sie von REDAXO noch nicht gehört haben, oder ein anderes CMS bereits kennen / einsetzen.
 
 ## Bedienung
 
@@ -22,11 +22,11 @@ Außerdem haben sich einige Entwickler in der REDAXO-Community zu einer Gruppe z
 
 ## Mehrsprachigkeit
 
-> "Unsere Website muss mehrsprachig sein. Geht das mit Redaxo?" 
+> "Unsere Website muss mehrsprachig sein. Geht das mit REDAXO?" 
 
 > "Wieso REDAXO? CMS XYZ ist bekannt dafür, gut mit mehreren Sprachen umzugehen."
 
-Redaxo verfügt von Haus aus über eine Verwaltung von Sprachen, sodass bei enstprechender Planung mit geringem Aufwand eine einsprachige Website um beliebig viele Sprachen erweitert werden kann. 
+REDAXO verfügt von Haus aus über eine Verwaltung von Sprachen, sodass bei enstprechender Planung mit geringem Aufwand eine einsprachige Website um beliebig viele Sprachen erweitert werden kann. 
 
 Wird eine Übersetzungsagentur beauftragt oder werden widerkehrende Textbausteine verwendet, so können Addons wie [Sprog](https://github.com/tbaddade/redaxo_sprog) oder [XOutputFilter](https://github.com/FriendsOfREDAXO/xoutputfilter) (FriendsOfREDAXO) die Verwaltung von Textbausteinen erleichtern. Beide Addons sind praxiserprobt.
 
@@ -58,15 +58,28 @@ Was REDAXO nicht kann, ist guten Content zu erstellen und Offpage-Optimierung du
 
 ## Wartung und Updates
 
-> [todo]
+> "Wie modern ist REDAXO?"
 
-## Sicherheit und Backups
+> "Gibt es für REDAXO Updates?"
 
-> "Wie sicher ist Redaxo?" 
+> "Mit welchen Folgekosten für REDAXO muss ich rechnen?"
+
+REDAXO wird stetig weiterentwickelt. Das heißt jedoch nicht, dass es einen Update-Zwang gibt. Aktuell erhält der REDAXO-Core alle 6-9 Monate ein sog. Core-Update. Neue Funktionen (bspw. zusätzliche Editoren, Funktions-Erweiterungen) werden zumeist als Addon veröffentlicht, deren Nutzung freiwillig ist und die oftmals auch mit älteren Core-Versionen kompatibel sind. 
+
+Im Prinzip kann ein REDAXO, einmal eingerichtet, über viele Jahre nahezu wartungsfrei verwendet werden. Die Erfahrung aus der Community, die heute noch REDAXO-Installationen der 2000er-Jahre einsetzt, bestätigen dies. Änderungen an der Plattform - bspw. die PHP-Version, das verwendete Datenbank-System oder eine geänderte Server-Konfiguration) - oder können einen Eingriff vom Entwickler nötig machen. 
+
+Core-Updates können jedoch die Sicherheit erhöhen. Hierfür gibt es in REDAXO 5 einen Update-Workflow über das Installer-Addon. Updates innerhalb einer Hauptversion, also im Moment in Version 5.x, sind in der Regel rückwärtskompatibel. Ausgenommen von sind kritische Sicherheitspatchs, für die ein Update dringend empfohlen wird. Hier hat Yakamara, der Haupt-Entwickler hinter REDAXO, in der Vergangenheit vorbildlich und zeitnah informiert und Patches zur Verfügung gestellt.
+
+
+## Datenschutz, Sicherheit und Backups
+
+> "Wie sicher ist REDAXO?" 
 
 > "Für CMS XYZ gibt es Virenschutz-Funktionen, gibt es diese auch für REDAXO?"
 
 > "Gibt es automatische Backups?"
+
+> "Was gilt es bei REDAXO im Zuge der DSGVO zu beachten?" [todo]
 
 ### Sicherheitslücken 
 Hinter REDAXO stehen zahlreiche Entwickler und die Agentur Yakamara, die federführend die Entwicklung von REDAXO vorantreibt. In der Vergangenheit wurden Sicherheitslücken nach Bekanntgabe zeitnah und zuverlässig geschlossen.
@@ -81,14 +94,19 @@ Inoffizielle Audits, die innerhalb der Community durchgeführt wurden, bestätig
 Die letztendliche Sicherheit der Website hängt von vielen Faktoren ab, die über das CMS hinaus gehen:
 * bspw. der professionelle Umgang mit Zugangsdaten,
 * Schadsoftware, die möglicherweise beim Nutzer installiert ist,
-* Einstellungen am Webserver, oder 
-* die Qualität der Addons/Erweiterungen, die installiert werden.
+* Einstellungen am Webserver, 
+* die Qualität der Addons/Erweiterungen, die installiert werden, und
+* die Qualität des Konzepts und des Programmiercodes eines Entwicklers, der REDAXO einrichtet.
 
 ### Backups
 
 REDAXO kommt von Haus aus mit einer eingebauten Backup-Funktion. Mit dieser lassen sich, über das Cronjob-Addon, zeitgesteuerte und regelmäßige Sicherungen der Datenbank vornehmen. Sicherungen der Dateien, bspw. dem Medienpool, lassen sich über FTP oder SSH vornehmen. 
 
 Darüber hinaus können Sicherungen auch eigenständig oder durch den Hoster vorgenommen werden. Die regelmäßige Sicherung einer Website wird, unabhängig vom CMS, dringend empfohlen.
+
+### DSGVO
+
+Hierzu werden zeitnah unverbindliche Empfehlungen veröffentlicht, die beschreiben, wie REDAXO einen verantwortungsbewussten Umgang mit Daten unterstützt und welche Maßnahmen vom Entwickler ergriffen werden können.
 
 ## Schutz vor Spam
 
