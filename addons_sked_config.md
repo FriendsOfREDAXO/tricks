@@ -1,18 +1,19 @@
 # Sked - Individuelle Konfiguration
 
 - [Einleitung](#einleitung)
-- [Überschriften](#ueberschriften)
-- [Links](#links)
-- [Bilder](#bilder)
-- [Listen](#listen)
-- [Tabellen](#tabellen)
-- [Code](#code)
-- [Hinweise](#hinweise)
-- [Anker 3](#anker-3)
-    - [Anker 3a](#anker-3a)
-    - [Anker 3b](#anker-3b)
-    - [Anker 3c](#anker-3c)
-- [Anker 4](#anker-4)
+- [Datenstruktur](#datenstruktur)
+    - [custom_entries.yml](#custom_entries)
+    - [custom_categories.yml](#custom_categories)
+- [Das Backend umbauen](#backend)
+    - [backend.js](#backend-js)
+- [Ajax](#ajax)
+    - [boot.php](#boot)
+- [YForm](#yform)
+- [Frontend](#frontend)
+    - [functions.php](#functions)
+    - [my_sked.php](#mysked)
+- [Modul](#modul)
+- [Fragment](#fragment)
 
 <a name="einleitung"></a>
 ## Einleitung
@@ -40,6 +41,7 @@ Die Kategorien von Sked werden verwendet, um Veranstaltungsgruppen zu definieren
 
 Die Custom Definitionen liegen in `data/addons/sked/definitions`.
 
+<a name="custom_entries"></a>
 ### custom_entries.yml
 
 ```yml
@@ -116,6 +118,7 @@ langfields:
 Das ist weitgehend selbsterklärend. Es gibt für einzelne Infoangaben (Dauer, Anmeldung, Preis, Kontakt) definierte Felder sowie ein zusätzliches frei definierbares Feld.
 Die jeweiligen Klassen-Angaben werden ergänzt, um die Felder mit Placeholdern aus den Kategorien befüllen zu können.
 
+<a name="custom_categories"></a>
 ### custom_categories.yml
 
 ```yml
@@ -188,6 +191,7 @@ Die Felder sind weitestgehend gleich wie bei den Einträgen. Als Editor für die
 
 Die Veranstaltungskategorie wird über ein `selectsql`-Feld realisiert.
 
+<a name="backend"></a>
 ## Das Backend umbauen
 
 Das Backend wird an die eigenen Bedürfnisse angepasst.
@@ -200,6 +204,7 @@ Das Backend wird an die eigenen Bedürfnisse angepasst.
 Da wir weiterhin an Sked-Updates interessiert sind, können wir natürlich nicht im AddOn selber rumschreiben. Der Einfachheit halber bedienen wir uns daher des genialen Theme-AddOns (Danke an Daniel Weitenauer!).
 Wir arbeiten in der Datei `theme/public/assets/backend/backend.js`. Diese Datei wird standardmäßig im Backend geladen.
 
+<a name="backend-js"></a>
 ### backend.js
 
 ```js
@@ -284,10 +289,12 @@ $(function () {
 });
 ```
 
+<a name="ajax"></a>
 ## Ajax
 
 Die Werte der Veranstaltungskategorie werden als JSON ausgelesen. Hierfür bietet sich die Datei `theme/private/inc/boot.php`
 
+<a name="boot"></a>
 ### boot.php
 
 ```php
@@ -302,18 +309,21 @@ if (rex::isBackend() && rex_get('sked_cat_id') && rex::getUser()) {
 }
 ```
 
+<a name="yform"></a>
 ## yform
 
 In yform muss noch die Kategorientabelle `rex_sked_event_categories` über den Tablemanager angelegt werden. In unserem Falle benötigen wir lediglich die Felder `name_1` und `name_2`, also die Namen für die Sprache 1 und Sprache 1.
 
 Damit ist die Backendkonfiguration abgeschlossen und das Backend sollte funktionieren.
 
+<a name="frontend"></a>
 ## Frontend
 
 Die Frontendausgabe ist natürlich auch sehr individuell und von Projekt zu Projekt verschieden. Deswegen ist hier lediglich ein Beispiel wiedergegeben - zur eigenen Verwendung bzw. Variation. Bei mir hat es sich als sinnvoll erwiesen möglichst viel mit yorm abzudecken. YORM nimmt einem viel Arbeit ab und erlaubt den flexiblen Zugriff auf die Datenbankausgabe. Man kann das natürlich alles mit rex_sql abbilden, das ist aber mehr Codieraufwand und es wird auch nicht so übersichtlich. Deswegen werde ich hier die YORM Variante zeigen.
 
 Voraussetzung für YORM ist, dass die Tabellen yform Tabellen sind. Deswegen migrieren wir per Mausklick im yform Tablemanager die Sked Tabellen zu yform Tabellen. Dabei werden die Tabellen nicht verändert. Es wird lediglich die Tabellenkonfiguration in den yform Tabellendefinitionen abgelegt. Die Tabellen stellen wir dann auf "in Navigation versteckt".
 
+<a name="functions"></a>
 ### functions.php
 
 Wir schreiben in die Datei `theme/private/inc/functions.php` die Initialisierung für das Model:
@@ -323,6 +333,7 @@ rex_yform_manager_dataset::setModelClass('rex_sked_categories', rex_sked_categor
 rex_yform_manager_dataset::setModelClass('rex_sked_entries', rex_sked_entries::class);
 ```
 
+<a name="mysked"></a>
 ### my_sked.php
 
 Nun brauchen wir noch die Klassen und Funktionen für den Zugriff. Hierzu legen wir uns die Datei `theme/private/lib/my_sked.php` an.
@@ -437,19 +448,21 @@ class my_sked {
 }
 ```
 
+<a name="modul"></a>
 ## Modul
 
 Das Modul ist in diesem Falle nicht besonders aufwändig, da die ganze Logik bereits programmiert und abrufbar ist.
 
 ```php
-$ebh_sked = new ebh_sked();
-$res = $ebh_sked->get_entries();
+$my_sked = new my_sked();
+$res = $my_sked->get_entries();
 
 $fragment = new rex_fragment();
 $fragment->setVar('termine',$res);
 echo $fragment->parse('sked_terminliste.php');
 ```
 
+<a name="fragment"></a>
 ## Fragment
 
 Das Fragment legen wir unter `theme/private/fragments/sked_terminliste.php` ab.
