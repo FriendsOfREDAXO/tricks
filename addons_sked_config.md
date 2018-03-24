@@ -255,128 +255,246 @@ $(function () {
         $('#lang1 textarea.sked_entry_text').parents('.rex-form-group').appendTo('#lang1');
         $('#lang2 textarea.sked_entry_text').parents('.rex-form-group').appendTo('#lang2');
         
-        
+        // Felder für Wiederholungstermine ausblenden
         $('.sked_repeat_fields').hide();
-        $('input#dpd2').parents('table.skeddatepicker').hide();        
+        
+        // bis-Felder ausblenden
+        $('input#dpd2').parents('table.skeddatepicker').hide();
+        
+        // Ort Select Feld ausblenden
         $('select.sked_venue_select').parents('.rex-form-group').hide();
+        
+        // Teasertextfeld ausblenden
         $('textarea.sked_entry_teaser').parents('.rex-form-group').hide();
+        
+        // tinyMCE Editor verwenden
         $('textarea.sked_entry_text').addClass('tinyMCEEditor');
         
+        // Felder aus Kategorie aktualisieren
         sked_init_entries_form(false);
     }
     // Der Tab Orte wird ausgeblendet
    $('.nav-tabs .item_venues').hide();
     
-    
+    // Wenn eine andere Veranstaltungskategorie gewählt wird, Felder aktualisieren
     $('body').on('change','.sked_category_select',function() {
         sked_init_entries_form(true);
-    });
-
-
-    
-    
+    });    
 
 });
 ```
 
+## Ajax
 
+Die Werte der Veranstaltungskategorie werden als JSON ausgelesen. Hierfür bietet sich die Datei `theme/private/inc/boot.php`
 
+### boot.php
 
-
-1. Seitenüberschrift als h1 auszeichnen
-2. TOC Liste mit Anker erstellen, Die erste Ebene wird im Text mit `h2` die zweite Ebene mit `h3` ausgezeichnet
-
-**Beispiel**
-
-    # Seitenüberschrift
-    
-    - [Überschrift](#anker-zur-ueberschrift)
-    - [Anker 2](#anker-2)
-        - [Anker 2a](#anker2a)
-    - [Anker 3](#anker-3)
-        - [Anker 3a](#anker-3a)
-        - [Anker 3b](#anker-3b)
-        - [Anker 3c](#anker-3c)
-    - [Anker 4](#anker-4)
-
-
-<a name="ueberschriften"></a>
-## Überschriften mit Anker setzen
-
-**Beispiel**
-
-    <a name="anker-zur-ueberschrift"></a>
-    ## Überschrift
- 
-<a name="links"></a>
-## Links
-Links bitte immer mit Beschreibung angeben
-
-**Beispiel**
-
-    [REDAXO Loader - REDAXO laden und entpacken](install_redaxo_loader.md)
-
-<a name="bilder"></a>
-## Bilder
-Bilder bitte im Assets-Ordner hinterlegen. 
-1200px breit
-
-
-<a name="listen"></a>
-## Listen
-
-**Beispiel**
-
-    - Listenpunkt 1
-    - Listenpunkt 2
-    - Listenpunkt 3
-    - Listenpunkt 4
-
-
-<a name="tabellen"></a>
-## Tabellen
-
-**Beispiel**
-```
-Alt| Neu
-------------- | -------------
-`$REX['SERVERNAME']`  |  `rex::getServername()`
+```php
+// nur im Backend ausführen, nur bei eingeloggtem User und nur wenn der Get Parameter sked_cat_id übergeben wurde
+if (rex::isBackend() && rex_get('sked_cat_id') && rex::getUser()) {
+    if (rex_request::isXmlHttpRequest()) {
+        $sked_cat_id = rex_get('sked_cat_id','int');
+        $res = rex_sql::factory()->getArray('SELECT * FROM rex_sked_categories WHERE id = :id',['id'=>$sked_cat_id]);
+        echo json_encode($res);
+        exit;
+    }
+}
 ```
 
+## yform
 
-<a name="code"></a>
-## Code
-    Zur Code-Auszeichnung bitte ``` verwenden
+In yform muss noch die Kategorientabelle `rex_sked_event_categories` über den Tablemanager angelegt werden. In unserem Falle benötigen wir lediglich die Felder `name_1` und `name_2`, also die Namen für die Sprache 1 und Sprache 1.
 
-**Beispiel Code Block**
+Damit ist die Backendkonfiguration abgeschlossen und das Backend sollte funktionieren.
+
+## Frontend
+
+Die Frontendausgabe ist natürlich auch sehr individuell und von Projekt zu Projekt verschieden. Deswegen ist hier lediglich ein Beispiel wiedergegeben - zur eigenen Verwendung bzw. Variation. Bei mir hat es sich als sinnvoll erwiesen möglichst viel mit yorm abzudecken. YORM nimmt einem viel Arbeit ab und erlaubt den flexiblen Zugriff auf die Datenbankausgabe. Man kann das natürlich alles mit rex_sql abbilden, das ist aber mehr Codieraufwand und es wird auch nicht so übersichtlich. Deswegen werde ich hier die YORM Variante zeigen.
+
+Voraussetzung für YORM ist, dass die Tabellen yform Tabellen sind. Deswegen migrieren wir per Mausklick im yform Tablemanager die Sked Tabellen zu yform Tabellen. Dabei werden die Tabellen nicht verändert. Es wird lediglich die Tabellenkonfiguration in den yform Tabellendefinitionen abgelegt. Die Tabellen stellen wir dann auf "in Navigation versteckt".
+
+### functions.php
+
+Wir schreiben in die Datei `theme/private/inc/functions.php` die Initialisierung für das Model:
+
+```php
+rex_yform_manager_dataset::setModelClass('rex_sked_categories', rex_sked_categories::class);
+rex_yform_manager_dataset::setModelClass('rex_sked_entries', rex_sked_entries::class);
+```
+
+### my_sked.php
+
+Nun brauchen wir noch die Klassen und Funktionen für den Zugriff. Hierzu legen wir uns die Datei `theme/private/lib/my_sked.php` an.
+
+```php
+<?php
+
+// Die Klasse für die Veranstaltungskategorie 
+
+class rex_sked_categories extends \rex_yform_manager_dataset {
     
-        ```php 
-        $article = rex_article::get();
-        
-        ```
+    /**
+     * Funktion prüft, ob es einen überschriebenen Wert in entries gibt und gibt diesen zurück
+     * ansonsten wird der Wert aus category zurückgegeben.
+     * 
+     * @param type $key
+     * @return string
+     */
+    public function get_val($key): string
+    { 
+        $entry_key = 'se_'.$key;
+        $category_key = $key.'_'.rex_clang::getCurrentId();
+        if ($this->{$entry_key}) {
+            return $this->{$entry_key};
+        } elseif ($this->{$category_key}) {
+            return $this->{$category_key};
+        }
+        return '';
+    }
+    
+    /**
+     * Liefert das Sprachbild. Fallback: Bild aus der Sprache 1
+     * @return string
+     */
+    public function get_img(): string
+    {
+        if ($this->{'lang_image_'.rex_clang::getCurrentId()}) {
+            return $this->{'lang_image_'.rex_clang::getCurrentId()};
+        }
+        if ($this->lang_image_1) {
+            return $this->lang_image_1;
+        }
+        return '';
+    }
+    
+    
+    /**
+     * Datumsfunktion - nach Belieben und eigenen Bedürfissen anpassen
+     * @return string
+     */
+    public function get_formatted_date_and_time(): string
+    {
+        $day = explode('-',$this->se_start_date);
+        if ($this->get_val('time_text')) {
+            $time = $this->get_val('time_text');
+        } else {
+            $time = str_replace(':00','',$this->se_start_time).'  '.[1=>'Uhr',2=>'h'][rex_clang::getCurrentId()];
+        }
         
-        
-**weiteres Beispiel**
+        return $day[2].'.'.$day[1].', '.$time;
+    }    
+}
+
+// Klasse für die Einträge
+
+class rex_sked_entries extends \rex_yform_manager_dataset {
+    
+}
+
+// 
+
+class my_sked {
+    
+    var $where_raw_string;
+    
+    public function get_entries () {
+        $clang = rex_clang::getCurrentId();
+
+        // Datenbankzugriff jeweils auf die Sprachfelder
+        // se steht für Sked-Entry, sc für Sked-Category
         
-        /**
-         * Code wird einfach nur eingerückt
-         *
-         * @var bool
-         */
-        public $code = true;
-   
-**Beispiel Code Inline**
+        $data = rex_sked_categories::query()
+            ->alias('sc')
+            ->leftJoin('rex_sked_entries','se','sc.id','se.category')
+            ->leftJoin('rex_sked_event_categories','sec','sc.category_id','sec.id')
+            ->select('sec.name_'.$clang, 'sec_name')
+            ->select('se.start_date', 'se_start_date')
+            ->select('se.start_time', 'se_start_time')
+            ->select('se.description_'.$clang, 'se_description')
+            ->select('se.info_meetingpoint_'.$clang, 'se_info_meetingpoint')
+            ->select('se.info_duration_'.$clang, 'se_info_duration')
+            ->select('se.info_price_'.$clang, 'se_info_price')
+            ->select('se.info_registration_'.$clang, 'se_info_registration')
+            ->select('se.info_contact_'.$clang, 'se_info_contact')
+            ->select('se.info_1_label_'.$clang, 'se_info_1_label')
+            ->select('se.info_1_value_'.$clang, 'se_info_1_value')
+            ->select('se.subtitle_'.$clang, 'se_subtitle')
+            ->select('se.subline_'.$clang, 'se_subline')
+            ->select('se.time_text_'.$clang, 'se_time_text')
+            ->orderBy('se.start_date')
+            ->where('se.start_date',date('Y-m-d'),'>=')
+            ->where('sc.status', 1);
+        
+        if ($this->where_raw_string) {
+            $data->whereRaw($this->where_raw_string);
+        }
 
-Code innerhalb eines Text wird `ganz normal` ausgezeichnet
- 
+        return $data->find();
+        
+    }
+    
+}
+```
 
-<a name="hinweise"></a>
-## Hinweise
+## Modul
 
-Hinweise werden später blau unterlegt.
+Das Modul ist in diesem Falle nicht besonders aufwändig, da die ganze Logik bereits programmiert und abrufbar ist.
 
-    > **Hinweis:** Zweitens: ich habe erklärt mit diese zwei Spieler: nach Dortmund brauchen vielleicht Halbzeit Pause. Ich habe auch andere Mannschaften gesehen in Europa nach diese Mittwoch. Ich habe gesehen auch zwei Tage die Training.
+```php
+$ebh_sked = new ebh_sked();
+$res = $ebh_sked->get_entries();
 
-> **Hinweis:** Zweitens: ich habe erklärt mit diese zwei Spieler: nach Dortmund brauchen vielleicht Halbzeit Pause. Ich habe auch andere Mannschaften gesehen in Europa nach diese Mittwoch. Ich habe gesehen auch zwei Tage die Training.
+$fragment = new rex_fragment();
+$fragment->setVar('termine',$res);
+echo $fragment->parse('sked_terminliste.php');
+```
 
+## Fragment
 
+Das Fragment legen wir unter `theme/private/fragments/sked_terminliste.php` ab.
+
+```php
+    <ul>
+    <?php foreach ($this->termine as $i=>$item) : ?>
+        <li>
+            <a href="event-detail.html">
+                <div class="event__date"><?= $item->get_formatted_date_and_time() ?></div>
+                <div class="event__category"><?= $item->sec_name ?></div>
+                <div class="event__title" style="color: <?= $item->color ?>"><?= $item->{'name_'.rex_clang::getCurrentId()} ?></div>
+                <div class="event__subtitle"><?= $item->get_val('subtitle') ?></div>
+                <div class="event__description"><?= $item->get_val('subline') ?></div>
+            </a>
+            <?= $item->get_val('description') ?>
+            <dl class="uk-description-list ">
+               <?php if ($item->get_val('info_meetingpoint')) : ?>
+                 <dt>{{ Treffpunkt }}</dt>
+                 <dd><?= $item->get_val('info_meetingpoint') ?></dd>
+               <?php endif ?>
+               <?php if ($item->get_val('info_duration')) : ?>
+                 <dt>{{ Dauer }}</dt>
+                 <dd><?= $item->get_val('info_duration') ?></dd>
+               <?php endif ?>
+               <?php if ($item->get_val('info_price')) : ?>
+                 <dt>{{ Kosten }}</dt>
+                 <dd><?= $item->get_val('info_price') ?></dd>
+               <?php endif ?>
+               <?php if ($item->get_val('info_registration')) : ?>
+                 <dt>{{ Anmeldung }}</dt>
+                 <dd><?= $item->get_val('info_registration') ?></dd>
+               <?php endif ?>
+               <?php if ($item->get_val('info_contact')) : ?>
+                 <dt>{{ Kontakt }}</dt>
+                 <dd><?= $item->get_val('info_contact') ?></dd>
+               <?php endif ?>
+
+               <?php if ($item->get_val('info_1_value')) : ?>
+                 <dt><?= $item->get_val('info_1_label') ?></dt>
+                 <dd><?= $item->get_val('info_1_value') ?></dd>
+               <?php endif ?>
+             </dl>             
+             <img src="/images/content/<?= $item->get_img() ?>" alt="">
+        </li>
+    <?php endforeach ?>
+
+```
