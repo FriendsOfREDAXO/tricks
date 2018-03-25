@@ -32,6 +32,13 @@ Es soll ein Veranstaltungskalender für ein Museum erstellt werden. Es gibt kein
 
 Die Website ist 2-sprachig.
 
+Die in dieser Konfiguration verwendeten AddOns sind:
+
+- Sked
+- yform
+- theme
+- TinyMCE
+
 <a name="datenstruktur"></a>
 ## Datenstruktur
 
