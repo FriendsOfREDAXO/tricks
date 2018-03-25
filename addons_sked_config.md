@@ -124,6 +124,7 @@ langfields:
 ```
 Das ist weitgehend selbsterklärend. Es gibt für einzelne Infoangaben (Dauer, Anmeldung, Preis, Kontakt) definierte Felder sowie ein zusätzliches frei definierbares Feld.
 Die jeweiligen Klassen-Angaben werden ergänzt, um die Felder mit Placeholdern aus den Kategorien befüllen zu können.
+Das schöne an der yml-Konfiguration ist, dass man diese Dateien einfach bearbeiten kann. Beim nächsten Aufruf prüft Sked selbständig, ob die Felder in der Datenbank vorhanden sind und legt gegebenenfalls neue Felder an. Die Felder werden aber nicht gelöscht, wenn die Definition in der yml-Datei gelöscht wird.
 
 <a name="custom_categories"></a>
 ### custom_categories.yml
