@@ -14,7 +14,7 @@
     - [YForm Tabellen oberhalb der AddOns platzieren](be_navi.md)<sup><i>tbaddade</i></sup>
 - Module
     - Minibeispiele
-        - [Artikel einbinden](modul_minibeispiel_artikel_einbinden.md) <sup><i>skerbis</i></sup>
+        - [Artikel einbinden](modul_minibeispiel_artikel_einbinden.md) <sup><i>FOR</i></sup>
         - [Artikelliste mit getArticles / toLink](modul_minibeispiel_artikelliste_mit_getarticles.md) <sup><i>skerbis</i></sup>
         - [Artikelliste als RSS-FEED ausgeben](modul_minibeispiel_rss-feed.md) <sup><i>skerbis</i></sup>
         - [Interne Linkliste mit REX_LINKLIST](modul_minibeispiel_interne_linkliste.md) <sup><i>skerbis</i></sup>
