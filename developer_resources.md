@@ -4,6 +4,7 @@
 - [Nützliche AddOns](#addons)
   - [Adminer](#adminer)
   - [Cheatsheat für Extensionpoints](#cheatsheet)
+  - [Demo-AddOn](#demo)
   - [Developer - Module, Templates und Aktionen syncen](#developer)
   - [Project - Schnell mal eine PHP-Class einbinden](#project)
   - [Strukturierte Daten - HilfsAddOn für Jason-LD](#strucdata)
@@ -19,7 +20,6 @@
 - [Nützliche Links](#)
   - [Front-End Checklist](https://github.com/thedaviddias/Front-End-Checklist)
   - Weitere AddOns 
-    - [Demo Addon - Zeigt den Aufbau und Basisfunktionalität von AddOns](https://github.com/FriendsOfREDAXO/demo_addon)
     - [Addon Viewer - Durch AddOns browsen](https://github.com/gupi/addon_viewer)
     - [Addon Template - AddOn-Struktur Generator](https://redaxo.org/download/addons/template/)
 
@@ -46,6 +46,17 @@ Adminer für REDAXO. Seit Version 1.3.0 kann der rex_sql_table code für die aus
 Das Cheatsheet-AddOn scant die REDAXO-Installation nach Extension-Points im Core und den installierten AddOns und listet deren Position im Quellcode auf. 
 
 [**Installation aus Github-Repo:**](https://github.com/tbaddade/redaxo_cheatsheet)
+
+<a name="demo"></a>
+### Demo-AddOn
+
+Das Demo-AddOn zeigt wie AddOns entwickelt und dokumentiert werden. Gut kommentierter Quellcode, Hilfe und Hints im AddOn selbst helfen beim Verständnis der AddOn-Programmierung und der Dokumentation. Es liefert auch ein Doku-Plugin, das den Aufbau einer Hilfe für das eigne AddOn ermöglicht.   
+
+**Installation per Installer**
+
+[**Github-Repo:**](https://github.com/FriendsOfREDAXO/demo_addon)
+
+
 
 <a name="developer"></a>
 ### Developer
