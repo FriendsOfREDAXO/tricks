@@ -42,7 +42,7 @@ if ("REX_ARTICLE_ID" != "REX_LINK[id=1]" && "REX_LINK[id=1]" != "")
 
  $art_title = $art->getName();
 
- // Weitere Daten der MetaInfos kÃ¶nnen wie folgt ausgelesen werden
+ // Weitere Daten der MetaInfos können wie folgt ausgelesen werden
  // z.B. Beschreibung
  // $art_description =  $art->getValue('art_description');
 
@@ -74,7 +74,7 @@ if (rex::isBackend() == 1)
 
   // Was soll passieren wenn der Artikel nicht eingebunden werden kann?
 
-  echo "Bitte prÃ¼fe den ausgewÃ¤hlten Artikel. Du scheinst auf diesen Artikel hier zu verlinken.";
+  echo "Bitte prüfe den ausgewählten Artikel. Du scheinst auf diesen Artikel hier zu verlinken.";
   }
  }
 
@@ -88,9 +88,9 @@ if (rex::isBackend() == 1)
  if ("REX_ARTICLE_ID" != "REX_LINK[id=1]" && "REX_LINK[id=1]" != "")
   {
 
-  // Artikel ausgeben, fÃ¼r andere ctypes Zahl Ã¤ndern. FÃ¼r den gesamten Artikel, die 1 entfernen
+  // Artikel ausgeben, für andere ctypes Zahl ändern. Für den gesamten Artikel inkl. aller Ctypes, die 1 entfernen
 
-  echo $article->getArticle();
+  echo $article->getArticle(1);
   }
  }
 
