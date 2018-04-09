@@ -32,6 +32,8 @@
         - [Paginierungsklasse einbinden mit Project-Addon](addons_project_class_pagination.md) <sup><b>überprüfen</b></sup> <sup><i>alexplusde</i></sup>
         - [Eigene CSS/JS Dateien im Backend hinzufügen](addons_project_add_own_js_css_files.md) <sup><i>darwin</i></sup>
         - [Tipps für Sprachen in REDAXO](addons_project_clang.md) <sup><b>überprüfen</b></sup> <sup><i>alexplusde</i></sup>
+    - Sked
+        - [Sked für eigene Projekte anpassen](addons_sked_config.md) <sup><i>dtpop</i></sup>    
     - Struktur
         - [Kategorie duplizieren](addons_structure_duplicate_category.md) <sup><i>gharlan</i></sup>
         - [MetaInfos nur für bestimmte Ebenen einblenden](addons_structure_show_meta_by_level.md) <sup><i>tbaddade</i></sup>
