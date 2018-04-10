@@ -524,4 +524,4 @@ Das Fragment legen wir unter `theme/private/fragments/sked_terminliste.php` ab.
 <a name="credits"></a>
 ## Credits
 
-Sked (Thomas Skerbis, Joachim Dörr), YFORM (Jan Kristinus, Gregor Harlan), Theme (Daniel Weitenauer), Tinymce (Azular GmbH)
+Sked (Joachim Dörr, Thomas Skerbis), YFORM (Jan Kristinus, Gregor Harlan), Theme (Daniel Weitenauer), Tinymce (Azular GmbH)
