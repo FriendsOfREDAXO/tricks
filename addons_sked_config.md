@@ -14,11 +14,12 @@
     - [my_sked.php](#mysked)
 - [Modul](#modul)
 - [Fragment](#fragment)
+- [Credits](#credits)
 
 <a name="einleitung"></a>
 ## Einleitung
 
-Sked, das ist das universelle und flexible Kalender AddOn für REDAXO. Bevor man sich dran macht und selber einen Kaleder programmiert, sollte man auf jeden Fall prüfen, ob sich Sked nicht vielleicht für die eigenen Bedürfnisse anpassen lässt.
+Sked, das ist das universelle und flexible Kalender AddOn für REDAXO. Bevor man sich dran macht und selber einen Kalender programmiert, sollte man auf jeden Fall prüfen, ob sich Sked nicht vielleicht für die eigenen Bedürfnisse anpassen lässt.
 Sked kann ...
 - mit beliebigen Datenfeldern in den bestehenden Tabellen erweitert werden
 - um weitere Tabellen ergänzt werden
@@ -42,7 +43,7 @@ Die in dieser Konfiguration verwendeten AddOns sind:
 <a name="datenstruktur"></a>
 ## Datenstruktur
 
-Damit die gleichartigen Termine verwaltet werden können, müssen in den Kategorien und den Veranstaltungen die jeweiligen Felder doppelt vorhanden sein. Beim Erfassen des Termins wird der Standardtext aus der Kategorie angzeigt, kann aber überschrieben werden.
+Damit die gleichartigen Termine verwaltet werden können, müssen in den Kategorien und den Veranstaltungen die jeweiligen Felder doppelt vorhanden sein. Beim Erfassen des Termins wird der Standardtext aus der Kategorie angzeigt, kann aber im Termin überschrieben werden.
 
 Die Kategorien von Sked werden verwendet, um Veranstaltungsgruppen zu definieren. Zusätzlich soll es Veranstaltungstypen geben. Hierfür wird eine eigene yform-Tabelle angelegt.
 
@@ -123,7 +124,7 @@ langfields:
           class: form-control sked_info_1_value  
 ```
 Das ist weitgehend selbsterklärend. Es gibt für einzelne Infoangaben (Dauer, Anmeldung, Preis, Kontakt) definierte Felder sowie ein zusätzliches frei definierbares Feld.
-Die jeweiligen Klassen-Angaben werden ergänzt, um die Felder mit Placeholdern aus den Kategorien befüllen zu können.
+Die jeweiligen Klassen-Angaben (`class`) werden ergänzt, um die Felder mit Placeholdern aus den Kategorien befüllen zu können.
 Das schöne an der yml-Konfiguration ist, dass man diese Dateien einfach bearbeiten kann. Beim nächsten Aufruf prüft Sked selbständig, ob die Felder in der Datenbank vorhanden sind und legt gegebenenfalls neue Felder an. Die Felder werden aber nicht gelöscht, wenn die Definition in der yml-Datei gelöscht wird.
 
 <a name="custom_categories"></a>
@@ -320,7 +321,7 @@ if (rex::isBackend() && rex_get('sked_cat_id') && rex::getUser()) {
 <a name="yform"></a>
 ## yform
 
-In yform muss noch die Kategorientabelle `rex_sked_event_categories` über den Tablemanager angelegt werden. In unserem Falle benötigen wir lediglich die Felder `name_1` und `name_2`, also die Namen für die Sprache 1 und Sprache 1.
+In yform muss noch die Kategorientabelle `rex_sked_event_categories` über den Tablemanager angelegt werden. In unserem Falle benötigen wir lediglich die Felder `name_1` und `name_2`, also die Namen für die Sprache 1 und Sprache 2.
 
 Damit ist die Backendkonfiguration abgeschlossen und das Backend sollte funktionieren.
 
@@ -519,3 +520,8 @@ Das Fragment legen wir unter `theme/private/fragments/sked_terminliste.php` ab.
     <?php endforeach ?>
 
 ```
+
+<a name="credits"></a>
+## Credits
+
+Sked (Thomas Skerbis, Joachim Dörr), YFORM (Jan Kristinus, Gregor Harlan), Theme (Daniel Weitenauer), Tinymce (Azular GmbH)
