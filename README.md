@@ -44,6 +44,7 @@
         - [YForm Datensatz Kopieren]( addons_yform_copy_dataset.md) <sup><i>tbaddade</i></sup>
         - [YForm Daten von Version 1.x auf 2.x konvertieren](addons_yform_convert.md) <sup><b>unvollständig</b></sup> <sup><i>tbaddade</i></sup>
         - [YForm Tabellen als Sub-Page im eigenen Addon](addons_yform_im-addon.md) <sup><i>christophboecker</i></sup>
+        - ["Stille" Mail mit yform verschicken](addons_yform_send_hidden_mail.md) <sup><i>dtpop</i></sup>		
     - YCom [:link:](https://github.com/yakamara/redaxo_ycom)
         - [Geschütze Dateien mit YCom/Projekt-AddOn](addons_ycom_protected_files.md) <sup><i>FOR</i></sup>
         - [Geschütze Dateien mit YCom - per Template](addons_ycom_protected_files_enhanced.md) <sup><i>tgoellner / skerbis</i></sup>
