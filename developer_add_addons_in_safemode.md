@@ -19,6 +19,8 @@ setup_addons:
     - adminer
 ```
 
+Die Datei `config.yml` steht dem Entwickler für eigene Einträge zur Verfügung und wird weder durch den Installer noch das Setup überschrieben.
+
 Damit dieser tolle Tipp nicht ganz so leer bleibt, noch etwas Text dazu ...
 
 Man sollte es nicht übertreiben mit den zusätzlichen AddOns im Safemode, schließlich kann jedes AddOn einen Ooops erzeugen und dann ist der Safemode auch kein Safemode mehr.
@@ -28,4 +30,5 @@ Man sollte es nicht übertreiben mit den zusätzlichen AddOns im Safemode, schli
 ## Credits
 
 Dieser Eintrag entstand aufgrund einer Anregung von alexplus und der Lösung des Problems durch Gregor.
+https://github.com/redaxo/redaxo/pull/1699#issuecomment-386718188
 Danke.
