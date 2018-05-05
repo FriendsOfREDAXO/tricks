@@ -7,6 +7,7 @@
     - [Argumentationshilfe für REDAXO](redaxo-argumentationshilfe.md) <sup><i>alexplusde</i></sup>
 - Entwicklung
     - [Nützliches für Developer](developer_resources.md) <sup><i>skerbis</i></sup>
+    - [Zusätzliche AddOns im Safemode starten](developer_add_addons_in_safemode.md) <sup><i>dtpop</i></sup>	
 - Installation
     - [REDAXO Loader - REDAXO laden und entpacken](install_redaxo_loader.md) <sup><i>skerbis</i></sup>
 - Backend
