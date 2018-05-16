@@ -57,7 +57,7 @@
 
 - HowTo
     - [Kategorie einer REDAXO Instanz (Quelle) in eine andere Instanz (Ziel) kopieren](howto_kategorie_in_eine_andere_redaxo_instanz_kopieren.md) <sup><b>unvollständig</b></sup> <sup><i>tbaddade</i></sup>
-    - [Website sperren / Wartungsarbeiten](howto_website_sperren.md) <sup><i>alexplusde / skerbis</i></sup>
+    - [Website sperren / Wartungsarbeiten](howto_website_sperren.md) <sup><i>alexplusde</i></sup>
     - [AJAX mit dem rex_api](howto_ajax_rexapi.md) <sup><i>christophboecker</i></sup>
     - [IP-Adressen geocodieren via Maxmind-API](howto_geocode_maxmind.md) <sup><b>ungetestet</b></sup> <sup><i>alexplusde</i></sup>
     - [Status Code 410 setzen](howto_errorcode_410.md) <sup><i>dtpop</i></sup>
