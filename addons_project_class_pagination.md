@@ -13,7 +13,13 @@ Die Klasse benötigt zunächst nur 3 Parameter:
 
 ## Beispiel-Code
 
-
+		$limit = 10;
+		$page = rex_request('page', 'int', 1);
+		if(rex::isBackend()) {
+		    $page = 1;
+		}
+		$offset = (($page -1) * $limit);
+		
 		// Pagination initialisieren
 		$pagination = new Pagination($total, $page, $limit);
 
