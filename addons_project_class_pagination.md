@@ -168,11 +168,11 @@ Diesen Code bspw. in Redaxo unter `/redaxo/src/addons/project/lib/` abspeichern,
 				if($this->option['show_neighbours']) {
 					$page = $this->page + 1;
 					if(($page * $this->limit) >= $this->total) {
-						$page = (int) ($this->total / $this->limit);
+						$page = ceil($this->total / $this->limit);
 					}
 					$anchor = $this->buildAnchor($page, $this->text['next']);
 					$li  = str_replace("###anchor###",$anchor,$this->html['li']);
-					if((($this->page+1) * $this->limit) <= $this->total) {
+					if($this->page+1 <= ceil($this->total / $this->limit)) {
 						$li  = str_replace("###class###","next",$li);
 					} else {
 						$li  = str_replace("###class###","next disabled",$li);
@@ -185,9 +185,9 @@ Diesen Code bspw. in Redaxo unter `/redaxo/src/addons/project/lib/` abspeichern,
 
 				// Letzte Seite
 				if($this->option['show_skip']) {
-					$anchor = $this->buildAnchor((int) ($this->total / $this->limit), $this->text['last']);
+					$anchor = $this->buildAnchor(ceil($this->total / $this->limit), $this->text['last']);
 					$li  = str_replace("###anchor###",$anchor,$this->html['li']);
-					if((($this->page+1) * $this->limit) <= $this->total) {
+					if($this->page+1 <= ceil($this->total / $this->limit)) {
 						$li  = str_replace("###class###","last",$li);
 					} else {
 						$li  = str_replace("###class###","last disabled",$li);
