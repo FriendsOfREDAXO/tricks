@@ -26,7 +26,8 @@ prio:
 ## Einleitung
 
 Sked, das ist das universelle und flexible Kalender AddOn für REDAXO. Bevor man sich dran macht und selber einen Kalender programmiert, sollte man auf jeden Fall prüfen, ob sich Sked nicht vielleicht für die eigenen Bedürfnisse anpassen lässt.
-Sked kann ...
+Sked kann...
+
 - mit beliebigen Datenfeldern in den bestehenden Tabellen erweitert werden
 - um weitere Tabellen ergänzt werden
 - das Backend kann nach eigenen Bedürfnissen umgestaltet werden
@@ -34,7 +35,7 @@ Sked kann ...
 
 Das soll hier an einem Beispiel gezeigt werden.
 
-Zunächst die Aufgabenbeschreibung:
+Zunächst die Aufgabenbeschreibung:  
 Es soll ein Veranstaltungskalender für ein Museum erstellt werden. Es gibt keine von-bis-Termine sondern nur Termine an einer Startzeit. Alle Termine finden an einem Ort statt. Es gibt viele gleichartige Termine, es sollen dafür nicht jedesmal alle Angaben neu erfasst werden. Es sollen aber Varianten möglich sein.
 
 Die Website ist 2-sprachig.
@@ -202,6 +203,7 @@ fields:
     label_de: Artikel
     label_en: Article
 ```
+
 Die Felder sind weitestgehend gleich wie bei den Einträgen. Als Editor für die Beschreibung wird der TinyMCE Editor benutzt, das AddOn muss in diesem Falle ebenfalls installiert sein.
 
 Die Veranstaltungskategorie wird über ein `selectsql`-Feld realisiert.
