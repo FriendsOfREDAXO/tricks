@@ -29,7 +29,7 @@ und dem darin enthalten Effekt **Focuspoint-Fit** der MediaManager verlässliche
 
 Bei einem Projekt wurden für Teaser quadratische Bilder benötigte. So in der Art sollte es aussehen:
 
-![Beispiel](screenshots/addons_focuspoint_fpfit/beispiel.jpg "Beispiel")
+![Beispiel](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/addons_focuspoint_fpfit/beispiel.jpg "Beispiel")
 
 Das Quell-Material war jedoch wild gemischt was Größe und Format (Aspect-Ratio, AR) anbelangt. 
 
@@ -61,18 +61,18 @@ Verbreitet sind die Methoden
 
 | einseitig<br />oben | gleichverteilt<br />oben und unten | einseitig<br />unten |
 | ---- | ----- | -------------- |
-| ![oben abschneiden](screenshots/addons_focuspoint_fpfit/test_crop_oben.jpg "oben abschneiden") | ![oben/unten abschneiden](screenshots/addons_focuspoint_fpfit/test_crop_beide.jpg "oben/unten abschneiden") | ![unten abschneiden](screenshots/addons_focuspoint_fpfit/test_crop_unten.jpg "unten abschneiden") |
+| ![oben abschneiden](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/addons_focuspoint_fpfit/test_crop_oben.jpg "oben abschneiden") | ![oben/unten abschneiden](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/addons_focuspoint_fpfit/test_crop_beide.jpg "oben/unten abschneiden") | ![unten abschneiden](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/addons_focuspoint_fpfit/test_crop_unten.jpg "unten abschneiden") |
 
 Die Meisten würden sich wohl für "gleichverteilt" entscheiden - aber 
 mit hoher Wahrscheinlichkeit trifft man bei jeder Variante schnell auf Bilder und Formate, in denen das gewählte Verfahren
 zu einem eher ungünstigen Bildauschnitt führt. Hier mal ein schmaler mittiger Auschnitt (gleichverteilt) für einen
 Seitentitel.
 
-![Banner mit Segel](screenshots/addons_focuspoint_fpfit/test_banner_a.jpg "Banner mit Segel") 
+![Banner mit Segel](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/addons_focuspoint_fpfit/test_banner_a.jpg "Banner mit Segel") 
 
 Besser wäre dieser Auschnitt:
 
-![Banner mit Rumpf](screenshots/addons_focuspoint_fpfit/test_banner_b.jpg "Banner mit Rumpf") 
+![Banner mit Rumpf](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/addons_focuspoint_fpfit/test_banner_b.jpg "Banner mit Rumpf") 
 
 Es geht also um die Frage, wo eigentlich der Teil des Bildes ist, der unbedingt sichtbar sein sollte. 
 
@@ -105,12 +105,12 @@ Die Anforderungen waren also:
 Ausgangspunkt ist ein Beispielbild in den Abmessungen 3072x2304 mit einem AR von 1,33 ( 4:3). 
 Der Fokuspunkt ist gelb markiert und liegt bei 46% horizontal und 81% vertikal. 
 
-![Demo-Bild](screenshots/addons_focuspoint_fpfit/demo_fp.jpg "Demo-Bild") 
+![Demo-Bild](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/addons_focuspoint_fpfit/demo_fp.jpg "Demo-Bild") 
 
 Das Beispiel erzeugt quadratische Teaser-Bilder im Format 300x300 mit einem AR von 1:1 (also 1).
 Die Einzelheiten werden jetzt Schritt für Schritt erklärt.
 
-![Eingabemaske](screenshots/addons_focuspoint_fpfit/eingabe.jpg "Eingabemaske") 
+![Eingabemaske](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/addons_focuspoint_fpfit/eingabe.jpg "Eingabemaske") 
 
 Die Zielbildgröße wird fest vorgegeben. Es geht auch anders, zu diesem Sonderfall [später](#H) mehr. 
 
@@ -130,14 +130,14 @@ Im zweiten Rechenschritt wird der Ausschnittsrahmen genau in der Größe des Zie
 also hier 300 x 300 groß. Zur Visualisierung legen wir
 ihn erst einmal oben links in die Ecke des Originalbildes (roter Rahmen):
 
-![Step 2: Ausschnitt einfügen](screenshots/addons_focuspoint_fpfit/demo_step2.jpg "Step 2: Ausschnitt einfügen") 
+![Step 2: Ausschnitt einfügen](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/addons_focuspoint_fpfit/demo_step2.jpg "Step 2: Ausschnitt einfügen") 
 
 Der gelbe senkrechte Strich markiert in der Engpass-Dimension den Platz, der zwischen Ausschnittshöhe und Originalhöhe verbleibt. 
 Dieser Restplatz, im Beispiel 2004px, kann mit der Einstellung __"Zoom des Ausschnitts"__ in das Zielbild genommen weren. 
 Die jeweils andere Dimension des Ausschnitts wird auch neu berechnet werden, denn der AR des Zielbildes 
 ist unbedingt einzuhalten.
 
-![Eingabemaske Zoom](screenshots/addons_focuspoint_fpfit/eingabe_zoom.jpg "Eingabemaske Zoom") 
+![Eingabemaske Zoom](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/addons_focuspoint_fpfit/eingabe_zoom.jpg "Eingabemaske Zoom") 
 
 | Auswahl | Auswirkung | Beispiel |
 | ------- | ---------- | -------- |
@@ -149,14 +149,14 @@ ist unbedingt einzuhalten.
 
 Im weiteren Verlauf des Beispiels rechnen wir mit der Variante "50%" weiter.
 
-![Ausschnitt auf 50%](screenshots/addons_focuspoint_fpfit/demo_50.jpg "Ausschnitt auf 50%") 
+![Ausschnitt auf 50%](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/addons_focuspoint_fpfit/demo_50.jpg "Ausschnitt auf 50%") 
 
 ### Den Auschnittsrahmen um den Fokuspunkt positionieren
 
 Im vierten Rechenschritt wird der Ausschnittsrahmen genau mittig auf den Fokuspunkt geschoben. Da der Fokuspunkt relativ weit
 in der unteren Bildhälfte liegt, ragt der Rahmen folgerichtig über die Bildabmessungen hinaus. (Ah, deshalb 50%!). 
 
-![Ausschnitt am Fokuspunkt](screenshots/addons_focuspoint_fpfit/demo_fp50.jpg "Ausschnitt am Fokuspunkt") 
+![Ausschnitt am Fokuspunkt](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/addons_focuspoint_fpfit/demo_fp50.jpg "Ausschnitt am Fokuspunkt") 
 
 Das entstandene Problem lässt sich - wir wollen unbedingt den AR des Zielbildes erreichen - nur auf zwei Arten lösen:
 
@@ -167,7 +167,7 @@ des Zielbildes.
 Die erste Variante kommt sehr schnell an Grenzen, wenn der Fokuspunkt nah am Bildrand liegt. Daher geht Focuspoint-Fit
 den zweiten Weg. Nach dem fünften Rechenschritt haben wir also folgende Ausschnittsposition:
 
-![Ausschnitt final](screenshots/addons_focuspoint_fpfit/demo_target.jpg "Ausschnitt final") 
+![Ausschnitt final](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/addons_focuspoint_fpfit/demo_target.jpg "Ausschnitt final") 
 
 > *Achtung - Nebenwirkung "Vergrößerung"*: Was pssiert eigentlich, wenn schon der ursprüngliche Ausschnittsrahmen (=Zielgröße) 
 größer ist als das Originalbild?
@@ -178,7 +178,7 @@ Die Wirkung wäre also faktisch die Vergrößerung des Originalbildes. Der Zoom-
 
 Zum Schluß wird per **imagecopyresampled** in nur einem Transformations-Schritt aus dem Originalbild das Zielbild errechnet.
 
-![Zielbild](screenshots/addons_focuspoint_fpfit/demo_final.jpg "Zielbild") 
+![Zielbild](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/addons_focuspoint_fpfit/demo_final.jpg "Zielbild") 
 
 
 <a name="E"></a>
@@ -190,7 +190,7 @@ Bildmitte liegt (50%/50%). Aber das wäre ja zu einfach.
 
 Tatsächlich bietet die Effekt-Parametrisierung an, Fallback-Werte selbst festzulegen und deren Gültigkeit zu steuern.
 
-![Fallback](screenshots/addons_focuspoint_fpfit/fallback.jpg "Fallback") 
+![Fallback](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/addons_focuspoint_fpfit/fallback.jpg "Fallback") 
 
 <a name="H"></a>
 ## Das Zielformat festlegen: Breite und Höhe
@@ -250,7 +250,7 @@ Breite und Höhe werden fest vorgegeben und der Zoom-Faktor auf 100% gestellt, u
 
 Das obige Beispiel mit Zoom = 100% ergibt
 
-![Zielbild maximiert](screenshots/addons_focuspoint_fpfit/demo_final_100.jpg "Zielbild maximiert") 
+![Zielbild maximiert](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/addons_focuspoint_fpfit/demo_final_100.jpg "Zielbild maximiert") 
 
 ### Bilder für Kopfzeilen/Banner erstellen
 
@@ -277,11 +277,11 @@ Der Bildausschnitt ist also 900x960. Der verbleibende Rest von 300 px
 in der Höhe muss gekappt werden. Oben werden 10% des Bildes gekappt = 120px. Der Rest (180px) wird unten gekappt. 
 Das entspricht einem Fokuspunkt vertikal von 47%; der horizontale ist 50%.
 
-![Fallback-Parameter](screenshots/addons_focuspoint_fpfit/fallback_para.jpg "Fallback-Parameter") 
+![Fallback-Parameter](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/addons_focuspoint_fpfit/fallback_para.jpg "Fallback-Parameter") 
 
 | Original | Ziel |
 | -------- | ---- |
-| ![cb](screenshots/addons_focuspoint_fpfit/cb.jpg "bc") | ![cb](screenshots/addons_focuspoint_fpfit/cb2.jpg "cb")  |
+| ![cb](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/addons_focuspoint_fpfit/cb.jpg "bc") | ![cb](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/addons_focuspoint_fpfit/cb2.jpg "cb")  |
 
 ### Gleich breite Bilder für Spalten, bzw. gleich hohe Bilder für Zeilen
 
