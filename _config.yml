@@ -4,6 +4,7 @@
 # General
 repository: FriendsOfREDAXO/tricks
 timezone: Europe/Berlin
+baseurl: /tricks
 
 # Optional plugins
 # https://help.github.com/articles/configuring-jekyll-plugins/#optional-plugins
