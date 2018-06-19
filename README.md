@@ -1,6 +1,6 @@
 # REDAXO-Tricks!
 
-__Eine Sammlung nützlicher Tricks zu [REDAXO cms](https://redaxo.org) ab Version 5 → [friendsofredaxo.github.io/tricks](https://friendsofredaxo.github.io/tricks/)__
+__Eine Sammlung nützlicher Tricks zu [REDAXO CMS](https://redaxo.org) ab Version 5 → [friendsofredaxo.github.io/tricks](https://friendsofredaxo.github.io/tricks/)__
 
 Diese Website sammelt Lösungen und hilfreiche Code-Beispiele, die es aus verschiedenen Gründen nicht in die [REDAXO-Dokumentation](https://redaxo.org/doku/master) geschafft haben. Hier sind sie genau richtig, denn sie können von der Community bearbeitet und ergänzt werden. Wenn du mitmachen möchtest, lies weiter!
 
