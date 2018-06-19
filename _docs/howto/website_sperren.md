@@ -6,7 +6,7 @@ prio:
 
 # Website sperren / Wartungsarbeiten
 
-Wenn sich eine Redaxo-Website in der Entwicklung befindet, kann es sein, dass der Kunde bereits einen Blick auf die Website werfen will, ohne, dass die Website für Unbefugte erreichbar ist. Da auf unbestimmtem Wege auch eine halbfertige Website im Google-Index landen kann, sollte eine (Redaxo-)Website vor der Veröffentlichung durch einen der nachfolgendenen Techniken geschützt werden.
+Wenn sich eine REDAXO-Website in der Entwicklung befindet, kann es sein, dass der Kunde bereits einen Blick auf die Website werfen will, ohne, dass die Website für Unbefugte erreichbar ist. Da auf unbestimmtem Wege auch eine halbfertige Website im Google-Index landen kann, sollte eine (Redaxo-)Website vor der Veröffentlichung durch einen der nachfolgendenen Techniken geschützt werden.
 
 > Tipp: Für die Entwicklungs-Website nutzen viele Redaxo-Entwickler eine Subdomain, z. B. `neu.domain.de`, `dev.domain.de`, `beta.domain.de`. 
 
