@@ -1,0 +1,40 @@
+# Navigation
+# important: the URLs must represent the docs folder structure!
+
+- title: Startseite
+  url: /
+- title: AddOns
+  url: /addons
+  subitems:
+  - title: Cronjob
+    url: /addons/cronjob
+  - title: Focuspoint
+    url: /addons/focuspoint
+  - title: MForm
+    url: /addons/mform
+  - title: Project
+    url: /addons/project
+  - title: Sked
+    url: /addons/sked
+  - title: Structure
+    url: /addons/structure
+  - title: Theme
+    url: /addons/theme
+  - title: YCom
+    url: /addons/ycom
+  - title: YForm
+    url: /addons/yform
+  - title: YRewrite
+    url: /addons/yrewrite
+- title: Module
+  url: /module
+- title: Backend
+  url: /backend
+- title: Diverses
+  url: /diverses
+- title: Installation
+  url: /installation
+- title: HowTos
+  url: /howto
+- title: Snippets
+  url: /snippets
