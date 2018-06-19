@@ -16,15 +16,18 @@ prio:
 **Mögliche Vorgehensweise für die Ausgabe:** 
 Als Block einsetzen und mit einem Template mit folgendem Inhalt verbinden:
 
-```php     
+```php
+
 // Senden des Headers mit korrekter Kodierung mittels rex_response
 rex_response::sendContentType('application/xml; charset=utf-8');
 print $this->getArticle(1); 
+
 ```
 
 ## Eingabe
 
 ```php 
+ <?php
     <div class="form-group">
                   <label class="col-sm-5 control-label">Kategorie mit News</label>
                   <div class="col-sm-7">
