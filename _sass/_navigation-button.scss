@@ -1,0 +1,64 @@
+.navigation-button {
+  display: block;
+  width: 60px;
+  height: 60px;
+  position: relative;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.navigation-button__open,
+.navigation-button__close {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 36px;
+  height: 36px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+
+  > svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: #fff;
+    opacity: 1;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    transition: opacity 400ms $easeOutCirc, -webkit-transform 400ms $easeOutCirc;
+    transition: opacity 400ms $easeOutCirc, transform 400ms $easeOutCirc;
+    transition: opacity 400ms $easeOutCirc, transform 400ms $easeOutCirc, -webkit-transform 400ms $easeOutCirc;
+  }
+}
+
+.navigation-button__close {
+  > svg {
+    opacity: 0;
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+}
+
+.sidebar--open {
+  .navigation-button__open {
+    > svg {
+      opacity: 0;
+      -webkit-transform: rotate(-180deg);
+              transform: rotate(-180deg);
+    }
+  }
+
+  .navigation-button__close {
+    > svg {
+      opacity: 1;
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+  }
+}
+
+.navigation-button__title {
+  @include visuallyhidden;
+}

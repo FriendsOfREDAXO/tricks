@@ -1,0 +1,25 @@
+<div class="header__menubutton">
+  <button class="navigation-button">
+    <i class="navigation-button__open">{% include svg/bars.svg %}</i>
+    <i class="navigation-button__close">{% include svg/times.svg %}</i>
+    <span class="navigation-button__title">Navigation</span>
+  </button>
+</div>
+
+<div class="header__brand">
+  <a href="/" title="Startseite">
+    {% include svg/r.svg %}
+    <span>Tricks</span>
+  </a>
+</div>
+
+<div class="header__search">
+  <div class="searchfield">
+    <input class="searchfield__input" type="text" placeholder="Tricks durchsuchen">
+    <i class="searchfield__icon">{% include svg/search.svg %}</i>
+  </div>
+</div>
+
+<div class="header__options">
+  <a class="header__link header__link--github" href="https://github.com/FriendsOfREDAXO/tricks">{% include svg/github.svg %}</a>
+</div>

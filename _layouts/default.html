@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}" prefix="og: http://ogp.me/ns#">
+
+  {% include head.html %}
+
+  <body>
+
+    <header class="header" role="banner">
+      {% include header.html %}
+    </header>
+
+    <div class="sidebar">
+
+      <div class="sidebar__header">
+      </div>
+
+      <div class="sidebar__body">
+        {% include sidebar.html %}
+      </div>
+
+    </div>
+
+    <div class="body">
+
+      <main class="content" aria-label="Content">
+        <div class="content__section">
+          {% include content.html %}
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="footer__section">
+          {% include footer.html %}
+        </div>
+      </footer>
+
+    </div>
+
+    <div class="cover"></div>
+
+    <!-- scripts -->
+    <script src="{{ '/vendor/pjax.js/pjax.min.js' | relative_url }}"></script>
+    <script src="{{ '/vendor/prism.js/prism.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/script.js' | relative_url }}"></script>
+
+  </body>
+
+</html>

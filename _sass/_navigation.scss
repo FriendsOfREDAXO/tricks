@@ -1,0 +1,112 @@
+.navigation {
+  margin: 0 -2vw;
+
+  @media (max-width: 639px) {
+    margin: 0 -5vw;
+  }
+}
+
+.navigation__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navigation__item {
+  display: block;
+
+  & & {
+    .navigation__link,
+    .navigation__toggle {
+      padding-left: 3.5vw;
+
+      @media (max-width: 639px) {
+        padding-left: 10vw;
+      }
+    }
+  }
+
+  & & & {
+    .navigation__link,
+    .navigation__toggle {
+      padding-left: 5vw;
+
+      @media (max-width: 639px) {
+        padding-left: 15vw;
+      }
+    }
+  }
+}
+
+.navigation__item--has-children {
+
+}
+
+.navigation__item--active {
+
+}
+
+.navigation__item--current {
+}
+
+.navigation__link,
+.navigation__toggle {
+  display: flex;
+  align-items: center;
+  padding: 0.5em 2vw;
+  cursor: pointer;
+  text-decoration: none !important;
+  font-size: 1em;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
+  word-wrap: break-word;
+  transition: all 200ms ease-out;
+
+  .navigation__item--current & {
+    background: transparent !important;
+    color: #5b98d7;
+    cursor: default;
+  }
+
+  &:hover,
+  &:focus {
+    background: rgba(#5b98d7, 0.1);
+  }
+
+  &:active {
+    color: #5b98d7;
+    background: rgba(#5b98d7, 0.2);
+  }
+
+  @media (max-width: 639px) {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+}
+
+.navigation__toggle {
+  font-weight: 600;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.navigation__sub {
+  padding: 0 0 10px 0;
+  overflow: hidden;
+  height: 0;
+  -webkit-transform: translate3d(20px, 0, 0);
+          transform: translate3d(20px, 0, 0);
+  opacity: 0;
+
+  .navigation__item--active > & {
+    height: auto;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+    opacity: 1;
+    transition: opacity 400ms linear, -webkit-transform 400ms ease-out;
+    transition: transform 400ms ease-out, opacity 400ms linear;
+    transition: transform 400ms ease-out, opacity 400ms linear, -webkit-transform 400ms ease-out;
+  }
+}

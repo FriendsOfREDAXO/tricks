@@ -1,0 +1,16 @@
+.avatar {
+  display: block;
+  box-sizing: content-box;
+  border-radius: 50%;
+  border: 2px solid #eee;
+  transition: border-color 150ms ease-out, -webkit-transform 200ms ease-out;
+  transition: border-color 150ms ease-out, transform 200ms ease-out;
+  transition: border-color 150ms ease-out, transform 200ms ease-out, -webkit-transform 200ms ease-out;
+
+  :hover > &,
+  :focus > & {
+    border-color: #85c2ff;
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+}

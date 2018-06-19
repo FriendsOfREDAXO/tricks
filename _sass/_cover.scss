@@ -1,0 +1,17 @@
+.cover {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 100vh;
+  background: rgba(#2f5070, 0.3);
+  opacity: 0;
+  transition: opacity 400ms ease-out, bottom 0ms linear 410ms;
+
+  .sidebar--open & {
+    opacity: 1;
+    bottom: 0;
+    transition: opacity 400ms ease-out, bottom 0ms linear;
+  }
+}

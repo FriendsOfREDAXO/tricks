@@ -1,0 +1,53 @@
+---
+layout: default
+---
+
+{% capture authors %}
+  {%- if page.authors.size > 0 -%}
+
+    <div class="authors">
+      <ul class="authors__list">
+
+        {%- for a in page.authors -%}
+
+          <li class="authors__item">
+            <a class="authors__link" href="https://github.com/{{ a }}" title="{{ a }}">
+              {% avatar user=a size=32 %}
+            </a>
+          </li>
+
+        {%- endfor -%}
+
+      </ul>
+    </div>
+
+  {%- endif -%}
+{% endcapture %}
+
+
+<div class="metainfos metainfos--top">
+
+  <div class="metainfos_col metainfos_col--1">
+    {{ authors }}
+  </div>
+
+  <div class="metainfos_col metainfos_col--2">
+    <a class="editlink" href="https://github.com/FriendsOfREDAXO/tricks/blob/master/{{ page.path }}">{% include svg/github.svg %}<span>Artikel bearbeiten</span></a>
+  </div>
+
+</div>
+
+
+{{ content }}
+
+
+<div class="metainfos">
+
+  <div class="metainfos_col metainfos_col--1">
+  </div>
+
+  <div class="metainfos_col metainfos_col--2">
+    <a class="editlink" href="https://github.com/FriendsOfREDAXO/tricks/blob/master/{{ page.path }}">{% include svg/github.svg %}<span>Artikel bearbeiten</span></a>
+  </div>
+
+</div>

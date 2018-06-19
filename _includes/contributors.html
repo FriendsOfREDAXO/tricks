@@ -1,0 +1,28 @@
+{% assign size = 64 %}
+{% if page.layout == 'home' %}
+  {% assign size = 64 %}
+{% endif %}
+
+{% capture contributors %}
+  {%- if site.github.contributors.size > 0 -%}
+
+    <div class="contributors">
+      <ul class="contributors__list">
+
+        {%- for a in site.github.contributors -%}
+
+          <li class="contributors__item">
+            <a class="contributors__link" href="{{ a.html_url }}" title="{{ a.login }} ({{ a.contributions }} contributions)">
+              {% avatar user=a.login size={{ size }} %}
+            </a>
+          </li>
+
+        {%- endfor -%}
+
+      </ul>
+    </div>
+
+  {%- endif -%}
+{% endcapture %}
+
+{{ contributors }}

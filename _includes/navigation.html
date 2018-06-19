@@ -1,0 +1,42 @@
+{% assign categories = include.categories | default: site.data.navigation %}
+{% assign pages = site.docs | sort: "prio" %}
+{% assign subpages = include.subpages %}
+
+{% for c in categories %}
+
+  {% capture html %}
+    {%- for p in pages -%}
+
+      {%- assign slug = p.url | split: "/" | last | prepend: "/" -%}
+      {%- assign path = p.url | remove: slug -%}
+
+      {%- if c.url == path -%}
+        <li class="navigation__item{% if p.url == page.url %} navigation__item--current{% endif %}">
+          <a class="navigation__link" href="{{ p.url }}">{{ p.title }}</a>
+        </li>
+      {%- endif -%}
+
+    {%- endfor -%}
+  {% endcapture %}
+
+  {% if c.subitems.size > 0 or html != "" %}
+    <li class="navigation__item{% if c.subitems.size > 0 or html != "" %} navigation__item--has-children{% endif %}">
+      <a class="navigation__toggle">{{ c.title }}</a>
+      <div class="navigation__sub">
+        <ul class="navigation__list">
+          {% if c.subitems.size > 0 %}
+            {% include navigation.html categories=c.subitems subpages=html %}
+            {% assign html = "" %}
+          {% endif %}
+
+          {% if html != "" %}
+            {{ html }}
+          {% else %}
+            {{ subpages }}
+          {% endif %}
+        </ul>
+      </div>
+    </li>
+  {% endif %}
+
+{% endfor %}

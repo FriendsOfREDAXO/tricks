@@ -1,0 +1,30 @@
+// Code blocks
+pre[class*="language-"],
+pre[class="highlight"] {
+  padding: 1em;
+  margin: 1em 0;
+  overflow: auto;
+  border-radius: 3px;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"],
+pre[class="highlight"] {
+  background: #f2f6fb;
+}
+
+// inside of blockquotes
+blockquote :not(pre) > code {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+// Inline code
+:not(pre) > code,
+:not(pre) > code[class*="language-"] {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  background-color: #f2f6fb;
+  border-radius: 3px;
+  white-space: normal;
+}

@@ -1,0 +1,31 @@
+.editlink {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  border: 2px solid #85c2ff;
+  border-radius: 2em;
+  padding: 0 1em;
+  font-size: 0.85em;
+  height: 36px;
+  text-decoration: none !important;
+  transition: color 150ms ease-out;
+  margin: 0 0 5px 0;
+
+  > svg {
+    width: 1.4em;
+    height: 1.4em;
+    fill: #5b98d7;
+    transition: fill 150ms ease-out;
+    margin-right: 5px;
+  }
+
+  &:hover,
+  &:focus {
+    background: #85c2ff;
+    color: #fff;
+
+    > svg {
+      fill: #fff;
+    }
+  }
+}

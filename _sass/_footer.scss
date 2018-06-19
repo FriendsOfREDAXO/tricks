@@ -1,0 +1,13 @@
+.footer {
+  border-top: 2px solid #f2f6fb;
+}
+
+.footer__section {
+  padding: 50px 5vw 50px 5vw;
+  max-width: 60em;
+  font-size: 19px;
+
+  > :first-child {
+    margin-top: 0;
+  }
+}

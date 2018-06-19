@@ -1,0 +1,19 @@
+.contributors {
+}
+
+.contributors__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contributors__item {
+  margin: 0 5px 5px 0;
+}
+
+.contributors__link {
+  display: block;
+  line-height: 0;
+}

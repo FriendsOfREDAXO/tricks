@@ -1,0 +1,34 @@
+.content {
+  flex: 1;
+}
+
+.content__section {
+  padding: 50px 5vw;
+  max-width: 60em;
+  font-size: 19px;
+  margin-top: 60px;
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  // since we use a fixed header bar (60px), we have to move anchor links upwards,
+  // so that the page content is not covered by the header bar.
+  a[name] {
+    position: absolute;
+    -webkit-transform: translateY(-60px);
+            transform: translateY(-60px);
+  }
+
+  // intro text
+  .intro {
+    font-size: 1.2em;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0 0 -1em 0;
+  }
+
+  @media (max-width: 999px) {
+    padding-left: 3vw;
+    padding-right: 3vw;
+  }
+}

@@ -1,0 +1,32 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  background: #5b98d7;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.sidebar--open {
+  overflow-y: hidden;
+}
+
+body {
+  background: #fff;
+}
+
+.body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  margin-left: 30vw;
+
+  @media (max-width: 999px) {
+    margin-left: 0;
+  }
+}
