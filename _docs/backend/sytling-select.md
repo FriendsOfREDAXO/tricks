@@ -7,7 +7,7 @@ prio:
 # Select-Felder Styling
 
 ## REDAXO eigener Select-Stil rex-select-style
-Zur Anwendung des Redaxo-Stils für Selects muss im übergeordneten DIV die CSS-Class **rex-select-style** eingesetzt werden. 
+Zur Anwendung des REDAXO-Stils für Selects muss im übergeordneten DIV die CSS-Class **rex-select-style** eingesetzt werden. 
 
 Beispiel: 
 
