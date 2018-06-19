@@ -1,0 +1,3 @@
+# Tricks
+
+lorem ipsum todo
