@@ -11,11 +11,11 @@ prio:
 Was wird benötigt:
 - MetaInfoFeld: (select) Zur Auswahl des Zeitraums, ab wann archiviert werden soll
 - eigene Cronjob Datei (cronjob.php)
-- 2 Kategorien im Redaxo CMS: News + News-Archiv (wobei die Kategorienamen frei gewählt werden können!)
+- 2 Kategorien im REDAXO CMS: News + News-Archiv (wobei die Kategorienamen frei gewählt werden können!)
 
 **Schritt-für-Schritt-Anleitung**
 
-1. Werden die beiden Kategorien im Redaxo CMS angelegt:
+1. Werden die beiden Kategorien im REDAXO CMS angelegt:
 - Kategorie: "News"
 - Kategorie: "News-Archiv"
 
