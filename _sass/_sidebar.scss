@@ -41,7 +41,7 @@
   flex: 1;
   overflow: hidden;
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  // -webkit-overflow-scrolling: touch; // don’t use!
   padding: 54px 2vw;
 
   @media (max-width: 999px) {

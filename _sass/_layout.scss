@@ -13,11 +13,15 @@ html {
 }
 
 .sidebar--open {
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 body {
   background: #fff;
+
+  .sidebar--open & {
+    overflow: hidden;
+  }
 }
 
 .body {
