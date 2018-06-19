@@ -16,7 +16,7 @@ prio:
 **Mögliche Vorgehensweise für die Ausgabe:** 
 Als Block einsetzen und mit einem Template mit folgendem Inhalt verbinden:
 
-```php       
+```php     
 // Senden des Headers mit korrekter Kodierung mittels rex_response
 rex_response::sendContentType('application/xml; charset=utf-8');
 print $this->getArticle(1); 
