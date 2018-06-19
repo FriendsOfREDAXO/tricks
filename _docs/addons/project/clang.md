@@ -10,7 +10,7 @@ prio:
 
 **Szenario** 
 
-Die Redaxo-Website verfügt über verschiedene Sprachen. Ein Datum ist im MYSQL-Format hinterlegt und soll in Abhängigkeit der Sprache korrekt formatiert ausgegeben werden.
+Die REDAXO-Website verfügt über verschiedene Sprachen. Ein Datum ist im MYSQL-Format hinterlegt und soll in Abhängigkeit der Sprache korrekt formatiert ausgegeben werden.
 
 **Lösung** 
 
