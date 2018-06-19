@@ -27,7 +27,7 @@ print $this->getArticle(1);
 ## Eingabe
 
 ```php 
- <?php
+
     <div class="form-group">
                   <label class="col-sm-5 control-label">Kategorie mit News</label>
                   <div class="col-sm-7">
