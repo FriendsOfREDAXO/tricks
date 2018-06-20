@@ -25,7 +25,7 @@ Viele Addon basieren auf eigenen Tabellen und bauen sie z.B. mit rex_form und re
 Nichts spricht gegen diese Vorgehensweise. Aber muss man *immer*
 auf selbstgebaute Tabellen und Formulare aufsetzen? Oder lässt sich YForm elegant nutzen? So z.B.
 
-![Beispiel](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/yform_im-addon_screenhot_01.png "Beispiel")
+![Beispiel](/tricks/screenshots/yform_im-addon_screenhot_01.png "Beispiel")
 
 **Hier soll gezeigt werden, wie einfach es möglich ist, per YForm verwaltete
 Tabellen in einem Addon so zu nutzen, als seien es originäre Listen- und Formular-Seiten des Addons.**
