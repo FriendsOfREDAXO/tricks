@@ -12,7 +12,7 @@
 
       {%- if c.url == path -%}
         <li class="navigation__item{% if p.url == page.url %} navigation__item--current{% endif %}">
-          <a class="navigation__link" href="{{ site.baseurl }}{{ p.url }}">{{ p.title }}</a>
+          <a class="navigation__link" href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a>
         </li>
       {%- endif -%}
 

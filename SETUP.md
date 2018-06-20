@@ -23,7 +23,7 @@ Um die Website lokal einzurichten, sind folgende Schritte notwendig:
 
         $ bundle exec jekyll serve
 
-    Danach ist die Website unter `http://localhost:4000` verfügbar.
+    Danach ist die Website unter `http://localhost:4000/tricks/` verfügbar.
     
 ## Ruby installieren oder aktualisieren
 
