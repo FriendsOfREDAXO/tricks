@@ -95,7 +95,7 @@ So ist es später einfach einen eigenen Wrapper oder andere Formatierungen anzuw
 ## Linkausgabe mit toLink()
 Die Links können auch mit toLink() erstellt werden. Hierbei können Parameter-, Attribute und auch der Surrounding-Tag mit Parameter übergeben werden.  $artOutput einfach durch den nachfolgenden Code ersetzen. Hier wird als Parameter noch pdf=1 angehängt um z.B. die PDF-Erzeugung anzustoßen. 
 
-
+```php
 	$artOutput .= $article->toLink( 
 		[ 'pdf' => '1'
 		],
@@ -110,6 +110,6 @@ Die Links können auch mit toLink() erstellt werden. Hierbei können Parameter-,
 		'title' => $articleName 
 		] 
 	);
-
+  ```
 
 
