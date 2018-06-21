@@ -28,6 +28,29 @@ function toggleNavigation() {
     document.querySelector("html").classList.toggle("sidebar--open");
   });
 
+  // navigation: fold and unfold
+  var foldButton = document.querySelector(".fold-navigation");
+  foldButton.addEventListener("click", function(e) {
+    var items = document.querySelectorAll(".navigation__toggle");
+    var foldButtonIsActive = foldButton.classList.contains("fold-navigation--active");
+    if (foldButtonIsActive) {
+      // unfold navigation except current path
+      for (var item of items) {
+        if (item.parentNode.querySelector(".navigation__item--current") == null) {
+          item.parentNode.classList.remove("navigation__item--active");
+        }
+      }
+      foldButton.classList.remove("fold-navigation--active");
+    }
+    else {
+      // unfold entire navigation
+      for (var item of items) {
+        item.parentNode.classList.add("navigation__item--active");
+      }
+      foldButton.classList.add("fold-navigation--active");
+    }
+  });
+
   // navigation: open current path on initial load
   for (
     ;
