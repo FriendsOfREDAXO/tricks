@@ -15,7 +15,7 @@ Sucht, ausgehend vom aktuellen Artikel, rekursiv alle übergeordneten Artikel / 
 
 ## Template-Ausgabe (einzelnes Bild)
 
-```
+```php
 <?php
 $image = false; // Kein Bild gesetzt.
 $image = rex_article::getCurrent()->getValue('art_image'); // Bild aus dem aktuellen Artikel laden   

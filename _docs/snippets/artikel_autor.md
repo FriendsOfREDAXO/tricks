@@ -9,8 +9,7 @@ prio:
 <a name="autoren"></a>
 ## Autoren auslesen
 
-In REDAXO werden der ursprüngliche Autor (CreateUser) und die Person die den Artikel zuletzt aktualisiert hat (UpdateUser) im Artikel hinterlegt. 
-Möchte man diese auslesen erhält man deren Logins wie folgt: 
+In REDAXO werden der ursprüngliche Autor (CreateUser) und die Person die den Artikel zuletzt aktualisiert hat (UpdateUser) im Artikel hinterlegt. Möchte man diese auslesen erhält man deren Logins wie folgt: 
 
 ### User ermitteln
 
@@ -24,7 +23,7 @@ Für einen bestimmten Artikel
 
 `$author = rex_article::get($artikelID)->`**Methode();**
 
-### Function zum auslesen des Benutzernamens
+### Funktion zum Auslesen des Benutzernamens
 
 Meist möchte man nicht die Logins der Autorenm, sondern den vollständigen in der Benutzerverwaltung hinterlegten Namen des Autors. 
 Hierzu bietet sich folgende PHP-Function an um je Autor-Typ den Namen auszulesen. Wird die Function oft benötigt, bietet es sich an diese zentral im Theme-AddOn oder Projekt-AddOn abzulgen. Der hier gezeigte Code zeigt ein Beispiel für die Verwendung innerhalb eines Moduls oder Templates: 

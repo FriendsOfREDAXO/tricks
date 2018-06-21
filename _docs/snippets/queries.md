@@ -17,7 +17,7 @@ prio:
 
 Die Methoden basieren auf Yorm und gehören in eine Class wie zum Beispiel
 
-```
+```php
 class News extends rex_yform_manager_dataset
 {
 }
@@ -33,7 +33,8 @@ public function getPrevious()
 {
     $query = self::query()
         ->where('status', '1')
-        ->whereRaw('id != :id and (date > :date or date = :date and id > :id)', ['id' => $this->id, 'date' => $this->date])
+        ->whereRaw('id != :id and (date > :date or date = :date and id > :id)',
+            ['id' => $this->id, 'date' => $this->date])
         ->orderBy('date', 'ASC')
         ->orderBy('id', 'ASC');
     return $query->findOne();
@@ -48,7 +49,8 @@ public function getNext()
 {
     $query = self::query()
         ->where('status', '1')
-        ->whereRaw('id != :id and (date < :date or date = :date and id < :id)', ['id' => $this->id, 'date' => $this->date])
+        ->whereRaw('id != :id and (date < :date or date = :date and id < :id)',
+            ['id' => $this->id, 'date' => $this->date])
         ->orderBy('date', 'DESC')
         ->orderBy('id', 'DESC');
     return $query->findOne();
