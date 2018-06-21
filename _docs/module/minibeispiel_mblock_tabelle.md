@@ -31,7 +31,7 @@ prio:
 
 ## Ausgabe
 
-```html
+```php
 <section class="modul modul-mblocktable" id="modul-REX_SLICE_ID">
   <div class="wrapper">
     <?php
