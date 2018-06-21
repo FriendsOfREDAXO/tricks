@@ -39,7 +39,8 @@ In einer foreach-Schleife werden die einzelnen Artikel abgearbeitet und deren Ei
 Hier erstellen wir eine UL-LI-Liste (unordered List) als Ausgabe. Die einzelnen Listenpunkte werden in der Variable $artOutput zwischengespeichert und später ausgegeben. 
 So ist es später einfach einen eigenen Wrapper oder andere Formatierungen anzuwenden. 
 
-	<?php 
+	```php
+    <?php 
 	$articleId = $class = $articleName =  $artOutput = "";  
 	
 	// Aktuelle Kategorie ermitteln und Artikel auslesen
@@ -86,6 +87,7 @@ So ist es später einfach einen eigenen Wrapper oder andere Formatierungen anzuw
 	 unset ($articles);
 	}
 	?>
+```
 
 <a name="modulausgabe2"></a>
 ## Linkausgabe mit toLink()
@@ -106,3 +108,6 @@ Die Links können auch mit toLink() erstellt werden. Hierbei können Parameter-,
 		'title' => $articleName 
 		] 
 	);
+
+
+
