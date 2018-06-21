@@ -1,6 +1,6 @@
 ---
 title: Pagination
-authors: []
+authors: [alexplusde]
 prio:
 ---
 
@@ -25,7 +25,7 @@ if(rex::isBackend()) {
     $page = 1;
 }
 $offset = (($page -1) * $limit);
-	
+
 // Pagination initialisieren
 $pagination = new Pagination($total, $page, $limit);
 
@@ -38,12 +38,12 @@ $pagination = new Pagination($total, $page, $limit);
 # $pagination->setId("1"); // Ziel-Artikel-ID
 
 // Optional: Syntax überschreiben
-# $pagination->setHtml('ul', '<ul class="###class###">###items###</ul>'); 
+# $pagination->setHtml('ul', '<ul class="###class###">###items###</ul>');
 # $pagination->setHtml('li', '<li class="###class###">###anchor###</li>');
 # $pagination->setHtml('a', '<a href="###href###" class="###class###">###text###</a>');
 
 // Text der Navigations-Links überschreiben
-# $pagination->setText['first'] = '«'; 
+# $pagination->setText['first'] = '«';
 # $pagination->setText['last'] = '»';
 # $pagination->setText['prev'] = '‹';
 # $pagination->setText['next'] = '›';
@@ -58,7 +58,7 @@ Diesen Code bspw. in Redaxo unter `/redaxo/src/addons/project/lib/` abspeichern,
 
 ```php
 <?php
-/* 
+/*
 *
 * Pagination
 * Gibt eine Liste mit Paginierungs-Links aus.
@@ -91,13 +91,13 @@ class Pagination {
 		$this->total = $total; 				// Letzter Eintrag
 		$this->page = $page;				// Aktuelle Seite
 		$this->limit = $limit; 				// Einträge pro Seite
-		$this->offset = $page * $limit; 		// Aktueller Eintrag 
+		$this->offset = $page * $limit; 		// Aktueller Eintrag
 		$this->page_max = (int) ceil($total / $limit); 	// Letzte Seite
 
 		$this->html['ul'] = '<ul class="###class###">###items###</ul>';
-		$this->html['li'] = '<li class="###class###">###anchor###</li>'; 
-		$this->html['a'] = '<a href="###href###" class="###class###">###text###</a>'; 
-		$this->html['span'] = '<span class="###class###">###text###</span>'; 
+		$this->html['li'] = '<li class="###class###">###anchor###</li>';
+		$this->html['a'] = '<a href="###href###" class="###class###">###text###</a>';
+		$this->html['span'] = '<span class="###class###">###text###</span>';
 
 		$this->text['first'] = '«';
 		$this->text['last'] = '»';
@@ -207,7 +207,7 @@ class Pagination {
 		$this->addParams("page", $page);
 		$href = rex_getUrl($this->url['id'], null, $this->params);
 		if($this->url['hash']) {
-			$href .= "#".$this->url['hash']; 
+			$href .= "#".$this->url['hash'];
 		}
 
 		$span = str_replace("###text###",$text,$this->html['span']);
