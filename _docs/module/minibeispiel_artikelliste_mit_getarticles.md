@@ -39,7 +39,7 @@ In einer foreach-Schleife werden die einzelnen Artikel abgearbeitet und deren Ei
 Hier erstellen wir eine UL-LI-Liste (unordered List) als Ausgabe. Die einzelnen Listenpunkte werden in der Variable $artOutput zwischengespeichert und später ausgegeben. 
 So ist es später einfach einen eigenen Wrapper oder andere Formatierungen anzuwenden. 
 
-	```php
+```php
     <?php 
 	$articleId = $class = $articleName =  $artOutput = "";  
 	
