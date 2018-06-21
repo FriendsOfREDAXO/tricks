@@ -19,12 +19,14 @@ Dieses Modul erstellt eine eine Artikelliste der aktuellen Kategorie. Es wird ü
 <a name="moduleingabe"></a>
 ## Moduleingabe
 
+```html
 	<div class="panel panel-primary">
 		<div class="panel-heading"><i class="fa fa-question-circle" aria-hidden="true"></i> Artikelliste</div>
 		<div class="panel-body">
 		 Erstellt eine Liste aller Artikel dieser Ebene. 
 		</div>
 	</div>
+```
 
 
 <a name="modulausgabe"></a>
