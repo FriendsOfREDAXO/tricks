@@ -83,11 +83,8 @@ print $this->getArticle(1);
  Anleitung
  Als Block einsetzen und mit einem Template mit folgendem Inhalt verbinden. 
 
- <?php 
- 	rex_response::sendContentType('application/xml; charset=utf-8');
-	print $this->getArticle(1);
- ?>
-
+ rex_response::sendContentType('application/xml; charset=utf-8');
+ print $this->getArticle(1);
  */
 
 // Sortierfunktion by Prio
