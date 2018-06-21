@@ -21,13 +21,6 @@
             transform: translateY(-60px);
   }
 
-  // intro text
-  .intro {
-    font-size: 1.2em;
-    color: rgba(0, 0, 0, 0.6);
-    margin: 0 0 -1em 0;
-  }
-
   @include md {
     padding-left: 3vw;
     padding-right: 3vw;
