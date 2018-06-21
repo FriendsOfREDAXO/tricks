@@ -31,7 +31,7 @@ Die Abfrage ob wir uns im Backend oder Frontend befinden erfolgt durch `if (rex:
 ```php
 <?php
 
-// PrÃ¼fen ob der aktuelle Artikel mit sich selbst verlinkt ist
+// Prüfen ob der aktuelle Artikel mit sich selbst verlinkt ist
 
 if ("REX_ARTICLE_ID" != "REX_LINK[id=1]" && "REX_LINK[id=1]" != "")
 {
