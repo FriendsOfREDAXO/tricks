@@ -11,19 +11,21 @@ prio:
 ## Eingabe
 
 
-            <?php
-            // Aufruf der MForm-Instanz
-            $mform1 = new MForm(); 
-            $mform1->addFieldset('Zeile');
-            // Textfelder definieren (Hier vier Spalten) 
-            $mform1->addTextField("1.0.a", array('label'=>'Spalte 1'));
-            $mform1->addTextField("1.0.b", array('label'=>'Spalte 2'));
-            $mform1->addTextField("1.0.c", array('label'=>'Spalte 3'));
-            $mform1->addTextField("1.0.d", array('label'=>'Spalte 4'));
-            // Ausgabe der MForm mittels MBlock
-            // Erlaubt deas Wiederholen der Moduleingabe innerhalb eines Blocks
-            echo MBlock::show(1, $mform1->show(), array('min'=>1,'max'=>50));
-            ?>
+```php
+<?php
+    // Aufruf der MForm-Instanz
+    $mform1 = new MForm(); 
+    $mform1->addFieldset('Zeile');
+    // Textfelder definieren (Hier vier Spalten) 
+    $mform1->addTextField("1.0.a", array('label'=>'Spalte 1'));
+    $mform1->addTextField("1.0.b", array('label'=>'Spalte 2'));
+    $mform1->addTextField("1.0.c", array('label'=>'Spalte 3'));
+    $mform1->addTextField("1.0.d", array('label'=>'Spalte 4'));
+    // Ausgabe der MForm mittels MBlock
+    // Erlaubt deas Wiederholen der Moduleingabe innerhalb eines Blocks
+    echo MBlock::show(1, $mform1->show(), array('min'=>1,'max'=>50));
+?>
+```
 
 ## Ausgabe
 
