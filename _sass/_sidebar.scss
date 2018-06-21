@@ -10,7 +10,7 @@
   width: 30vw;
   font-size: 17px;
 
-  @media (max-width: 999px) {
+  @include md {
     width: 50vw;
     -webkit-transform: translate3d(-50vw, 0, 0);
             transform: translate3d(-50vw, 0, 0);
@@ -24,7 +24,7 @@
     }
   }
 
-  @media (max-width: 639px) {
+  @include sm {
     width: 100vw;
     -webkit-transform: translate3d(-100vw, 0, 0);
             transform: translate3d(-100vw, 0, 0);
@@ -44,7 +44,7 @@
   // -webkit-overflow-scrolling: touch; // don’t use!
   padding: 54px 2vw;
 
-  @media (max-width: 999px) {
+  @include md {
     padding: 30px 5vw;
   }
 }

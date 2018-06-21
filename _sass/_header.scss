@@ -10,7 +10,7 @@
   height: 60px;
   display: flex;
 
-  @media (max-width: 999px) {
+  @include md {
     padding: 0;
   }
 }
@@ -18,7 +18,7 @@
 .header__menubutton {
   display: none;
 
-  @media (max-width: 999px) {
+  @include md {
     display: flex;
     align-items: center;
   }
@@ -31,7 +31,7 @@
   display: flex;
   align-items: center;
 
-  @media (max-width: 999px) {
+  @include md {
     display: none;
   }
 
@@ -62,7 +62,7 @@
   flex: 1;
   margin: 0 2vw 0 5vw;
 
-  @media (max-width: 999px) {
+  @include md {
     margin: 0 5vw;
   }
 }
@@ -72,7 +72,7 @@
   align-items: center;
   min-height: 100%;
 
-  @media (max-width: 999px) {
+  @include md {
     margin: 0 2vw;
   }
 }

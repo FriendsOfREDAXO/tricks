@@ -27,7 +27,7 @@
     margin: 0 0 -1em 0;
   }
 
-  @media (max-width: 999px) {
+  @include md {
     padding-left: 3vw;
     padding-right: 3vw;
   }

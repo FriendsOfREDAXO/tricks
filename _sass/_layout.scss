@@ -30,7 +30,7 @@ body {
   flex-direction: column;
   margin-left: 30vw;
 
-  @media (max-width: 999px) {
+  @include md {
     margin-left: 0;
   }
 }
