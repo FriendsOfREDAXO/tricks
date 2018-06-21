@@ -1,3 +1,28 @@
+/* media queries */
+
+$breakpoint1: 640px;
+$breakpoint2: 1024px;
+
+@mixin sm {
+  @media (max-width: #{$breakpoint1 - 1px}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (max-width: #{$breakpoint2 - 1px}) {
+    @content;
+  }
+}
+
+@mixin sm-md {
+  @media (min-width: #{$breakpoint1}) and (max-width: #{$breakpoint2 - 1px}) {
+    @content;
+  }
+}
+
+/* diverse */
+
 @mixin visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
