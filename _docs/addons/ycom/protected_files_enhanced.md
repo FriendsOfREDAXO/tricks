@@ -26,25 +26,25 @@ Im Backend müssen bei den Gruppen einzelne Nutzergruppen angelegt werden. Die N
 Über das Meta Infos Addon werden zwei Metafelder für Medien angelegt:
 
 ```
-	Spaltenname : ycom_users
-	Feldbezeichnung : translate:ycom_user
-	Feldtyp : select
-	Parameter : SELECT email AS label, id FROM rex_ycom_user
-	Feldattribute : multiple="multiple"
+Spaltenname : ycom_users
+Feldbezeichnung : translate:ycom_user
+Feldtyp : select
+Parameter : SELECT email AS label, id FROM rex_ycom_user
+Feldattribute : multiple="multiple"
 
-	bei "Nur in folgenden Kategorien verfügbar" noch die festgelegte Medienpool-Kategorien der geschützten Dateien angeben
+bei "Nur in folgenden Kategorien verfügbar" noch die festgelegte Medienpool-Kategorien der geschützten Dateien angeben
 ```
 
 Wenn Benutzergruppen verwendet werden, sollte noch das folgende Metafeld angelegt werden:
 
 ```
-	Spaltenname : ycom_groups
-	Feldbezeichnung : translate:ycom_groups
-	Feldtyp : select
-	Parameter : SELECT name AS label, id FROM rex_ycom_group
-	Feldattribute : multiple="multiple"
+Spaltenname : ycom_groups
+Feldbezeichnung : translate:ycom_groups
+Feldtyp : select
+Parameter : SELECT name AS label, id FROM rex_ycom_group
+Feldattribute : multiple="multiple"
 
-	bei "Nur in folgenden Kategorien verfügbar" noch die festgelegte Medienpool-Kategorien der geschützten Dateien angeben
+bei "Nur in folgenden Kategorien verfügbar" noch die festgelegte Medienpool-Kategorien der geschützten Dateien angeben
 ```
 
 **Unbedingt auf die korrekten Tabellenprefixe bei den Parameter-Selects achten!**
