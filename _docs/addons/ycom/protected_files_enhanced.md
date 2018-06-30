@@ -53,7 +53,7 @@ Nun können Dateien in den oben definierten Medienkategorien mit entsprechenden 
 
 #### 3. Nachfolgendes Template anlegen (Kommentare beachten): 
 
-```
+```php
 <?php
   $requested_file = trim(rex_get('fileName', 'string', ''));
   $file_ok = false;
