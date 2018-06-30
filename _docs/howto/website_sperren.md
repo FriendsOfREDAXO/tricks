@@ -26,7 +26,7 @@ Ersetzungstyp: PHP-Code
 Marker: `<html>`
 
 Ersetzung:
-```
+```php
 <?php
 $session = rex_backend_login::hasSession();
 if (!$session) {
