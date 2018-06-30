@@ -49,7 +49,7 @@ WHERE id = "11322" OR path LIKE "|11322|%"
 ### Alle Slices einer bestimmten Kategorie holen
 
 
-```
+```sql
 SELECT s.*
 FROM rex_article_slice AS s 
     LEFT JOIN rex_article AS a 
@@ -85,7 +85,7 @@ WHERE a.id = "11322"
 
 
 
-````
+```php
 <?php
 $rootId = 11322;
 
