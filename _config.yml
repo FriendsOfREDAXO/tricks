@@ -51,3 +51,4 @@ exclude:
 - LICENSE
 - README.md
 - SETUP.md
+- vendor
