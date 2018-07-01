@@ -31,9 +31,9 @@ Feldbezeichnung : translate:ycom_user
 Feldtyp : select
 Parameter : SELECT email AS label, id FROM rex_ycom_user
 Feldattribute : multiple="multiple"
-
-bei "Nur in folgenden Kategorien verfügbar" noch die festgelegte Medienpool-Kategorien der geschützten Dateien angeben
 ```
+
+_bei "Nur in folgenden Kategorien verfügbar" noch die festgelegte Medienpool-Kategorien der geschützten Dateien angeben_
 
 Wenn Benutzergruppen verwendet werden, sollte noch das folgende Metafeld angelegt werden:
 
@@ -43,9 +43,9 @@ Feldbezeichnung : translate:ycom_groups
 Feldtyp : select
 Parameter : SELECT name AS label, id FROM rex_ycom_group
 Feldattribute : multiple="multiple"
-
-bei "Nur in folgenden Kategorien verfügbar" noch die festgelegte Medienpool-Kategorien der geschützten Dateien angeben
 ```
+
+_bei "Nur in folgenden Kategorien verfügbar" noch die festgelegte Medienpool-Kategorien der geschützten Dateien angeben_
 
 **Unbedingt auf die korrekten Tabellenprefixe bei den Parameter-Selects achten!**
 
@@ -190,37 +190,35 @@ APACHE:
 
 > Bei Verwendung von yrewrite direkt nach `RewriteRule ^imagetypes/…`
     
-```
+```apacheconf
 RewriteRule ^/?media/(.*\.(pdf|doc|zip))$ /index.php?fileName=$1 [L]
 ```
 
-
 > Bei Verwendung ohne Rewriter, eine .htaccess-Datei im Root der Website anlegen und folgenden Inhalt einfügen. 
 
-```
+```apacheconf
 <IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteRule ^/?media/(.*\.[^\.]+)$ /index.php?fileName=$1 [L]
+  RewriteEngine On
+  RewriteRule ^/?media/(.*\.[^\.]+)$ /index.php?fileName=$1 [L]
 </IfModule>
 ```
 
-
-
 NGINX Direktive:
 
-	location / {
-	rewrite ^/?media/(.*\.(pdf|doc|zip))$ /index.php?fileName=$1 break;
-	}
+```nginx
+location / {
+  rewrite ^/?media/(.*\.(pdf|doc|zip))$ /index.php?fileName=$1 break;
+}
 
 Hier wurde festgelegt welche Dateien geschützt sein sollen.
 Weitere Endungen können beliebig hinzugefügt werden z.B:  |eps|pptx|docx …
 
-
 Wenn man nachfolgenden Code in allen Ausgabe-Templates **am Anfang** einfügt, sind die Dateien geschützt. 
 XX steht für die ID des Templates
 
-	REX_TEMPLATE[XX]
-
+```php
+REX_TEMPLATE[XX]
+```
 
 ----------
 **Achtung!** Vor dem Template darf auf keinen Fall eine Ausgabe von Inhalten erfolgen.
