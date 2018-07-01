@@ -1,0 +1,26 @@
+language: ruby
+
+rvm: 2.3.3
+
+cache: bundler
+
+sudo: false
+
+env:
+  global:
+    secure: OgbRu01TOJzgEXfwfM2J9aWfq3iVXiw759rSJpsZEFmdWNCzCGXhTpqUytX8xNeCcihB54gO2qxzWiBhhcWyNnMTY634Lt/quyVsTK/Jy6GLjkulMh9MHButjPZUZtBhWgaG8/ix0i1xf5fOrq7XmuMp3Xd+40Buc8OTgzuRlChSiLiIHjNmt6PssDydfbnRzyRdC47nhAhVG4bU4KF7hqH0QLoJPxxr+lHYjNNlRP1Qs2kW/Hdk3926QlF8ELcaArhbMhfiHehNfW5mKVMXoVLMeS1+wDL/bjP29X11Y60AX30Z/P/oDix4+MsETE8lgNcsf4XKmlMGwPoltgAlRLj5hNqBYvGSBF7ntcU6clZFH+Mkov1nWS7BtdTc93BzzW1Gdok+Q6IM5mIZcwuPdmw1aHGNDqmKJD2dveShLHsJeDZG4J2YO0hrNohmnXvoe6pa/vR7nabiGDrJLvtfzS+fSSvhC35SBQLr78KQ9CVGQbDsdluC9boSEE7Qkz4tAuestDIXcNmpRG7flIX12AG0qTGk1Bk2kfHLPQj3BrySrFqqhq7K5o7QEAAHAgUE7VZYAe6Ev6qtSfyxioJomRrEwTUIawKqiPvTVtPtEp1R1I2G+RBgO4xbmRKH6mUqhRf++Jn7EBeDK/pfrXBFzr53876mQyvzp1YtXohO4o4=
+
+notifications:
+  email: false
+
+branches:
+  only:
+  - master
+
+before_script:
+- chmod +x ./scripts/build.sh
+- chmod +x ./scripts/deploy.sh
+
+script: "./scripts/build.sh"
+
+after_success: "./scripts/deploy.sh"
