@@ -209,6 +209,7 @@ NGINX Direktive:
 location / {
   rewrite ^/?media/(.*\.(pdf|doc|zip))$ /index.php?fileName=$1 break;
 }
+```
 
 Hier wurde festgelegt welche Dateien geschützt sein sollen.
 Weitere Endungen können beliebig hinzugefügt werden z.B:  |eps|pptx|docx …
