@@ -46,7 +46,7 @@ Dann müssen die ganzen Weiterleitungen noch eingetragen werden.
 Nun wird zwar die korrekte Fehlerseite angezeigt, aber leider nicht der richtige Status Code. Und jetzt haltet euch fest, jetzt kommt wirklich der ultimative Trick.
 Ans Ende vom Template kommt genau diese eine Zeile:
 
-```
+```php
 <?php if (REX_ARTICLE_ID == 125) exit ?>
 ```
 Die 125 ist natürlich durch die eigene 410er Fehlerseiten Id zu ersetzen.
