@@ -70,6 +70,7 @@ Die Klasse für das eigene API wird von **rex\_api\_function** abgeleitet. Nur `
 
 **Hier ein ganz rudimentäres Code-Skelet für rex\_api\_xyz:**
 
+```php
     class rex_api_xyz extends rex_api_function
     {
         protected $published = true;
@@ -80,7 +81,7 @@ Die Klasse für das eigene API wird von **rex\_api\_function** abgeleitet. Nur `
             return;
         }
     }
-
+```
 Womit wir bei der gestörten Erwartungshaltung sind. Beim Browser landet zwar *auch* der Text, aber zudem
 Kauderwelsch in der Art
 
@@ -98,6 +99,7 @@ Wie man es dreht und wendet - beim Browser landet viel mehr als erwartet.
 Was passiert eigentlich, wenn man **rex\_api\_xyz** vorzeitig abwürgt, bevor der unerwünsche Output erzeugt wird?
 Wenn man die Funktion mit `exit;` oder `die();` statt des `return;` bendet?
 
+```php
     class rex_api_xyz extends rex_api
     {
         function execute()
@@ -106,12 +108,13 @@ Wenn man die Funktion mit `exit;` oder `die();` statt des `return;` bendet?
             exit;
         }
     }
-
+```
 Ziel erreicht! Beim Browser kommt genau die eine, erwartete Zeile als
 AJAX-Rückgabe an:
 
+```html
     <p>mach mal was sinnvolles</p>
-
+```
 Ziel erreicht? Im Prinzip ja, aber es geht besser und richtiger.
 
 <a name="besser"></a>
@@ -130,7 +133,8 @@ Fehlercode an den Client zurückzusenden. Dazu mehr im [nächsten Kapitel](#bess
 
 **Hier ein Beispiel:**
 
-	class rex_api_xyz extends rex_api_function
+```php
+  class rex_api_xyz extends rex_api_function
 	{
 	    protected $published = true;  // Aufruf aus dem Frontend erlaubt
 
@@ -152,7 +156,7 @@ Fehlercode an den Client zurückzusenden. Dazu mehr im [nächsten Kapitel](#bess
 	        exit;
 	    }
 	}
-
+```
 <a name="besser-returncode"></a>
 ### Fehlercodes und Erfolgsmeldungen - auf den Header kommt es an
 
@@ -179,6 +183,7 @@ Serverseitig ist es wesentlich einfacher, in mehrsprachigen Applikationen den je
 
 **Unser Beispiel sieht jetzt so aus:**
 
+```php
     class rex_api_xyz extends rex_api_function
     {
         protected $published = true;  // Aufruf aus dem Frontend erlaubt
@@ -202,7 +207,7 @@ Serverseitig ist es wesentlich einfacher, in mehrsprachigen Applikationen den je
             exit;
         }
     }
-
+```
 <a name="besser-mime"></a>
 ### Text oder JSON - was erwartet der Client
 
@@ -210,6 +215,7 @@ Ebenfalls über die Header kann dem Client mitgeteilt werden, welche Art Daten e
 bekommt (Mime-Type). Das ist kein Muss, erleichtert aber dem Client-Browser die Arbeit. Im Beispiel wird die
 Fehlermeldung als JSON und das Ergebnis als Text übermittelt
 
+```php
     class rex_api_xyz extends rex_api_function
     {
         protected $published = true;  // Aufruf aus dem Frontend erlaubt
@@ -235,7 +241,7 @@ Fehlermeldung als JSON und das Ergebnis als Text übermittelt
             exit;
         }
     }
-
+```
 
 <a name="besser-permit"></a>
 ### Darf der das? - Rechte abprüfen
@@ -244,6 +250,7 @@ Redaxo verfügt über eine Zugriffsverwaltung. Evtl. ist es ja nötig und sinnvo
 API-Funktion die Rechte zu überprüfen und ggf. den Zugriff abzulehnen. (Das Beispiel ist jetzt sehr unkonkret.)
 
 
+```php
     class rex_api_xyz extends rex_api_function
     {
         protected $published = true;  // Aufruf aus dem Frontend erlaubt
@@ -278,7 +285,7 @@ API-Funktion die Rechte zu überprüfen und ggf. den Zugriff abzulehnen. (Das Be
             exit;
         }
     }
-
+```
 <a name="demo"></a>
 ## JS-Jalousie mit Selbstbedienung - ein Beispiel
 
@@ -308,6 +315,7 @@ Für Kategorie **Addons** wird ein neuer Startartikel mit dem Beispiel-Modul ges
 
 Das Modul soll HTML-Code generieren, der ungefähr so aussieht:
 
+```html
     <div class="klapp-auf-und-zu">
         <h2 ref="105">Das erste Kapitel</h3>
         <div></div>
@@ -316,12 +324,13 @@ Das Modul soll HTML-Code generieren, der ungefähr so aussieht:
         <h2 ref="108">Das dritte Kapitel</h3>
         <div></div>
     </div>
-
+```
 <a name="demo-css"></a>
 ### Das CSS
 
 Formatiert wird natürlich mittels CSS. Das hier soll einfach nur für die nette Optik sorgen.
 
+```css
     .klapp-auf-und-zu > h2 {
         color: #0f0f0f;
         background: linear-gradient(135deg, rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%);
@@ -334,6 +343,7 @@ Formatiert wird natürlich mittels CSS. Das hier soll einfach nur für die nette
     .klapp-auf-und-zu > h2 + * {
         margin: 0 5% 0 10%;
     }
+```
 
 Nun kommt das funktionale CSS, das für die Jalousie-Effekte benötigt wird.
 
@@ -342,6 +352,7 @@ Nun kommt das funktionale CSS, das für die Jalousie-Effekte benötigt wird.
 
 Die Steuerung erfolgt über die Klasse **mach-zu** im H2-Element.
 
+```css
     .klapp-auf-und-zu > h2.mach-zu + * {
         display: none;
     }
@@ -354,9 +365,10 @@ Die Steuerung erfolgt über die Klasse **mach-zu** im H2-Element.
     .klapp-auf-und-zu > h2.mach-zu:after{
         content: "\f107";
     }
-
+```
 Außerdem können nicht aktive Elemente ausgegraut werden. Das passiert im [JS-Teil](#demo-js) über die Klasse **ich-bin-raus**.
 
+```css
     .klapp-auf-und-zu > h2.ich-bin-raus {
         opacity:0.5;
         cursor: inherit;
@@ -364,7 +376,7 @@ Außerdem können nicht aktive Elemente ausgegraut werden. Das passiert im [JS-T
     .klapp-auf-und-zu > h2.ich-bin-raus:after {
         content: '';
     }
-
+```
 <a name="demo-js"></a>
 ### Das JS
 
@@ -376,6 +388,7 @@ Die Überschriften erhalten eine Click-Funktion zugewiesen, die zwei Aufgaben er
 
 **So sieht das Ergebnis aus:**
 
+```javascript
     $(document).ready( function() {
         $(".klapp-auf-und-zu > h2").click( klapp_auf_und_zu );
     });
@@ -401,7 +414,7 @@ Die Überschriften erhalten eine Click-Funktion zugewiesen, die zwei Aufgaben er
         }
         return false;
     }
-
+```
 Es ist nur eine von mehreren Möglichkeiten, AJAX mittels **$.load** zu nutzen.
 
 > **Bitte beachten!** Zum Aufbau der URL und der Parameter gibt es [Besonderheiten](#febe) für das Backend.
@@ -412,6 +425,7 @@ Es ist nur eine von mehreren Möglichkeiten, AJAX mittels **$.load** zu nutzen.
 
 Seine Aufgabe ist einfach. Für die aktuelle Kategorie (**REX\_CATEGORY\_ID**) werden alle Artikel und Startartikel der Unterkategorien ermittelt und der [oben](#demo-html) beschriebene HTML-Code generiert. Ersteinmal sind alle Elemente geschlossen und erhalten deshalb die Klasse **mach-zu**.
 
+```php
     <div class="klapp-auf-und-zu">
     <?php
     $cat = rex_category::get( 'REX_CATEGORY_ID');
@@ -426,12 +440,13 @@ Seine Aufgabe ist einfach. Für die aktuelle Kategorie (**REX\_CATEGORY\_ID**) w
     }
     ?>
     </div>
-
+```
 <a name="demo-api"></a>
 ### rex\_api\_xyz - Der PHP-Code des API
 
 Im Kern ist die API-Funktion aus dem obigen Kapiteln bekannt. Die wesentliche Erweiterung besteht in der zusätzlichen Methode zum Senden der Fehlermeldung: **httpError**. Es soll den Code etwas übersichtlicher machen.
 
+```php
     <?php
 
     class rex_api_xyz extends rex_api_function
@@ -481,7 +496,7 @@ Im Kern ist die API-Funktion aus dem obigen Kapiteln bekannt. Die wesentliche Er
         }
     }
     ?>
-
+```
 Diese API-Klasse muss an einer Stelle platziert werden, an der sie auch gesehen und geladen wird. Das kann z.B. im Project-Addon erfolgen (Verzeichnis **lib**).
 
 <a name="demo-lang"></a>
