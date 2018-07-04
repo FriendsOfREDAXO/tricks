@@ -54,3 +54,14 @@ Um die Website lokal einzurichten, sind folgende Schritte notwendig:
         $ JEKYLL_GITHUB_TOKEN=DEIN_TOKEN bundle exec jekyll serve
 
 * Hier findest du eine Dokumentation bei GitHub darüber, wie man Jekyll lokal verwendet: https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/
+
+## Travis CI
+
+Bei Travis läuft ein täglicher Cronjob, um die Website zu aktualisieren, auch wenn keine Commits gemacht worden sind. Damit Travis auf die GitHub-Metadaten des Repositorys zugreifen kann, muss ein GitHub-Token angegeben werden. Dieser kann in einem der verknüpften GitHub-Accounts (also jedem FOR-Mitglied) angelegt werden unter »Settings > Developer settings > [Personal access tokens](https://github.com/settings/tokens)«. Er benötigt lediglich die Permission `public_repo`.
+
+Wir benutzen die Travis CLI, um damit ein Secret zu generieren, der in der `.travis.yml` im Repo hinterlegt wird. Die Anleitung davon gibt es hier: [Encryption keys](https://docs.travis-ci.com/user/encryption-keys).  
+In Kurzform:
+
+```bash
+travis encrypt GITHUB_TOKEN="{hier der GitHub Token}" --add
+```
