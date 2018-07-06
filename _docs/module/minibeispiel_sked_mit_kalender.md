@@ -58,7 +58,8 @@ if ($categoryId == '') {
 <script>
     var cat = <?php echo $categoryId; ?>;
 
-</script>```
+</script>
+```
 
 ## JS
 
