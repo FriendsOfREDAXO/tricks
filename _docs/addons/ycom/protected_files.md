@@ -1,6 +1,6 @@
 ---
 title: Geschütze Dateien mit YCom
-authors: []
+authors: [skerbis IngoWinter]
 prio:
 ---
 
