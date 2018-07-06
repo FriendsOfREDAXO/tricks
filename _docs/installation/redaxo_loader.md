@@ -1,6 +1,6 @@
 ---
 title: REDAXO Loader
-authors: [skerbis dergel]
+authors: [skerbis,dergel]
 prio:
 ---
 
