@@ -1,6 +1,6 @@
 ---
 title: Nützliches für Developer
-authors: []
+authors: [skerbis]
 prio:
 ---
 
