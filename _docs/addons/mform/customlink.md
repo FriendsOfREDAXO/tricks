@@ -1,6 +1,6 @@
 ---
 title: Custom Link auslesen
-authors: []
+authors: [joachimdoerr,skerbis]
 prio:
 ---
 
