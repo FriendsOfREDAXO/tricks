@@ -5,4 +5,6 @@ rex_api_events.php und Events.php in project-AddOn
 
 Fullcalendar-files im Template einbinden (z.B. aus dem sked-AddOn)
 
+je.js im Template einbinden
+
 Modul anlegen
