@@ -1,3 +1,9 @@
+---
+title: "Minibeispiel: Events aus sked-Kalender als Kalender im frontend"
+authors: []
+prio:
+---
+
 Dieses Modul zeigt die Events im Sked-Kalender in Kalender-Ansicht an.
 In dieser Version werden die Kategorien ausgewählt, die Orte sind hier nicht berücksichtigt.
 
