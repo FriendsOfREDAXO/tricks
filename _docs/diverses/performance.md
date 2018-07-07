@@ -1,4 +1,3 @@
-
 ---
 title: "php+redaxo performance tipps"
 authors: []
