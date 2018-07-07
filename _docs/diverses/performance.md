@@ -1,0 +1,17 @@
+# Performance
+
+
+# OPcache
+
+was ist OPCache
+
+Performance-Messung
+
+Blackfire 
+
+
+# Links
+
+[Performance Infos](http://symfony.com/doc/current/performance.html#optimizing-all-the-files-used-by-symfony)
+
+[Best Zend OpCache Settings/Tuning/Config](https://www.scalingphpbook.com/blog/2014/02/14/best-zend-opcache-settings.html)
