@@ -1,5 +1,8 @@
+Dieses Modul zeigt die Events im Sked-Kalender in Kalender-Ansicht an.
+In dieser Version werden die Kategorien ausgewählt, die Orte sind hier nicht berücksichtigt.
 
-Beschreibung kommt noch
+Voraussetzung:
+Fullcalendar-files im Template einbinden (z.B. aus dem sked-AddOn)
 
 
 ## Moduleingabe
@@ -62,6 +65,8 @@ if ($categoryId == '') {
 ```
 
 ## JS
+Dieses im Head notieren oder als Datei einbinden
+
 ```js
 /* 
  * scripterweiterungen von javanita
@@ -70,7 +75,6 @@ if ($categoryId == '') {
 $(document).ready(function () {
     
     // Kalender
-
 
       $('#calendar').fullCalendar({
         defaultView: 'month',
@@ -101,6 +105,8 @@ $(document).ready(function () {
 ```
 
 ## Klasse
+Diese Klasse in project/lib speichern.
+
 ```php
 <?php
 /**
@@ -162,6 +168,8 @@ class Events {
 ```
 
 ## API
+Das API ebenfalls in project/lib speichern
+
 ```php
 <?php
 /**
