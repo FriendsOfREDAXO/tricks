@@ -16,7 +16,7 @@ prio:
 <a name="beschreibung"></a>
 ## Beschreibung
 
-Nachfolgend möchte ich zeigen, wie einfach es ist, mit dem Tool [**Github hub**](https://hub.github.com/) Pull-Requests von Github in die lokale Entwicklungsversion von REDAXO zu laden, damit diese getestet werden können.
+Nachfolgend möchte ich zeigen, wie einfach es ist, mit dem Tool [**hub**](https://hub.github.com/) Pull-Requests von Github in die lokale Entwicklungsversion von REDAXO zu laden, damit diese getestet werden können.
 
 
 **Für die nächsten Schritte wird vorrausgesetzt, dass [hub](https://hub.github.com/) installiert ist.**
