@@ -5,7 +5,7 @@ prio:
 ---
 
 Artikel zur Dikussion
-[Issu#7](https://github.com/FriendsOfREDAXO/tricks/issues/7#issuecomment-403207741)
+[Issue #7](https://github.com/FriendsOfREDAXO/tricks/issues/7#issuecomment-403207741)
 
 mitmachen ausdrücklich erwünscht
 
@@ -30,3 +30,5 @@ Blackfire
 [Opcache Configuration](https://tideways.io/profiler/blog/fine-tune-your-opcache-configuration-to-avoid-caching-suprises)
 
 [Website-Geschwindigkeit messen: 8 kostenlose Tools im Überblick](https://t3n.de/news/webseiten-ladezeiten-optimieren-497235/)
+
+[Blackfire - ein Dienst zur Performance-Messung](https://blackfire.io/)
