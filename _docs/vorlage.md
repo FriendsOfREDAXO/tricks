@@ -14,6 +14,7 @@
     - [Anker 3c](#anker-3c)
 - [Anker 4](#anker-4)
 
+
 <a name="kopfbereich"></a>
 ## Kopfbereich
 
@@ -41,6 +42,7 @@
 
     <a name="anker-zur-ueberschrift"></a>
     ## Überschrift
+
  
 <a name="links"></a>
 ## Links
@@ -50,10 +52,13 @@ Links bitte immer mit Beschreibung angeben
 
     [REDAXO Loader - REDAXO laden und entpacken](install_redaxo_loader.md)
 
+
 <a name="bilder"></a>
 ## Bilder
-Bilder bitte im Assets-Ordner hinterlegen. 
-1200px breit
+
+Bilder bitte im Ordner `/screenshots` hinterlegen. Referenziert werden sie dann innerhalb der Tricks mittels `/tricks/screenshots/…`, z. B.
+
+	![Bild 1](/tricks/screenshots/bild1.jpg "Bild 1")
 
 
 <a name="listen"></a>
@@ -71,15 +76,17 @@ Bilder bitte im Assets-Ordner hinterlegen.
 ## Tabellen
 
 **Beispiel**
+
 ```
-Alt| Neu
-------------- | -------------
+Alt                   | Neu
+--------------------- | -----------------------
 `$REX['SERVERNAME']`  |  `rex::getServername()`
 ```
 
 
 <a name="code"></a>
 ## Code
+
     Zur Code-Auszeichnung bitte ``` verwenden
 
 **Beispiel Code Block**
@@ -88,15 +95,6 @@ Alt| Neu
 <?php
 $article = rex_article::get();
 ```
-  
-**weiteres Beispiel**
-        
-        /**
-         * Code wird einfach nur eingerückt
-         *
-         * @var bool
-         */
-        public $code = true;
    
 **Beispiel Code Inline**
 
