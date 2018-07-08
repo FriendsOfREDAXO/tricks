@@ -15,6 +15,11 @@ Warum ist Performance wichtig?
 
 Wie kann man die Performance einer website ermitteln?
 
+Wie kann man die Performance einer website ermitteln?
+
+Welche Möglichkeiten zur Verbesserung gibt es?Welche Möglichkeiten bietet Redaxo?
+
+
 
 ## OPcache
 
