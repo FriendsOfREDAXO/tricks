@@ -10,6 +10,9 @@ Diese Website sammelt Lösungen und hilfreiche Code-Beispiele, die es aus versch
    Als Issue sammeln wir alles, was interessant sein könnte. Es muss noch nicht ausformuliert werden, sondern es reicht, wenn verständlich ist, worum es geht. Als Anregung dienen oft Diskussionen im Slack oder im Forum. Wenn dir also interessante Themen oder Codeschnipsel in die Finger kommen, halte sie gerne in einem Issue fest!  
    → [Issues](https://github.com/FriendsOfREDAXO/tricks/issues)
 2. __Bearbeite vorhandene Inhalte oder stelle neue Tricks ein__  
-   Alle Inhalte dieser Website kannst du bearbeiten, indem du einen _Fork des Repos_ machst, deine Anpassungen vornimmst und sie dann als _Pull Request_ zurück gibst. Das erfordert Kenntnisse im Umgang mit Git und GitHub, aber keine Sorge, die Community hilft immer gerne. Melde dich bei Bedarf am besten im Slack-Chat. Eine Einladung erhältst du hier: [redaxo.org/slack/](https://redaxo.org/slack/)
-   
+   Alle Inhalte dieser Website kannst du bearbeiten, indem du einen _Fork des Repos_ machst, deine Anpassungen vornimmst und sie dann als _Pull Request_ zurück gibst. Das erfordert Kenntnisse im Umgang mit Git und GitHub, aber keine Sorge, die Community hilft immer gerne.  
+   → [Tricks bearbeiten](https://github.com/FriendsOfREDAXO/tricks/tree/master/_docs) 🚀
+
+Wenn du Fragen hast oder Hilfe benötigst, melde dich am besten im Slack-Chat. Eine Einladung erhältst du hier: [redaxo.org/slack/](https://redaxo.org/slack/)
+
 Danke! ❤️
