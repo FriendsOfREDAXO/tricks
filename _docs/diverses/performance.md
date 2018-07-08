@@ -7,7 +7,7 @@ prio:
 Artikel zur Dikussion
 [Issue #7](https://github.com/FriendsOfREDAXO/tricks/issues/7#issuecomment-403207741)
 
-mitmachen ausdrücklich erwünscht
+** mitmachen ausdrücklich erwünscht **
 
 # Performance
 
