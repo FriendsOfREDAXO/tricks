@@ -11,6 +11,10 @@ mitmachen ausdrücklich erwünscht
 
 # Performance
 
+Warum ist Performance wichtig?
+
+Wie kann man die Performance einer website ermitteln?
+
 
 ## OPcache
 
