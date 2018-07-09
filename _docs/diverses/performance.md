@@ -61,3 +61,5 @@ Blackfire
 [Website-Geschwindigkeit messen: 8 kostenlose Tools im Überblick](https://t3n.de/news/webseiten-ladezeiten-optimieren-497235/)
 
 [Blackfire - ein Dienst zur Performance-Messung](https://blackfire.io/)
+
+[website speed test](https://tools.pingdom.com/)
