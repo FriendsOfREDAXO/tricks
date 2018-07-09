@@ -1,11 +1,12 @@
 # Tricks
 
-In diesem Ordner befinden sich die Tricks. Folgende Dinge musst du beachten, wenn du die Tricks bearbeitest:
+In diesem Ordner befinden sich die Tricks. Folgende Dinge solltest du wissen, wenn du die Tricks bearbeitest:
 
 1. [Die Vorlage beachten](#vorlage)
 2. [Metadaten für einen Trick anlegen](#metadaten)
 3. [Navigation anpassen](#navigation)
 4. [Website aktualisieren](#website-update)
+
 
 <a name="vorlage"></a>
 ## 1. Die Vorlage beachten
