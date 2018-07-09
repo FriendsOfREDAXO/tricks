@@ -26,13 +26,13 @@ Es gibt verschiedene kostenlose Tools und kostenpflichtige Dienste [s. Links](#l
 
 ##### Javascript
 
-###### CSS
+##### CSS
 
-###### PHP
+##### PHP
 
 PHP 7.*
 
-###### MySQL
+##### MySQL
 
 #### Welche Möglichkeiten bietet Redaxo?
 
