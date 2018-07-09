@@ -17,7 +17,12 @@ Wie kann man die Performance einer website ermitteln?
 
 Wie kann man die Performance einer website ermitteln?
 
-Welche Möglichkeiten zur Verbesserung gibt es?Welche Möglichkeiten bietet Redaxo?
+Welche Möglichkeiten zur Verbesserung gibt es?
+
+Welche Möglichkeiten bietet Redaxo?
+
+an dieser Stelle sei auf diesen trick hingewiesen:
+[Performance prüfen](https://github.com/FriendsOfREDAXO/tricks/blob/master/_docs/snippets/performance_pruefen.md)
 
 
 
