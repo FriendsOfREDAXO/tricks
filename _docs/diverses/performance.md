@@ -20,7 +20,7 @@ oder doch nicht?
 
 Wie kann man die Performance einer website ermitteln?
 
-Wie kann man die Performance einer website ermitteln?
+Es gibt verschiedene kostenlose Tools und kostenpflichtige Dienste (s. Links)
 
 Welche Möglichkeiten zur Verbesserung gibt es?
 
@@ -39,7 +39,7 @@ Performance-Messung
 
 Blackfire 
 
-
+<a href=""></a>
 ## Links
 
 [Performance Infos](http://symfony.com/doc/current/performance.html#optimizing-all-the-files-used-by-symfony)
