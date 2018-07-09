@@ -13,6 +13,11 @@ Artikel zur Dikussion
 
 Warum ist Performance wichtig?
 
+>loaded, loaded immer noch
+>ich bin jung - ich hab Zeit
+
+oder doch nicht?
+
 Wie kann man die Performance einer website ermitteln?
 
 Wie kann man die Performance einer website ermitteln?
