@@ -34,6 +34,8 @@ Es gibt verschiedene kostenlose Tools und kostenpflichtige Dienste [s. Links](#l
 
 PHP 7.*
 
+OPCache
+
 ##### MySQL
 
 #### Welche Möglichkeiten bietet Redaxo?
@@ -42,14 +44,6 @@ an dieser Stelle sei auf diesen trick hingewiesen:
 [Performance prüfen](https://github.com/FriendsOfREDAXO/tricks/blob/master/_docs/snippets/performance_pruefen.md)
 
 
-
-## OPcache
-
-was ist OPCache
-
-Performance-Messung
-
-Blackfire 
 
 <a name="links"></a>
 ## Links
