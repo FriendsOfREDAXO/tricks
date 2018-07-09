@@ -10,5 +10,5 @@ prio:
 $string = "Über uns hängen Äpfel";
 $new_string = rex_string::normalize($string);
 
-# Result: ueberuns-haengen-aepfel
+# Result: ueber-uns-haengen-aepfel
 ```
