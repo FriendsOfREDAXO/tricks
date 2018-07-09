@@ -18,6 +18,8 @@ Artikel zur Dikussion
 
 oder doch nicht?
 
+SEO
+
 #### Wie kann man die Performance einer website ermitteln?
 
 Es gibt verschiedene kostenlose Tools und kostenpflichtige Dienste [s. Links](#links)
