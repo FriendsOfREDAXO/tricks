@@ -17,8 +17,24 @@
   // so that the page content is not covered by the header bar.
   a[name] {
     position: absolute;
-    -webkit-transform: translateY(-60px);
-            transform: translateY(-60px);
+    -webkit-transform: translateY(-65px);
+            transform: translateY(-65px);
+  }
+
+  h1[id],
+  h2[id],
+  h3[id],
+  h4[id],
+  h5[id],
+  h6[id] {
+    &:not(:first-of-type)::before {
+      content: '';
+      display: block;
+      margin-top: -90px;
+      height: 90px;
+      visibility: hidden;
+      pointer-events: none;
+    }
   }
 
   @include md {
