@@ -13,8 +13,8 @@ Artikel zur Dikussion
 
 Warum ist Performance wichtig?
 
->loaded, loaded immer noch
->ich bin jung - ich hab Zeit
+>loaded, loaded immer noch - 
+>ich bin jung - ich kann warten
 
 oder doch nicht?
 
