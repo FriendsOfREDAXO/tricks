@@ -11,20 +11,20 @@ Artikel zur Dikussion
 
 # Performance
 
-Warum ist Performance wichtig?
+####Warum ist Performance wichtig?
 
 >loaded, loaded immer noch - 
 >ich bin jung - ich kann warten
 
 oder doch nicht?
 
-Wie kann man die Performance einer website ermitteln?
+####Wie kann man die Performance einer website ermitteln?
 
 Es gibt verschiedene kostenlose Tools und kostenpflichtige Dienste [s. Links](#links)
 
-Welche Möglichkeiten zur Verbesserung gibt es?
+####Welche Möglichkeiten zur Verbesserung gibt es?
 
-Welche Möglichkeiten bietet Redaxo?
+####Welche Möglichkeiten bietet Redaxo?
 
 an dieser Stelle sei auf diesen trick hingewiesen:
 [Performance prüfen](https://github.com/FriendsOfREDAXO/tricks/blob/master/_docs/snippets/performance_pruefen.md)
