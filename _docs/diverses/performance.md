@@ -24,6 +24,16 @@ Es gibt verschiedene kostenlose Tools und kostenpflichtige Dienste [s. Links](#l
 
 #### Welche Möglichkeiten zur Verbesserung gibt es?
 
+###### Javascript
+
+###### CSS
+
+###### PHP
+
+PHP 7.*
+
+###### MySQL
+
 #### Welche Möglichkeiten bietet Redaxo?
 
 an dieser Stelle sei auf diesen trick hingewiesen:
