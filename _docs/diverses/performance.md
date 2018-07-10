@@ -13,7 +13,7 @@ Artikel zur Dikussion
 
 
 >loaded, loaded immer noch - 
->ich bin jung - ich kann warten
+>ich bin jung - ich kann warten, 
 Rüdiger Hoffmann
 
 oder doch nicht?
