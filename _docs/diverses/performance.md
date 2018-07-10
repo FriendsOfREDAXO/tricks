@@ -11,10 +11,10 @@ Artikel zur Dikussion
 
 # Performance
 
-#### Warum ist Performance wichtig?
 
 >loaded, loaded immer noch - 
 >ich bin jung - ich kann warten
+Rüdiger Hoffmann
 
 oder doch nicht?
 
