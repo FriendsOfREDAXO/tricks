@@ -9,6 +9,8 @@ Artikel zur Dikussion
 
 **mitmachen ausdrücklich erwünscht**
 
+Besonders im Absatz [Welche Möglichkeiten bietet Redaxo?](#rex) ist die Mitarbeit der Redaxo-Profis gefragt.
+
 # Performance
 
 
@@ -26,9 +28,9 @@ Es gibt verschiedene kostenlose Tools und kostenpflichtige Dienste [s. Links](#l
 
 #### Welche Möglichkeiten zur Verbesserung gibt es?
 
-##### Javascript
+##### Javascript und CSS
 
-##### CSS
+minified js- und css-files
 
 ##### PHP
 
@@ -38,12 +40,17 @@ OPCache
 
 ##### MySQL
 
+<a name="rex"></a>
 #### Welche Möglichkeiten bietet Redaxo?
 
 an dieser Stelle sei auf diesen trick hingewiesen:
 [Performance prüfen](https://github.com/FriendsOfREDAXO/tricks/blob/master/_docs/snippets/performance_pruefen.md)
 
+cache
 
+composer autoloader benutzen
+
+xdebug 
 
 <a name="links"></a>
 ## Links
