@@ -62,9 +62,9 @@ Links bitte immer mit Beschreibung angeben
 <a name="bilder"></a>
 ## Bilder
 
-Bilder bitte im Ordner `/screenshots` hinterlegen. Referenziert werden sie dann innerhalb der Tricks mittels `/tricks/screenshots/…`, z. B.
+Bilder bitte im Ordner `/screenshots` hinterlegen. Damit sie danach sowohl auf der Tricks-Website als auch in der Artikelansicht auf GitHub funktionieren, müssen sie mit absoluter URL referenziert werden. Die Basis-URL dafür lautet __`https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/`__, und ein Bild würdest du etwa so referenzieren:
 
-	![Bild 1](/tricks/screenshots/bild1.jpg "Bild 1")
+	![Bild 1](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/bild1.jpg "Bild 1")
 
 
 <a name="listen"></a>

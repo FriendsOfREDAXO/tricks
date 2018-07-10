@@ -35,7 +35,7 @@ In diesem Beispiel:
 Diese URL kann auch aus der Browser Adresszeile kopiert werden, wenn der Pull-Request geöffnet ist.
 
 
-![Checkout eines Pull-Requests](/tricks/screenshots/github_pr/checkout-pr.gif "Checkout eines Pull-Requests")
+![Checkout eines Pull-Requests](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/github_pr/checkout-pr.gif "Checkout eines Pull-Requests")
 
 
 **Das wars schon.**
@@ -58,15 +58,15 @@ Wenn ein Fehler entdeckt wird, die Ursache aber unbekannt ist, kann einfach ein 
 ### Codezeile kommentieren
 Wenn man jedoch eine Idee hat oder den genauen Fehler gefunden hat, bietet es sich an, direkt den Kommentar an die entsprechende Code-Zeile zu heften.
 
-![Code-Zeile kommentieren](/tricks/screenshots/github_pr/comment-line-plus.png "Code-Zeile kommentieren")
+![Code-Zeile kommentieren](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/github_pr/comment-line-plus.png "Code-Zeile kommentieren")
 
 Dies kann über den Reiter __Files changed__ geschehen. Hier kann für die entsprechende Zeile mit dem Klick auf das "+" zeichen ein Kommentar-Bereich geöffnet werden. Hier können Probleme, die mit dieser Zeile enstehen genau diskutiert werden. Im optimalfall schlägt man direkt seine Korrektur vor.
 
-![Code-Zeile kommentieren](/tricks/screenshots/github_pr/comment-line-filled.png "Code-Zeile kommentieren")
+![Code-Zeile kommentieren](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/github_pr/comment-line-filled.png "Code-Zeile kommentieren")
 
 <a name="aenderungen-gutheissen"></a>
 ### Änderungen gutheißen
 Wenn keine Fehler gefunden wurden kann ein Pull-Request approved werden. Dies gibt den Maintainer eine RÜckmeldung darüber, dass man mit dem PR einverstanden ist. Wenn man nicht nur den Diff nach Fehlern durchsucht hat und zusätzlich das hier beschriebene Auschecken und Testen durchgeführt hat, kann man als Kommentar für das "approven" dazu schreiben, dass man diese Änderungen getestet hat.
 
-![Änderungen approven](/tricks/screenshots/github_pr/approve-pr.png "Änderungen approven")
+![Änderungen approven](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/github_pr/approve-pr.png "Änderungen approven")
 
