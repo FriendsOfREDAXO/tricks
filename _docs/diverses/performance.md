@@ -9,44 +9,25 @@ Artikel zur Dikussion
 
 **mitmachen ausdrücklich erwünscht**
 
-Besonders im Absatz [Welche Möglichkeiten bietet Redaxo?](#rex) ist die Mitarbeit der Redaxo-Profis gefragt.
+Besonders im Absatz [Welche Möglichkeiten zur Verbesserung bietet Redaxo?](#rex) ist die Mitarbeit der Redaxo-Profis gefragt.
 
-# Performance
+# Mehr Performance für Rredaxo
 
-
->loaded, loaded immer noch - 
->ich bin jung - ich kann warten, 
-Rüdiger Hoffmann
-
-oder doch nicht?
-
-SEO
 
 #### Wie kann man die Performance einer website ermitteln?
 
 Es gibt verschiedene kostenlose Tools und kostenpflichtige Dienste [s. Links](#links)
 
-#### Welche Möglichkeiten zur Verbesserung gibt es?
-
-##### Javascript und CSS
-
-minified js- und css-files
-
-##### PHP
-
-PHP 7.*
-
-OPCache
-
-##### MySQL
 
 <a name="rex"></a>
-#### Welche Möglichkeiten bietet Redaxo?
+#### Welche Möglichkeiten zur Verbesserung bietet Redaxo?
 
 an dieser Stelle sei auf diesen trick hingewiesen:
 [Performance prüfen](https://github.com/FriendsOfREDAXO/tricks/blob/master/_docs/snippets/performance_pruefen.md)
 
 cache
+
+OPCache
 
 composer autoloader benutzen
 
@@ -66,3 +47,7 @@ xdebug
 [Blackfire - ein Dienst zur Performance-Messung](https://blackfire.io/)
 
 [website speed test](https://tools.pingdom.com/)
+
+[Javascript optimieren – Ladezeit und Reaktionszeit](https://www.mediaevent.de/javascript/performance.html#main)
+
+[CSS optimieren: Ladezeit und Seitenaufbau](https://www.mediaevent.de/css/effizienz.html)
