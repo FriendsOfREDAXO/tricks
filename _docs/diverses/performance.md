@@ -11,7 +11,7 @@ Artikel zur Dikussion
 
 Besonders im Absatz [Welche Möglichkeiten zur Verbesserung bietet Redaxo?](#rex) ist die Mitarbeit der Redaxo-Profis gefragt.
 
-# Mehr Performance für Rredaxo
+# Mehr Performance für Redaxo
 
 
 #### Wie kann man die Performance einer website ermitteln?
