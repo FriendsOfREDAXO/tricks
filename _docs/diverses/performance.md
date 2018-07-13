@@ -26,6 +26,8 @@ Besonders im Absatz [Welche Möglichkeiten zur Verbesserung bietet Redaxo?](#rex
 
 [website speed test](https://tools.pingdom.com/)
 
+[kostenloser Ladezeit-check](https://www.uptrends.com/de/tools/website-ladezeit-check)
+
 
 #### Performance verbessern
 
