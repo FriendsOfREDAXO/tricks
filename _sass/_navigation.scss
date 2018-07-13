@@ -2,7 +2,8 @@
   margin: 0 -2vw;
 
   @media (max-width: 639px) {
-    margin: 0 -5vw;
+    margin: 0 -5vw 1px -5vw;
+    min-height: 100%; // force scrollbars to avoid iOS issues
   }
 }
 

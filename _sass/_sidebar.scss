@@ -32,8 +32,8 @@
 }
 
 .sidebar__header {
-  background: #5b98d7;
-  visibility: hidden;
+  position: relative;
+  z-index: 1;
   height: 60px;
 }
 
@@ -41,7 +41,7 @@
   flex: 1;
   overflow: hidden;
   overflow-y: auto;
-  // -webkit-overflow-scrolling: touch; // don’t use!
+  -webkit-overflow-scrolling: touch;
   padding: 54px 2vw;
 
   @include md {
