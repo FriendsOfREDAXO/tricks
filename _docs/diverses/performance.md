@@ -33,6 +33,8 @@ PHP 7 ist schneller
 
 **scripte optimieren**
 
+[PHP-scripte optimieren](http://floern.com/webscripting/geschwindigkeit-von-php-scripts-optimieren)
+
 [Javascript optimieren – Ladezeit und Reaktionszeit](https://www.mediaevent.de/javascript/performance.html#main)
 
 [CSS optimieren: Ladezeit und Seitenaufbau](https://www.mediaevent.de/css/effizienz.html)
