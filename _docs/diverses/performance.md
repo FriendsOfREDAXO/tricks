@@ -20,13 +20,11 @@ Besonders im Absatz [Welche Möglichkeiten zur Verbesserung bietet Redaxo?](#rex
 
 [Website-Geschwindigkeit messen: 8 kostenlose Tools im Überblick](https://t3n.de/news/webseiten-ladezeiten-optimieren-497235/)
 
+[kostenloser Ladezeit-check](https://www.uptrends.com/de/tools/website-ladezeit-check)
+
 ##### Dienste 
 
 [Blackfire - ein Dienst zur Performance-Messung](https://blackfire.io/)
-
-[website speed test](https://tools.pingdom.com/)
-
-[kostenloser Ladezeit-check](https://www.uptrends.com/de/tools/website-ladezeit-check)
 
 
 #### Performance verbessern
