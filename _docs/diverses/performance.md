@@ -14,9 +14,20 @@ Besonders im Absatz [Welche Möglichkeiten zur Verbesserung bietet Redaxo?](#rex
 # Mehr Performance für Redaxo
 
 
+
+
+
 #### Wie kann man die Performance einer website ermitteln?
 
-Es gibt verschiedene kostenlose Tools und kostenpflichtige Dienste [s. Links](#links)
+##### Tools
+
+[Website-Geschwindigkeit messen: 8 kostenlose Tools im Überblick](https://t3n.de/news/webseiten-ladezeiten-optimieren-497235/)
+
+##### Dienste 
+
+[Blackfire - ein Dienst zur Performance-Messung](https://blackfire.io/)
+
+[website speed test](https://tools.pingdom.com/)
 
 
 <a name="rex"></a>
@@ -42,11 +53,7 @@ xdebug
 
 [Opcache Configuration](https://tideways.io/profiler/blog/fine-tune-your-opcache-configuration-to-avoid-caching-suprises)
 
-[Website-Geschwindigkeit messen: 8 kostenlose Tools im Überblick](https://t3n.de/news/webseiten-ladezeiten-optimieren-497235/)
 
-[Blackfire - ein Dienst zur Performance-Messung](https://blackfire.io/)
-
-[website speed test](https://tools.pingdom.com/)
 
 [Javascript optimieren – Ladezeit und Reaktionszeit](https://www.mediaevent.de/javascript/performance.html#main)
 
