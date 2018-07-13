@@ -14,9 +14,6 @@ Besonders im Absatz [Welche Möglichkeiten zur Verbesserung bietet Redaxo?](#rex
 # Mehr Performance für Redaxo
 
 
-
-
-
 #### Wie kann man die Performance einer website ermitteln?
 
 ##### Tools
@@ -28,6 +25,25 @@ Besonders im Absatz [Welche Möglichkeiten zur Verbesserung bietet Redaxo?](#rex
 [Blackfire - ein Dienst zur Performance-Messung](https://blackfire.io/)
 
 [website speed test](https://tools.pingdom.com/)
+
+
+#### 
+
+**scripte optimieren**
+
+[Javascript optimieren – Ladezeit und Reaktionszeit](https://www.mediaevent.de/javascript/performance.html#main)
+
+[CSS optimieren: Ladezeit und Seitenaufbau](https://www.mediaevent.de/css/effizienz.html)
+
+**debugging**
+
+xdebug 
+
+**caching**
+
+[Best Zend OpCache Settings/Tuning/Config](https://www.scalingphpbook.com/blog/2014/02/14/best-zend-opcache-settings.html)
+
+[Opcache Configuration](https://tideways.io/profiler/blog/fine-tune-your-opcache-configuration-to-avoid-caching-suprises)
 
 
 <a name="rex"></a>
@@ -42,19 +58,15 @@ OPCache
 
 composer autoloader benutzen
 
-xdebug 
+
 
 <a name="links"></a>
 ## Links
 
 [Performance Infos](http://symfony.com/doc/current/performance.html#optimizing-all-the-files-used-by-symfony)
 
-[Best Zend OpCache Settings/Tuning/Config](https://www.scalingphpbook.com/blog/2014/02/14/best-zend-opcache-settings.html)
-
-[Opcache Configuration](https://tideways.io/profiler/blog/fine-tune-your-opcache-configuration-to-avoid-caching-suprises)
 
 
 
-[Javascript optimieren – Ladezeit und Reaktionszeit](https://www.mediaevent.de/javascript/performance.html#main)
 
-[CSS optimieren: Ladezeit und Seitenaufbau](https://www.mediaevent.de/css/effizienz.html)
+
