@@ -27,7 +27,7 @@ Besonders im Absatz [Welche Möglichkeiten zur Verbesserung bietet Redaxo?](#rex
 [website speed test](https://tools.pingdom.com/)
 
 
-#### 
+#### Performance verbessern
 
 **scripte optimieren**
 
@@ -40,6 +40,8 @@ Besonders im Absatz [Welche Möglichkeiten zur Verbesserung bietet Redaxo?](#rex
 xdebug 
 
 **caching**
+
+[Performance Infos](http://symfony.com/doc/current/performance.html#optimizing-all-the-files-used-by-symfony)
 
 [Best Zend OpCache Settings/Tuning/Config](https://www.scalingphpbook.com/blog/2014/02/14/best-zend-opcache-settings.html)
 
@@ -59,11 +61,6 @@ OPCache
 composer autoloader benutzen
 
 
-
-<a name="links"></a>
-## Links
-
-[Performance Infos](http://symfony.com/doc/current/performance.html#optimizing-all-the-files-used-by-symfony)
 
 
 
