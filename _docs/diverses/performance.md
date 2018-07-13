@@ -29,6 +29,8 @@ Besonders im Absatz [Welche Möglichkeiten zur Verbesserung bietet Redaxo?](#rex
 
 #### Performance verbessern
 
+PHP 7 ist schneller
+
 **scripte optimieren**
 
 [Javascript optimieren – Ladezeit und Reaktionszeit](https://www.mediaevent.de/javascript/performance.html#main)
