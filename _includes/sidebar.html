@@ -1,5 +1,8 @@
 <nav class="navigation">
   <ul class="navigation__list">
+    <li class="navigation__item navigation__item--home{% if page.url == "/" %} navigation__item--current{% endif %}">
+      <a class="navigation__link" href="{{ "/" | relative_url }}">Startseite</a>
+    </li>
     {% include navigation.html %}
   </ul>
 </nav>
