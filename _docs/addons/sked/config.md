@@ -1,6 +1,6 @@
 ---
 title: Individuelle Konfiguration
-authors: []
+authors: [dtpop]
 prio:
 ---
 
