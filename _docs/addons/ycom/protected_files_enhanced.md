@@ -1,6 +1,6 @@
 ---
 title: Geschütze Dateien mit YCom - per Template
-authors: []
+authors: [tgoellner,skerbis]
 prio:
 ---
 
