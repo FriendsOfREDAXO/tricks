@@ -106,8 +106,11 @@ if( "REX_VALUE[2]" != "" )
   else
   {
     // Den Slice/Block laden und anzeigen
+    if (rex_article_slice::getArticleSliceById( "REX_VALUE[2]" ))
+    {
     $slice = rex_article_slice::getArticleSliceById( "REX_VALUE[2]" ); 
     print $slice->getSlice();
+    }
   }
 }
 else
