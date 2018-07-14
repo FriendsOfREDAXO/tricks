@@ -1,6 +1,6 @@
 ---
 title: Kategorie einer REDAXO Instanz (Quelle) in eine andere Instanz (Ziel) kopieren
-authors: []
+authors: [tbaddade]
 prio:
 ---
 
