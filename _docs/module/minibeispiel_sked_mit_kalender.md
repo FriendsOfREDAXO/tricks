@@ -9,9 +9,56 @@ In dieser Version werden die Kategorien ausgewählt, die Orte sind hier nicht be
 
 Die Anzeige des Kalenders basiert auf dem JQuery-Plugin [FullCalendar](https://fullcalendar.io/).
 
-Fullcalendar-files im Template einbinden
+Fullcalendar-files im Template einbinden:
 
 ```<link rel="stylesheet" href="<?php echo rex_url::base('assets/addons/sked/vendor/fullcalendar/fullcalendar.css') ?>">```
+
+
+```<script type="text/javascript" src="<?php echo rex_url::base('assets/addons/sked/vendor/fullcalendar/fullcalendar.min.js') ?>"></script> 
+<script type="text/javascript" src="<?php echo rex_url::base('assets/addons/sked/vendor/fullcalendar/locale-all.js') ?>"></script>
+```
+
+## JS
+Dieses im Head notieren oder als Datei einbinden
+
+```js
+/* 
+ * scripterweiterungen von javanita
+ */
+
+$(document).ready(function () {
+    
+    // Kalender
+
+      $('#calendar').fullCalendar({
+        defaultView: 'month',
+        height: 450,
+        aspectRatio: 1.0,
+         header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek'
+        },
+        locale: 'de',       
+        events:
+            {
+                url: 'index.php?rex-api-call=sked_events&category=' + cat,
+                type: 'POST',
+                dataType: 'json',
+                cache: true,
+                error: function (xhr, type, exception) {
+                    // todo later show warning field
+                    // $('#script-warning').show();
+                    alert("Error: " + exception);
+                }
+            }      
+
+    });   
+    
+});
+```
+
+
 
 
 ## Moduleingabe
@@ -73,45 +120,6 @@ if ($categoryId == '') {
 </script>
 ```
 
-## JS
-Dieses im Head notieren oder als Datei einbinden
-
-```js
-/* 
- * scripterweiterungen von javanita
- */
-
-$(document).ready(function () {
-    
-    // Kalender
-
-      $('#calendar').fullCalendar({
-        defaultView: 'month',
-        height: 450,
-        aspectRatio: 1.0,
-         header: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'month,agendaWeek'
-        },
-        locale: 'de',       
-        events:
-            {
-                url: 'index.php?rex-api-call=sked_events&category=' + cat,
-                type: 'POST',
-                dataType: 'json',
-                cache: true,
-                error: function (xhr, type, exception) {
-                    // todo later show warning field
-                    // $('#script-warning').show();
-                    alert("Error: " + exception);
-                }
-            }      
-
-    });   
-    
-});
-```
 
 ## Klasse
 Diese Klasse in project/lib speichern.
