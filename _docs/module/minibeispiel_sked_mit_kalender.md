@@ -210,5 +210,6 @@ class rex_api_sked_events extends rex_api_function {
 ?>
 ```
 
+![Beispiel](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/sked_modul_calendar.png
+ "Beispiel")
 
-[test](https://screenshots.firefox.com/pC8wDZZJ31lyjxAG/feuerwehrfriesland.de)
