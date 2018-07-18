@@ -7,8 +7,11 @@ prio:
 Dieses Modul zeigt die Events im Sked-Kalender in Kalender-Ansicht an.
 In dieser Version werden die Kategorien ausgewählt, die Orte sind hier nicht berücksichtigt.
 
-Voraussetzung:
-Fullcalendar-files im Template einbinden (z.B. aus dem sked-AddOn)
+Die Anzeige des Kalenders basiert auf dem JQuery-Plugin [FullCalendar](https://fullcalendar.io/).
+
+Fullcalendar-files im Template einbinden
+
+```<link rel="stylesheet" href="<?php echo rex_url::base('assets/addons/sked/vendor/fullcalendar/fullcalendar.css') ?>">```
 
 
 ## Moduleingabe
