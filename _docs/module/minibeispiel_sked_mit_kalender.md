@@ -14,7 +14,8 @@ Fullcalendar-files im Template einbinden:
 ```<link rel="stylesheet" href="<?php echo rex_url::base('assets/addons/sked/vendor/fullcalendar/fullcalendar.css') ?>">```
 
 
-```<script type="text/javascript" src="<?php echo rex_url::base('assets/addons/sked/vendor/fullcalendar/fullcalendar.min.js') ?>"></script> 
+```
+<script type="text/javascript" src="<?php echo rex_url::base('assets/addons/sked/vendor/fullcalendar/fullcalendar.min.js') ?>"></script> 
 <script type="text/javascript" src="<?php echo rex_url::base('assets/addons/sked/vendor/fullcalendar/locale-all.js') ?>"></script>
 ```
 
