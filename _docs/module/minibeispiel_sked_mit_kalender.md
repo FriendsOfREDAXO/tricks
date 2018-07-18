@@ -209,3 +209,6 @@ class rex_api_sked_events extends rex_api_function {
 }
 ?>
 ```
+
+
+[test](https://screenshots.firefox.com/pC8wDZZJ31lyjxAG/feuerwehrfriesland.de)
