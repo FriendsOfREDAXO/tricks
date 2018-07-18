@@ -21,14 +21,12 @@ Fullcalendar-files im Template einbinden:
 ## JS
 Dieses im Head notieren oder als Datei einbinden
 
-```js
+```
 /* 
- * scripterweiterungen von javanita
+ * div calendar fullcalendar zuweisen, konfigurieren, rex-api aufrufen
  */
 
 $(document).ready(function () {
-    
-    // Kalender
 
       $('#calendar').fullCalendar({
         defaultView: 'month',
