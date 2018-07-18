@@ -7,6 +7,11 @@ prio:
 Dieses Modul zeigt die Events im Sked-Kalender in Kalender-Ansicht an.
 In dieser Version werden die Kategorien ausgewählt, die Orte sind hier nicht berücksichtigt.
 
+Ein Beispiel
+
+![Beispiel](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/sked_modul_calendar.png
+ "Beispiel")
+
 Die Anzeige des Kalenders basiert auf dem JQuery-Plugin [FullCalendar](https://fullcalendar.io/).
 
 Fullcalendar-files im Template einbinden:
@@ -210,6 +215,5 @@ class rex_api_sked_events extends rex_api_function {
 ?>
 ```
 
-![Beispiel](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/sked_modul_calendar.png
- "Beispiel")
+
 
