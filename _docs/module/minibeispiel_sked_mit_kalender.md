@@ -215,5 +215,8 @@ class rex_api_sked_events extends rex_api_function {
 ?>
 ```
 
+**todo**
 
+- Anzeige der events verbessern
+- Orte zur Auswahl
 
