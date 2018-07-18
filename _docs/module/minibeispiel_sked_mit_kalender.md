@@ -11,7 +11,9 @@ Die Anzeige des Kalenders basiert auf dem JQuery-Plugin [FullCalendar](https://f
 
 Fullcalendar-files im Template einbinden:
 
-```<link rel="stylesheet" href="<?php echo rex_url::base('assets/addons/sked/vendor/fullcalendar/fullcalendar.css') ?>">```
+```
+<link rel="stylesheet" href="<?php echo rex_url::base('assets/addons/sked/vendor/fullcalendar/fullcalendar.css') ?>">
+```
 
 
 ```
