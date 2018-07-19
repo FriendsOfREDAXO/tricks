@@ -220,3 +220,10 @@ class rex_api_sked_events extends rex_api_function {
 - Anzeige der events verbessern
 - Orte zur Auswahl
 
+
+________________________________________________________________________________________________________________________
+
+Mein Dank an die sked-Entwickler, bei denen ich mir Einiges abgucken konnte.
+
+
+
