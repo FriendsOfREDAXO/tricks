@@ -6,14 +6,57 @@ prio:
 
 # Queries
 
+- [Paginierung auf alphabetisch basierende Datensätze](#paginierung-abc)
+    - [vorheriger Datensatz](#paginierung-abc-vorheriger-datensatz)
+    - [nächster Datensatz](#paginierung-abc-naechster-datensatz)
 - [Paginierung auf Datum basierende Datensätze](#paginierung-datum)
     - [vorheriger Datensatz](#paginierung-datum-vorheriger-datensatz)
     - [nächster Datensatz](#paginierung-datum-naechster-datensatz)
 - [Query inkl. einer "Bitte auswählen" Option](#option-please-select)
 
 
+<a name="paginierung-abc"></a>
+## Blättern auf alphabetisch basierende Datensätze
+
+Die Methoden basieren auf Yorm und gehören in eine Class wie zum Beispiel
+
+```php
+class Project extends rex_yform_manager_dataset
+{
+}
+```
+
+<a name="paginierung-abc-vorheriger-datensatz"></a>
+### vorherigen Datensatz holen
+
+```php
+public function getPrevious()
+{
+    $query = self::query()
+        ->where('status', '1')
+        ->where(sprogfield('title'), $this->getTitle(), '<')
+        ->orderBy(sprogfield('title'), 'DESC');
+    return $query->findOne();
+}
+```
+
+<a name="paginierung-abc-naechster-datensatz"></a>
+### nächsten Datensatz holen
+ 
+```php
+public function getNext()
+{
+    $query = self::query()
+        ->where('status', '1')
+        ->where(sprogfield('title'), $this->getTitle(), '>')
+        ->orderBy(sprogfield('title'), 'ASC');
+    return $query->findOne();
+}
+```
+
+
 <a name="paginierung-datum"></a>
-## Beispiel um ein Blättern auf Datum basierende Datensätze zu erstellen (News)
+## Blättern auf Datum basierende Datensätze zu erstellen (News)
 
 Die Methoden basieren auf Yorm und gehören in eine Class wie zum Beispiel
 
