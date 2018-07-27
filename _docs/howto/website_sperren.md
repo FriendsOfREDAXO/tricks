@@ -10,13 +10,11 @@ Wenn sich eine REDAXO-Website in der Entwicklung befindet, kann es sein, dass de
 
 > Tipp: Für die Entwicklungs-Website nutzen viele Redaxo-Entwickler eine Subdomain, z. B. `neu.domain.de`, `dev.domain.de`, `beta.domain.de`. 
 
----
 
 ## 1. Maintenance-AddOn
 
 https://github.com/FriendsOfREDAXO/maintenance
 
----
 
 ## 2. XOutputFilter
 
@@ -27,6 +25,7 @@ im Frontend-Plugin folgende Einstellungen setzen:
 * Ersetzungstyp: PHP-Code
 * Marker: `<html>`
 * Ersetzung:
+
   ```php
   <?php
   $session = rex_backend_login::hasSession();
@@ -37,7 +36,6 @@ im Frontend-Plugin folgende Einstellungen setzen:
   ?>
   ```
 
----
 
 ## 3. .htpasswd
 
@@ -52,13 +50,11 @@ im Frontend-Plugin folgende Einstellungen setzen:
 
 > **Hinweis:** Dieser Schutz funktioniert bei einem Apache-Server, jedoch nicht bei einem IIS-Server.
 
----
 
 ## 4. PHP http-auth
 
 Siehe http://php.net/manual/de/features.http-auth.php, Beispiel 3.
 
----
 
 ## 5. REDAXO-Login
 
@@ -78,7 +74,6 @@ if (!rex::isBackend()) {
 ?>
 ```
 
----
 
 ## 6. GET-Parameter im Template
 
@@ -107,7 +102,6 @@ if ($_SESSION['vorschau'] !== $code and !rex_backend_login::hasSession()) {
 ?>
 ```
 
----
 
 ## Siehe auch
 
