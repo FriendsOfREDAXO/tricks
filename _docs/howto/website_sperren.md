@@ -10,33 +10,36 @@ Wenn sich eine REDAXO-Website in der Entwicklung befindet, kann es sein, dass de
 
 > Tipp: Für die Entwicklungs-Website nutzen viele Redaxo-Entwickler eine Subdomain, z. B. `neu.domain.de`, `dev.domain.de`, `beta.domain.de`. 
 
-## via Maintenance-AddOn
+---
+
+## 1. Maintenance-AddOn
+
 https://github.com/FriendsOfREDAXO/maintenance
 
-## via XOutputFilter
+---
+
+## 2. XOutputFilter
 
 im Frontend-Plugin folgende Einstellungen setzen:
 
-Name: Wartungsmodus
+* Name: Wartungsmodus
+* aktiviert: ja
+* Ersetzungstyp: PHP-Code
+* Marker: `<html>`
+* Ersetzung:
+  ```php
+  <?php
+  $session = rex_backend_login::hasSession();
+  if (!$session) {
+      echo 'Wartungsmodus';
+      exit;
+  }
+  ?>
+  ```
 
-aktiviert: ja
+---
 
-Ersetzungstyp: PHP-Code
-
-Marker: `<html>`
-
-Ersetzung:
-```php
-<?php
-$session = rex_backend_login::hasSession();
-if (!$session) {
-    echo 'Wartungsmodus';
-    exit;
-}
-?>
-```
-
-## via .htpasswd
+## 3. .htpasswd
 
 1. vollständigen Pfad der Redaxo-Installation auf dem Webserver ausfindig machen.
 2. .htpasswd-Datei genereieren, z. B. über einen [Online-htpasswd-Generator](http://www.htaccesstools.com/htpasswd-generator/)
@@ -49,11 +52,15 @@ if (!$session) {
 
 > **Hinweis:** Dieser Schutz funktioniert bei einem Apache-Server, jedoch nicht bei einem IIS-Server.
 
-## Via PHP http-auth
+---
+
+## 4. PHP http-auth
 
 Siehe http://php.net/manual/de/features.http-auth.php, Beispiel 3.
 
-## Via Redaxo-Login
+---
+
+## 5. REDAXO-Login
 
 Diesen Code am Anfang des aktivierten Templates einbauen. Hierbei muss für den Kunden ein Redaxo-Benutzer angelegt sein. Der Kunde muss sich zunächst in Redaxo einloggen, anschließend kann er die Website aufrufen. 
 
@@ -71,10 +78,11 @@ if (!rex::isBackend()) {
 ?>
 ```
 
-## Via GET-Parameter im Template
+---
 
-Diesen Code am Anfang der aktiven Templates einbauen, dem Kunden anschließend die URL `meine-website.de/?vorschau=abc123` übermitteln.
-Die hier gezeigte Lösung erlaubt es auch Nutzern, die sich im Backend eingeloggt haben die Seiten zu sehen, da der Status von `rex_backend_login::hasSession()`überprüft wird. 
+## 6. GET-Parameter im Template
+
+Diesen Code am Anfang der aktiven Templates einbauen, dem Kunden anschließend die URL `meine-website.de/?vorschau=abc123` übermitteln. Die hier gezeigte Lösung erlaubt es auch Nutzern, die sich im Backend eingeloggt haben die Seiten zu sehen, da der Status von `rex_backend_login::hasSession()`überprüft wird. 
 
 ```PHP
 <?php 
@@ -98,6 +106,8 @@ if ($_SESSION['vorschau'] !== $code and !rex_backend_login::hasSession()) {
 
 ?>
 ```
+
+---
 
 ## Siehe auch
 
