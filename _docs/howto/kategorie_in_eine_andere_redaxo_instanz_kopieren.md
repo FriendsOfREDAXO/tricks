@@ -9,7 +9,6 @@ prio:
 
 ## Voraussetzung
 
-
 - Sequel Pro 
 
 
@@ -18,7 +17,6 @@ prio:
 - Backup der Ziel-DB erstellen
 - Dump aus der Quell-DB holen und in Sequel Pro in separater DB einspielen
 - Datenbankverbindung zu der Ziel-DB aufbauen
-
 - Module und Templates wurden manuell kopiert und die Id per Hand in der Ziel-DB neu gesetzt
 
 
@@ -35,12 +33,12 @@ WHERE id = "11322" OR path LIKE "|11322|%"
 ```
 
 1. Ergebnis als CSV exportieren
-1. Wechsel in die Ziel-DB 
-1. Tabelle rex_article auswählen
-1. Ablage - Importieren
-1. CSV-Datei importieren
-1. Spalten überprüfen und ggf. welche ignorieren
-1. Import starten
+2. Wechsel in die Ziel-DB 
+3. Tabelle rex_article auswählen
+4. Ablage - Importieren
+5. CSV-Datei importieren
+6. Spalten überprüfen und ggf. welche ignorieren
+7. Import starten
 
 
 ---- 
@@ -59,12 +57,12 @@ WHERE a.id = "11322"
 ```
 
 1. Ergebnis als CSV exportieren
-1. Wechsel in die Ziel-DB 
-1. Tabelle rex_article_slice auswählen
-1. Ablage - Importieren
-1. CSV-Datei importieren
-1. Spalten überprüfen und ggf. welche ignorieren
-1. Import starten
+2. Wechsel in die Ziel-DB 
+3. Tabelle rex_article_slice auswählen
+4. Ablage - Importieren
+5. CSV-Datei importieren
+6. Spalten überprüfen und ggf. welche ignorieren
+7. Import starten
 
 
 ----
@@ -73,16 +71,14 @@ WHERE a.id = "11322"
 ### Alle verwendeten Medien holen
 
 1. nachstehendes Skript als Modul anlegen und die Root-Id anpassen
-1. Artikel anlegen und das Modul wählen
-1. Zeit mitbringen, kann dauern
-1. Es werden jetzt alle verwendete Medien in den Ordner "/media_export" kopiert (liegt im root neben medie bzw. redaxo)
-1. den ausgegebenen Query kopieren und in Sequel Pro der Quell-DB absetzen
-1. Ergebnis exportieren
-1. Wechsel in die Ziel-DB und CSV-Datei auswählen, Einstellungen setzen und den Button "öffnen" klicken
-1. Hier die category_id entweder lassen oder manuell einen Wert eintragen (alle Import-Dateien könnten in einer separaten Kategorie gespeichert werden)
-1. Falls die Kategorie-Id nicht angepasst wird, müssten auch die Medienkaegorien exportiert werden.
-
-
+2. Artikel anlegen und das Modul wählen
+3. Zeit mitbringen, kann dauern
+4. Es werden jetzt alle verwendete Medien in den Ordner "/media_export" kopiert (liegt im root neben medie bzw. redaxo)
+5. den ausgegebenen Query kopieren und in Sequel Pro der Quell-DB absetzen
+6. Ergebnis exportieren
+7. Wechsel in die Ziel-DB und CSV-Datei auswählen, Einstellungen setzen und den Button "öffnen" klicken
+8. Hier die category_id entweder lassen oder manuell einen Wert eintragen (alle Import-Dateien könnten in einer separaten Kategorie gespeichert werden)
+9. Falls die Kategorie-Id nicht angepasst wird, müssten auch die Medienkaegorien exportiert werden.
 
 
 ```php
