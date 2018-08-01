@@ -52,6 +52,11 @@ if (rex::isBackend() == 1) {
 
 	// Es handelt sich nicht um denselben Artikel
 	if ("REX_ARTICLE_ID" != "REX_LINK[id=1]" && "REX_LINK[id=1]" != "") {
+  
+  // Prüfen ob der Artikel online ist
+  $art = rex_article::get('REX_LINK[id=1]'); 
+  if ($art->isOnline()) {
+          
 		echo '
 			<div class="alert alert-info">
 				<a href="' . rex_url::backendPage('content/edit',
@@ -62,6 +67,19 @@ if (rex::isBackend() == 1) {
 					Eingebundener Artikel: ' . $art->getName() . '
 				</a>
 			</div>';
+      }
+      else {
+      echo '
+			<div class="alert alert-danger">
+				<a href="' . rex_url::backendPage('content/edit',
+					['mode' => 'edit',
+					'clang' => rex_clang::getCurrentId() ,
+					'article_id' => 'REX_LINK[id=1]']) . '">
+					<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+					Der eingebundene Artikel: "' . $art->getName() . '" ist Offline!
+				</a>
+			</div>';
+      }
 	}
 
 	// Es handelt sich um denselben Artikel
@@ -77,10 +95,15 @@ else {
 
 	// Es handelt sich nicht um denselben Artikel
 	if ("REX_ARTICLE_ID" != "REX_LINK[id=1]" && "REX_LINK[id=1]" != "") {
+  
+  // Prüfen ob der Artikel online ist
+  $art = rex_article::get('REX_LINK[id=1]'); 
+  if ($art->isOnline()) {
 
 		// Artikel ausgeben, für andere ctypes Zahl ändern.
 		// Für den gesamten Artikel inkl. aller Ctypes, die 1 entfernen
 		echo $article->getArticle(1);
+    }
 	}
 }
 ```
