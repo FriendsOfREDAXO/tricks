@@ -38,7 +38,7 @@ requires:
 ```
 
 ## yrewrite_lc_url.php
-In die Datei `yrewrite_lc_url.php` kommt Folgende:
+In die Datei `yrewrite_lc_url.php` kommt Folgendes
 
 ```php
 <?php
