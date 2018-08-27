@@ -214,6 +214,22 @@ class rex_api_sked_events extends rex_api_function {
 }
 ?>
 ```
+## CSS
+```
+/* *************** FullCalendar ******************** */
+
+/* wenn die Uhrzeit nicht angezeigt werden soll */
+.fc-time{ display: none; }
+
+/* mehrzeilig fuer lange event-title */
+.fc-title {
+    padding: 0 1px;
+    white-space:normal !important;
+   word-wrap: break-word;
+    font-size: 0.8em;
+}
+```
+
 
 **todo**
 
