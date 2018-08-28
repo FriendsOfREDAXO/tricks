@@ -1,6 +1,6 @@
 ---
 title: Minibeispiel Kopfzeilenbild
-authors: []
+authors: [alexplusde]
 prio:
 ---
 
@@ -33,6 +33,7 @@ while (!$image) { // So lange es kein Bild
 
 }
 ?>
+
 <img src="/imagetypes/hero/<?php echo $image ?>" alt="" />
 ```
 
@@ -40,8 +41,4 @@ while (!$image) { // So lange es kein Bild
 
 ## Template-Ausgabe (Slideshow)
 
-Erweitere dieses Beispiel auf [GitHub/FriendsOFRedaxo/Tricks](https://github.com/FriendsOfREDAXO/tricks).
-
-## Autor
-
-@alexplusde - Alexander Walther
+_(Bitte ergänzen!)_
