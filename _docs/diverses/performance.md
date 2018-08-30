@@ -31,6 +31,8 @@ Besonders im Absatz [Welche Möglichkeiten zur Verbesserung bietet Redaxo?](#rex
 
 PHP 7 ist schneller
 
+[Front-End Performance Checklist](https://github.com/thedaviddias/Front-End-Performance-Checklist/blob/master/README.md)
+
 **scripte optimieren**
 
 [PHP-scripte optimieren](http://floern.com/webscripting/geschwindigkeit-von-php-scripts-optimieren)
