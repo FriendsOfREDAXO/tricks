@@ -20,6 +20,8 @@
     url: /addons/structure
   - title: Theme
     url: /addons/theme
+  - title: YURL
+    url: /addons/url
   - title: YCom
     url: /addons/ycom
   - title: YForm
