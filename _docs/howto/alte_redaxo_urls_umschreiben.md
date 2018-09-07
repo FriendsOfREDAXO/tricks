@@ -1,6 +1,6 @@
 ---
 title: Alte (und andere) REDAXO-URLs automatisch umschreiben
-authors: []
+authors: [dtpop]
 prio:
 ---
 
