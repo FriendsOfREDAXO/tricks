@@ -1,6 +1,6 @@
 ---
 title: HTTP Status Codes 410 umsetzen
-authors: []
+authors: [dtpop]
 prio:
 ---
 
