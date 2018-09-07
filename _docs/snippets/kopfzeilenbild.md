@@ -1,12 +1,12 @@
 ---
-title: Minibeispiel Kopfzeilenbild
+title: Kopfzeilenbild
 authors: [alexplusde]
 prio:
 ---
 
-# Minibeispiel Kopfzeilenbild
+# Kopfzeilenbild
 
-Sucht, ausgehend vom aktuellen Artikel, rekursiv alle übergeordneten Artikel / Kategorien nach einem Kopfzeilen-Bild ab.
+Sucht, ausgehend vom aktuellen Artikel, rekursiv alle übergeordneten Artikel/Kategorien nach einem Kopfzeilen-Bild ab.
 
 ## Voraussetzungen
 
