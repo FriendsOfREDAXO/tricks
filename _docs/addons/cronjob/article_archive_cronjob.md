@@ -1,6 +1,6 @@
 ---
 title: Artikel-Autoarchivierung mittels Cronjob
-authors: []
+authors: [darwin26]
 prio:
 ---
 
