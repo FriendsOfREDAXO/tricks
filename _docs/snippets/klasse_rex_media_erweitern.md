@@ -1,16 +1,16 @@
 ---
 title: Die Klasse rex_media erweitern
-authors: []
+authors: [DanielWeitenauer]
 prio:
 ---
 
 # Die Klasse rex_media erweitern
 
-Seit Redaxo Version 5.3 kann die Klasse `rex_media` erweitert werden. Damit ist es möglich, fehlende Funktionen über eine Kind-Klasse nachzurüsten.
+Seit REDAXO Version 5.3 kann die Klasse `rex_media` erweitert werden. Damit ist es möglich, fehlende Funktionen über eine Kind-Klasse nachzurüsten.
 
 ## Beispiel
 
-###Erweitern der Klasse `rex_media` um eine Methode, die eine Datei-URL mit Medientyp ausgibt 
+### Erweitern der Klasse `rex_media` um eine Methode, die eine Datei-URL mit Medientyp ausgibt 
 
 ```php
 // Das in REX_MEDIA[1] gespeicherte Bild wird mit dem Medientyp 'bootstrap_jumbotron' ausgegeben
@@ -19,7 +19,7 @@ $media = new my_media(REX_MEDIA[1]);
 $url = $media->getMediaUrl('bootstrap_jumbotron', true)
 ```
 
-###Erweitern der Klasse `rex_media` um eine Methode, um mehrsprachige Medien-Metadaten abzufragen 
+### Erweitern der Klasse `rex_media` um eine Methode, um mehrsprachige Medien-Metadaten abzufragen 
 
 ```php
 $media = new my_media(REX_MEDIA[1]); 
