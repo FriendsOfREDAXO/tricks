@@ -1,10 +1,12 @@
 ---
-title: Bloecks Status im Modul setzen
+title: Bloecks-Status setzen
 authors: []
 prio:
 ---
 
-# Bloecks Status im Modul setzen
+# Bloecks-Status im Modul setzen
+
+> Benötigt das AddOn `bloecks`
 
 ```php 
 if (rex::isBackend()) {
