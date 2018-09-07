@@ -1,10 +1,10 @@
 ---
-title: "Minibeispiel: Interne Linkliste mit REX_LINKLIST"
+title: "Interne Linkliste mit REX_LINKLIST"
 authors: []
 prio:
 ---
 
-# Minibeispiel: Interne Linkliste mit REX_LINKLIST
+# Interne Linkliste mit `REX_LINKLIST`
 
 - [Beschreibung](#beschreibung)
 - [Moduleingabe](#moduleingabe)

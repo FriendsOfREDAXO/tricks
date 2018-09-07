@@ -1,10 +1,10 @@
 ---
-title: "Minibeispiel: Artikel einbinden mit rex_article::get"
+title: "Artikel einbinden mit rex_article::get"
 authors: []
 prio:
 ---
 
-# Artikel einbinden mit rex_article::get
+# Artikel einbinden mit `rex_article::get`
 
 Hin und wieder möchte man auf zentrale Daten zurückgreifen. Das können beispielsweise Öffnungszeiten oder Adressen sein. 
 Eine Möglichkeit ist das einbinden zentral abgelegter Artikel. 

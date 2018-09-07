@@ -1,10 +1,10 @@
 ---
-title: "Minibeispiel: Einfache Tabelle mit MForm MBlock"
+title: "Einfache Tabelle mit MForm und MBlock"
 authors: []
 prio:
 ---
 
-# Minibeispiel: Einfache Tabelle mit MForm MBlock
+# Einfache Tabelle mit MForm und MBlock
 
 > Benötigt die FOR-Addons `mform` und `mblock`
 

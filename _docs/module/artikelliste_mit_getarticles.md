@@ -1,10 +1,10 @@
 ---
-title: "Minibeispiel: Einfache Artikelliste / getArticles / toLink"
+title: "Einfache Artikelliste / getArticles / toLink"
 authors: []
 prio:
 ---
 
-# Minibeispiel: Einfache Artikelliste / getArticles / toLink
+# Einfache Artikelliste / getArticles / toLink
 
 - [Beschreibung](#beschreibung)
 - [Moduleingabe](#moduleingabe)

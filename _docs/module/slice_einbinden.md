@@ -1,10 +1,10 @@
 ---
-title: "Modul: Slice einbinden mit rex_article_slice"
+title: "Slice einbinden mit rex_article_slice"
 authors: [skerbis]
 prio:
 ---
 
-# Slice einbinden mit rex_article::get
+# Slice einbinden mit `rex_article_slice`
 
 Manchmal benötigt man eine Information, die bereits in einem Artikel eingepflegt ist. Natürlich kann man diese kopieren oder doppelt pflegen, was jedoch dazu führen kann, dass diese Informationen nicht immer auf dem aktuellen  Stand sind. Eine Lösung hierfür ist die Einbindung zentral gepflegter Artikel oder Tabellendaten. Eine andere ist die Einbindung eines Slices. 
 

@@ -1,10 +1,10 @@
 ---
-title: "Minibeispiel: Kategorielisten mit getChildren()"
+title: "Kategorielisten mit getChildren()"
 authors: []
 prio:
 ---
 
-# Minibeispiel: Kategorielisten mit getChildren()
+# Kategorielisten mit `getChildren()`
 
 - [Beschreibung](#beschreibung)
 - [Moduleingabe](#moduleingabe)
