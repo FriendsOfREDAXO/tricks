@@ -10,7 +10,7 @@ prio:
 - Listet Seitentitel und Beschreibung des Artikels auf. 
 - Die Sortierung erfolgt nach PRIO
 
-> Ein Metainfofeld art_description wird benötigt. 
+> Ein Metainfofeld `art_description` wird benötigt. 
 
 ## Anleitung
 **Mögliche Vorgehensweise für die Ausgabe:**  
