@@ -1,6 +1,6 @@
 ---
 title: Zusätzliche AddOns im Safemode starten
-authors: [alexplusde, gharlan]
+authors: [dtpop, alexplusde, gharlan]
 prio:
 ---
 
