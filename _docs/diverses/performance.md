@@ -62,6 +62,8 @@ an dieser Stelle sei auf diesen trick hingewiesen:
 
 cache
 
+Media Manager-Cache
+
 OPCache
 
 composer autoloader benutzen
