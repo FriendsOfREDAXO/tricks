@@ -4,6 +4,10 @@ authors: [skerbis]
 prio:
 ---
 
+# Backend Snippets
+
+Snippets und Tweaks zur Modifikation des Backends
+
 1. [AddOn ausblenden](#addonhide)
 2. [Seite eines AddOns durch eigene ustauschen/ersetzen](#replacepage)
 3. [Sortierung des Medienpools ändern](#mediasort)
