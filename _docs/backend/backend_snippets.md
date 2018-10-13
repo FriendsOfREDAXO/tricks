@@ -18,7 +18,7 @@ Snippets und Tweaks zur Modifikation des Backends
 ## AddOn ausblenden
 
 Es ist möglich einzelne AddOns auch für Administratoren auszublenden. 
-In diesm Beispiel werden der Installer und die Systemverwaltung ausgeblendet. 
+In diesem Beispiel werden der Installer und die Systemverwaltung ausgeblendet. 
 
 **Folgenden Code in die boot.php des Project-AddOns platzieren**
 
@@ -42,6 +42,8 @@ $page->setPath('...');
 Will man eine alternative Seite in einem AddOn darstellen und die vorhandene ersetzen, kann dies mit dem nachfolgenden Code erfogen. 
 In diesem Beispiel wird die index.php des Struktur-AddOns ausgetauscht. 
 
+Verwendeter Extension point: [PAGES_PREPARED](https://github.com/redaxo/redaxo/blob/591146a1dc60e8aacefd58dc9b7e9c307c0983b9/redaxo/src/core/backend.php#L132)
+
 **Folgenden Code in die boot.php des Project-AddOns platzieren**
 
 ```php
@@ -57,6 +59,8 @@ rex_extension::register('PAGES_PREPARED',function($ep) {
 ## Sortierung des Medienpools ändern
 
 Die Standard-Sortierung im Medienpool ist immer chronologisch. Die folgende Lösung sorgt für eine alphabetische Sortierung. 
+
+Verwendeter Extension point: [MEDIA_LIST_QUERY](https://github.com/redaxo/redaxo/blob/0b624db20ce0baab171ff054d975645e22eceed8/redaxo/src/addons/mediapool/pages/media.php#L637-L642)
 
 **Folgenden Code in die boot.php des Project-AddOns platzieren**
 
