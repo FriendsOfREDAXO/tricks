@@ -485,48 +485,47 @@ echo $fragment->parse('sked_terminliste.php');
 Das Fragment legen wir unter `theme/private/fragments/sked_terminliste.php` ab.
 
 ```php
-    <ul>
-    <?php foreach ($this->termine as $i=>$item) : ?>
-        <li>
-            <a href="event-detail.html">
-                <div class="event__date"><?= $item->get_formatted_date_and_time() ?></div>
-                <div class="event__category"><?= $item->sec_name ?></div>
-                <div class="event__title" style="color: <?= $item->color ?>"><?= $item->{'name_'.rex_clang::getCurrentId()} ?></div>
-                <div class="event__subtitle"><?= $item->get_val('subtitle') ?></div>
-                <div class="event__description"><?= $item->get_val('subline') ?></div>
-            </a>
-            <?= $item->get_val('description') ?>
-            <dl class="uk-description-list ">
-               <?php if ($item->get_val('info_meetingpoint')) : ?>
-                 <dt>{{ Treffpunkt }}</dt>
-                 <dd><?= $item->get_val('info_meetingpoint') ?></dd>
-               <?php endif ?>
-               <?php if ($item->get_val('info_duration')) : ?>
-                 <dt>{{ Dauer }}</dt>
-                 <dd><?= $item->get_val('info_duration') ?></dd>
-               <?php endif ?>
-               <?php if ($item->get_val('info_price')) : ?>
-                 <dt>{{ Kosten }}</dt>
-                 <dd><?= $item->get_val('info_price') ?></dd>
-               <?php endif ?>
-               <?php if ($item->get_val('info_registration')) : ?>
-                 <dt>{{ Anmeldung }}</dt>
-                 <dd><?= $item->get_val('info_registration') ?></dd>
-               <?php endif ?>
-               <?php if ($item->get_val('info_contact')) : ?>
-                 <dt>{{ Kontakt }}</dt>
-                 <dd><?= $item->get_val('info_contact') ?></dd>
-               <?php endif ?>
+<ul>
+<?php foreach ($this->termine as $i=>$item) : ?>
+    <li>
+        <a href="event-detail.html">
+            <div class="event__date"><?= $item->get_formatted_date_and_time() ?></div>
+            <div class="event__category"><?= $item->sec_name ?></div>
+            <div class="event__title" style="color: <?= $item->color ?>"><?= $item->{'name_'.rex_clang::getCurrentId()} ?></div>
+            <div class="event__subtitle"><?= $item->get_val('subtitle') ?></div>
+            <div class="event__description"><?= $item->get_val('subline') ?></div>
+        </a>
+        <?= $item->get_val('description') ?>
+        <dl class="uk-description-list ">
+           <?php if ($item->get_val('info_meetingpoint')) : ?>
+             <dt>{{ Treffpunkt }}</dt>
+             <dd><?= $item->get_val('info_meetingpoint') ?></dd>
+           <?php endif ?>
+           <?php if ($item->get_val('info_duration')) : ?>
+             <dt>{{ Dauer }}</dt>
+             <dd><?= $item->get_val('info_duration') ?></dd>
+           <?php endif ?>
+           <?php if ($item->get_val('info_price')) : ?>
+             <dt>{{ Kosten }}</dt>
+             <dd><?= $item->get_val('info_price') ?></dd>
+           <?php endif ?>
+           <?php if ($item->get_val('info_registration')) : ?>
+             <dt>{{ Anmeldung }}</dt>
+             <dd><?= $item->get_val('info_registration') ?></dd>
+           <?php endif ?>
+           <?php if ($item->get_val('info_contact')) : ?>
+             <dt>{{ Kontakt }}</dt>
+             <dd><?= $item->get_val('info_contact') ?></dd>
+           <?php endif ?>
 
-               <?php if ($item->get_val('info_1_value')) : ?>
-                 <dt><?= $item->get_val('info_1_label') ?></dt>
-                 <dd><?= $item->get_val('info_1_value') ?></dd>
-               <?php endif ?>
-             </dl>             
-             <img src="/images/content/<?= $item->get_img() ?>" alt="">
-        </li>
-    <?php endforeach ?>
-
+           <?php if ($item->get_val('info_1_value')) : ?>
+             <dt><?= $item->get_val('info_1_label') ?></dt>
+             <dd><?= $item->get_val('info_1_value') ?></dd>
+           <?php endif ?>
+         </dl>             
+         <img src="/images/content/<?= $item->get_img() ?>" alt="">
+    </li>
+<?php endforeach ?>
 ```
 
 <a name="credits"></a>
