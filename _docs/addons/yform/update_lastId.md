@@ -33,7 +33,7 @@ class klasse{
 ```
 
 ## Datenbank aktualisieren
-Im gleichen Modul, in dem auch die yForm ausgegeben wird, aber nach 'echo $yform→getForm();'.
+Im gleichen Modul, in dem auch die yForm ausgegeben wird, aber nach 'echo $yform->getForm();'.
 ```php
 $update = rex_sql::factory();
 $table  = rex::getProperty('table'); // der Tabellenname, nur zur Sicherheit
