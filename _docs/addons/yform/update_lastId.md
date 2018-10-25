@@ -8,7 +8,7 @@ prio:
 
 Um dem Datensatz, der via YForm und Tabelmanager neu erzeugt wurde, noch etwas hinzuzufügen (z.B. Status einer Fremd-API Aktion) will man die ID des just erstellen Datensatzes haben. 
 
-##Extensionpoint 'REX_YFORM_SAVED' erweitern
+## Extensionpoint 'REX_YFORM_SAVED' erweitern
 ```php
 rex_extension::register('REX_YFORM_SAVED', ['klasse', 'methode'], rex_extension::LATE);
 ```
@@ -16,7 +16,7 @@ Kann irgendwo stehen; geht direkt in dem Modul Output oder im boot.php eines Add
 ```php
 echo $yform->getForm();
 ```
-##Methode deklarieren
+## Methode deklarieren
 Egal wohin, muss nur erreichbar sein von 'rex_extension::register'.
 ```php
 class klasse{
@@ -32,7 +32,7 @@ class klasse{
 }
 ```
 
-##Datenbank aktualisieren
+## Datenbank aktualisieren
 Im gleichen Modul, in dem auch die yForm ausgegeben wird, aber nach 'echo $yform→getForm();'.
 ```php
 $update = rex_sql::factory();
