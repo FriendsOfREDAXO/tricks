@@ -17,7 +17,7 @@ Kann irgendwo stehen; geht direkt in dem Modul Output oder im boot.php eines Add
 echo $yform->getForm();
 ```
 ## Methode deklarieren
-Egal wohin, muss nur erreichbar sein von 'rex_extension::register'.
+Egal wohin, muss nur erreichbar sein von `rex_extension::register`.
 ```php
 class klasse{
 	public function methode($ep) {
@@ -33,7 +33,7 @@ class klasse{
 ```
 
 ## Datenbank aktualisieren
-Im gleichen Modul, in dem auch die yForm ausgegeben wird, aber nach 'echo $yform->getForm();'.
+Im gleichen Modul, in dem auch die yForm ausgegeben wird, aber nach `echo $yform->getForm();`.
 ```php
 $update = rex_sql::factory();
 $table  = rex::getProperty('table'); // der Tabellenname, nur zur Sicherheit
