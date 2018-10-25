@@ -22,7 +22,7 @@ Egal wohin, muss nur erreichbar sein von `rex_extension::register`.
 class klasse{
 	public function methode($ep) {
    		$lastId = $ep->getSubject()->getLastId();
-	    $table  = $ep->getParam('table');
+   		$table  = $ep->getParam('table');
 
    		\rex::setProperty('lastId',$lastId);
    		\rex::setProperty('table',$table);
