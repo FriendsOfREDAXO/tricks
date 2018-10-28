@@ -12,7 +12,7 @@ Um dem Datensatz, der via YForm und Tabelmanager neu erzeugt wurde, noch etwas h
 ```php
 rex_extension::register('REX_YFORM_SAVED', ['klasse', 'methode'], rex_extension::LATE);
 ```
-Kann irgendwo stehen; geht direkt in dem Modul Output oder im boot.php eines Addons. Muss nur vor dieser Zeile ausgeführt werden:
+Kann irgendwo stehen; geht direkt in dem Modul Output oder im `boot.php` eines AddOns. Muss nur vor dieser Zeile ausgeführt werden:
 ```php
 echo $yform->getForm();
 ```
