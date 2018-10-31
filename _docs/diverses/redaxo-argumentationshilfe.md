@@ -32,9 +32,9 @@ Außerdem haben sich einige Entwickler in der REDAXO-Community zu einer Gruppe z
 
 > "Wieso REDAXO? CMS XYZ ist bekannt dafür, gut mit mehreren Sprachen umzugehen."
 
-REDAXO verfügt von Haus aus über eine Verwaltung von Sprachen, sodass bei enstprechender Planung mit geringem Aufwand eine einsprachige Website um beliebig viele Sprachen erweitert werden kann. 
+REDAXO verfügt von Haus aus über eine Verwaltung von Sprachen, sodass bei entsprechender Planung mit geringem Aufwand eine einsprachige Website um beliebig viele Sprachen erweitert werden kann. 
 
-Wird eine Übersetzungsagentur beauftragt oder werden widerkehrende Textbausteine verwendet, so können Addons wie [Sprog](https://github.com/tbaddade/redaxo_sprog) oder [XOutputFilter](https://github.com/FriendsOfREDAXO/xoutputfilter) (FriendsOfREDAXO) die Verwaltung von Textbausteinen erleichtern. Beide Addons sind praxiserprobt.
+Wird eine Übersetzungsagentur beauftragt oder werden wiederkehrende Textbausteine verwendet, so können Addons wie [Sprog](https://github.com/tbaddade/redaxo_sprog) oder [XOutputFilter](https://github.com/FriendsOfREDAXO/xoutputfilter) (FriendsOfREDAXO) die Verwaltung von Textbausteinen erleichtern. Beide Addons sind praxiserprobt.
 
 ## Suchmaschinen-Optimierung
 
