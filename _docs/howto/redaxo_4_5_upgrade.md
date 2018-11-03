@@ -4,7 +4,7 @@ authors: [skerbis,alexplusde]
 prio:
 --- 
 
-#Weiterführende Tipps nach Konvertierung von REDAXO 4.x zu 5
+# Weiterführende Tipps nach Konvertierung von REDAXO 4.x zu 5
 
 ## Fehler erkennen und Beseitigen
 
