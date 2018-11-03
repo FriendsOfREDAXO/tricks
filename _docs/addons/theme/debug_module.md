@@ -1,6 +1,6 @@
 ---
 title: Function debug_module($value, 'String')
-authors: []
+authors: [elricco, marcohanke]
 prio:
 ---
 
@@ -63,7 +63,7 @@ Anschließend wird die Datei `debug_module.php` in die `functions.php` im Ordner
 if (!rex::isBackend()) {
     // Frontend
 
-    // Optional language switch - Infos: https://github.com/FriendsOfREDAXO/tricks/blob/master/theme_language_switch.md
+    // Optional language switch - Infos: https://friendsofredaxo.github.io/tricks/addons/theme/language_switch
     //include('frontend/clang_switch.php');
 
 } else {
@@ -104,6 +104,6 @@ if(function_exists('debug_module')) {
 ```
 
 <a name="theme-language-switch"></a>
-## Theme Language Switch
+## Theme Language Switch (optional)
 
-Ein Sprachschalter, den man in im Frontend an beliebiger Stelle einbinden kann: [Theme Language Switch](https://github.com/FriendsOfREDAXO/tricks/blob/master/theme_language_switch.md)
+Ein Sprachschalter, den man in im Frontend an beliebiger Stelle einbinden kann: [Theme Language Switch](https://friendsofredaxo.github.io/tricks/addons/theme/language_switch)
