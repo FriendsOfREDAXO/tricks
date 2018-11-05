@@ -5,7 +5,7 @@ prio:
 ---
 
 
-# YForm Tablemanager: zuletzt angelegter Datensatz aktualisieren
+# YForm Tablemanager: Zuletzt angelegten Datensatz aktualisieren
 
 Um dem Datensatz, der via YForm und Tabelmanager neu erzeugt wurde, noch etwas hinzuzufügen (z.B. Status einer Fremd-API Aktion) will man die ID des just erstellen Datensatzes haben. 
 
