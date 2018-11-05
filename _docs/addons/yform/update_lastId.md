@@ -1,6 +1,6 @@
 ---
-title: YForm Tablemanager: zuletzt angelegter Datensatz aktualisieren
-authors: [somphteliba]
+title: "YForm Tablemanager: Zuletzt angelegten Datensatz aktualisieren"
+authors: [omphteliba]
 prio:
 ---
 
