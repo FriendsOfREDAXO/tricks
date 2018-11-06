@@ -4,7 +4,7 @@ __Eine Sammlung nützlicher Tricks zu [REDAXO](https://redaxo.org) CMS ab Versio
 
 Diese Website sammelt Lösungen und hilfreiche Code-Beispiele, die es aus verschiedenen Gründen nicht in die [REDAXO-Dokumentation](https://redaxo.org/doku/master) geschafft haben. Hier sind sie genau richtig, denn sie können von der Community bearbeitet und ergänzt werden. Wenn du mitmachen möchtest, lies weiter!
 
-## Mitmachen
+## ✋ Mitmachen
 
 1. __Öffne GitHub-Issues mit neuen Tricks, Ideen oder Anregungen__  
    Als Issue sammeln wir alles, was interessant sein könnte. Es muss noch nicht ausformuliert werden, sondern es reicht, wenn verständlich ist, worum es geht. Als Anregung dienen oft Diskussionen im Slack oder im Forum. Wenn dir also interessante Themen oder Codeschnipsel in die Finger kommen, halte sie gerne in einem Issue fest!  
