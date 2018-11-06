@@ -1,6 +1,6 @@
 ---
 title: NGINX-Konfiguration für YRewrite
-authors: []
+authors: [skerbis]
 prio:
 ---
 
