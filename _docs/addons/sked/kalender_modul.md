@@ -4,7 +4,7 @@ authors: [javanita]
 prio:
 ---
 
-#Kalender-Modul
+# Kalender-Modul
 
 
 Dieses Modul zeigt die Events im Sked-Kalender in Kalender-Ansicht an.
