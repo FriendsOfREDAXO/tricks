@@ -1,10 +1,10 @@
 ---
-title: Eine "stille" Mail mit yform verschicken
-authors: []
+title: Eine „stille” Mail mit YForm verschicken
+authors: [dtpop]
 prio:
 ---
 
-# Eine "stille" Mail mit yform verschicken
+# Eine „stille” Mail mit YForm verschicken
 
 - [Einleitung](#einleitung)
 - [Umsetzung](#umsetzung)
