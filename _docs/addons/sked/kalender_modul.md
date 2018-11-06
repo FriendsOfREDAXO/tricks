@@ -36,6 +36,8 @@ Dieses im Head notieren oder als Datei einbinden
 
 $(document).ready(function () {
 
+var cat = '';  // wer das script im Einsatz hat, diese Zeile bitte ergänzen
+
       $('#calendar').fullCalendar({
         defaultView: 'month',
         height: 450,
