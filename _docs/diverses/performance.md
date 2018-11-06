@@ -4,7 +4,7 @@ authors: [javanita]
 prio:
 ---
 
-#Performance-Tipps 
+# Performance-Tipps 
 
 Artikel zur Dikussion
 [Issue #7](https://github.com/FriendsOfREDAXO/tricks/issues/7#issuecomment-403207741)
