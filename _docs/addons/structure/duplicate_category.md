@@ -1,6 +1,6 @@
 ---
 title: Kategorie duplizieren mit allen Inhalten
-authors: []
+authors: [gharlan]
 prio:
 ---
 
