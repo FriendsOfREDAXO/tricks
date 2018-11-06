@@ -30,7 +30,7 @@ Nutzer der Suchmaschine xsearch und rex_search finden mit search_it einen geeign
 
 ### Formulare
 
-Der Nachfolger von **XForm** heißt in REDAXO 5 **YForm**. Die Tabellen und Eimnstellungen werden bei der xform-Konvertierung im YConverter übernommen und importiert. Nutzer von **do form!**, finden bei [GitHub](https://github.com/skerbis/doform-6) einen Nachfolger. 
+Der Nachfolger von **XForm** heißt in REDAXO 5 **YForm**. Die Tabellen und Einstellungen werden bei der xform-Konvertierung im YConverter übernommen und importiert. Nutzer von **do form!**, finden bei [GitHub](https://github.com/skerbis/doform-6) einen Nachfolger. Wenn nur wenige Formulare verwendet werden, sollte man über einen Umbau nach YForm nachdenken.  
 
 ### Multiuploads
 
