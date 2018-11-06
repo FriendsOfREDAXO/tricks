@@ -1,13 +1,16 @@
 ---
-title: "Minibeispiel: Events aus sked-Kalender als Kalender im frontend"
-authors: []
+title: "Events aus sked-Kalender als Kalender im Frontend"
+authors: [javanita]
 prio:
 ---
+
+#Kalender-Modul
+
 
 Dieses Modul zeigt die Events im Sked-Kalender in Kalender-Ansicht an.
 In dieser Version werden die Kategorien ausgewählt, die Orte sind hier nicht berücksichtigt.
 
-Ein Beispiel
+**Ein Beispiel**
 
 ![Beispiel](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/sked_modul_calendar.png
  "Beispiel")
@@ -233,7 +236,7 @@ class rex_api_sked_events extends rex_api_function {
 ```
 
 
-**todo**
+**Todo**
 
 - Anzeige der events verbessern
 - Orte zur Auswahl
