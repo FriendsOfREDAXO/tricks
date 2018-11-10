@@ -8,8 +8,6 @@
   subitems:
   - title: Cronjob
     url: /addons/cronjob
-  - title: Focuspoint
-    url: /addons/focuspoint
   - title: MForm
     url: /addons/mform
   - title: Project
