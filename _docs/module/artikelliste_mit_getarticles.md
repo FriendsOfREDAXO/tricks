@@ -9,7 +9,6 @@ prio:
 - [Beschreibung](#beschreibung)
 - [Moduleingabe](#moduleingabe)
 - [Modulausgabe](#modulausgabe)
-- [Linkausgabe mit toLink()](#modulausgabe2)
 
 <a name="beschreibung"></a>
 ## Beschreibung
@@ -84,28 +83,6 @@ if ( is_array( $articles) && count( $articles) > 0) {
 	unset ($articles);
 }
 ?>
-```
-
-<a name="modulausgabe2"></a>
-## Linkausgabe mit toLink()
-
-Die Links können auch mit `toLink()` erstellt werden. Hierbei können Parameter-, Attribute und auch der Surrounding-Tag mit Parameter übergeben werden. `$artOutput` einfach durch den nachfolgenden Code ersetzen. Hier wird als Parameter noch `pdf=1` angehängt um z.B. die PDF-Erzeugung anzustoßen. 
-
-```php
-$artOutput .= $article->toLink( 
-  [ 'pdf' => '1'
-  ],
-  [
-  'class' =>  $class,
-  'rel' => '_blank', 
-  'alt' => $articleName
-  ],
-  'li',
-  [
-  'class' =>  $class,
-  'title' => $articleName 
-  ] 
-);
 ```
 
 
