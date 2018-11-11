@@ -1,6 +1,6 @@
 ---
 title: "Einfache Artikelliste / getArticles / toLink"
-authors: []
+authors: [skerbis]
 prio:
 ---
 
