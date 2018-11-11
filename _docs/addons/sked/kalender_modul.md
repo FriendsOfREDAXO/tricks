@@ -30,9 +30,9 @@ Fullcalendar-files im Template einbinden:
 ```
 
 ## JS
-Dieses im Head notieren oder als Datei einbinden
+Dieses am Ende vor </body> und nach allen anderen Scripten notieren oder als Datei einbinden
 
-```
+```js
 /* 
  * div calendar fullcalendar zuweisen, konfigurieren, rex-api aufrufen
  */
@@ -220,7 +220,7 @@ class rex_api_sked_events extends rex_api_function {
 ?>
 ```
 ## CSS
-```
+```css
 /* *************** FullCalendar ******************** */
 
 /* wenn die Uhrzeit nicht angezeigt werden soll */
