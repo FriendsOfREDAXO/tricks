@@ -13,7 +13,7 @@ Wenn sich eine REDAXO-Website in der Entwicklung befindet, kann es sein, dass de
 
 ## 1. Maintenance-AddOn
 
-https://github.com/FriendsOfREDAXO/maintenance
+[GitHub](https://github.com/FriendsOfREDAXO/maintenance)
 
 
 ## 2. XOutputFilter
