@@ -1,6 +1,6 @@
 ---
 title: "Kategorielisten mit getChildren()"
-authors: []
+authors: [skerbis]
 prio:
 ---
 
