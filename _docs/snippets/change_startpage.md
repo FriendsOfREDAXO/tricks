@@ -6,10 +6,10 @@ prio:
 
 # Startseite überschreiben
 
-Mit dem nachfolgenden Code kann die Startseite abseits der Systemkonfiguration geändert werden, z.B. für einen Saisonalen Wechsel. 
+Mit dem nachfolgenden Code kann die Startseite abseits der Systemkonfiguration geändert werden, z. B. für einen saisonalen Wechsel. 
 
 ```php
-// in die Boot eines AddOns, z.B. projekt setzen
+// in die Boot eines AddOns, z.B. project-AddOn oder Theme-AddOn setzen
 
 $structureAddon = rex_addon::get('structure');
 
