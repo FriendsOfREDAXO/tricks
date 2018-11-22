@@ -22,7 +22,7 @@ Für einen bestimmten Artikel
 
 ## Funktion zum Auslesen des Benutzernamens
 
-Meist möchte man nicht die Logins der Autorenm, sondern den vollständigen in der Benutzerverwaltung hinterlegten Namen des Autors. Hierzu bietet sich folgende PHP-Function an um je Autor-Typ den Namen auszulesen. Wird die Function oft benötigt, bietet es sich an diese zentral im Theme-AddOn oder Projekt-AddOn abzulegen. Der hier gezeigte Code zeigt ein Beispiel für die Verwendung innerhalb eines Moduls oder Templates: 
+Meist möchte man nicht die Logins der Autoren, sondern den vollständigen in der Benutzerverwaltung hinterlegten Namen des Autors. Hierzu bietet sich folgende PHP-Function an, um je Autor-Typ den Namen auszulesen. Wird die Function oft benötigt, bietet es sich an, diese zentral im Theme-AddOn oder Project-AddOn abzulegen. Der hier gezeigte Code zeigt ein Beispiel für die Verwendung innerhalb eines Moduls oder Templates: 
 
 ```php 
 if (!function_exists('getAuthor')) {
