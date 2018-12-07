@@ -33,7 +33,7 @@ if (!function_exists('getAuthor')) {
     $user_sql = rex_sql::factory(); 
 
     // aus der sql-DB den Namen des Nutzers auslesen
-    $user_sql->setQuery("SELECT name FROM " . rex::getTable('user') . " WHERE login = :login",  array(":login" => $art_author)); 
+    $user_sql->setQuery("SELECT name FROM " . rex::getTable('user') . " WHERE login = :login",  array(":login" => $author)); 
 
     // Übergabe
     return rex_escape($user_sql->getValue('name')); 
