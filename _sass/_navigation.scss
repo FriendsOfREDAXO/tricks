@@ -51,7 +51,6 @@
 }
 
 .navigation__item--home {
-  padding-bottom: 10px;
 }
 
 .navigation__link,
@@ -90,6 +89,7 @@
 }
 
 .navigation__toggle {
+  margin-top: 10px;
   font-weight: 600;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -98,7 +98,6 @@
 }
 
 .navigation__sub {
-  padding: 0 0 10px 0;
   overflow: hidden;
   height: 0;
   -webkit-transform: translate3d(20px, 0, 0);
