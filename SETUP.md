@@ -22,6 +22,7 @@ Um die Website lokal einzurichten, sind folgende Schritte notwendig:
         $ gem install bundler
 
     Sollte es zu einer Fehlermeldung wie dieser kommen:
+
         ERROR:  While executing gem ... (Gem::FilePermissionError)
         You don't have write permissions for the /var/lib/gems/2.3.0 directory.
 
@@ -33,6 +34,7 @@ Um die Website lokal einzurichten, sind folgende Schritte notwendig:
         $ bundle install
 
     Sollte es zu einer Fehlermeldung wie dieser kommen:
+
         Your user account isn't allowed to install to the system RubyGems.
         You can cancel this installation and run:
 
