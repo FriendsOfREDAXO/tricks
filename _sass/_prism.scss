@@ -28,3 +28,8 @@ blockquote :not(pre) > code {
   border-radius: 3px;
   white-space: normal;
 }
+
+h1 > code,
+h2 > code {
+  font-size: 75%;
+}
