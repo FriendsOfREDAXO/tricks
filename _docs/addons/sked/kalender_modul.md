@@ -133,6 +133,8 @@ if ($categoryId == '') {
 
 
 ## Klasse
+
+Events.php
 Diese Klasse in project/lib speichern.
 
 ```php
@@ -196,6 +198,8 @@ class Events {
 ```
 
 ## API
+
+rex_api_sked_events.php
 Das API ebenfalls in project/lib speichern
 
 ```php
