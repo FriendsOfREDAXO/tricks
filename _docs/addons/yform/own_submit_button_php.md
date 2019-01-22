@@ -15,7 +15,6 @@ $yform->setObjectparams('submit_btn_show',false);
 ```
 
 ## Eigenen Button per HTML-Value einfügen
-Egal wohin, muss nur erreichbar sein von `rex_extension::register`.
 ```php
 $yform->setValueField('html', array("html","HTML",'<button type="submit" class="btn btn-info btn-block">Jetzt absenden</button>'));
 ```
