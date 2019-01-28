@@ -1,6 +1,6 @@
 ---
 title: "Artikelliste als RSS-FEED"
-authors: []
+authors: [skerbis]
 prio:
 ---
 
