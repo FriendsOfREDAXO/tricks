@@ -6,7 +6,7 @@ prio:
 
 # Geschütze Dateien mit YCom - per Template
 
-> Mit der ycom Version 3.0 wird das Plugin media_auth mitgeliefert. Hiermit lassen sich einzelne Dateien ohne weitere Anpassungen schützen. Um eine bestimmte Kategorie mit allen Inhalten zu schützen, ist die hier vorgestellte Methode nötig.
+> **Hinweis** Mit der ycom Version 3.0 wird das Plugin media_auth mitgeliefert. Hiermit lassen sich einzelne Dateien ohne weitere Anpassungen schützen. Die nachfolgende Anleitung zeigt einen alternativen Weg zum Schutz festgelegter Kategorien. 
 
 
 ### Wie kann man Dateien in Verbindung mit YCom (Community Addon) einfach schützen?
