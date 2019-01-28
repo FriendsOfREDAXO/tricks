@@ -6,29 +6,31 @@ prio:
 
 ## Durchsuchbare Icon-Übersicht
 
-In der CSS-Datei "style.css", die vom Addon 'be_style' bereitgestellt wird, sind Icons aus mehreren
+In der CSS-Datei `style.css`, die vom Addon 'be_style' bereitgestellt wird, sind Icons aus mehreren
 Quellen enthalten.
 
-* FontAwesome (.fa)
-* Glyhicons aus Bootstrap (.glyphicon)
-* Redaxo-Icons (.rex-icon) auf Basis von FontAwesome
+* FontAwesome (`.fa`)
+* Glyhicons aus Bootstrap (`.glyphicon`)
+* Redaxo-Icons (`.rex-icon`) auf Basis von FontAwesome
 
 Aber welche gibt es denn nun? Und wie sehen sie aus? Dazu kann man z.B. auf die Webseiten von 
 [FontAwesome](https://fontawesome.com/) oder [Bootstrap](https://getbootstrap.com/) gehen und suchen -
 aber bitte die richtige Version auswählen, die auch in Redaxo im Einsatz ist. Und wo findet sich die Übersicht der rex-icon?
 
 Eine Hilfsseite im Redaxo-Backend soll schnelle Übersicht über die tatsächlich vorhandenen
-Icons der 'style.css' schaffen und auch die rex-icon ausweisen.
+Icons der `style.css` schaffen und auch die rex-icon ausweisen.
 
-'style.css' ist per SCSS erzeugt, daher sehr klar aufgebaut und leicht durchsuchbar. Die Einträge
+`style.css` ist per SCSS erzeugt, daher sehr klar aufgebaut und leicht durchsuchbar. Die Einträge
 für Icons sehen z.B. so aus:
-```
+
+```css
 .fa-user:before,.rex-icon-user:before,.rex-icon-userrole:before{content:"\f007"}
 ```
+
 Sie lassen sich leicht herausfiltern und aufbereitet als Page ausgeben. Zusätzlich wird eine Such- und
 Selektier-Möglichkeit geschaffen: 
 
-* Per Checkbock selektieren, welche Gruppe angezeigt wird (.fa, .glyphicon, .rex-icon)
+* Per Checkbock selektieren, welche Gruppe angezeigt wird (`.fa`, `.glyphicon`, `.rex-icon`)
 * Volltextsuche in den Icon-Bezeichnern (Im Beispiel: "user,userrole").
 
 ![](https://user-images.githubusercontent.com/10065904/51799583-01265580-2223-11e9-9746-b32004ea5edf.png)
@@ -36,14 +38,14 @@ Selektier-Möglichkeit geschaffen:
 Zudem kann mit Doppelklick auf den Namen der zugehörige HTML-Tag generiert und ins Clipboard übertragen werden.
 Beispiel: Doppelklick auf das Wort "times" im rechten Kästchen erzeugt `<i class=fa fa-times"></i>`.
 
-Die 'style.css' wird nur einmal durchsucht und der HTML-Code zur Anzeige aufbereitet im Cache-Verzeichnis
+Die `style.css` wird nur einmal durchsucht und der HTML-Code zur Anzeige aufbereitet im Cache-Verzeichnis
 abgelegt. Die Icons sind nach Unicode aufsteigend sortiert. 
 
 Das Script ist konzipiert als Seite in einem Service-Addon - z.B. im "Projekt-Addon".
 
 * Script speichern als `«domain»/redaxo/src/addons/project/pages/icons.php`
 * icons.php als Seite über `package.yml` einbinden
-    ```
+    ```yml
     page:
         title: 'Projekt-Addon'
         perm: project[]
