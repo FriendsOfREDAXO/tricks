@@ -23,7 +23,6 @@ charset utf-8;
 
 rewrite ^/sitemap\.xml$                           /index.php?rex_yrewrite_func=sitemap last;
 rewrite ^/robots\.txt$                            /index.php?rex_yrewrite_func=robots last;
-rewrite ^/download[s]?/([^/]*)                    /index.php?download_utility=download&file=$1 last;
 rewrite ^/media[0-9]*/imagetypes/([^/]*)/([^/]*)  /index.php?rex_media_type=$1&rex_media_file=$2&$args;
 rewrite ^/images/([^/]*)/([^/]*)                  /index.php?rex_media_type=$1&rex_media_file=$2&$args;
 rewrite ^/imagetypes/([^/]*)/([^/]*)              /index.php?rex_media_type=$1&rex_media_file=$2;
