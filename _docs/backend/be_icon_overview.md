@@ -43,8 +43,15 @@ abgelegt. Die Icons sind nach Unicode aufsteigend sortiert.
 
 Das Script ist konzipiert als Seite in einem Service-Addon - z.B. im "Projekt-Addon".
 
-* Script speichern als `«domain»/redaxo/src/addons/project/pages/icons.php`
-* icons.php als Seite über `package.yml` einbinden
+* Script speichern als `«domain»/redaxo/src/addons/project/pages/icons.php` (falls der Ordner `pages` nicht vorhanden ist, diesen vorher erstellen)
+* Script `icons.php` jetzt in der `index.php` des `pages`-Orders einbinden (falls die Datei `index.php` nicht vorhanden ist, diese neu erstellen)
+```<?php
+
+echo rex_view::title('AddOn: project');
+include('icons.php');
+
+?>```
+* Seite über `package.yml` einbinden
     ```yml
     page:
         title: 'Projekt-Addon'
@@ -54,8 +61,6 @@ Das Script ist konzipiert als Seite in einem Service-Addon - z.B. im "Projekt-Ad
                 title: 'Icons'
                 icon: fa fa-table
     ```
-
-
 Und hier das Script inklusive CSS und JS:
 
 ```php
