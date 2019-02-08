@@ -49,7 +49,7 @@ Das Script ist konzipiert als Seite in einem Service-Addon - z.B. im "Projekt-Ad
   <?php
 
   echo rex_view::title('AddOn: project');
-  include('icons.php');
+  rex_be_controller::includeCurrentPageSubPath();
 
   ?>
   ```
