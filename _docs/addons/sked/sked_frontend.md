@@ -76,7 +76,7 @@ function sked_fullcalendar(sked) {
 
 ```
 
-> wird kein Rewriter verwendet muss 'window.location.replace(base_link + `?event_id=' + calEvent.id);` in `window.location.replace(base_link + '&event_id=' + calEvent.id);`
+> wird kein Rewriter verwendet muss `window.location.replace(base_link + '?event_id=' + calEvent.id);` in `window.location.replace(base_link + '&event_id=' + calEvent.id);`
 geändert werden. 
 
 Anschließend bindet man die erforderlichen JS und CSS für die Frontendausgabe im Template ein. 
