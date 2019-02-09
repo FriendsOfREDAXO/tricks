@@ -1,11 +1,13 @@
 ---
-title: "Events aus sked-Kalender als Kalender im Frontend"
+title: "Sked / Fullcalender im Frontend (Ausgabe nach Kategorie)"
 authors: [javanita]
 prio:
 ---
 
+
 # Kalender-Modul
 
+Sked / Fullcalender im Frontend (Ausgabe nach Kategorie)
 
 Dieses Modul zeigt die Events im Sked-Kalender in Kalender-Ansicht an.
 In dieser Version werden die Kategorien ausgewählt, die Orte sind hier nicht berücksichtigt.
