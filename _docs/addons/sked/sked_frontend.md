@@ -112,18 +112,19 @@ if(!is_null(rex_request::get('event_id', 'integer', null))) {
     // dump($data);
     $header = '<div class="sked-title">';
     $header .= '<h1>'.$data['title'].'</h1>';
-    $header .= '<span class="newsmeta small">'.\Sked\Utils\SkedDateTimeHelper::getFromToDate(new \DateTime($data['start']), new \DateTime($data['end'])). ' ' . \Sked\Utils\SkedDateTimeHelper::getFromToTime(new \DateTime($data['start']), new \DateTime($data['end'])) . '</span> ';
+    $header .= '<span class="sked-meta">' . \Sked\Utils\SkedDateTimeHelper::getFromToDate(new \DateTime($data['start']), new \DateTime($data['end'])) . ' ' . \Sked\Utils\SkedDateTimeHelper::getFromToTime(new \DateTime($data['start']), new \DateTime($data['end'])) . '</span> ';
     $header .= '<hr style="border-color:'.$data['color'].'"> ';
+    // Backlink
     $header .= '<div class="pull-left">
-    <a class="btn btn-primary" href="'.rex_getUrl('REX_ARTICLE_ID', rex_clang::getCurrentId()).'">
-    <i class="fa fa-chevron-left" aria-hidden="true"></i> Kalender</a>
+    <a class="btn btn-primary" href="'.rex_getUrl('REX_ARTICLE_ID', rex_clang::getCurrentId()).'">Kalender</a>
     </div>';
+    // Bild
     if (!empty($data['entries_image'])) {
-        $header .= '<img class="img-responsive" src="/media/'.$data['entries_image'].'">';
+        $header .= '<img class="sked-img" src="/media/'.$data['entries_image'].'">';
     }
     $header .= '</div>';
-    $teaser = '<div class="teaser">'.$data['teaser'].'</div>';
-    echo $header.$teaser.'<article class="newstext">'.$data['text'].'</article>';
+    $teaser = '<div class="sked-teaser">'.$data['teaser'].'</div>';
+    echo $header.$teaser.'<article class="sked-text">'.$data['text'].'</article>';
 } 
 // Kalender ausgeben
 else {
