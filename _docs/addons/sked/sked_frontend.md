@@ -113,7 +113,6 @@ if(!is_null(rex_request::get('event_id', 'integer', null))) {
     $header = '<div class="newsheader">';
     $header .= '<h1>'.$data['title'].'</h1>';
     $header .= '<span class="newsmeta small">'.\Sked\Utils\SkedDateTimeHelper::getFromToDate(new \DateTime($data['start']), new \DateTime($data['end'])). ' ' . \Sked\Utils\SkedDateTimeHelper::getFromToTime(new \DateTime($data['start']), new \DateTime($data['end'])) . '</span> ';
-    // $header .= '<span class="newsmeta small">'.fvn_newscat($cat).'</span>';
     $header .= '<hr style="border-color:'.$data['color'].'"> ';
     $header .= '<div class="pull-left">
     <a class="btn btn-primary" href="'.rex_getUrl('REX_ARTICLE_ID', rex_clang::getCurrentId()).'">
