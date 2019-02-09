@@ -1,5 +1,5 @@
 ---
-title: "Einbindung des sked Kalenders im Frontend"
+title: "Sked im Frontend"
 authors: [skerbis,joachimdoeer]
 prio:
 ---
