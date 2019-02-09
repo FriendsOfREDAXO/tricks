@@ -1,6 +1,6 @@
 ---
 title: "Sked im Frontend"
-authors: [skerbis,joachimdoeer]
+authors: [skerbis,joachimdoerr]
 prio:
 ---
 
