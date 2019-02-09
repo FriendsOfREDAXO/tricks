@@ -4,7 +4,7 @@ authors: [joachimdoerr,skerbis]
 prio:
 ---
 
-# Sked im Frontend
+# Sked als FullCalendar im Frontend
 
 inkl. Anzeige einer Detailseite 
 
