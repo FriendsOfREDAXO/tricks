@@ -102,7 +102,7 @@ JQuery sollte auch eingebunden sein. Die Skripte sollten im Header oder vor dem 
 
 ## Das Modul für die Ausgabe. 
 
-Es besteht nur aus einem Ausgabecode
+Es besteht nur aus einem Ausgabecode. (Diesen ggf. den eigenen Stilen entsprechend anpassen)
 
 ```php 
 <?php
@@ -110,7 +110,7 @@ Es besteht nur aus einem Ausgabecode
 if(!is_null(rex_request::get('event_id', 'integer', null))) {
     $data = \Sked\Handler\SkedHandler::exchangeEntry(rex_request::get('event_id'), false);
     // dump($data);
-    $header = '<div class="newsheader">';
+    $header = '<div class="sked-title">';
     $header .= '<h1>'.$data['title'].'</h1>';
     $header .= '<span class="newsmeta small">'.\Sked\Utils\SkedDateTimeHelper::getFromToDate(new \DateTime($data['start']), new \DateTime($data['end'])). ' ' . \Sked\Utils\SkedDateTimeHelper::getFromToTime(new \DateTime($data['start']), new \DateTime($data['end'])) . '</span> ';
     $header .= '<hr style="border-color:'.$data['color'].'"> ';
