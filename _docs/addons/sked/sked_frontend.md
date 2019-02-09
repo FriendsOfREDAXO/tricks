@@ -1,5 +1,5 @@
 ---
-title: "Sked im Frontend"
+title: "Sked im Frontend (FullCalendar)"
 authors: [joachimdoerr,skerbis]
 prio:
 ---
