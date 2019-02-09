@@ -81,14 +81,14 @@ geändert werden.
 
 Anschließend bindet man die erforderlichen JS und CSS für die Frontendausgabe im Template ein. 
 
-###CSS
+### CSS
 
 ```html
 <link rel="stylesheet" href="<?= rex_url::base('assets/addons/sked/vendor/fullcalendar/fullcalendar.min.css') ?>"> 
 ```
 
 
-###Javascript 
+### Javascript 
 
 JQuery sollte auch eingebunden sein. Die Skripte sollten im Header oder vor dem schließenden body Tag eingebunden werden.  
 
