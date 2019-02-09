@@ -11,10 +11,10 @@ inkl. Anzeige einer Detailseite
 ## CSS und Javascript 
 
 Zunächst erstellt man ein Javascript zur Initialisierung des Kalenders. Dieses verwendet die API um sich die Termine des Kalenders zu holen. 
-Es sucht auf der Website einen Container mit der ID #sked in dem der Kalender ausgegeben wird. Hier wird ein Kalender inkl. Terminlsute ausgegeben. 
-Dies lässt sich leicht anpassen und den eigenen Wünschen entsprechend anpassen. Weitere Infos dazu hier: [FullCalendar - JavaScript Event Calendar](https://fullcalendar.io/) 
+Es sucht auf der Website einen Container mit der ID `#sked` in dem der Kalender ausgegeben wird. Hier wird ein Kalender inkl. Terminliste ausgegeben. 
+Dies lässt sich leicht anpassen und den eigenen Wünschen entsprechend gestalten. Weitere Infos dazu hier: [FullCalendar - JavaScript Event Calendar](https://fullcalendar.io/) 
 
-Das Skript legt man z.B. unter '/assets/js/sked.js' ab 
+Das Skript legt man z.B. unter `/assets/js/sked.js ab 
 
 ```js
 $(function () {
