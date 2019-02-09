@@ -4,7 +4,7 @@ authors: [skerbis,joachimdoeer]
 prio:
 ---
 
-# Einbindung des sked Kalenders im Frontend
+# Sked im Frontend
 
 inkl. Anzeige einer Detailseite 
 
