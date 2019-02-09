@@ -107,7 +107,7 @@ Es besteht nur aus einem Ausgabecode
 ```php 
 <?php
 // Ausgabe der Detail-Seite
-if(!is_null(rex_request::get('event_id', integer, null))) {
+if(!is_null(rex_request::get('event_id', 'integer', null))) {
     $data = \Sked\Handler\SkedHandler::exchangeEntry(rex_request::get('event_id'), false);
     // dump($data);
     $header = '<div class="newsheader">';
