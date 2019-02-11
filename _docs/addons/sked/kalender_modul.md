@@ -1,13 +1,15 @@
 ---
-title: "Sked / Fullcalender im Frontend (Ausgabe nach Kategorie)"
+title: "Sked / Fullcalender im Frontend (eigene REX-API-Lösung)"
 authors: [javanita]
 prio:
 ---
 
 
-# Kalender-Modul
+# SKED Kalender-Modul, unter Verwendung der REX-API
 
 Sked / Fullcalender im Frontend (Ausgabe nach Kategorie)
+
+> Diese Lösung entspricht nicht den für Sked vorgesehen Weg. Zeigt aber, wie man selbst mittels der REX-API das erforderliche JSON für eine Javascript Applikation ausliefern kann. 
 
 Dieses Modul zeigt die Events im Sked-Kalender in Kalender-Ansicht an.
 In dieser Version werden die Kategorien ausgewählt, die Orte sind hier nicht berücksichtigt.
