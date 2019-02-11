@@ -32,7 +32,7 @@ prio:
 * Den konvertierten-Button für XForm drücken
 * Die XForm-Tabellen an REDAXO 5 übertragen
 
-** R5.6-Website (neue Website)**
+**R5.6-Website (neue Website)**
 
 * Cache löschen – alle Inhalte sind jetzt da
 * YRewrite einrichten
