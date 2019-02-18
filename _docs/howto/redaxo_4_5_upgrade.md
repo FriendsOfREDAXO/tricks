@@ -19,6 +19,14 @@ Nach der Konvertierung sollten sämtliche SEO42:: Codes in den Templates und Mod
 
 SEO42 kann durch **YRewrite** in Kombination mit **YRewrite Scheme** oder in Kombination mit **XCore** ersetzt werden. XCORE ist vom selben Entwickler von SEO42, das einige bekannte Funktionalitäten von SEO42 bereitstellt. 
 
+### Slice on / off
+
+Dies Funktion wird in REDAXO 5 vom Addon `bloecks` übernommen 
+* `bloecks` installieren und unter Addons das bloecks-plugin `status` installieren.
+* Über die Datenbank (PHPMyAdmin oder REDAXO 5-Addon `adminer`) die alten Werte kopieren: `UPDATE rex_article_slice SET status = a356_is_online`
+* Anschließend kann das Feld „a356_is_online“ in der Tabelle `rex_article_slice` entfernt werden
+
+
 ### Editoren
 Die in REDAXO 4 bekannten Text-Editoren finden sich auch im REDAXO 5-Installer. 
 
