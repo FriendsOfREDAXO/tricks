@@ -43,6 +43,7 @@ if (!function_exists('getcustomLink')) {
     // Beipiel für die Rückgabe , gerne selbst anpassen
     $link = '<a class="link" href="'.$url.'">'.$linkText.'</a>';
     return $link; 
+   }
   }
 }
 ``` 
