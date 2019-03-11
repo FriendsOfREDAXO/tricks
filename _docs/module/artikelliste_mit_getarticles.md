@@ -38,7 +38,6 @@ An die aktuelle Kategorie gelangen wir mit `rex_category::getCurrent()`. Mit `->
 In einer foreach-Schleife werden die einzelnen Artikel abgearbeitet und deren Eigenschaften (z.B. Metadaten) ausgelesen. Hier erstellen wir eine UL-LI-Liste (unordered List) als Ausgabe. Die einzelnen Listenpunkte werden in der Variable `$artOutput` zwischengespeichert und später ausgegeben. So ist es später einfach einen eigenen Wrapper oder andere Formatierungen anzuwenden. 
 
 ```php
-<?php 
 $articleId = $class = $articleName =  $artOutput = "";  
 
 // Aktuelle Kategorie ermitteln und Artikel auslesen
@@ -82,7 +81,6 @@ if ( is_array( $articles) && count( $articles) > 0) {
 	echo '<ul class="catlist">'.$artOutput.'</ul>';
 	unset ($articles);
 }
-?>
 ```
 
 
