@@ -134,5 +134,5 @@ if ($cats) {
 	echo '<ul class="catlist">'.$catoutput.'</ul>';
 	unset ($cats);
 }
-?>
+
 ```
