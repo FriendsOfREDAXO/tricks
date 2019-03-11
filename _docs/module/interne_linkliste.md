@@ -37,23 +37,23 @@ In der REX_Linklist werden die Werte (Artikel-IDs) kommasepariert gespeichert.
 In der Modulausgabe werden die Werte mitels explode (http://php.net/manual/de/function.explode.php) in einer foreach-Schleife ausgelesen. Anhand der ID holt man sich den Datensatz des Artikels. Wenn nur ein Link erzeugt werden soll, bietet sich die direkte Umwandlung des Datensatzes in einen Link mittels `->toLink()` an. 
 
 ```php
-			if ("REX_LINKIST[1]" != "") {
-				$menu = array();
-				foreach(explode(',', 'REX_LINKLIST[1]') as $articleId) {
+if ("REX_LINKIST[1]" != "") {
+  $menu = array();
+  foreach(explode(',', 'REX_LINKLIST[1]') as $articleId) {
 
-					// Artikeldatensatz auslesen
-					$article = rex_article::get($articleId);
-					if ($article) {
+    // Artikeldatensatz auslesen
+    $article = rex_article::get($articleId);
+    if ($article) {
 
-						// Erstelle Link aus aktuellem Artikel
-						$menu[$articleId] = $article->toLink();
-					}
-				}
+      // Erstelle Link aus aktuellem Artikel
+      $menu[$articleId] = $article->toLink();
+    }
+  }
 
-				// Ausgabe mit implode: http://php.net/manual/de/function.implode.php
-				if (! empty($menu)) {
-					echo '<ul><li>', implode('</li><li>', $menu), '</li></ul>';
-				}
-			}
-			?>
+  // Ausgabe mit implode: http://php.net/manual/de/function.implode.php
+  if (! empty($menu)) {
+    echo '<ul><li>', implode('</li><li>', $menu), '</li></ul>';
+  }
+}
+
 ```
