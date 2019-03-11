@@ -37,14 +37,6 @@ In der REX_Linklist werden die Werte (Artikel-IDs) kommasepariert gespeichert.
 In der Modulausgabe werden die Werte mitels explode (http://php.net/manual/de/function.explode.php) in einer foreach-Schleife ausgelesen. Anhand der ID holt man sich den Datensatz des Artikels. Wenn nur ein Link erzeugt werden soll, bietet sich die direkte Umwandlung des Datensatzes in einen Link mittels `->toLink()` an. 
 
 ```php
-<div class="panel panel-default">
-	<div class="panel-heading">
-		<i class="fa fa-paperclip"></i> Linkliste
-	</div>
-	<div class="panel-body">
-		<div class="body-wrapper">
-
-			<?php
 			if ("REX_LINKIST[1]" != "") {
 				$menu = array();
 				foreach(explode(',', 'REX_LINKLIST[1]') as $articleId) {
@@ -64,7 +56,4 @@ In der Modulausgabe werden die Werte mitels explode (http://php.net/manual/de/fu
 				}
 			}
 			?>
-		</div>
-	</div>
-</div>
 ```
