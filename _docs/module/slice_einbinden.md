@@ -18,7 +18,6 @@ Es wird zusätzlich eine Presave-Aktion benötigt.
 //------------------------------------------------------------------------------------------
 // Ursprung: Slice-HiJacker für Redaxo 4.3.2
 // von: Mirco Brandes/Gerald Rusche GERUWEB
-// Umsetzung für REDAXO 5: Thomas Skerbis
 //-------------------------------------------------------------------------------------------
 ?>
 <div class="alert alert-dismissible alert-info"> Mit diesem Block können Sie Inhalte anderer Artikel veröffentlichen bzw. einbinden. Bitte beachten Sie: Wenn das Original gelöscht wird wirkt sich dies auch auf den Inhalt des Artikels, in dem der Inhalt eingebunden ist, aus. Es wird keine Kopie erstellt. Die Daten sind miteinander verknüpft. Wird im Original was verändert sieht man die Änderung auch an dieser Stelle. </div>
