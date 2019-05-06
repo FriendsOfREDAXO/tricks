@@ -18,7 +18,6 @@ function stamp_file ($filename_with_path) {
     if (!$ftime = @filemtime($file)) {
         return $filename_with_path;
     }
-    ;
     return $filename_with_path.'?time='.$ftime;
 
 }
