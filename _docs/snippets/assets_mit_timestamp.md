@@ -15,10 +15,10 @@ Diese Funktion wird am besten im Project-AddOn hinterlegt oder in der functions.
 ```php
 function stamp_file ($filename_with_path) {    
     $file = rtrim(rex_path::base(),'/').$filename_with_path;    
-    if (!file_exists($file)) {
+    if (!$ftime = @filemtime($file)) {
         return $filename_with_path;
     }
-    $ftime = filemtime($file);
+    ;
     return $filename_with_path.'?time='.$ftime;
 
 }
