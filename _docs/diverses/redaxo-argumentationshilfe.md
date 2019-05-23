@@ -26,6 +26,14 @@ Für REDAXO gibt es ausreichende und praxiserprobte Erweiterungen für die meist
 
 Außerdem haben sich einige Entwickler in der REDAXO-Community zu einer Gruppe zusammengeschlossen: FriendsOfREDAXO. Diese Gruppe ist darauf bedacht, dass es nützliche Erweiterungen gibt, die auch untereinander kompatibel bleiben und reagieren auf Wünsche der Nutzer.
 
+
+## Versionierung
+
+> "Können Änderungen an Inhalten nachverfolgt werden?" 
+
+Im Lieferumfang von REDAXO ist das Version-PlugIn enthalten, das es ermöglicht Änderungen an Artikeln nachzubverfolgen und ggf. alte Versionen wiederherzustellen. Darüber hinaus unterstützt auch YForm die Versionierung von Datensätzen. 
+
+
 ## Mehrsprachigkeit
 
 > "Unsere Website muss mehrsprachig sein. Geht das mit REDAXO?" 
