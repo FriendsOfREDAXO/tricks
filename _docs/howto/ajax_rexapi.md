@@ -100,7 +100,7 @@ Was passiert eigentlich, wenn man **rex\_api\_xyz** vorzeitig abwürgt, bevor de
 Wenn man die Funktion mit `exit;` oder `die();` statt des `return;` bendet?
 
 ```php
-    class rex_api_xyz extends rex_api
+    class rex_api_xyz extends rex_api_function
     {
         function execute()
 	{
