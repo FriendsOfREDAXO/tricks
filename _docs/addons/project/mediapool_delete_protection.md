@@ -1,6 +1,6 @@
 ---
-title: Pagination
-authors: [dpf-dd, skerbis]
+title: "Medienpool: Erweiterter Schutz vor dem Löschen von Daten"
+authors: [dpf-dd]
 prio:
 ---
 
