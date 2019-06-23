@@ -88,6 +88,8 @@ if (rex::isBackend() && rex_request('table_name') == 'rex_test') {
 Im Table Manager lässt sich _ein_ DB-Feld für die Sortierung der Backendausgabe festlegen. 
 Manchmal ist eine komplexere Sortierung sinnvoll: `ORDER BY column1, column2`
 
+>Hinweis: Das geht nur, solange keine andere Spalte zum Sortieren ausgewählt wird. Will man eine andere Spalte zum sortieren auswählen wirft der EP nicht das passende Query aus.
+
 Folgendes Snippet kann im Projekt Addon oder Theme Addon platziert werden und ermöglicht es die Sortierung zu erweitern:
 
 ### Ausführliches Beispiel
