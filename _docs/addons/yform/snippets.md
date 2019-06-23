@@ -1,6 +1,6 @@
 ---
 title: Nützliche YForm-Snippets
-authors: [netzproductions,pschuchmann,rotzek]
+authors: [isospin,netzproductions,pschuchmann,rotzek]
 prio:
 ---
 
@@ -85,6 +85,39 @@ if (rex::isBackend() && rex_request('table_name') == 'rex_test') {
 <a name="ytlistsort"></a>
 ## Table Manager: Extensionpoint | Listensortierung beeinflussen
 
+Im Table Manager lässt sich _ein_ DB-Feld für die Sortierung der Backendausgabe festlegen. 
+Manchmal ist eine komplexere Sortierung sinnvoll: `ORDER BY column1, column2`
+
+Folgendes Snippet kann im Projekt Addon oder Theme Addon platziert werden und ermöglicht es die Sortierung zu erweitern:
+
+### Ausführliches Beispiel
+
+```php
+if(rex::isBackend() && rex_addon::get('yform')->isAvailable() && rex_plugin::get('yform', 'manager')->isAvailable() &&
+   rex_be_controller::getCurrentPage() == 'yform/manager/data_edit' && rex_request('table_name') == '<TABLE_NAME>') {
+	rex_extension::register('YFORM_DATA_LIST_SQL', function(rex_extension_point $ep){
+		$sortField = $ep->getParam('table')->getSortFieldName();
+		$sortOrder = $ep->getParam('table')->getSortOrderName();
+		$fields = $ep->getParam('table')->getFields();
+
+		// dont prevent sorting of other columns
+		if(rex_request("sort") != "" && rex_request("sort") != $sortField) {
+			return;
+		}
+
+		$subject = preg_replace(
+			"@ORDER BY `id` ASC$@i", "ORDER BY <SOMETHING ELSE>",
+			$ep->getSubject()
+		);
+
+		$ep->setSubject($subject);
+	}, rex_extension::LATE);
+}
+```
+`<TABLE_NAME>` und `<SOMETHING ELSE>` austauschen und  darauf achten das in der Tabellen Konfiguration die Standardsortierung auf `id` und die Richtung auf  `aufsteigend` steht.
+
+
+### Einfaches Beispiel zur Verwendung des EP
 
 ```php
 rex_extension::register('YFORM_DATA_LIST_SQL', function ($ep) {
