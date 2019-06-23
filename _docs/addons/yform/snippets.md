@@ -30,7 +30,7 @@ if (rex::isBackend())
 
 ``` 
 
-<a name="ytbilder"></a>
+<a name="Spalteninhalt"></a>
 ## Table Manager: Spalteninhalt vor Anzeige in Übersicht ändern
 
 Beim Einsatz einer YForm-Tabelle im eigenen AddOn kann für beliebige Spalten vor der Anzeige in der Übersicht der Wert manipuliert und ggf. mit Werten aus derselben Tabellenzeile kombiniert werden. Dabei müssen die benötigten anderen Werte der Zeile als Parameter übergeben werden (im Beispiel die Spalte "name"). Konkret wird hier in der Anzeige der Spalte "title" der Wert der Spalte "name" angehängt.
@@ -60,7 +60,7 @@ if (rex::isBackend())
 
 Das Snippet kommt am besten in die boot.php des project-AddOns.
 
-<a name="spalteausblenden"></a>
+<a name="ytbilder"></a>
 ## Table Manager: Bilderspalte in Tabellenansicht (Bild statt Dateiname)
 
 Der Code kommt entweder in die boot Datei des Projekt AddOns oder in die Boot Datei des Theme Addons (wer damit arbeitet) oder in eine anderweitige Boot Datei.
