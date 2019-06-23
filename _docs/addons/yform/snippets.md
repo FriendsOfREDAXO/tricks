@@ -1,10 +1,10 @@
 ---
-title: Nützliche YForm Snippets
+title: Nützliche YForm-Snippets
 authors: [netzproductions,pschuchmann,rotzek]
 prio:
 ---
 
-# Eine Nützliche YForm Snippets
+# Nützliche YForm-Snippets
 
 - [Table Manager: Spalte ausblenden](#spalteausblenden)
 - [Table Manager: Spalteninhalt vor Anzeige in Übersicht ändern](#Spalteninhalt)
