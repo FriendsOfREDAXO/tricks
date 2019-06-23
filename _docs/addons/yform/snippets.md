@@ -1,6 +1,6 @@
 ---
 title: Nützliche YForm Snippets
-authors: [netzproductions,rotzek]
+authors: [netzproductions,pschuchmann,rotzek]
 prio:
 ---
 
@@ -9,6 +9,7 @@ prio:
 - [Table Manager: Spalte ausblenden](#spalteausblenden)
 - [Table Manager: Spalteninhalt vor Anzeige in Übersicht ändern](#Spalteninhalt)
 - [Table Manager: Bilderspalte in Tabellenansicht (Bild statt Dateiname)](#ytbilder)
+- [Table Manager: Extensionpoint | Listensortierung beeinflussen)](#ytlistsort)
 
 <a name="spalteausblenden"></a>
 ## Table Manager: Spalte ausblenden
@@ -81,3 +82,25 @@ if (rex::isBackend() && rex_request('table_name') == 'rex_test') {
 }
 ```
 
+<a name="ytlistsort"></a>
+## Table Manager: Extensionpoint | Listensortierung beeinflussen
+
+
+```php
+rex_extension::register('YFORM_DATA_LIST_SQL', function ($ep) {
+  $params  = $ep->getParams(); // EP Params holen
+  $subject = $ep->getSubject(); // EP Subject (SQL) holen
+  // dump($subject); //SQL der rex_list ausgeben lassen
+
+  if ($params['table'] == rex::getTable('my_table')) {
+
+    $sql = 'my_sql_query'; // SQL neu sortieren
+
+    $subject = $ep->setSubject($sql); // neue Liste setzen
+
+  }
+
+  return $subject; // neue Liste zurück geben
+
+});
+```
