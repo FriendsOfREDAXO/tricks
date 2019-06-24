@@ -9,7 +9,7 @@ prio:
 - [Table Manager: Spalte ausblenden](#spalteausblenden)
 - [Table Manager: Spalteninhalt vor Anzeige in Übersicht ändern](#Spalteninhalt)
 - [Table Manager: Bilderspalte in Tabellenansicht (Bild statt Dateiname)](#ytbilder)
-- [Table Manager: Extensionpoint | Listensortierung beeinflussen)](#ytlistsort)
+- [Table Manager: Extensionpoint / Listensortierung beeinflussen)](#ytlistsort)
 
 <a name="spalteausblenden"></a>
 ## Table Manager: Spalte ausblenden
