@@ -49,7 +49,7 @@ Folgende zwei Zeilen der `boot.php` im `project`-Addon hinzufügen
 ```php
 // prüft ob ein Medium in Verwendung ist
 rex_extension::register('MEDIA_IS_IN_USE', 'MediaInUseCheck::isMediaInUse');
-// prüft ob ein Artijel in Verwendung ist
+// prüft ob ein Artikel in Verwendung ist
 \rex_extension::register('PACKAGES_INCLUDED', 'MediaInUseCheck::isArticleInUse');
 ```
 
