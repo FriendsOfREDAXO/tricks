@@ -17,9 +17,9 @@ Da der Dateiname des hochgeladenen Bildes in der yForm-Tabelle gespeichert wird,
 
 [Das AddOn Yakme](https://github.com/yakamara/yakme) liefert eine fertige Lösung für diesen Fall. Es verhindert, das die verwendeten Bilder gelöscht werden. 
 
-Yakme ist mehr oder weniger ein Sammel-AddOn für Projekte der Firma Yakamara und liefert noch einige weitere Erweiterungen, die ggf. zu Problemen führen können.   
+> Yakme ist ein Sammel-AddOn für Projekte der Firma Yakamara und liefert noch einige weitere Erweiterungen. Da diese meist alle aktiv nach der Installation sind, kann es sein, dass sich REDAXO nicht wie gewohnt verhält. 
 
-## Alternativer Weg 
+## Lösung aus Yakme isolieren
 
 Falls man Yakme nicht nutzen möchte oder die Prüfung erweitern möchte, kann man sich die entsprechende Class YForm aus Yakme kopieren, umbenennen, anpassen und z.B. im Projekt-AddOn verwenden. 
 
