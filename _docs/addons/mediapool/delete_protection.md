@@ -16,7 +16,7 @@ Durch das Einbinden der hier geizeigten Klasse, wird diese Funktion nachgeliefer
 
 ## AddOn Yakme
 
-Das AddOn Yakme](https://github.com/yakamara/yakme) eine fertige Lösung für diesen Fall. 
+[Das AddOn Yakme](https://github.com/yakamara/yakme) eine fertige Lösung für diesen Fall. 
 
 ## Alternativer Weg 
 
