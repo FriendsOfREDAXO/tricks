@@ -1,6 +1,6 @@
 ---
 title: "Medienpool: Erweiterter Schutz vor dem Löschen von Daten"
-authors: [dpf-dd skerbis]
+authors: [dpf-dd,skerbis]
 prio:
 ---
 
