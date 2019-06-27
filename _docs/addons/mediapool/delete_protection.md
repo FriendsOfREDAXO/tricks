@@ -15,7 +15,9 @@ Da der Dateiname des hochgeladenen Bildes in der yForm-Tabelle gespeichert wird,
 
 ## AddOn Yakme
 
-[Das AddOn Yakme](https://github.com/yakamara/yakme) liefert eine fertige Lösung für diesen Fall. 
+[Das AddOn Yakme](https://github.com/yakamara/yakme) liefert eine fertige Lösung für diesen Fall. Es verhindert, das die verwendeten Bilder gelöscht werden. 
+
+Yakme ist mehr oder weniger ein Sammel-AddOn für Projekte der Firma Yakamara und liefert noch einige weitere Erweiterungen, die ggf. zu Problemen führen können.   
 
 ## Alternativer Weg 
 
