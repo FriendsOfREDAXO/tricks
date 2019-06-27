@@ -39,7 +39,7 @@ wird z.B.
 
 ```
 class MediaInUseCheck
-
+```
 
 ### Installation
 
