@@ -10,7 +10,7 @@ Diese Klasse erweitert den Löschschutz vom Medienpool und prüft eigene SQL-Tab
 
 ***Ursprung:*** [Yakme](https://github.com/yakamara/yakme)
 
-> Es handelt sich hierbei um eine isolierte Class aus dem AddOn Yakme. Wenn Yakme verwendet wird, wird dieser Trick nicht benötigt. 
+> Es handelt sich hierbei um eine isolierte Class aus dem AddOn Yakme. Wenn Yakme verwendet wird, wird dieser Trick nicht benötigt. Es emppfiehlt sich die Class mit Yakme nach einem Update ggf. abzugleichen. 
 
 ## Beispiel
 
