@@ -24,7 +24,7 @@ Falls man Yakme nicht nutzen möchte, kann man sich die entsprechende Class YFor
 
 https://github.com/yakamara/yakme/blob/master/lib/Yakme/Extension/YForm.php
 
-- Zur Verwendung im eigenen Projekt kopiert man die Class als neue Datei z.B. in den lib-Ordner des Project-AddOns
+- Zur Verwendung im eigenen Projekt kopiert man die Class als neue Datei z.B. in den lib-Ordner des Project-AddOns (z.B. als media_in_use_check.php)
 - Entfernt oder ändert den Namespace
 - Ändert den Class-Namen z.B. auf: MediaInUseCheck
 
@@ -44,6 +44,7 @@ class MediaInUseCheck
 ### Installation
 
 Folgende zwei Zeilen der `boot.php` im `project`-Addon hinzufügen
+
 ```php
 rex_extension::register('MEDIA_IS_IN_USE', 'MediaInUseCheck::isMediaInUse');
 \rex_extension::register('PACKAGES_INCLUDED', 'MediaInUseCheck::isArticleInUse');
