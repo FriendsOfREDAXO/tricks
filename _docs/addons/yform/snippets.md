@@ -41,7 +41,7 @@ if (rex::isBackend())
 {
     rex_extension::register('YFORM_DATA_LIST', function( $ep ) {  
 
-        if ($ep->getParam('table')->getTableName()==gewuenschte_tabelle'){
+        if ($ep->getParam('table')->getTableName()=="gewuenschte_tabelle"){
             $list = $ep->getSubject();
 
             $list->setColumnFormat(
