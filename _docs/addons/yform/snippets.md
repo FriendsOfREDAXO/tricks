@@ -34,28 +34,32 @@ if (rex::isBackend())
 <a name="Spalteninhalt"></a>
 ## Table Manager: Spalteninhalt vor Anzeige in Übersicht ändern
 
-Beim Einsatz einer YForm-Tabelle im eigenen AddOn kann für beliebige Spalten vor der Anzeige in der Übersicht der Wert manipuliert und ggf. mit Werten aus derselben Tabellenzeile kombiniert werden. Dabei müssen die benötigten anderen Werte der Zeile als Parameter übergeben werden (im Beispiel die Spalte "name"). Konkret wird hier in der Anzeige der Spalte "title" der Wert der Spalte "name" angehängt.
+Beim Einsatz einer YForm-Tabelle im eigenen AddOn kann für beliebige Spalten vor der Anzeige in der Übersicht der Wert manipuliert und ggf. mit Werten aus derselben Tabellenzeile kombiniert werden. Konkret wird hier in der Anzeige der Spalte "title" der Wert der Spalte "name" angehängt.
 
 ```php 
 if (rex::isBackend())
 {
-    rex_extension::register('YFORM_DATA_LIST', function( $ep ) {  
+	rex_extension::register('YFORM_DATA_LIST', function( $ep ) {  
 
-        if ($ep->getParam('table')->getTableName()=="gewuenschte_tabelle"){
-            $list = $ep->getSubject();
+		if ($ep->getParam('table')->getTableName()=="gewuenschte_tabelle"){
+			$list = $ep->getSubject();
 
-            $list->setColumnFormat(
-            'title',
-            'custom',
-            function($a){
-                $neuer_wert=$a['value']." ".$a['params']['name'];
+			$list->setColumnFormat(
+				'title', // Spalte, für die eine custom function aktiviert wird
+				'custom', // festes Keyword
+				function($a){ 
 
-                return $neuer_wert;
-            },
-            array('name' => $list->getValue('name'))
-            );
-        }
-    });
+					// Generierung des auszugebenden Werts unter Einbeziehung beliebiger anderer Spalten
+					// $a['value'] enthält den tatsächlichen Wert der Spalte
+					// $a['list']->getValue('xyz') gibt den Wert einer anderen Spalte ("xyz) zurück.
+
+					$neuer_wert=$a['value']." ".$a['list']->getValue('xyz');
+
+					return $neuer_wert;
+				}
+			);
+		}
+	});
 }
 ```
 
