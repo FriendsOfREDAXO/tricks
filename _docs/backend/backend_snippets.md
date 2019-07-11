@@ -10,7 +10,8 @@ Snippets und Tweaks zur Modifikation des Backends
 
 1. [AddOn ausblenden](#addonhide)
 2. [Seite eines AddOns durch eigene austauschen/ersetzen](#replacepage)
-3. [Sortierung des Medienpools ändern](#mediasort)
+3. [Subpage eines AddOns durch eigene entsprechend Recht austauschen/ersetzenn](#replacepage2)
+4. [Sortierung des Medienpools ändern](#mediasort)
 
 
 <a name="addonhide"></a>
@@ -49,6 +50,20 @@ rex_extension::register('PAGES_PREPARED',function($ep) {
   }
 });
 ```
+
+<a name="replacepage2"></a>
+## Subpage eines AddOns durch eigene entsprechend Recht austauschen/ersetzen
+
+if (is_object(rex::getUser()) AND rex::getUser()->hasPerm('addonname[recht]') AND !rex::getUser()->isAdmin()):
+
+    $page = $this->getProperty('page');
+        $page['subpages']['config'] = ['title' => 'Mein neuer Menüpunkt', 'icon' => 'rex-icon fa-wrench'];                    //neuen Menüpunkt nachträglich einfügen
+        unset($page['subpages']['default']);                                                                                //alten Menüpunkt nachträglich entfernen
+    $this->setProperty('page', $page);
+
+endif;
+
+
 
 <a name="mediasort"></a>
 ## Sortierung des Medienpools ändern
