@@ -54,16 +54,20 @@ rex_extension::register('PAGES_PREPARED',function($ep) {
 <a name="replacepage2"></a>
 ## Subpage eines AddOns durch eigene entsprechend Recht austauschen/ersetzen
 
+```php
 if (is_object(rex::getUser()) AND rex::getUser()->hasPerm('addonname[recht]') AND !rex::getUser()->isAdmin()):
 
-    $page = $this->getProperty('page');
-        $page['subpages']['config'] = ['title' => 'Mein neuer Menüpunkt', 'icon' => 'rex-icon fa-wrench'];                    //neuen Menüpunkt nachträglich einfügen
-        unset($page['subpages']['default']);                                                                                //alten Menüpunkt nachträglich entfernen
-    $this->setProperty('page', $page);
+$page = $this->getProperty('page');
+        $page['subpages']['config'] = [
+        'title' => 'Mein neuer Menüpunkt', 
+        'icon' => 'rex-icon fa-wrench'
+        ];  //neuen Menüpunkt nachträglich einfügen
+        
+        unset($page['subpages']['default']); //alten Menüpunkt nachträglich entfernen
+$this->setProperty('page', $page);
 
 endif;
-
-
+```
 
 <a name="mediasort"></a>
 ## Sortierung des Medienpools ändern
