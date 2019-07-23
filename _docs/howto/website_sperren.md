@@ -13,6 +13,8 @@ Wenn sich eine REDAXO-Website in der Entwicklung befindet, kann es sein, dass de
 
 ## 1. Maintenance-AddOn
 
+Sperrung des Frontends für Besucher und des Backends für Redakteure
+
 [GitHub](https://github.com/FriendsOfREDAXO/maintenance)
 
 
