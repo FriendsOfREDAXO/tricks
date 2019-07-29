@@ -37,7 +37,7 @@ Die in REDAXO 4 bekannten Text-Editoren finden sich auch im REDAXO 5-Installer.
 - Als WYSIWYG-Editoren bieten sich **CKEDITOR 4, CKE5, Redactor2** und **TinyMCE** an. 
 
 ### Suchmaschine
-Nutzer der Suchmaschine xsearch und rex_search finden mit search_it einen geeigneten Ersatz. Wer von REX_Search kommt, muss nur den Aufruf der PHP Class ändern, dann funktioniert die Suche meist wie gewohnt. 
+Nutzer der Suchmaschine xsearch und rex_search finden mit search_it einen geeigneten Ersatz. Wer von REX_Search kommt, muss nur den Aufruf der PHP Class ändern, dann funktioniert die Suche meist wie gewohnt. Es empfieht sich jedoch, im Anschluss die Dokumentation zu konsultieren, da es dort einige wichtige Hinweise zur Code-Anpassung hinsichtlich Sicherheit gibt. 
 
 ### Formulare
 
