@@ -7,12 +7,27 @@ prio:
 # Backend Snippets
 
 Snippets und Tweaks zur Modifikation des Backends
-
+1. [Navigation ausblenden](#navhide)
 1. [AddOn ausblenden](#addonhide)
 2. [Seite eines AddOns durch eigene austauschen/ersetzen](#replacepage)
 3. [Subpage eines AddOns durch eigene entsprechend Recht austauschen/ersetzenn](#replacepage2)
 4. [Sortierung des Medienpools ändern](#mediasort)
 
+<a name="navhide"></a>
+## Navigation ausblenden
+
+Es ist möglich, die Hauptnavigation und die AddOns auszublenden. Nutzt die Bootstrap-Funktionen.
+
+**Folgenden Code in die boot.php des Project-AddOns platzieren:**
+
+```php
+rex_extension::register('OUTPUT_FILTER', static function(rex_extension_point $ep) {
+    $search = '<h4 class="rex-nav-main-title">'.rex_i18n::msg('navigation_addons').'</h4>."\n        ".<ul class="rex-nav-main-list nav nav-pills nav-stacked">';
+    $replace = '<h4 class="rex-nav-main-title" data-toggle="collapse" data-target="#'.rex_i18n::msg('navigation_addons').'">'.rex_i18n::msg('navigation_addons').'</h4><ul class="rex-nav-main-list nav nav-pills nav-stacked collapse" id="'.rex_i18n::msg('navigation_addons').'">';    
+    $subject = str_replace($search, $replace, $ep->getSubject());
+    $ep->setSubject($subject);
+});
+```
 
 <a name="addonhide"></a>
 ## AddOn ausblenden
