@@ -22,7 +22,7 @@ Es ist möglich, die Hauptnavigation und die AddOns auszublenden. Nutzt die Boot
 
 ```php
 rex_extension::register('OUTPUT_FILTER', static function(rex_extension_point $ep) {
-    $search = '<h4 class="rex-nav-main-title">'.rex_i18n::msg('navigation_addons').'</h4>."\n        ".<ul class="rex-nav-main-list nav nav-pills nav-stacked">';
+    $search` = '<h4 class="rex-nav-main-title">' . rex_i18n::msg('navigation_addons') . '</h4>' . "\n        " . '<ul class="rex-nav-main-list nav nav-pills nav-stacked">';
     $replace = '<h4 class="rex-nav-main-title" data-toggle="collapse" data-target="#'.rex_i18n::msg('navigation_addons').'">'.rex_i18n::msg('navigation_addons').'</h4><ul class="rex-nav-main-list nav nav-pills nav-stacked collapse" id="'.rex_i18n::msg('navigation_addons').'">';    
     $subject = str_replace($search, $replace, $ep->getSubject());
     $ep->setSubject($subject);
