@@ -6,6 +6,8 @@ prio:
 
 # Custom Link auslesen
 
+> *Hinweis:* In [mform](https://github.com/FriendsOfREDAXO/mform/blob/8b3d9f4586cd6e94ccad2ca428f6243dbe47b05c/lib/classes/Utils/MFormOutputHelper.php#L30-L70) ist eine solche Funktion bereits integriert. Der nachfolgende Code kann aber dafür verwendet werden, um eigene Lösungen zu entwickeln.
+
 Die nachfolgende Funktion dient dazu den von MForm / Mblock generierten CustomLink auszulesen und korrekt zu verlinken. Die Funktion kann in der Ausgabe eines Moduls genutzt werden oder ggf. im Theme- oder Projektaddon verwendet werden. Sie kann auch allgemein dazu verwendet werden, einen unbekannten Link zu identifizieren
 
 ```php
