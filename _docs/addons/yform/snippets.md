@@ -10,6 +10,7 @@ prio:
 - [Table Manager: Spalteninhalt vor Anzeige in Übersicht ändern](#Spalteninhalt)
 - [Table Manager: Bilderspalte in Tabellenansicht (Bild statt Dateiname)](#ytbilder)
 - [Table Manager: Extensionpoint / Listensortierung beeinflussen)](#ytlistsort)
+- [Choice Feld Optionen holen](#Choicefieldoptionen)
 
 <a name="spalteausblenden"></a>
 ## Table Manager: Spalte ausblenden
@@ -142,4 +143,29 @@ rex_extension::register('YFORM_DATA_LIST_SQL', function ($ep) {
   return $subject; // neue Liste zurück geben
 
 });
+```
+
+<a name="Choicefieldoptionen"></a>
+### Choice Feld Optionen im Frontend verwenden
+
+Mit dieser Funktion lassen sich die Optionen eines Choice Feldes auslesen. Zu übergebende Parameter sind der Name der Tabelle und der Name des Feldes.
+```php
+  function getYFormChoices(string $table_name, string $field_name) {
+
+    if (empty($table_name)) {
+      return rex_view::error('Bitte Parameter $table_name prüfen!');
+    }
+
+    if (empty($field_name)) {
+      return rex_view::error('Bitte Parameter $field_name prüfen!');
+    }
+
+    $choice  = new rex_yform_value_choice();
+    $options = $choice->getArrayFromString((rex_yform_manager_table::get(rex::getTable($table_name))->getValueField($field_name)->getElement('choices')));
+    $options = rex_i18n::translateArray($options);
+    
+    return $options;
+
+  }
+
 ```
