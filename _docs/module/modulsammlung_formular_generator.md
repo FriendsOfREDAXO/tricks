@@ -185,3 +185,111 @@ CSS-Klasse: `.formselect`
 ```
 select|Anrede|1||;Herr;Frau
 ```
+
+
+## Upload durch User
+
+*upload* stellt eine Upload-Möglichkeit zur Verfügung.
+Diese Funktion muss im Eingabe-Modul aktiviert sein. (siehe Quellcode)
+Bei den erlaubten Dateien kann jede beliebige Endung angegeben werden. Die Werte werden per Semikolon getrennt. Bei der Angabe zur Dateigröße können die Kürzel k = Kilobyte, m = Megabyte und g = Gigabyte verwendet werden. Die maximal mögliche Uploadgröße wird aus der php.ini-Datei ermittelt und in der Moduleingabe unterhalb der Angabe zum Uploadordner eingeblendet.
+
+```
+upload|ZIP-Upload|0||zip||12.5m 
+upload|Bild-Upload|0||png;jpg;gif||5.0m 
+```
+
+## Spezielles:
+
+Sessionvariable do form! kann den Inhalt einer Sessionvariable in einem hidden-Field übertragen. Diese muss in der Eingabe definiert werden. (Aktivierung erforderlich)
+
+```
+svar|bezeichnung
+```
+
+Die Validierung `check` 
+prüft ob die Eingabe dem Feld mit der Validierung „checkfield“ oder "Sendercheck" entspricht.
+
+```
+text|Bitte geben Sie nochmals Ihren Namen ein|1|||check 
+info Hinweis an den Erfasser (wird nicht übertragen) CSS-Klasse: .formhinweis
+info|Felder mit * sind Pflichtfelder 
+```
+
+### ilink / exlink
+
+Interner Link: ilink
+
+Link im neuen Fenster: exlink
+
+CSS-Klasse: `.formlink`
+
+Anwendung:
+
+Der Aufbau unterscheidet sich stark von den anderen Feldern:
+
+`ilink|id|parameter(& = & amp;)|CSS-Klasse|Bezeichnung`
+
+Beispiel: `exlink|24|Unsere AGB`
+
+### trennelement 
+
+Mit diesem Feld kann man einen Abstand zwischen den einzelnen Feldern schaffen. 
+
+CSS-Klasse: `.formtrenn` 
+
+Verwendung: trennelement|
+
+
+### headline / info 
+
+Hiermit können Sie Zwischenüberschriften oder Hinweise erstellen headline kann auch verwendet werden um die endgültige E-Mail zu strukturieren. headline dient hierbei als Zwischenüberschrift der 2. Ebene (h2) in der E-Mail
+Info wird nur auf der Website angezeigt
+
+Verwendung:
+
+```
+headline|text der erscheinen soll
+info|text der erscheinen soll
+```
+
+
+## Gestaltungsmöglichkeiten 
+
+Das Formular hat die Klasse .formgen. Die CSS-Klassen der Eingabefelder entnehmen Sie bitte den Feldbeschreibungen. Jedes Feld inkl. Label ist zudem innerhalb eines DIVs mit der CSS-Kalsse .formfiled untergebracht. Dieses DIV wird bei einem Fehler (wie auch die Label) mit einer zusätzlichen CSS-Klasse belegt. Standard: .formerror. Die Klassenbezeichnung lässt sich in der Ausgabe des Moduls leicht anpassen.
+
+### Fieldset
+
+`fieldstart|Kontaktdaten`
+
+`fieldend|` beendet ein fieldset
+
+
+### DIV
+
+`divstart|cssklasse` oder `divstart|#cssID`
+
+`divend|` beendet ein DIV
+
+
+## Validierung von Text-Feldern
+
+(text, IBAN, BIC, email, date, url...) Validierungen werden auch durchgeführt, wenn das Feld kein Pflichtfeld ist.
+
+Zur Validierung stehen folgende Funktionen zur Verfügung:
+
+-	url - prüft die eingegebene URL
+-	date - prüft das Datum
+-	time - prüft die eingegebene Uhrzeit
+-	name - prüft ob ein Name eingegeben wurden (bestimmte Zeichen wie - und . sind erlaubt)
+-	alpha - prüft ob "nur" Buchstaben eingegeben wurden
+-	digit - prüft ob eine Zahl eingegeben wurde
+-	plz - 5-stellige Postleitzahlen
+-	plz4 - 4-stellige Postleitzahlen (z.B. Schweiz)
+-	tel - prüft ob mindestens 6 Zahlen eingegeben wurden
+-	email - prüft ob eine korrekte E-Mail-Adresse eingegeben wurde
+-	sender - prüft und legt die Absenderadresse des Besuchers fest
+-	bic - Prüft eine BIC-Eingabe
+-	iban - Prüft eine IBAN-Eingabe
+-	checkfield - Festlegung des Feldes das wiederholt werden soll
+-	sendercheck - Festlegung des E-Mail-Feldes das wiederholt werden soll und als Absender (sender) definiert werden soll
+-	check - Prüft ob die Eingabe dem checkfield entspricht
