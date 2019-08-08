@@ -155,6 +155,33 @@ date|Datum der Meldung|1|today||date
 ```
 
 
+## Texarea
 
+Textblock z.B. zur Erfassung einer Nachricht, CSS-Klasse: `.formtextfield`
 
+```
+textarea|Ihre Nachricht:|1|  
+```
 
+## Radio-Buttons und Select-Felder
+
+## Radio-Buttons
+
+Hiermit kann man den Besuchern eine Optionsauswahl präsentieren. Die Werte werden per Semikolon getrennt.
+
+CSS-Klasse: `.formradio`
+
+```
+radio|Geschlecht|0|Mann;Frau|m;w| 
+```
+
+### Select-Felder
+
+Hiermit kann man den Besuchern ein Auswahlmenü präsentieren. Die Werte werden per Semikolon getrennt.
+Wird das Select wie nachfolgend als Anrede-Auswahl genutzt, kann in der Bestätigungsmail %Anrede% als Platzhalter verwendet werden.
+
+CSS-Klasse: `.formselect`
+
+```
+select|Anrede|1||;Herr;Frau
+```
