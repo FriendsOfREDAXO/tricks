@@ -6,6 +6,8 @@ prio:
 
 # Formulargenerator
 
+Das Modul ist Teil der Modulsammlung
+
 Basiert auf den Formular-Generator aus Redaxo 3.2 und do form! 
 
 -	Es werden E-Mails wahlweise im HTML oder Text-Format erstellt.
@@ -32,10 +34,10 @@ Das Modul ist sehr flexibel in der Konfiguration und Gestaltung.
 
 Die Moduleingabe bietet Möglichkeit Funktionen ein- bzw. auszublenden. 
 
-•	UPLOADS true oder false
-•	SESSIONS AKTIVIEREN true oder false
-•	BCC AKTIVIEREN true oder false
-•	SSL-Umschalter - Muss in der Ausgabe angepasst werden (nicht in do form! 6.x)
+-	UPLOADS true oder false
+-	SESSIONS AKTIVIEREN true oder false
+-	BCC AKTIVIEREN true oder false
+-	SSL-Umschalter - Muss in der Ausgabe angepasst werden (nicht in do form! 6.x)
 
 ### Konfiguration der Ausgabe
 
