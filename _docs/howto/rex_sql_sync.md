@@ -18,7 +18,7 @@ Dieses Beispiel stammt aus einem Projekt für eine Schule, bei der Vertretungspl
 
 ## Datensätze importieren (Variante A)
 
-Neue Datensätze werden per foreach durchlaufen und eingefügt. Gibt es bereits eine Kombination aus `date`, `hour` und `class`, wird dieser Datensatz aktualisiert - hier: wenn sich der vertretende Lehrer geändert hat.
+Neue Datensätze werden per foreach durchlaufen und eingefügt. Gibt es bereits eine Kombination aus `date`, `hour` und `class`, wird dieser Datensatz aktualisiert — hier: wenn sich der vertretende Lehrer geändert hat.
 
 ```php
 $now = date('Y-m-d H:i:s');
