@@ -14,7 +14,6 @@ Dies lässt sich mit rex_sql und zwei Befehlen ermöglichen. Voraussetzungen:
 
 * Es gibt ein unique-Feld in der Datenbank — also einen Schlüssel, mit dem man vorhandene Datensätze identifizieren kann, hier als Kombination der Felder `date`, `hour` und `class`.
 * Es gibt einen Zeitstempel in der Zieldatenbank, anhand der festgestellt werden kann, welche Datensätze nicht mehr existieren und damit gelöscht werden können, z.B. `updatedate`.
-
 Dieses Beispiel stammt aus einem Projekt für eine Schule, bei der Vertretungspläne zuvor per CSV importiert wurden und dann per Extension Point beim Aktualisieren der CSV-Datei ausgeführt wurden.
 
 ## Datensätze importieren (Variante A)
