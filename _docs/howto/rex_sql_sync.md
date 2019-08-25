@@ -1,5 +1,5 @@
 ---
-title: Website sperren / Wartungsarbeiten
+title: Datensätze per rex_sql synchronisieren
 authors: [alexplusde]
 prio:
 ---
@@ -13,13 +13,14 @@ Beispielsweise beim Einspielen externer Daten wie Termine ist es mitunter erford
 Dies lässt sich mit rex_sql und zwei Befehlen ermöglichen. Voraussetzungen:
 
 * Es gibt ein unique-Feld in der Datenbank — also einen Schlüssel, mit dem man vorhandene Datensätze identifizieren kann, hier als Kombination der Felder `date`, `hour` und `class`.
-* Es gibt einen Zeitstempel in der Zieldatenbank, anhand der festgestellt werden kann, welche Datensätze nicht mehr existieren und damit gelöscht werden können, z.B. `updatedate`
 
-Dieses beispiel stammt aus einem Projekt füreine Schule, bei der Vertretungspläne zuvor per CSV importiert wurden und dann per Extension Point beim Aktualisieren der CSV-Datei ausgeführt wurden.
+* Es gibt einen Zeitstempel in der Zieldatenbank, anhand der festgestellt werden kann, welche Datensätze nicht mehr existieren und damit gelöscht werden können, z.B. `updatedate`.f
 
-## Datensätze importieren
+Dieses Beispiel stammt aus einem Projekt für eine Schule, bei der Vertretungspläne zuvor per CSV importiert wurden und dann per Extension Point beim Aktualisieren der CSV-Datei ausgeführt wurden.
 
-Neue Datensätze werden per foreach durchlaufen und eingefügt. Gibt es bereits eine Kombination aus `date`, `hour` und `class`, wird dieser Datensatz aktualisiert - hier: wenn sich der vertrendende Lehrer geändert hat.
+## Datensätze importieren (Variante A)
+
+Neue Datensätze werden per foreach durchlaufen und eingefügt. Gibt es bereits eine Kombination aus `date`, `hour` und `class`, wird dieser Datensatz aktualisiert - hier: wenn sich der vertretende Lehrer geändert hat.
 
 ```php
 $now = date('Y-m-d H:i:s');
@@ -37,6 +38,26 @@ foreach($entries as $entry) {
   }
 
 }
+```
+
+## Datensätze bearbeiten (Variante B)
+
+Seit REDAXO 5.6 gibt es die möglichkeit, über die Methode `insertOrUpdate()` die Daten direkt zu schreiben. Voraussetzung ist ebenfalls ein unique-Schlüssel an der Datenbank, mit der ein vorhandener Eintrag von einem neuen Eintrag unterschieden werden kann.
+
+```php
+$now = date('Y-m-d H:i:s');
+
+foreach($entries as $entry) {
+    $sql->addRecord(function (rex_sql $record) use ($entry, $now) {
+        foreach (['date', 'hour', 'class', 'teacher', 'createdate', 'status'] as $key) {
+            $record->setValue($key, $entry['key']);
+        }
+
+        $record->setValue('updatedate', $now);
+    });
+}
+
+$sql->insertOrUpdate();
 ```
 
 ## Nicht mehr vorhandene Datensätze löschen
