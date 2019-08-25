@@ -8,7 +8,7 @@ prio:
 
 ## Einführung
 
-Beispielsweise beim Einspielen externer Daten wie Termine ist es mitunter erforderlich, Datensätze zu synchronisieren - d.h. bestehende Daten aktualisieren, neue Daten hinzufügen und überflüssige Daten entfernen.
+Beispielsweise beim Einspielen externer Daten wie Termine ist es mitunter erforderlich, Datensätze zu synchronisieren — d.h. bestehende Daten aktualisieren, neue Daten hinzufügen und überflüssige Daten entfernen.
 
 Dies lässt sich mit rex_sql und zwei Befehlen ermöglichen. Voraussetzungen:
 
