@@ -12,7 +12,7 @@ Beispielsweise beim Einspielen externer Daten wie Termine ist es mitunter erford
 
 Dies lässt sich mit rex_sql und zwei Befehlen ermöglichen. Voraussetzungen:
 
-* Es gibt ein unique-Feld in der Datenbank - also einen Schlüssel, mit dem man vorhandene Datensätze identifizieren kann, hier als Kombination der Felder `date`, `hour` und `class`
+* Es gibt ein unique-Feld in der Datenbank — also einen Schlüssel, mit dem man vorhandene Datensätze identifizieren kann, hier als Kombination der Felder `date`, `hour` und `class`.
 * Es gibt einen Zeitstempel in der Zieldatenbank, anhand der festgestellt werden kann, welche Datensätze nicht mehr existieren und damit gelöscht werden können, z.B. `updatedate`
 
 Dieses beispiel stammt aus einem Projekt füreine Schule, bei der Vertretungspläne zuvor per CSV importiert wurden und dann per Extension Point beim Aktualisieren der CSV-Datei ausgeführt wurden.
