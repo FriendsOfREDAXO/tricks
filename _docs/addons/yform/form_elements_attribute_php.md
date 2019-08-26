@@ -14,6 +14,6 @@ Um einen eigenen Submit-Button per PHP in yForm-Formularen anzuzeigen, muss man 
 Hinweis: Die ursprünglich von YForm erzeugte Klasse 'form-control' werden z.B. bei Nutzung eigener CSS-Klassen durch die eigenen ersetzt.
 
 ```php
-$yform->setValueField('textarea', array("message","label", '#attributes:{"placeholder":"Geben Sie eine Nachricht ein", "class":"css-klassenname", "id":"form-id"}'));
+$yform->setValueField('textarea', array('name"=> "message",'label' => "label", 'attributes' => '{"placeholder":"Geben Sie eine Nachricht ein", "class":"css-klassenname", "id":"form-id"}'));
 ```
 
