@@ -16,14 +16,6 @@ So kann ein Markdown-Text geparst werden. Die Funktion `parse` ist nicht statisc
 echo rex_markdown::factory()->parse($text)
 ```
 
-## rex_formatter
-
-Mit dieser Funktion können unhandliche Datenwerte in menschenlesbare Formate umgewandelt werden.
-
-```php
-echo rex_formatter::bytes($media->getValue("size"))
-```
-
 ## rex_addon und rex_config
 
 Wenn man weiß, dass ein Array in einem `rex_addon`- oder `rex_config`-Wert existiert, kann man dieses auch direkt abfragen, z. B. so in der Art:
