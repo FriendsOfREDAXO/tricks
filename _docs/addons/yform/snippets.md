@@ -12,6 +12,8 @@ prio:
 - [Table Manager: Extensionpoint / Listensortierung beeinflussen)](#ytlistsort)
 - [Choice Feld Optionen holen](#Choicefieldoptionen)
 
+>Hinweis: Teile dieses Abschnitts werden ggf. in die YFORM-Doku übernommen und können daher verschwinden. Sollte das gewünschte Snippet nicht mehr hier zu finden sein, bitte in die YFORM-Doku schauen.  
+
 <a name="spalteausblenden"></a>
 ## Table Manager: Spalte ausblenden
 
