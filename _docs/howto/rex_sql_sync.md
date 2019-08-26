@@ -12,8 +12,8 @@ Beispielsweise beim Einspielen externer Daten wie Termine ist es mitunter erford
 
 Dies lässt sich mit rex_sql und zwei Befehlen ermöglichen. Voraussetzungen:
 
-* Es gibt ein unique-Feld in der Datenbank — also einen Schlüssel, mit dem man vorhandene Datensätze identifizieren kann, hier als Kombination der Felder `date`, `hour` und `class`.
-* Es gibt einen Zeitstempel in der Zieldatenbank, anhand der festgestellt werden kann, welche Datensätze nicht mehr existieren und damit gelöscht werden können, z.B. `updatedate`.
+* Es gibt ein Unique-Feld in der Datenbank — also einen Schlüssel, mit dem man vorhandene Datensätze identifizieren kann, hier als Kombination der Felder `date`, `hour` und `class`.
+* Es gibt einen Zeitstempel in der Zieldatenbank, anhand dessen festgestellt werden kann, welche Datensätze nicht mehr existieren und damit gelöscht werden können, z.B. `updatedate`.
 Dieses Beispiel stammt aus einem Projekt für eine Schule, bei der Vertretungspläne zuvor per CSV importiert wurden und dann per Extension Point beim Aktualisieren der CSV-Datei ausgeführt wurden.
 
 ## Datensätze importieren (Variante A)
@@ -40,7 +40,7 @@ foreach($entries as $entry) {
 
 ## Datensätze bearbeiten (Variante B)
 
-Seit REDAXO 5.6 gibt es die möglichkeit, über die Methode `insertOrUpdate()` die Daten direkt zu schreiben. Voraussetzung ist ebenfalls ein unique-Schlüssel an der Datenbank, mit der ein vorhandener Eintrag von einem neuen Eintrag unterschieden werden kann.
+Seit REDAXO 5.6 besteht die Möglichkeit die Daten über die Methode `insertOrUpdate()` direkt zu schreiben. Voraussetzung hierfür ist ebenfalls ein Unique-Schlüssel, mit dem ein vorhandener Eintrag von einem neuen Eintrag unterschieden werden kann.
 
 ```php
 $now = date('Y-m-d H:i:s');
