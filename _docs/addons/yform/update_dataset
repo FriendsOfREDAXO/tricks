@@ -1,11 +1,11 @@
 ---
-title: "YForm Tablemanager: Mit aktuellem Datensatz andere Tabellen bearbeiten"
+title: "YForm Tablemanager: Hochgeladene Dateien schützen / Medienpool updaten"
 authors: [pschuchmann]
 prio:
 ---
 
 
-# YForm Tablemanager: Mit aktuellem Datensatz andere Tabellen bearbeiten
+# YForm Tablemanager: Hochgeladene Dateien schützen / Medienpool updaten
 
 Mit dem EP `REX_YFORM_SAVED` lassen sich die aktuellen Daten eines Datensatzes auslesen. Möchte man nun zeitgleich Änderungen oder Anpassungen in einer anderen Tabelle ausführen, kann das mit dem folgenden Code erreicht werden. Ein möglicher Anwendungsfall:
 
