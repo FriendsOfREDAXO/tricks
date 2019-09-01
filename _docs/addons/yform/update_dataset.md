@@ -4,7 +4,6 @@ authors: [pschuchmann]
 prio:
 ---
 
-
 # YForm Tablemanager: Hochgeladene Dateien schützen / Medienpool updaten
 
 Mit dem EP `REX_YFORM_SAVED` lassen sich die aktuellen Daten eines Datensatzes auslesen. Möchte man nun zeitgleich Änderungen oder Anpassungen in einer anderen Tabelle ausführen, kann das mit dem folgenden Code erreicht werden. Ein möglicher Anwendungsfall:
@@ -15,13 +14,15 @@ Mit dem EP `REX_YFORM_SAVED` lassen sich die aktuellen Daten eines Datensatzes a
 Die Medien werden in der angelegten YForm Tabelle gespeichert. Aber um die Dateien zu schützen, müssen die zugehörigen Datensätze in der Tabelle `rex_media` angepasst werden.
 
 ## Extensionpoint 'REX_YFORM_SAVED' erweitern, entweder in der boot.php des project Addons oder im eigenen Addon
+
 ```php
 rex_extension::register('REX_YFORM_SAVED', ['klasse', 'methode'], rex_extension::LATE);
 ```
 
 ## Methode deklarieren
+
 ```php
-class klasse{
+class klasse {
 	public function methode($ep) {
     
     //Tabellenname aus $ep holen
