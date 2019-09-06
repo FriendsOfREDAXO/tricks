@@ -20,7 +20,7 @@ So, will auch mal hier meinen ersten Tipp rein schreiben. Ich war eine Zeit lang
 <a name="problem"></a>
 ## Problem
 
-Es sollen für verschiedene Seiten http Status Codes 410 übermittelt werden. yrewrite kann das nicht. Ich habe versucht yrewrite dazu zu bekommen, indem ich die Auswahl ergänzt habe. Das hat dann nicht funnktioniert.
+Es sollen für verschiedene Seiten http Status Codes 410 übermittelt werden. yrewrite kann das nicht. Ich habe versucht yrewrite dazu zu bekommen, indem ich die Auswahl ergänzt habe. Das hat dann nicht funktioniert.
 Nächster Versuch, das ganze klassisch über die htaccess zu lösen hat auch nicht funktioniert, es wurde der Status Code nicht übertragen respektive überschrieben. Ein erster Erfolg hat sich eingestellt, indem ich die 410er Fehlerseite als statische html Seite abgelegt und definiert habe. Aber wer will das schon.
 Verschiedene Versuche in der boot.php über den Extensionpoint OUTPUT_FILTER haben auch nicht zum Ziel geführt. Auch hier wurde der Status Code rigide neu gesetzt, ein 410er war nicht zu übertragen.
 So - Probleme haben wir alle genug, deswegen jetzt zur Lösung.
