@@ -12,7 +12,7 @@ Hinweis: Die ursprünglich von YForm erzeugte Klasse 'form-control' werden z.B. 
 ```php
 $yform->setValueField('textarea', 
 array(
-      'name"=> "message",
+      'name'=> "message",
       'label' => "label",
       'attributes' => '{"placeholder":"Geben Sie eine Nachricht ein", "class":"css-klassenname", "id":"form-id"}')
       );
