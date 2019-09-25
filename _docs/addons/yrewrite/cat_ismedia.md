@@ -1,6 +1,6 @@
 ---
 title: Was tun, wenn man auf der Website eine Kategorie Media benötigt?
-authors: []
+authors: [IngoWinter]
 prio:
 ---
 
