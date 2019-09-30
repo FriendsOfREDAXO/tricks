@@ -77,7 +77,7 @@ rex_extension::register('FE_OUTPUT', function () {
 });
 
 // check fileperm fuer media manager dateiaufrufe
-if (!rex::isBackend())
+if (!rex_backend_login::hasSession())
 {
     $filename = rex_get('rex_media_file', 'string');
     if ($filename && file_exists(rex_path::media($filename)))
