@@ -6,6 +6,7 @@ prio:
 
 # Was tun, wenn man auf der Website eine Kategorie Media benötigt?
 
+> **Hinweis** Diese Kurzanleitung gilt für YRewrite bis 2.5. Lösungsvorschläge für YRewrite ab 2.6 werden dankend angenommen.
 
 Wenn es auf der Website einen Hauptmenüpunkt "Media" gibt und yrewrite die Url dafür zu `http://domain.tld/media/` umschreibt, landet man im Verzeichnis `/media`. Um das zu verhindern muss in der `.htaccess` die Zeile
 
