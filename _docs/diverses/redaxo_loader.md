@@ -41,7 +41,7 @@ if (is_dir($folder))
  {
  echo '<pre>Es existiert schon ein Ordner /redaxo 
       Bitte pr&uuml;fen.
-    <pre>';
+    </pre>';
  exit();
  }
 
