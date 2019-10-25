@@ -1,5 +1,5 @@
 ---
-title: Geschütze Dateien mit YCom
+title: Dateischutz YCom
 authors: [skerbis,IngoWinter]
 prio:
 ---
