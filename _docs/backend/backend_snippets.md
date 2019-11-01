@@ -1,6 +1,6 @@
 ---
 title: Backend Snippets
-authors: [skerbis,ansichtsache,eaCe]
+authors: [alexplusde,ansichtsache,eaCe,skerbis]
 prio:
 ---
 
@@ -53,9 +53,18 @@ if (rex::isBackend() and rex_backend_login::hasSession()) {
 <a name="replacepage"></a>
 ## Seite eines AddOns durch eigene austauschen/ersetzen
 
-Will man eine alternative Seite in einem AddOn darstellen und die vorhandene ersetzen, kann dies mit dem nachfolgenden Code erfogen. In diesem Beispiel wird die `index.php` des Struktur-AddOns ausgetauscht. 
+Will man eine alternative Seite in einem AddOn darstellen und die vorhandene ersetzen, kann dies mit dem nachfolgenden Codes erfogen. In diesem Beispiel wird die `index.php` des Struktur-AddOns ausgetauscht. 
 
-Verwendeter Extension point: [PAGES_PREPARED](https://github.com/redaxo/redaxo/blob/591146a1dc60e8aacefd58dc9b7e9c307c0983b9/redaxo/src/core/backend.php#L132)
+### Startseite eines Addons zur Laufzeit verändern
+
+```php 
+$page = $this->getProperty('page');
+$page['href'] = ['page' => 'cronjob/log'];
+$this->setProperty('page', $page);
+```
+
+
+### Ersetzen durch Seite eines anderen AddOns 
 
 **Folgenden Code in die boot.php des Project-AddOns platzieren:**
 
@@ -67,6 +76,8 @@ rex_extension::register('PAGES_PREPARED',function($ep) {
   }
 });
 ```
+Verwendeter Extension point: [PAGES_PREPARED](https://github.com/redaxo/redaxo/blob/591146a1dc60e8aacefd58dc9b7e9c307c0983b9/redaxo/src/core/backend.php#L132)
+
 
 <a name="replacepage2"></a>
 ## Subpage eines AddOns durch eigene entsprechend Recht austauschen/ersetzen
