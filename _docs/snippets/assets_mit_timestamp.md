@@ -6,6 +6,10 @@ prio:
 
 # Assets mit einem Timestamp ausliefern
 
+**!! Dieser Artikel ist veraltet !!**
+
+> Die hier genannte Lösung ist sinnvoll bei REDAXO vor Version 5.3 
+
 Bei sich häufiger ändernden Assets wie CSS- oder Javascript-Dateien hat man gelegentlich das Problem, dass der Besucher noch eine alte Version sieht, die sich in seinem Browser-Cache befindet. Hier hilft es, den Zeitpunkt der letzten Änderung mit an den Dateinamen anzuhängen. Wenn dann der Browser beim Laden der Seite eine vermeintliche andere Datei findet, wird er diese neu laden.
 
 ## Funktion einbinden
