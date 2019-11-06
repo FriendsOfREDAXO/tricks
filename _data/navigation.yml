@@ -10,6 +10,8 @@
     url: /addons/cronjob
   - title: Focuspoint
     url: /addons/focuspoint
+  - title: Media-Pool
+    url: /addons/mediapool
   - title: MForm
     url: /addons/mform
   - title: Project
