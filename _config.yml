@@ -10,7 +10,6 @@ baseurl: /tricks
 # https://help.github.com/articles/configuring-jekyll-plugins/#optional-plugins
 plugins:
 - jekyll-avatar
-- jekyll-feed
 - jekyll-mentions
 - jekyll-redirect-from
 - jekyll-seo-tag
