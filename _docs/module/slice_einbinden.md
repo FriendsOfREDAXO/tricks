@@ -1,5 +1,5 @@
 ---
-title: "Slice einbinden mit rex_article_slice"
+title: "Slice oder Artikel einbinden mit rex_article_slice"
 authors: [skerbis]
 prio:
 ---
