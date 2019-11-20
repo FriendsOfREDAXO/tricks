@@ -1,6 +1,6 @@
 ---
 title: NGINX-Konfiguration für YRewrite
-authors: [skerbis]
+authors: [skerbis,hirbod]
 prio:
 ---
 
@@ -13,13 +13,9 @@ Eine vollständige nginx config für YRewrite. Hierbei werden auch die Ordner `/
 ```nginx
 charset utf-8;
 
-# OPTIONAL von HTTP auf HTTPS weiterleiten, Kommentare entfernen falls nötig
-#if ($https !~ "on"){
-#	set $rule_8 1;
-#}
-#if ($rule_8 = "1"){
-#	rewrite ^(.*)$ https://$server_name$request_uri permanent;
-#}
+location / {
+  try_files $uri $uri/ /index.php$is_args$args;
+}
 
 rewrite ^/sitemap\.xml$                           /index.php?rex_yrewrite_func=sitemap last;
 rewrite ^/robots\.txt$                            /index.php?rex_yrewrite_func=robots last;
@@ -27,35 +23,29 @@ rewrite ^/media[0-9]*/imagetypes/([^/]*)/([^/]*)  /index.php?rex_media_type=$1&r
 rewrite ^/images/([^/]*)/([^/]*)                  /index.php?rex_media_type=$1&rex_media_file=$2&$args;
 rewrite ^/imagetypes/([^/]*)/([^/]*)              /index.php?rex_media_type=$1&rex_media_file=$2;
 
-if ($uri !~ "^redaxo/.*"){
-	set $rule_6 4$rule_6;
+if ($uri !~ "^redaxo/.*") {
+  set $rule_6 4$rule_6;
 }
 
 if ($uri !~ "^media/.*"){
-	set $rule_6 5$rule_6;
+  set $rule_6 5$rule_6;
 }
 
-if (!-e $request_filename){
-	rewrite "^(.*)$" /index.php?$query_string last;
-}
 
-#!!! WICHTIG !!! Zugriff auf alle Dateien mit . verbieten (könnte ja eine alte .htpasswd enthalten sein)
-# ACHTUNG: nicht nutzen, falls auf der selben Instanz Let's Encrypt läuft, da ansonsten .acme-challange fehlschlägt.
-# In diesem Fall bitte die nächste Zeile mit # auskommentieren
+#!!! WICHTIG !!! Falls Let's Encrypt fehlschlägt, diese Zeile auskommentieren (sollte jedoch funktionieren)
 location ~ /\. { deny  all; }
 
 # Zugriff auf diese Verzeichnisse verbieten
 location ^~ /redaxo/src { deny  all; }
 location ^~ /redaxo/data { deny  all; }
 location ^~ /redaxo/cache { deny  all; }
-# Ab REDAXO 5.4 muss folgende Zeile dazu
 location ^~ /redaxo/bin { deny  all; }
-	
 
-# In einigen Fällen könnte folgende Anweisung zusätlich sinnvoll sein. 
+
+# In einigen Fällen könnte folgende Anweisung zusätlich sinnvoll sein.
 
 location ~ /\.(ttf|eot|woff|woff2)$ {
-	add_header Access-Control-Allow-Origin *;
-	expires 604800s;
+  add_header Access-Control-Allow-Origin *;
+  expires 604800s;
 }
 ```
