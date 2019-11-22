@@ -50,9 +50,36 @@ Als Lösung und Ersatz des Multiuploader-AddOn stehen die AddOns ***uploader*** 
 ### Redaxo 4 Passwörter migrieren
 **WICHTIG: rex_user Tabelle zu Beginn sichern!** Redaxo 4 Passwörter können mit folgendem Snippet Redaxo 5 kompatibel gemacht werden. 
 
+#### To-Do: Tabelle
 Folgende Schritte sind notwendig um alte Redaxo 4 Passwörter auch in Redaxo 5 verwenden zu können.
 
-- Manueller Import der Redaxo 4 Accounts in `rex_user` der Redaxo 5 Instanz. Beachten: die Tabellenstruktur hat sich geändert!
+- Zunächst wird der Export der `rex_user` Datenbank aus der Redaxo 4 Instanz benötigt. Der könnte beispielsweise so aussehen:
+
+```mysql
+INSERT INTO `rex_user` (`user_id`, `name`, `description`, `login`, `psw`, `status`, `rights`, `login_tries`, `createuser`, `updateuser`, `createdate`, `updatedate`, `lasttrydate`, `session_id`) VALUES
+(2, 'Redaxo 4 Redakteur', '', 'redaktion', 'f616d7c4c54614b51f5d0bfa877e1a3ae63d31e3', '1', '#admin[]#clang[0]#', 0, 'admin', '', 1574436072, 0, 0, '');
+```
+
+  - Das Feld `rights` kann entfernt werden. Redaxo 5 verwendet nun Rollen um die Rechte der Nutzer zu verwalten.
+  - Das Feld `user_id` heißt in Redaxo 5 nun `id` und ist unique. Sollte eine Id bereits vorhanden sein, wird der Insert nicht klappen. Entweder wird die Id selbst vergeben oder entfernt.
+  - Das Feld `psw` heißt in Redaxo 5 nun `password`
+  - Die Felder `createdate`, `updatedate`, `lasttrydate` sind nun `datetime` Felder und müssen von Unix Timestamp umgewandelt werden.
+  - `session_id` sollte entfernt werden.
+  
+Beispiel Insert:
+```mysql
+INSERT INTO `rex_user` (`id`, `name`, `description`, `login`, `password`, `status`, `login_tries`, `createuser`, `updateuser`, `createdate`, `updatedate`, `lasttrydate`) VALUES
+(2, 'Redaxo 4 Redakteur', '', 'redaktion', 'f616d7c4c54614b51f5d0bfa877e1a3ae63d31e3', '1', 0, 'admin', '', FROM_UNIXTIME(1574436072), 0, 0);
+```
+Beispiel minimaler Insert:
+```mysql
+INSERT INTO `rex_user` (`login`, `password`) VALUES
+('redaktion', 'f616d7c4c54614b51f5d0bfa877e1a3ae63d31e3');
+```
+
+Der Insert kann jetzt in die Redaxo 5 Tabelle eingespielt werden. Die Id's der neuen Datensätze sollte man sich merken, da sie später für das Update der Passwörter gebraucht werden.
+
+#### To-Do: Template / Module
 - `$users` muss in der setWhere() Funktion beschränkt werden! Es dürfen nur die Redaxo 4 Accounts selektiert werden, andernfalls werden bereits korrekte Passwörter erneut gehasht und funktionieren nicht mehr.
 - Das Snippet darf nur einmal aufgerufen werden, innerhalb eines Modules oder Templates.
 
@@ -62,9 +89,13 @@ Folgende Schritte sind notwendig um alte Redaxo 4 Passwörter auch in Redaxo 5 v
 $users = rex_sql::factory()
     ->setDebug(true)
     ->setTable(rex::getTable('user'))
-    // ->setWhere() //nur redaxo 4 accounts
+     //Redaxo 4 Redakteur aus dem Beispiel wurde mit der Id 2 in die Tabelle rex_user importiert
+     //natürlich sind auch mehrere Datensätze gleichzeitig selektierbar, es dürfen allerdings nur die importierten Redaxo 4 User sein!
+    ->setWhere(['id' => 2])
     ->select();
-
+```
+Sobald `$users` alle Redaxo 4 Redakteure enthält, kann folgendes Script in einem Modul oder Template **einmalig** ausgeführt werden. Alte Redaxo 4 Passwörter werden dadurch umgewandelt-
+```php
 foreach ($users as $user) {
     $sql = rex_sql::factory()
         ->setDebug(true)
@@ -73,5 +104,5 @@ foreach ($users as $user) {
         ->setValue('password', rex_login::passwordHash($user->getValue('password'), true))
         ->update();
 }
-?>
+
 ```
