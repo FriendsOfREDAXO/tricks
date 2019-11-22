@@ -52,7 +52,7 @@ Als Lösung und Ersatz des Multiuploader-AddOn stehen die AddOns ***uploader*** 
 
 Folgende Schritte sind notwendig um alte Redaxo 4 Passwörter auch in Redaxo 5 verwenden zu können.
 
-- Manueller Import in `rex_user` gewünschter User Accounts
+- Manueller Import der Redaxo 4 Accounts in `rex_user` der Redaxo 5 Instanz. Beachten: die Tabellenstruktur hat sich geändert!
 - `$users` muss in der setWhere() Funktion beschränkt werden! Es dürfen nur die Redaxo 4 Accounts selektiert werden, andernfalls werden bereits korrekte Passwörter erneut gehasht und funktionieren nicht mehr.
 - Das Snippet darf nur einmal aufgerufen werden, innerhalb eines Modules oder Templates.
 
