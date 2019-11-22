@@ -46,3 +46,32 @@ Der Nachfolger von **XForm** heißt in REDAXO 5 **YForm**. Die Tabellen und Eins
 ### Multiuploads
 
 Als Lösung und Ersatz des Multiuploader-AddOn stehen die AddOns ***uploader*** und **multiuploader** zur Verfügung. 
+
+### Redaxo 4 Passwörter migrieren
+**WICHTIG: rex_user Tabelle zu Beginn sichern!** Redaxo 4 Passwörter können mit folgendem Snippet Redaxo 5 kompatibel gemacht werden. 
+
+Folgende Schritte sind notwendig um alte Redaxo 4 Passwörter auch in Redaxo 5 verwenden zu können.
+
+- Manueller Import in `rex_user` gewünschter User Accounts
+- `$users` muss in der setWhere() Funktion beschränkt werden! Es dürfen nur die Redaxo 4 Accounts selektiert werden, andernfalls werden bereits korrekte Passwörter erneut gehasht und funktionieren nicht mehr.
+- Das Snippet darf nur einmal aufgerufen werden, innerhalb eines Modules oder Templates.
+
+
+```php
+<?php
+$users = rex_sql::factory()
+    ->setDebug(true)
+    ->setTable(rex::getTable('user'))
+    // ->setWhere() //nur redaxo 4 accounts
+    ->select();
+
+foreach ($users as $user) {
+    $sql = rex_sql::factory()
+        ->setDebug(true)
+        ->setTable(rex::getTable('user'))
+        ->setWhere(['login' => $user->getValue('login')])
+        ->setValue('password', rex_login::passwordHash($user->getValue('password'), true))
+        ->update();
+}
+?>
+```
