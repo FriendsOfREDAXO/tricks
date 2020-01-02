@@ -16,7 +16,27 @@ Dies lässt sich mit rex_sql und zwei Befehlen ermöglichen. Voraussetzungen:
 * Es gibt einen Zeitstempel in der Zieldatenbank, anhand dessen festgestellt werden kann, welche Datensätze nicht mehr existieren und damit gelöscht werden können, z.B. `updatedate`.
 Dieses Beispiel stammt aus einem Projekt für eine Schule, bei der Vertretungspläne zuvor per CSV importiert wurden und dann per Extension Point beim Aktualisieren der CSV-Datei ausgeführt wurden.
 
-## Datensätze importieren (Variante A)
+## Datensätze einfügen / aktualisieren
+
+Seit REDAXO 5.6 besteht die Möglichkeit die Daten über die Methode `insertOrUpdate()` direkt zu schreiben. Voraussetzung hierfür ist ebenfalls ein Unique-Schlüssel, mit dem ein vorhandener Eintrag von einem neuen Eintrag unterschieden werden kann.
+
+```php
+$now = date('Y-m-d H:i:s');
+
+foreach($entries as $entry) {
+    $sql->addRecord(function (rex_sql $record) use ($entry, $now) {
+        foreach (['date', 'hour', 'class', 'teacher', 'createdate', 'status'] as $key) {
+            $record->setValue($key, $entry['key']);
+        }
+
+        $record->setValue('updatedate', $now);
+    });
+}
+
+$sql->insertOrUpdate();
+```
+
+## Datensätze einfügen / aktualisieren (manuell / vor REDAXO 5.6)
 
 Neue Datensätze werden per foreach durchlaufen und eingefügt. Gibt es bereits eine Kombination aus `date`, `hour` und `class`, wird dieser Datensatz aktualisiert — hier: wenn sich der vertretende Lehrer geändert hat.
 
@@ -36,26 +56,6 @@ foreach($entries as $entry) {
   }
 
 }
-```
-
-## Datensätze bearbeiten (Variante B)
-
-Seit REDAXO 5.6 besteht die Möglichkeit die Daten über die Methode `insertOrUpdate()` direkt zu schreiben. Voraussetzung hierfür ist ebenfalls ein Unique-Schlüssel, mit dem ein vorhandener Eintrag von einem neuen Eintrag unterschieden werden kann.
-
-```php
-$now = date('Y-m-d H:i:s');
-
-foreach($entries as $entry) {
-    $sql->addRecord(function (rex_sql $record) use ($entry, $now) {
-        foreach (['date', 'hour', 'class', 'teacher', 'createdate', 'status'] as $key) {
-            $record->setValue($key, $entry['key']);
-        }
-
-        $record->setValue('updatedate', $now);
-    });
-}
-
-$sql->insertOrUpdate();
 ```
 
 ## Nicht mehr vorhandene Datensätze löschen
