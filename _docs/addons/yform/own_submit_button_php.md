@@ -9,6 +9,18 @@ prio:
 
 Um einen eigenen Submit-Button per PHP in yForm-Formularen anzuzeigen genügt es, das value `submit` zu verwenden. Dabei wird der Standard-Button automatisch ausgeblendet. 
 
+## Vorhandenen Button umbenennen
+
+Siehe: https://github.com/yakamara/redaxo_yform_docs/blob/master/de_de/yform_modul_objparams.md#submit-button-benennen
+
+```
+// Im YForm-Formbuilder
+objparams|submit_btn_show|0
+
+// In PHP
+$yform->setObjectparams('submit_btn_show',0);
+```
+
 ## Eigenen Button einfügen
 
 ```php
