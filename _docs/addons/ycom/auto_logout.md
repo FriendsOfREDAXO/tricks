@@ -11,11 +11,13 @@ prio:
 
 Will man verhindern, dass bestimmte Daten gesehen oder manipuliert werden (z.B. wenn ein User nicht am Rechner ist), kann ein Auto-Logout hilfreich sein. Dafür gibt es zwei Möglichkeiten, die sich auch miteinander kombinieren lassen.
 
-Die PHP-Methoden erlaubt es den User nach Abwesenheit beim nächsten Klick auszuloggen.
+Die PHP-Methoden erlaubt es den User nach Abwesenheit beim nächsten Klick auszuloggen. Diese Methode ist hilfreich, wenn ein User den Tab / das Fenster im Browser schließt, aber nicht den Browser beendet, da die Session dann noch erhalten bleibt. Kehrt man dann zum geschützten Bereich zurück, wird man ausgeloggt, da die Session inzwischen ausgelaufen ist.
 
-Die JavaScript-Methode zeigt vorher einen Hinweis (hier nach 14min) und loggt den User nach Voreinstellung aus (hier 1min).
+Die JavaScript-Methode zeigt vorher einen Hinweis (hier nach 14min) und loggt den User nach Voreinstellung aus (hier 1min). Diese Methode ist hilfreich, wenn ein User den Tab / das Fenster offen lässt während einer Sitzung, da die PHP-Methode erst greift, wenn eine weitere Aktion ausgeführt wird.
 
-Welche Methode für den jeweiligen Anwendugsfall besser ist, muss man selbst entscheiden. Eine Komnbination der beiden Methoden ist aber sinnvoll, sollte z.B. keine JavaScript aktiviert sein.
+Welche Methode für den jeweiligen Anwendugsfall besser ist, muss man selbst entscheiden. Eine Kombination der beiden Methoden kann aber sinnvoll sein, sollte z.B. keine JavaScript aktiviert sein.
+
+Es kann natürlich bei der Kombination der Methoden passieren, dass ein User trotzdem ausgeloggt wird (per PHP), wenn keine "Aktion" wie Navigation oder Formularübermittlung stattfindet, nachdem auf "Eingeloggt bleiben" in der JavaScript Methode geklickt wurde.
 
     Beide Codeschnipsel sind auf 15min eingestellt - PHP in Sekunden, JS in Millisekunden (14min + 1min).
 
