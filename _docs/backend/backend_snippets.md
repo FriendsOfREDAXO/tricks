@@ -58,9 +58,10 @@ Will man eine alternative Seite in einem AddOn darstellen und die vorhandene ers
 ### Startseite eines Addons zur Laufzeit verändern
 
 ```php 
-$page = $this->getProperty('page');
+$addon = rex_addon::get('addonname');
+$page = $addon->getProperty('page');
 $page['href'] = ['page' => 'cronjob/log'];
-$this->setProperty('page', $page);
+$addon->setProperty('page', $page);
 ```
 
 
@@ -84,15 +85,15 @@ Verwendeter Extension point: [PAGES_PREPARED](https://github.com/redaxo/redaxo/b
 
 ```php
 if (is_object(rex::getUser()) AND rex::getUser()->hasPerm('addonname[recht]') AND !rex::getUser()->isAdmin()):
-
-$page = $this->getProperty('page');
+$addon = rex_addon::get('addonname');
+$page = $addon->getProperty('page');
         $page['subpages']['config'] = [
         'title' => 'Mein neuer Menüpunkt', 
         'icon' => 'rex-icon fa-wrench'
         ];  //neuen Menüpunkt nachträglich einfügen
         
         unset($page['subpages']['default']); //alten Menüpunkt nachträglich entfernen
-$this->setProperty('page', $page);
+$addon->setProperty('page', $page);
 
 endif;
 ```
