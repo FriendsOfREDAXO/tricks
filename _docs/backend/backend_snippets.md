@@ -12,6 +12,8 @@ Snippets und Tweaks zur Modifikation des Backends
 2. [Seite eines AddOns durch eigene austauschen/ersetzen](#replacepage)
 3. [Subpage eines AddOns durch eigene entsprechend Recht austauschen/ersetzenn](#replacepage2)
 4. [Sortierung des Medienpools ändern](#mediasort)
+5. [Nur zugelassenen IPs Zugriff aufs Backend gewähren](#blockIP)
+
 
 <a name="navhide"></a>
 ## Navigation ausblenden
@@ -117,4 +119,20 @@ if (rex::isBackend() && rex::getUser()) {
     return $subject;
   });
 }
+```
+
+<a name="blockIP"></a>
+
+## Nur zugelassenen IPs Zugriff aufs Backend gewähren
+
+Den nachfolgenden Code in die `boot.php` des **project-Addons** kopieren und IPs anpassen: 
+
+```php
+	if (rex::isBackend())
+	{
+	  $ips= array("00.00.00.00", "00.00.00.00");	
+	   if (!in_array(rex_server('REMOTE_ADDR'),$ips)) {
+	      rex_response::sendRedirect('https://google.com');
+	      }
+	}
 ```
