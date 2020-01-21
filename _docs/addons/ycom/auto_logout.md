@@ -32,7 +32,7 @@ Dieser Code muss (mindestens) in alle Templates, die dem User im geschützten Be
 if(time() == strtotime(rex_ycom_auth::getUser()->getValue('last_login_time'))) {
     rex_set_session('timestamp', strtotime(rex_ycom_auth::getUser()->getValue('last_login_time')));
 }
-if(time() - rex_session('timestamp') > 900) { //subtract new timestamp from the old one
+if((time() - rex_session('timestamp')) > 900) { //subtract new timestamp from the old one
     header("Location: ". rex_getUrl(---id-zum-logout-artikel---)); //redirect to logout
     exit;
 } else {
@@ -103,7 +103,7 @@ $(document).ready(function(){
 
 **Code für das Modal**
 
-Wie bereits bei der Einletung zum JavaScript-Teil erwähnt, ist hier ein Beispiel-Modal, welches auf Bootstrap 4 basiert. Es kann aber auch jegliches andere Framework wie Foundation ode UiKit oder eine komplette eigene Lösung zum Anzeigen des Hinweises genutzt werden.
+Wie bereits bei der Einleitung zum JavaScript-Teil erwähnt, ist hier ein Beispiel-Modal, welches auf Bootstrap 4 basiert. Es kann aber auch jegliches andere Framework wie Foundation, UiKit oder eine komplette eigene Lösung zum Anzeigen des Hinweises genutzt werden.
 
 ```html
 <div class="modal fade" id="modalAutoLogout" tabindex="-1" role="dialog" aria-labelledby="modalAutoLogoutTitle" aria-hidden="true">
