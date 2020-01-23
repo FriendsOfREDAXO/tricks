@@ -43,7 +43,7 @@ Konkrete Beispiele:
 * Abruf von Datensätzen (JSON) z.B. für Formulare
 * Serverseitige Verarbeitung auslösen und das Ergebnis zurückbekommen
 
-Redaxo als CMS ist dafür gebaut, Seiten zu generieren und an den Browser zu senden. Keine Seite
+REDAXO als CMS ist dafür gebaut, Seiten zu generieren und an den Browser zu senden. Keine Seite
 ausgewählt? Dann wird die Startseite geschickt. Eine normale Seite mit zusätzlichen Parametern
 aufzurufen, wäre also erst einmal nicht so geschickt. Ein AJAX-Aufruf müsste entweder an eine andere
 Instanz als index.php gehen oder index.php muss AJAX-Aufrufe erkennen und anders behandeln.
@@ -86,7 +86,7 @@ Womit wir bei der gestörten Erwartungshaltung sind. Beim Browser landet zwar *a
 Kauderwelsch in der Art
 
 ![Kauderwelsch](https://github.com/FriendsOfREDAXO/tricks/blob/master/screenshots/ajax_mit_rexapi_01.jpg?raw=true "Kauderwelsch")
-    
+
 Analyse von Beispielen zeigt am Ende, dass dem `return` eigentlich ein Objekt der Klasse
 **rex\_api\_result** mitgegeben werden soll. Aber die weiteren Tests führten am Ende zur Erkenntnis, dass nach
 dem `rex\_api\_xyz->execute()` noch viel passiert und je nach Konstellation ganze Seiten mitgeneriert werden.
@@ -246,7 +246,7 @@ Fehlermeldung als JSON und das Ergebnis als Text übermittelt
 <a name="besser-permit"></a>
 ### Darf der das? - Rechte abprüfen
 
-Redaxo verfügt über eine Zugriffsverwaltung. Evtl. ist es ja nötig und sinnvoll, auch in der
+REDAXO verfügt über eine Zugriffsverwaltung. Evtl. ist es ja nötig und sinnvoll, auch in der
 API-Funktion die Rechte zu überprüfen und ggf. den Zugriff abzulehnen. (Das Beispiel ist jetzt sehr unkonkret.)
 
 
@@ -289,7 +289,7 @@ API-Funktion die Rechte zu überprüfen und ggf. den Zugriff abzulehnen. (Das Be
 <a name="demo"></a>
 ## JS-Jalousie mit Selbstbedienung - ein Beispiel
 
-Und damit kommen wir zu einem Anwendungsbeispiel für eine Redaxo-Seite. Das Ziel ist ein Modul, das
+Und damit kommen wir zu einem Anwendungsbeispiel für eine REDAXO-Seite. Das Ziel ist ein Modul, das
 
 * die Artikel der aktuellen Kategorie auflistet (Überschriften)
 * bei Klick auf die Überschrift den Artikel vom Server nachlädt (AJAX) - aber nur einmal!
@@ -301,7 +301,7 @@ Das Beispiel ist rudimentär, um die Funktion zu zeigen. Hier kommt auch kein Bo
 
 Getestet in einer Rudimentär-Umgebung aus
 
-* Redaxo 5.3
+* REDAXO 5.3
 * Addon MarkItUp
 * Addon Demo-Base
 
@@ -502,7 +502,7 @@ Diese API-Klasse muss an einer Stelle platziert werden, an der sie auch gesehen 
 <a name="demo-lang"></a>
 ### Die Sprachdatei(en)
 
-Etwas fehlt noch. [Oben](#besser-returncode) wurde ja schon beschrieben, dass es sinnvoller ist, die Fehlermeldungen vom Server in der eingestellten Sprache generieren zu lassen.  
+Etwas fehlt noch. [Oben](#besser-returncode) wurde ja schon beschrieben, dass es sinnvoller ist, die Fehlermeldungen vom Server in der eingestellten Sprache generieren zu lassen.
 
 Im API-Code ist das bereits mit
 

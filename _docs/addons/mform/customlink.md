@@ -26,15 +26,15 @@ if (!function_exists('getcustomLink')) {
     // Ist es eine Mediendatei?
     if (file_exists(rex_path::media($url)) === true) {
        $url = rex_url::media($url);
-    } 
+    }
     else {
-        // Ist es keine Mediendatei oder URL, dann als Redaxo-Artikel-ID behandeln
+        // Ist es keine Mediendatei oder URL, dann als REDAXO-Artikel-ID behandeln
         if (filter_var($url, FILTER_VALIDATE_URL) === FALSE and is_numeric($url)) {
             $url = rex_getUrl($url);
         }
     }
 
-    // wurde ein Linktext übergeben?  
+    // wurde ein Linktext übergeben?
     if ($text!='') {
         $linkText = $text;
     }
@@ -44,14 +44,14 @@ if (!function_exists('getcustomLink')) {
 
     // Beipiel für die Rückgabe , gerne selbst anpassen
     $link = '<a class="link" href="'.$url.'">'.$linkText.'</a>';
-    return $link; 
+    return $link;
    }
   }
 }
-``` 
-   
+```
+
 ## Anwendungsbeispiel
 
-```php    
+```php
 echo getcustomLink($url='10',$text='Hallo ich bin ein Link');
 ```

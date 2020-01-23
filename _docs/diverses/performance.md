@@ -4,16 +4,16 @@ authors: [javanita]
 prio:
 ---
 
-# Performance-Tipps 
+# Performance-Tipps
 
 Artikel zur Dikussion
 [Issue #7](https://github.com/FriendsOfREDAXO/tricks/issues/7#issuecomment-403207741)
 
 **Mitmachen ausdrücklich erwünscht**
 
-Besonders im Absatz [Welche Möglichkeiten zur Verbesserung bietet Redaxo?](#rex) ist die Mitarbeit der Redaxo-Profis gefragt.
+Besonders im Absatz [Welche Möglichkeiten zur Verbesserung bietet REDAXO?](#rex) ist die Mitarbeit der REDAXO-Profis gefragt.
 
-# Mehr Performance für Redaxo
+# Mehr Performance für REDAXO
 
 
 ## Wie kann man die Performance einer website ermitteln?
@@ -24,7 +24,7 @@ Besonders im Absatz [Welche Möglichkeiten zur Verbesserung bietet Redaxo?](#rex
 
 [kostenloser Ladezeit-check](https://www.uptrends.com/de/tools/website-ladezeit-check)
 
-## Dienste 
+## Dienste
 
 [Blackfire - ein Dienst zur Performance-Messung](https://blackfire.io/)
 
@@ -45,7 +45,7 @@ PHP 7 ist schneller
 
 **debugging**
 
-xdebug 
+xdebug
 
 **caching**
 
@@ -57,7 +57,7 @@ xdebug
 
 
 <a name="rex"></a>
-## Welche Möglichkeiten zur Verbesserung bietet Redaxo?
+## Welche Möglichkeiten zur Verbesserung bietet REDAXO?
 
 an dieser Stelle sei auf diesen trick hingewiesen:
 [Performance prüfen](https://github.com/FriendsOfREDAXO/tricks/blob/master/_docs/snippets/performance_pruefen.md)

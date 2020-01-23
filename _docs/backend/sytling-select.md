@@ -7,13 +7,13 @@ prio:
 # Select-Felder Styling
 
 ## REDAXO eigener Select-Stil rex-select-style
-Zur Anwendung des REDAXO-Stils für Selects muss im übergeordneten DIV die CSS-Class **rex-select-style** eingesetzt werden. 
+Zur Anwendung des REDAXO-Stils für Selects muss im übergeordneten DIV die CSS-Class **rex-select-style** eingesetzt werden.
 
-Beispiel: 
+Beispiel:
 
 ```php
 <div class="col-sm-3">
-	<div class="rex-select-style">   
+	<div class="rex-select-style">
 		<select id="REX_INPUT_VALUE[12]" class="form-control" name="REX_INPUT_VALUE[12]">
 		<option value="nein">nicht anzeigen</option>
 		<option value='ja' <?php if ("REX_VALUE[12]" == 'ja') echo 'selected'; ?>>anzeigen </option >
@@ -24,11 +24,11 @@ Beispiel:
 ```
 
 ## Bootstrap-Select
-In Redaxo ist bereits Bootstrap-Select https://silviomoreto.github.io/bootstrap-select/ integriert. 
-Hiermit können die Select-Felder schöner in REDAXO gestaltet werden. Darüber hinaus ist es möglich auch eine Suche leicht in die Selects zu integrieren. 
-Um den Stil anzuwenden muss das Select mit der CSS-Class **selectpicker** ausgestattet werden: 
+In REDAXO ist bereits Bootstrap-Select https://silviomoreto.github.io/bootstrap-select/ integriert.
+Hiermit können die Select-Felder schöner in REDAXO gestaltet werden. Darüber hinaus ist es möglich auch eine Suche leicht in die Selects zu integrieren.
+Um den Stil anzuwenden muss das Select mit der CSS-Class **selectpicker** ausgestattet werden:
 
-Beispiel: 
+Beispiel:
 
 ```html
 <select class="selectpicker">
@@ -37,9 +37,9 @@ Beispiel:
   <option>und so weiter</option>
 </select>
 ```
-Für eine Suche fügt man das Attribut **data-live-search="true"** hinzu. 
+Für eine Suche fügt man das Attribut **data-live-search="true"** hinzu.
 
-Beispiel: 
+Beispiel:
 
 ```html
 <select class="selectpicker" data-live-search="true">
@@ -63,7 +63,7 @@ echo $mform->show();
 
 
 ### Anwendung in yForm
-Anwendung unter **Individuelle Attribute**: 
+Anwendung unter **Individuelle Attribute**:
 ```
 {"class": "form-control selectpicker","data-live-search": "true"}
 ```
@@ -72,6 +72,6 @@ Anwendung unter **Individuelle Attribute**:
 
 
 
-## Select2 
-Im Tools-Plugin von yForm wird select2 mitgeliefert. Dieses bietet ebenfalls weitreichende Lösungen zur Verbesserung der Selects. 
-Eine Anleitung findet man in der Dokumentation von yForm. 
+## Select2
+Im Tools-Plugin von yForm wird select2 mitgeliefert. Dieses bietet ebenfalls weitreichende Lösungen zur Verbesserung der Selects.
+Eine Anleitung findet man in der Dokumentation von yForm.

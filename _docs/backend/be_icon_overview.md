@@ -11,13 +11,13 @@ Quellen enthalten.
 
 * FontAwesome (`.fa`)
 * Glyhicons aus Bootstrap (`.glyphicon`)
-* Redaxo-Icons (`.rex-icon`) auf Basis von FontAwesome
+* REDAXO-Icons (`.rex-icon`) auf Basis von FontAwesome
 
-Aber welche gibt es denn nun? Und wie sehen sie aus? Dazu kann man z.B. auf die Webseiten von 
+Aber welche gibt es denn nun? Und wie sehen sie aus? Dazu kann man z.B. auf die Webseiten von
 [FontAwesome](https://fontawesome.com/) oder [Bootstrap](https://getbootstrap.com/) gehen und suchen -
-aber bitte die richtige Version auswählen, die auch in Redaxo im Einsatz ist. Und wo findet sich die Übersicht der rex-icon?
+aber bitte die richtige Version auswählen, die auch in REDAXO im Einsatz ist. Und wo findet sich die Übersicht der rex-icon?
 
-Eine Hilfsseite im Redaxo-Backend soll schnelle Übersicht über die tatsächlich vorhandenen
+Eine Hilfsseite im REDAXO-Backend soll schnelle Übersicht über die tatsächlich vorhandenen
 Icons der `style.css` schaffen und auch die rex-icon ausweisen.
 
 `style.css` ist per SCSS erzeugt, daher sehr klar aufgebaut und leicht durchsuchbar. Die Einträge
@@ -28,7 +28,7 @@ für Icons sehen z.B. so aus:
 ```
 
 Sie lassen sich leicht herausfiltern und aufbereitet als Page ausgeben. Zusätzlich wird eine Such- und
-Selektier-Möglichkeit geschaffen: 
+Selektier-Möglichkeit geschaffen:
 
 * Per Checkbock selektieren, welche Gruppe angezeigt wird (`.fa`, `.glyphicon`, `.rex-icon`)
 * Volltextsuche in den Icon-Bezeichnern (Im Beispiel: "user,userrole").
@@ -39,7 +39,7 @@ Zudem kann mit Doppelklick auf den Namen der zugehörige HTML-Tag generiert und 
 Beispiel: Doppelklick auf das Wort "times" im rechten Kästchen erzeugt `<i class=fa fa-times"></i>`.
 
 Die `style.css` wird nur einmal durchsucht und der HTML-Code zur Anzeige aufbereitet im Cache-Verzeichnis
-abgelegt. Die Icons sind nach Unicode aufsteigend sortiert. 
+abgelegt. Die Icons sind nach Unicode aufsteigend sortiert.
 
 Das Script ist konzipiert als Seite in einem Service-Addon - z.B. im "Projekt-Addon".
 

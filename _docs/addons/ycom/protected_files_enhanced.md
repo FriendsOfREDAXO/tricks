@@ -6,13 +6,13 @@ prio:
 
 # Geschütze Dateien mit YCom - per Template
 
-> **Hinweis** Mit der ycom Version 3.0 wird das Plugin media_auth mitgeliefert. Hiermit lassen sich einzelne Dateien ohne weitere Anpassungen schützen. Die nachfolgende Anleitung zeigt einen alternativen Weg zum Schutz festgelegter Kategorien. 
+> **Hinweis** Mit der ycom Version 3.0 wird das Plugin media_auth mitgeliefert. Hiermit lassen sich einzelne Dateien ohne weitere Anpassungen schützen. Die nachfolgende Anleitung zeigt einen alternativen Weg zum Schutz festgelegter Kategorien.
 
 
 ### Wie kann man Dateien in Verbindung mit YCom (Community Addon) einfach schützen?
-Da Redaxo aktuell nur einen Medienordner hat und so von außen alle Dateien in diesem Ordner öffentlich zugänglich sind, benötigt man eine Lösung, die den Dateiaufruf überprüft und entscheidet ob es sich um eine geschützte Datei oder einer öffentlichen Datei handelt. 
+Da REDAXO aktuell nur einen Medienordner hat und so von außen alle Dateien in diesem Ordner öffentlich zugänglich sind, benötigt man eine Lösung, die den Dateiaufruf überprüft und entscheidet ob es sich um eine geschützte Datei oder einer öffentlichen Datei handelt.
 
-Hier verwenden wir eine Rewrite-Direktive und ein Template um es zu realisieren.  Dateien, die in einer festgelegten Medienpool-**Hauptkategorie** und deren Unterkategorien im Medienpool liegen, können so vor unerlaubtem Zugriff geschützt werden. 
+Hier verwenden wir eine Rewrite-Direktive und ein Template um es zu realisieren.  Dateien, die in einer festgelegten Medienpool-**Hauptkategorie** und deren Unterkategorien im Medienpool liegen, können so vor unerlaubtem Zugriff geschützt werden.
 
 ----------
 **Achtung**
@@ -54,7 +54,7 @@ _bei "Nur in folgenden Kategorien verfügbar" noch die festgelegte Medienpool-Ka
 
 Nun können Dateien in den oben definierten Medienkategorien mit entsprechenden Nutzer- und Gruppenzuweisungen ausgestattet werden.
 
-#### 3. Nachfolgendes Template anlegen (Kommentare beachten): 
+#### 3. Nachfolgendes Template anlegen (Kommentare beachten):
 
 ```php
 <?php
@@ -63,7 +63,7 @@ Nun können Dateien in den oben definierten Medienkategorien mit entsprechenden 
 
   // Welche Medienkategorien beinhaltet die geschützten Dateien? (Medienpool-Kategorie-ID)
   $secured_categories = [1];
-    
+
   // Wohin soll bei einem unberechtigten Zugriff umgeleitet werden? (Artikel ID)
   $redirect_article = rex_article::getNotfoundArticleId();
 
@@ -72,7 +72,7 @@ Nun können Dateien in den oben definierten Medienkategorien mit entsprechenden 
 
   // Prüfe ob eine Datei übergeben wurde
   if ($requested_file !== '')
-  {    
+  {
     // Was passiert, wenn Datei nicht existiert?
     if (file_exists(rex_path::media($requested_file)))
     {
@@ -118,7 +118,7 @@ Nun können Dateien in den oben definierten Medienkategorien mit entsprechenden 
 
               if(!empty($ycom_file_users))
               {
-                // Nutzer erlauben wenn in Nutzerzuordnung enthalten 
+                // Nutzer erlauben wenn in Nutzerzuordnung enthalten
                 $valid_user =  in_array($ycom_user->getValue('id'), $ycom_file_users);
               }
               unset($valid_file_users);
@@ -163,7 +163,7 @@ Nun können Dateien in den oben definierten Medienkategorien mit entsprechenden 
       $file = rex_path::media() . $requested_file;
       $contenttype = 'application/octet-stream';
 
-      // soll kein Download erzwungen werden, ändere attachment in inline    
+      // soll kein Download erzwungen werden, ändere attachment in inline
       rex_response::sendFile($file, $contenttype, $contentDisposition = 'attachment');
       exit();
     }
@@ -192,12 +192,12 @@ APACHE:
 /.htaccess editieren
 
 > Bei Verwendung von yrewrite direkt nach `RewriteRule ^imagetypes/…`
-    
+
 ```apacheconf
 RewriteRule ^/?media/(.*\.(pdf|doc|zip))$ /index.php?fileName=$1 [L]
 ```
 
-> Bei Verwendung ohne Rewriter, eine .htaccess-Datei im Root der Website anlegen und folgenden Inhalt einfügen. 
+> Bei Verwendung ohne Rewriter, eine .htaccess-Datei im Root der Website anlegen und folgenden Inhalt einfügen.
 
 ```apacheconf
 <IfModule mod_rewrite.c>
@@ -217,7 +217,7 @@ location / {
 Hier wurde festgelegt welche Dateien geschützt sein sollen.
 Weitere Endungen können beliebig hinzugefügt werden z.B:  |eps|pptx|docx …
 
-Wenn man nachfolgenden Code in allen Ausgabe-Templates **am Anfang** einfügt, sind die Dateien geschützt. 
+Wenn man nachfolgenden Code in allen Ausgabe-Templates **am Anfang** einfügt, sind die Dateien geschützt.
 XX steht für die ID des Templates
 
 ```php
@@ -226,4 +226,4 @@ REX_TEMPLATE[XX]
 
 ----------
 **Achtung!** Vor dem Template darf auf keinen Fall eine Ausgabe von Inhalten erfolgen.
-Bei Problemen bitte unbedingt prüfen ob sich Leerzeichen / -zeilen vor und nach dem Template eingeschlichen haben.  
+Bei Problemen bitte unbedingt prüfen ob sich Leerzeichen / -zeilen vor und nach dem Template eingeschlichen haben.

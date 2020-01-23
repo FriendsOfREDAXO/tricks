@@ -8,7 +8,7 @@ prio:
 
 Das Modul ist Teil der Modulsammlung
 
-Basiert auf den Formular-Generator aus Redaxo 3.2 und do form! 
+Basiert auf den Formular-Generator aus REDAXO 3.2 und do form!
 
 -	Es werden E-Mails wahlweise im HTML oder Text-Format erstellt.
 -	Eine automatische (personalisierbare) Bestätigungs-E-Mail an den Absender steht als Option zur Verfügung.
@@ -19,20 +19,20 @@ Basiert auf den Formular-Generator aus Redaxo 3.2 und do form!
 -	Auch eine Übertragung von Dateien vom und zum Absender ist möglich.
 -	Die Dateien werden wahlweise per E-Mail mit verschickt.
 
-Das Modul ist sehr flexibel in der Konfiguration und Gestaltung. 
+Das Modul ist sehr flexibel in der Konfiguration und Gestaltung.
 
 ## Mindest-Systemvoraussetzungen:
 
 - REDAXO 5.x
 - AddOn PHPMailer
-- YForm (nur wg. einer einzigen Funktion) 
+- YForm (nur wg. einer einzigen Funktion)
 - Addon: ein WYSIWYG-Editor, default ist cke5, ist einstellbar in der Modulausgabe
 
 ## Konfiguration
 
-### Konfiguration der Eingabe 
+### Konfiguration der Eingabe
 
-Die Moduleingabe bietet Möglichkeit Funktionen ein- bzw. auszublenden. 
+Die Moduleingabe bietet Möglichkeit Funktionen ein- bzw. auszublenden.
 
 -	UPLOADS true oder false
 -	SESSIONS AKTIVIEREN true oder false
@@ -44,7 +44,7 @@ Die Moduleingabe bietet Möglichkeit Funktionen ein- bzw. auszublenden.
 Bitte Kommentare im Quellcode oder in der Eingabe beachten.
 
 
-## Hinweise 
+## Hinweise
 
 Absender-Adresse / WICHTIG!
 Die Absendermail sollte unbedingt festgelegt werden wenn die E-Mail automatisch (optional) beantwortet werden soll. Das geht über die Validierungseinstellung `sender`.
@@ -84,7 +84,7 @@ url|Website|1|||url
 IBAN|Ihre IBAN|1|DE||iban
 BIC|BIC|1|||bic
 date|Datum der Meldung|1|today||date
-textarea|Ihre Nachricht:|1| 
+textarea|Ihre Nachricht:|1|
 upload|ZIP-Upload|0||zip||12.5m
 upload|Bild-Upload|0||png;jpg;gif||5.0m
 text|Bitte geben Sie nochmals Ihren Namen ein|1|||check
@@ -99,18 +99,18 @@ CSS-Klasse: `.formtext` / Je nach Feld kommen noch die Klassen: `.ftext`, `.fIBA
 Die Textfelder mit der Bezeichnung "Vorname" und "Nachname" können in der Bestätigungsmail mit den Platzhaltern %Vorname% und %Nachname% eingesetzt werden.
 
 ```
-text|Name|1|||checkfield 
-text|Vorname|1|||name 
-text|Firma | 
-text|Straße| 
+text|Name|1|||checkfield
+text|Vorname|1|||name
+text|Firma |
+text|Straße|
 text|PLZ|1|||plz
-text|Ort|1||| 
-text|Telefon||||tel 
-text|Telefax||||tel 
-email|E-Mail|1|||sender 
+text|Ort|1|||
+text|Telefon||||tel
+text|Telefax||||tel
+email|E-Mail|1|||sender
 ```
 
-### GET-Variablen können 
+### GET-Variablen können
 
 über ein Textfeld ausgelesen werden
 
@@ -124,27 +124,27 @@ Alternativ kann man die Variable versteckt übertragen
 hidden|Titel:|1|GET_Variablenname|
 ```
 
-### Passwörter 
+### Passwörter
 
 ```
 password|Ihre Passwort|1|||
 ```
 
-### Textfelder für Bankdaten 
+### Textfelder für Bankdaten
 
 Die IBAN wird in der Bestätigungsmail anonymisiert
 
 ```
-IBAN|Ihre IBAN|1|DE||iban 
-BIC|BIC|1|||bic 
+IBAN|Ihre IBAN|1|DE||iban
+BIC|BIC|1|||bic
 ```
 
-### URL-Texteingabe 
+### URL-Texteingabe
 
 Prüft eine URL http://*
 
 ```
-url|Website|1|||url 
+url|Website|1|||url
 ```
 
  ### Datumsfeld
@@ -153,7 +153,7 @@ Durch Eingabe von „today“ wird das aktuelle Datum als Default-Wert gesetzt.
 HTML5-fähige Browser zeigen auch den Placeholder dd.mm.jjjj an.
 
 ```
-date|Datum der Meldung|1|today||date 
+date|Datum der Meldung|1|today||date
 ```
 
 
@@ -162,7 +162,7 @@ date|Datum der Meldung|1|today||date
 Textblock z.B. zur Erfassung einer Nachricht, CSS-Klasse: `.formtextfield`
 
 ```
-textarea|Ihre Nachricht:|1|  
+textarea|Ihre Nachricht:|1|
 ```
 
 ## Radio-Buttons und Select-Felder
@@ -174,7 +174,7 @@ Hiermit kann man den Besuchern eine Optionsauswahl präsentieren. Die Werte werd
 CSS-Klasse: `.formradio`
 
 ```
-radio|Geschlecht|0|Mann;Frau|m;w| 
+radio|Geschlecht|0|Mann;Frau|m;w|
 ```
 
 ### Select-Felder
@@ -196,8 +196,8 @@ Diese Funktion muss im Eingabe-Modul aktiviert sein. (siehe Quellcode)
 Bei den erlaubten Dateien kann jede beliebige Endung angegeben werden. Die Werte werden per Semikolon getrennt. Bei der Angabe zur Dateigröße können die Kürzel k = Kilobyte, m = Megabyte und g = Gigabyte verwendet werden. Die maximal mögliche Uploadgröße wird aus der php.ini-Datei ermittelt und in der Moduleingabe unterhalb der Angabe zum Uploadordner eingeblendet.
 
 ```
-upload|ZIP-Upload|0||zip||12.5m 
-upload|Bild-Upload|0||png;jpg;gif||5.0m 
+upload|ZIP-Upload|0||zip||12.5m
+upload|Bild-Upload|0||png;jpg;gif||5.0m
 ```
 
 ## Spezielles:
@@ -208,13 +208,13 @@ Sessionvariable do form! kann den Inhalt einer Sessionvariable in einem hidden-F
 svar|bezeichnung
 ```
 
-Die Validierung `check` 
+Die Validierung `check`
 prüft ob die Eingabe dem Feld mit der Validierung „checkfield“ oder "Sendercheck" entspricht.
 
 ```
-text|Bitte geben Sie nochmals Ihren Namen ein|1|||check 
+text|Bitte geben Sie nochmals Ihren Namen ein|1|||check
 info Hinweis an den Erfasser (wird nicht übertragen) CSS-Klasse: .formhinweis
-info|Felder mit * sind Pflichtfelder 
+info|Felder mit * sind Pflichtfelder
 ```
 
 ### ilink / exlink
@@ -233,16 +233,16 @@ Der Aufbau unterscheidet sich stark von den anderen Feldern:
 
 Beispiel: `exlink|24|Unsere AGB`
 
-### trennelement 
+### trennelement
 
-Mit diesem Feld kann man einen Abstand zwischen den einzelnen Feldern schaffen. 
+Mit diesem Feld kann man einen Abstand zwischen den einzelnen Feldern schaffen.
 
-CSS-Klasse: `.formtrenn` 
+CSS-Klasse: `.formtrenn`
 
 Verwendung: trennelement|
 
 
-### headline / info 
+### headline / info
 
 Hiermit können Sie Zwischenüberschriften oder Hinweise erstellen headline kann auch verwendet werden um die endgültige E-Mail zu strukturieren. headline dient hierbei als Zwischenüberschrift der 2. Ebene (h2) in der E-Mail
 Info wird nur auf der Website angezeigt
@@ -255,7 +255,7 @@ info|text der erscheinen soll
 ```
 
 
-## Gestaltungsmöglichkeiten 
+## Gestaltungsmöglichkeiten
 
 Das Formular hat die Klasse .formgen. Die CSS-Klassen der Eingabefelder entnehmen Sie bitte den Feldbeschreibungen. Jedes Feld inkl. Label ist zudem innerhalb eines DIVs mit der CSS-Kalsse .formfiled untergebracht. Dieses DIV wird bei einem Fehler (wie auch die Label) mit einer zusätzlichen CSS-Klasse belegt. Standard: .formerror. Die Klassenbezeichnung lässt sich in der Ausgabe des Moduls leicht anpassen.
 

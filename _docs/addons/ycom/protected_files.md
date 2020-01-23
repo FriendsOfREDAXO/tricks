@@ -6,18 +6,18 @@ prio:
 
 # Geschütze Dateien mit YCom
 
-Benötigte AddOns: 
+Benötigte AddOns:
 - YRewrite
 - YCom
 
 ### Wie kann man Dateien in Verbindung mit YCom (Community Addon) einfach schützen?
 
-> Ab ycom Version 3.0 wird das Plugin media_auth mitgeliefert. Hiermit lassen sich einzelne Dateien ohne weitere Anpassungen schützen. Die nachfolgende Anleitung zeigt einen alternativen Weg. 
+> Ab ycom Version 3.0 wird das Plugin media_auth mitgeliefert. Hiermit lassen sich einzelne Dateien ohne weitere Anpassungen schützen. Die nachfolgende Anleitung zeigt einen alternativen Weg.
 
-Da Redaxo aktuell nur einen Medienordner hat und so von außen alle Dateien in diesem Ordner öffentlich zugänglich sind, benötigt man eine Lösung, die den Dateiaufruf überprüft und entscheidet ob es sich um eine geschützte Datei oder einer öffentlichen Datei handelt. 
+Da REDAXO aktuell nur einen Medienordner hat und so von außen alle Dateien in diesem Ordner öffentlich zugänglich sind, benötigt man eine Lösung, die den Dateiaufruf überprüft und entscheidet ob es sich um eine geschützte Datei oder einer öffentlichen Datei handelt.
 
 
-Geeignet für Redaxo ab 5.2
+Geeignet für REDAXO ab 5.2
 
 1. Medienkategorie(n) erster Ebene anlegen
 2. ID(s) der Kategorie(n) merken und bei `$mediacats2protect=` hinterlegen
@@ -96,14 +96,14 @@ if (!rex_backend_login::hasSession())
 **APACHE** in die .htacces von YRewrite:
 
 > Bei Verwendung von yrewrite direkt nach `RewriteRule ^imagetypes/…`
-    
+
 	RewriteRule ^/?media/(.*)$ /index.php?ycom_file=$1 [L]
-	
-Variante wenn nur bestimmte Dateitypen geschützt werden sollen 
+
+Variante wenn nur bestimmte Dateitypen geschützt werden sollen
 
 	# RewriteRule ^/?media/(.*\.(pdf|doc|zip))$ /index.php?ycom_file=$1 [L]
 
-**NGINX** 
+**NGINX**
 
 Direktive für bestimmte Dateitypen:
 
@@ -113,5 +113,5 @@ Direktive für bestimmte Dateitypen:
 
 Hier wurde festgelegt welche Dateien geschützt sein sollen.
 Weitere Endungen können beliebig hinzugefügt werden z.B:  |pdf|doc|zip …
- 
+
 

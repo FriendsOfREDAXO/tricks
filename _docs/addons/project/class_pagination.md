@@ -54,7 +54,7 @@ echo $pagination->show();
 
 ## PHP-Code
 
-Diesen Code bspw. in Redaxo unter `/redaxo/src/addons/project/lib/` abspeichern, die Klasse wird dann über den redaxo-internen Autoloader geladen und in jedem Modul / Template zur Verfügung gestellt.
+Diesen Code bspw. in REDAXO unter `/redaxo/src/addons/project/lib/` abspeichern, die Klasse wird dann über den redaxo-internen Autoloader geladen und in jedem Modul / Template zur Verfügung gestellt.
 
 ```php
 <?php

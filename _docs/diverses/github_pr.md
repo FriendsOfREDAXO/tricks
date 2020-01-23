@@ -24,7 +24,7 @@ Nachfolgend möchte ich zeigen, wie einfach es ist, mit dem Tool [**hub**](https
 <a name="pr-auschecken"></a>
 ## Pull Request auschecken
 
-In der Redaxo Entwicklungsversion folgenden Befehl im Terminal/Kommandozeile ausführen:
+In der REDAXO Entwicklungsversion folgenden Befehl im Terminal/Kommandozeile ausführen:
 
 `git checkout https://github.com/<OWNER>/{REPOSITORY}/pull/{PRNUMMER}`
 

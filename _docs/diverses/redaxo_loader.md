@@ -11,9 +11,9 @@ Skript zum Download und Entpacken der aktuellen REDAXO-Release aus GitHub.
 
 - Datei redaxo_loader.php erstellen und nachfolgenden Quellcode reinkopieren
 - redaxo_loader.php in den Ordner / oder Webroot laden, wo redaxo installiert werden soll
-- redaxo_loader.php aufrufen. 
+- redaxo_loader.php aufrufen.
 
-> redaxo_loader.php lädt und entpackt die aktuelle Redaxo-Version. 
+> redaxo_loader.php lädt und entpackt die aktuelle REDAXO-Version.
 
 ```php
     <?php
@@ -39,7 +39,7 @@ $folder = "./redaxo";
 
 if (is_dir($folder))
  {
- echo '<pre>Es existiert schon ein Ordner /redaxo 
+ echo '<pre>Es existiert schon ein Ordner /redaxo
       Bitte pr&uuml;fen.
     </pre>';
  exit();

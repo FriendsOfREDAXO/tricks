@@ -12,13 +12,13 @@ prio:
 <a name="einleitung"></a>
 ## Einleitung
 
-Manche Rewrites lassen sich nur schwer per htaccess lösen. Auch eine Tabelle von alten und neuen URLs zu erstellen ist manchmal mühsam. Dies betrifft auch die alte URL-Form `15-0-Ich-bin-der-tollste-Redaxotipp.html`.
+Manche Rewrites lassen sich nur schwer per htaccess lösen. Auch eine Tabelle von alten und neuen URLs zu erstellen ist manchmal mühsam. Dies betrifft auch die alte URL-Form `15-0-Ich-bin-der-tollste-REDAXOtipp.html`.
 Wenn sich so ein Artikel irgendwo in der Struktur versteckt, kommt man so gut wie gar nicht an die neue URL dran. Es geht doch - man braucht dazu einen Dreizeiler.
 
 <a name="loesung"></a>
 ## Lösung
 
-Die Lösung kommt in den 404er-Artikel. Entweder als PHP-Modul oder als eigenes Modul. Wenn der 404er-Artikel ausgeführt wird, ist der Statuscode ja noch nicht verschickt. Da können wir uns also noch eben schnell einklinken und schauen, ob noch was zu retten ist.  
+Die Lösung kommt in den 404er-Artikel. Entweder als PHP-Modul oder als eigenes Modul. Wenn der 404er-Artikel ausgeführt wird, ist der Statuscode ja noch nicht verschickt. Da können wir uns also noch eben schnell einklinken und schauen, ob noch was zu retten ist.
 Diese Lösung funktioniert natürlich nur, wenn die Artikel-Ids von alter Seite zur neuen Seite gleich geblieben sind, also eine Migration von R4 zur R5 mit dem YConverter durchgeführt wurde.
 
 ```php

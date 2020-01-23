@@ -1,10 +1,10 @@
 ---
-title: REDAXO-Klassen ausserhalb Redaxo Kontext nutzen 
+title: REDAXO-Klassen ausserhalb REDAXO Kontext nutzen
 authors: [IngoWinter]
 prio:
 ---
 
-# REDAXO Klassen ausserhalb Redaxo Kontext nutzen 
+# REDAXO Klassen ausserhalb REDAXO Kontext nutzen
 
 ```php
 $REX['REDAXO'] = false;
