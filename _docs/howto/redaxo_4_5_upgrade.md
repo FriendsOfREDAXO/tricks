@@ -15,12 +15,11 @@ Durch Verwendung des Cache Warm-Up AddOns ist es nicht nötig die Website "abzus
 Einige AddOns wurden bislang nicht nach REDAXO 5 überführt und stehen nicht mehr zur Verfügung. Nachfolgend listen wir einen Überblick darüber welche AddOns gleiche oder ähnliche Funktionen liefern: 
 
 ### SEO42
-Nach der Konvertierung sollten sämtliche SEO42:: Codes in den Templates und Modulen entfernt werden. YConverter wird diese nicht konvertieren, so dass dies manuell durchgeführt werden muss.  
+Nach der Konvertierung sollten sämtliche `SEO42::`-Codes in den Templates und Modulen entfernt werden. YConverter wird diese nicht konvertieren, so dass dies manuell durchgeführt werden muss.  
 
-SEO42 kann durch **YRewrite** in Kombination mit **YRewrite Scheme** oder in Kombination mit **XCore** ersetzt werden. 
+SEO42 kann nahezu vollständig durch **YRewrite** ersetzt werden (empfohlen), oder in Kombination mit **YRewrite Scheme** (empfohlen), oder in Kombination mit dem AddOn **XCore** ersetzt werden. 
 
-X-CORE ist vom selben Entwickler wie SEO42, das viele Funktionalitäten von SEO42 bereitstellt. 
-Meist reicht hier ein Ersetzen der `seo42::` - Aurufe durch die entsprechenden `rexx::` Aufrufe um wieder die gewünschte Funktionalität zu erreichen. 
+> ** Hinweis:** Das AddOn XCore ist vom selben Entwickler wie SEO42, das viele Funktionalitäten von SEO42 bereitstellt, wird jedoch nicht mehr weiterentwickelt. Meist reicht hier ein Ersetzen der `seo42::` - Aurufe durch die entsprechenden `rexx::` Aufrufe um wieder die gewünschte Funktionalität zu erreichen. 
 
 ### Slice on / off
 
