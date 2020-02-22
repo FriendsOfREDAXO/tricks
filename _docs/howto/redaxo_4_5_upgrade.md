@@ -53,7 +53,7 @@ Als Lösung und Ersatz des Multiuploader-AddOn stehen die AddOns ***uploader*** 
 
 Passwörter aus REDAXO 4 können mit folgendem Snippet REDAXO 5 kompatibel gemacht werden.
 
-#### To-Do: Tabelle
+#### Schritt 1: Tabelle
 Folgende Schritte sind notwendig um alte Passwörter aus REDAXO 4 auch in REDAXO 5 verwenden zu können.
 
 - Zunächst wird der Export der `rex_user`, bzw. `rex_xcom_user`, Datenbank aus der REDAXO 4 Instanz benötigt. Der könnte beispielsweise so aussehen:
