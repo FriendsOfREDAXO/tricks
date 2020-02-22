@@ -82,7 +82,7 @@ INSERT INTO `rex_user` (`login`, `password`) VALUES
 
 Der Insert kann jetzt in die REDAXO 5 Tabelle eingespielt werden. Die Ids der neuen Datensätze sollte man sich merken, da sie später für das Update der Passwörter gebraucht werden.
 
-#### To-Do: Template / Module
+#### Schritt 2: Template / Module
 - `$users` **muss** in der setWhere() Funktion beschränkt werden! Es dürfen nur die Ids mit REDAXO 4 Passwörtern selektiert werden, andernfalls werden bereits korrekte Passwörter erneut gehasht und funktionieren nicht mehr.
 - Das Snippet darf nur einmal aufgerufen werden, innerhalb eines Modules oder Templates.
 - Sollten bereits gehashte als auch ungehashte Passwörter vorlieren, empfiehlt es sich `$users` bereits entsprechend zu selektieren für den nächsten Schritt.
