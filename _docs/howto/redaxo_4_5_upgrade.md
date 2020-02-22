@@ -48,8 +48,8 @@ Der Nachfolger von **XForm** heißt in REDAXO 5 **YForm**. Die Tabellen und Eins
 Als Lösung und Ersatz des Multiuploader-AddOn stehen die AddOns ***uploader*** und **multiuploader** zur Verfügung. 
 
 ### Benutzer Passwörter in REDAXO 5 importieren
-**WICHTIG: rex_user / rex_xcom_user Tabelle zu Beginn sichern!** 
-**WICHTIG: Alte Passwortverschlüsselung auf Typ prüfen**
+- **WICHTIG: rex_user / rex_xcom_user Tabelle zu Beginn sichern!** 
+- **WICHTIG: Alte Passwortverschlüsselung auf Typ prüfen**
 Passwörter aus REDAXO 4 können mit folgendem Snippet REDAXO 5 kompatibel gemacht werden.
 
 #### To-Do: Tabelle
@@ -82,8 +82,9 @@ INSERT INTO `rex_user` (`login`, `password`) VALUES
 Der Insert kann jetzt in die REDAXO 5 Tabelle eingespielt werden. Die Ids der neuen Datensätze sollte man sich merken, da sie später für das Update der Passwörter gebraucht werden.
 
 #### To-Do: Template / Module
-- `$users` muss in der setWhere() Funktion beschränkt werden! Es dürfen nur die Ids mit REDAXO 4 Passwörtern selektiert werden, andernfalls werden bereits korrekte Passwörter erneut gehasht und funktionieren nicht mehr.
+- `$users` **muss** in der setWhere() Funktion beschränkt werden! Es dürfen nur die Ids mit REDAXO 4 Passwörtern selektiert werden, andernfalls werden bereits korrekte Passwörter erneut gehasht und funktionieren nicht mehr.
 - Das Snippet darf nur einmal aufgerufen werden, innerhalb eines Modules oder Templates.
+- Sollten bereits gehashte als auch ungehashte Passwörter vorlieren, empfiehlt es sich `$users` bereits entsprechend zu selektieren für den nächsten Schritt.
 
 
 ```php
@@ -96,8 +97,9 @@ $users = rex_sql::factory()
     ->setWhere(['id' => 2])
     ->select();
 ```
-Sobald `$users` alle REDAXO 4 Redakteure enthält, kann folgendes Script in einem Modul oder Template **einmalig** ausgeführt werden. Alte Passwörter aus REDAXO 4 werden dadurch umgewandelt. Sollten die Passwörter nicht verschlüsselt vorliegen, muss mittels der Umstellung der Variable `$isPreHashed = false;` eine Vorverschlüsselung vorgenommen werden.
+Sobald `$users` alle zu migrierenden REDAXO 4 Accounts enthält, kann folgendes Script in einem Modul oder Template **einmalig** ausgeführt werden. Alte Passwörter aus REDAXO 4 werden dadurch umgewandelt. Sollten die Passwörter nicht verschlüsselt vorliegen, muss mittels der Umstellung der Variable `$isPreHashed = false;` eine Vorverschlüsselung vorgenommen werden.
 ```php
+
 $isPreHashed = true;
 foreach ($users as $user) {
     $sql = rex_sql::factory()
