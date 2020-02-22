@@ -50,6 +50,7 @@ Als Lösung und Ersatz des Multiuploader-AddOn stehen die AddOns ***uploader*** 
 ### Benutzer Passwörter in REDAXO 5 importieren
 - **WICHTIG: rex_user / rex_xcom_user Tabelle zu Beginn sichern!** 
 - **WICHTIG: Alte Passwortverschlüsselung auf Typ prüfen**
+
 Passwörter aus REDAXO 4 können mit folgendem Snippet REDAXO 5 kompatibel gemacht werden.
 
 #### To-Do: Tabelle
