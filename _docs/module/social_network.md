@@ -62,7 +62,7 @@ echo MBlock::show($id, $form);
 $items = rex_var::toArray('REX_VALUE[id=1]'); // wandle modulinput in ein array um
 $out = ''; // $out als leeren string initiieren
 foreach ($items as $item) { // durchlaufe alle eingaben aus dem modulinput
-    $out .= '<li><a target="_blank" href="'.$item['url'].'" class="icon brands '.$item['icon'].'"><span class="label">'.$item['name'].'</span></a></li>';
+    $out .= '<li><a rel="noopener" href="'.$item['url'].'" class="icon brands '.$item['icon'].'"><span class="label">'.$item['name'].'</span></a></li>';
     
 }
 ?>
