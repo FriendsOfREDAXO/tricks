@@ -15,7 +15,7 @@ prio:
 <a name="beschreibung"></a>
 ## Beschreibung
 
-Mit diesem Modul kann man soziale netzwerke anlegen mit einem namen, einer url, und einer icon klasse, zbm von FontAwesome.
+Mit diesem Modul kann man soziale Netzwerke anlegen mit einem Namen, einer URL, und einer Icon-Klasse, z. B. von FontAwesome.
 
 <a name="moduleingabe"></a>
 # Moduleingabe
