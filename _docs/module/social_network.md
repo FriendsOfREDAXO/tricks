@@ -6,7 +6,7 @@ prio:
 
 # Soziale Netzwerke ausgeben mit MBlock
 
-> Setzt das FOR Addon MBlock voraus!.
+> Setzt das FOR-AddOn MBlock voraus!
 
 - [Beschreibung](#beschreibung)
 - [Moduleingabe](#moduleingabe)
