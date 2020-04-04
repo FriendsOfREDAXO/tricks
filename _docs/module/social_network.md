@@ -37,7 +37,7 @@ $form = <<<EOT
         </div>
         
         <div class="form-group">
-            <div class="col-sm-2 control-label"><label for="rv2_1_0_name">Icon Klasse</label></div>
+            <div class="col-sm-2 control-label"><label for="rv2_1_0_name">Icon-Klasse</label></div>
             <div class="col-sm-10"><input id="rv2_1_0_name" type="text" name="REX_INPUT_VALUE[$id][0][icon]" value="" class="form-control "></div>
         </div>
         <div class="form-group">
