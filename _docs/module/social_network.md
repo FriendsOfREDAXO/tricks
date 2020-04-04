@@ -69,7 +69,7 @@ foreach ($items as $item) { // durchlaufe alle eingaben aus dem modulinput
 <nav>
     <ul>
         <?php
-            echo $out; //Lis ausgeben
+            echo $out; // <li>s ausgeben
         ?>
     </ul>
 </nav>
