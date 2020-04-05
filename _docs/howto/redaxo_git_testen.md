@@ -26,7 +26,9 @@ Die REDAXO-Einstellungen und auch AddOn-Installationen werden nicht durch den Sy
 
 ![Screenshot](https://github.com/FriendsOfREDAXO/tricks/blob/master/screenshots/rex_git2.png?raw=true)
 
-Möchte man einen aktuellen PR testen kann man von Master-Branch zum PR-Barnch wechseln und auch wieder zurück. Bislang habe ich hierbei "noch" keine Probleme feststellen können. 
+Möchte man einen aktuellen PR testen kann man vom Master-Branch zum PR-Barnch wechseln wie auch wieder zurück. 
+Per Pull holt man sich dann den gewünschen Branch. 
+Bislang habe ich hierbei "noch" keine Probleme feststellen können. 
 
 
 
