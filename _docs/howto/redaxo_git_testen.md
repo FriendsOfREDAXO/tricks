@@ -30,6 +30,6 @@ Möchte man einen aktuellen PR testen kann man vom Master-Branch zum PR-Barnch w
 Per Pull holt man sich dann den gewünschen Branch. 
 Bislang habe ich hierbei "noch" keine Probleme feststellen können. 
 
-
+![Screenshot](https://github.com/FriendsOfREDAXO/tricks/blob/master/screenshots/plesk_composer.png?raw=true)
 Tipp: 
 Da Plesk auch Composer unterstützt kann es sich auch um die Vendoren kümmern. So kann man auch ein Vendor-Update testen. 
