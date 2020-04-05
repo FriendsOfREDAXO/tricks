@@ -31,4 +31,5 @@ Per Pull holt man sich dann den gewünschen Branch.
 Bislang habe ich hierbei "noch" keine Probleme feststellen können. 
 
 
-
+Tipp: 
+Da Plesk auch Composer unterstützt kann es sich auch um die Vendoren kümmern. So kann man auch ein Vendor-Update testen. 
