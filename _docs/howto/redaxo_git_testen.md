@@ -25,7 +25,7 @@ Nach Bestätigung mit OK, werden der Webspace angelegt und die Dateien aus dem R
 
 Jetzt kann nach Anlage der Datenbank die Installation wie gewohnt ausgeführt werden. 
 
-Die REDAXO-Einstellungen und auch AddOn-Installationen werden nicht durch den Sync überschreiben. 
+Die REDAXO-Einstellungen und auch AddOn-Installationen werden nicht durch den Sync überschrieben. 
 
 ![Screenshot](https://github.com/FriendsOfREDAXO/tricks/blob/master/screenshots/rex_git2.png?raw=true)
 
