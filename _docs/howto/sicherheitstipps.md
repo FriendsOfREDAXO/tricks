@@ -51,7 +51,7 @@ Richtig ist:
 setQuery("SELECT * FROM table WHERE id =:id', array(":id" => rex_request('id', "int", 0)))
 Ersetzt den Platzhalter :id mit dem Wert aus dem assoziativen Array. So behältst du den besten Überblick, wenn es darum geht, mehrere Parameter zu übergeben. Dabei werden die Werte sauber übergeben und eingesetzt, eine SQL-Injection ist dann nicht möglich.
 
-Grundsätzlich: 
+**Grundsätzlich: **
 Schwachstellen lassen sich mit vielen kostenlosen Tests aufspüren. Hier ein paar Beispiele:
 https://observatory.mozilla.org
 https://gf.dev/toolbox
