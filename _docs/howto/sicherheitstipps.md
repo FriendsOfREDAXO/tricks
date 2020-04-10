@@ -14,12 +14,13 @@ HTTP Strict Transport Security (HSTS) ist ein Webserver Verzeichnis, das Benutze
 
 Damit wird der `Strict-Transport-Security`-Parameter festgelegt. Es zwingt diese Verbindungen zur HTTPS Verschlüsselung, und ignoriert jedes Skript, das Ressourcen der Domain über HTTP laden will. HSTS ist ein Teil eines großen Bündels an Sicherheitsmaßnahmen, das Sie für Ihren Webserver oder Webhosting-Dienst nutzen können.
 
-Um HSTS zu aktivieren gibt es mehrere Möglichkeiten. 
-- Einstellungen am Zertifikat (z. B. bei Let's encrypt)
-- Aktivierung direkt am Webserver: z. B. Apache (vhosts), nginx (nginx.conf) oder lighttpd (lighttpd.conf)
-- in Redaxo selbst, und zwar in der Datei config.yml: 
+Um HSTS zu aktivieren gibt es mehrere Möglichkeiten. Die Aufzählung erfolgt in der Reihenfolge der Prio: 
+* Einstellungen am Zertifikat (z. B. bei Let's encrypt)
+* Aktivierung direkt am Webserver: z. B. Apache (vhosts), nginx (nginx.conf) oder lighttpd (lighttpd.conf)
+* in Redaxo selbst, und zwar in der Datei config.yml: 
 `use_hsts: true`
 `hsts_max_age: 63072000`
+* bei Apache-Servern über die .htaccess (ACHTUNG: bei Einsatz von yRerwrite wird bei einer Aktualisierung der htaccess die manuelle Aktivierung von HSTS überschrieben und ist damit inaktiv)
 
 Hier ein Beispiel, wie das unter einem Apache-Webserver aussieht (Code für die .htaccess):
 
