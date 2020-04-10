@@ -60,13 +60,29 @@ Richtig ist: `setQuery("SELECT * FROM table WHERE id =:id', array(":id" => rex_r
 
 Ersetzt den Platzhalter `:id` mit dem Wert aus dem assoziativen Array. So behältst du den besten Überblick, wenn es darum geht, mehrere Parameter zu übergeben. Dabei werden die Werte sauber übergeben und eingesetzt, eine SQL-Injection ist dann nicht möglich.
 
+## Content Security Policy (CSP) 
+
+Content Security Policy (CSP) ist eine zusätzliche Sicherheitsebene, die dazu beiträgt, bestimmte Arten von Angriffen, einschließlich Cross Site Scripting (XSS) und Data-Injection-Angriffe, zu erkennen und abzuschwächen. Diese Angriffe werden für alles mögliche verwendet, vom Datendiebstahl über die Verunstaltung von Websites bis hin zur Verbreitung von Malware.
+<i>Quelle (englisch): https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP</i>
+
+CSP können als Header oder als Meta im Website-Code übergeben werden. 
+
+Hilfen zur Generierung und Test der Policy bieten u.a.:
+
+- [Firefox Extension: Laboratory (Content Security Policy / CSP Toolkit)](https://addons.mozilla.org/de/firefox/addon/laboratory-by-mozilla/)
+
+- https://observatory.mozilla.org
+
+- [Content Security Policy (CSP) Generator](https://csper.io/generator)
+
+
 ## Grundsätzlich
 
 Schwachstellen lassen sich mit vielen kostenlosen Tests aufspüren. Hier ein paar Beispiele:
 
-https://observatory.mozilla.org
-https://gf.dev/toolbox
-https://securityheaders.com/
+- https://observatory.mozilla.org
+- https://gf.dev/toolbox
+- https://securityheaders.com/
 
 Allgemeine Tipps:
 * Redakteure sollten keine Möglichkeit haben, PHP-Code direkt einzugeben
