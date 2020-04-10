@@ -36,27 +36,31 @@ Verhindern kann man das, indem man für Cookies das Secure Flag sowie die Option
 cookie: { lifetime: null, path: null, domain: null, secure: true, httponly: true, samesite: Strict }
 Prüfen, ob Secure Flag und httpOnly aktiv sind: https://gf.dev/secure-cookie-test
 
-** TLS **
+## TLS
 Transport Layer Security (TLS, englisch für Transportschichtsicherheit), weitläufiger bekannt unter der Vorgängerbezeichnung Secure Sockets Layer (SSL), ist ein hybrides Verschlüsselungsprotokoll zur sicheren Datenübertragung im Internet. Die letzte Version des SSL-Protokolls war die Version 3.0; danach wurde es unter dem neuen Namen TLS, beginnend mit Version 1.0, weiterentwickelt und standardisiert. Auf vielen Servern laufen die Versionen 1.0, 1.1, 1.2 und 1.3 parallel, um alle gängigen (und auch veralteten Browser) zu unterstützen. 
 Die meisten Browser unterstützen bereits TLS 1.3. Die Version 1.0 ist veraltet und sollte am Server deaktiviert werden. Dazu muss man sich an den Hoster wenden. 
 
 Prüfen, ob TLS 1.0 deaktiviert ist: https://gf.dev/tls-test 
 
 ## XSS und SQL-Injections verhindern
-Die Daten, die in die DB geschrieben oder im Frontend aus der DB angezeigt werden, sollten in der weiteren Verarbeitung „gesäubert“ werden. Zum Beispiel sollten mit rex_get(), rex_post() und rex_request() übernommene Strings vor der Ausgabe auf der Website escaped werden, um mögliches HTML oder anderen Code umzuwandeln. 
-rex_escape($string)
-Beim Schreiben in die DB ist außerdem folgendes falsch:
-setQuery("SELECT * FROM table WHERE id ='.$_GET['id'].'')
-Richtig ist:
-setQuery("SELECT * FROM table WHERE id =:id', array(":id" => rex_request('id', "int", 0)))
-Ersetzt den Platzhalter :id mit dem Wert aus dem assoziativen Array. So behältst du den besten Überblick, wenn es darum geht, mehrere Parameter zu übergeben. Dabei werden die Werte sauber übergeben und eingesetzt, eine SQL-Injection ist dann nicht möglich.
 
-**Grundsätzlich: **
+Die Daten, die in die DB geschrieben oder im Frontend aus der DB angezeigt werden, sollten in der weiteren Verarbeitung „gesäubert“ werden. Zum Beispiel sollten mit rex_get(), rex_post() und rex_request() übernommene Strings vor der Ausgabe auf der Website escaped werden, um mögliches HTML oder anderen Code umzuwandeln.
+
+`rex_escape($string)`
+
+Beim Schreiben in die DB ist außerdem folgendes falsch: `setQuery("SELECT * FROM table WHERE id ='.$_GET['id'].'')`
+
+Richtig ist: `setQuery("SELECT * FROM table WHERE id =:id', array(":id" => rex_request('id', "int", 0)))`
+
+Ersetzt den Platzhalter `:id` mit dem Wert aus dem assoziativen Array. So behältst du den besten Überblick, wenn es darum geht, mehrere Parameter zu übergeben. Dabei werden die Werte sauber übergeben und eingesetzt, eine SQL-Injection ist dann nicht möglich.
+
+## Grundsätzlich
+
 Schwachstellen lassen sich mit vielen kostenlosen Tests aufspüren. Hier ein paar Beispiele:
+
 https://observatory.mozilla.org
 https://gf.dev/toolbox
 https://securityheaders.com/
+
 Allgemeine Tipps:
-•	Redakteure sollten keine Möglichkeit haben, PHP-Code direkt einzugeben
-
-
+* Redakteure sollten keine Möglichkeit haben, PHP-Code direkt einzugeben
