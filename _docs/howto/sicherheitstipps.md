@@ -6,11 +6,21 @@ prio:
 
 # Sicherheitsempfehlungen
 
+Die nachfolgenden Tipps sind nicht als Empfehlung zu verstehen. Vielmehr sollen diese für das Thema Sicherheit sensibilisieren und aufzeigen, mit welchen Themen man sich beschäftigen kann und sollte. 
+
 ## HTTP Strict Transport Security (HSTS)
 
 HTTP Strict Transport Security (HSTS) ist ein Webserver Verzeichnis, das Benutzer und Webbrowser informiert, wie die Verbindung zwischen Response Header, der ganz am Anfang gesendet und später zurück zum Browser gesendet wird, zu handhaben ist.
 
 Damit wird der `Strict-Transport-Security`-Parameter festgelegt. Es zwingt diese Verbindungen zur HTTPS Verschlüsselung, und ignoriert jedes Skript, das Ressourcen der Domain über HTTP laden will. HSTS ist ein Teil eines großen Bündels an Sicherheitsmaßnahmen, das Sie für Ihren Webserver oder Webhosting-Dienst nutzen können.
+
+Um HSTS zu aktivieren gibt es mehrere Möglichkeiten. 
+- Einstellungen am Zertifikat (z. B. bei Let's encrypt)
+- Aktivierung direkt am Webserver: z. B. Apache (vhosts), nginx (nginx.conf) oder lighttpd (lighttpd.conf)
+- in Redaxo selbst, und zwar in der Datei config.yml: 
+`use_hsts: true`
+`hsts_max_age: 63072000`
+
 Hier ein Beispiel, wie das unter einem Apache-Webserver aussieht (Code für die .htaccess):
 
 ```text
@@ -18,6 +28,8 @@ Header set Strict-Transport-Security: "max-age=63072000; includeSubDomains; prel
 ```
 
 Wert für `max-age`: minimum `10886400`, optimal `63072000`
+
+Hat man HSTS aktiviert, kann man seine Domain auch in eine Preload-Liste aufnehmen lassen. Dadurch werden die Browser Chrome, Firefox und Safari gezwungen, für die  Domain HTTPS zu nutzen.
 
 > **Wichtig:** für HSTS muss die Domain (und alle eingebundenen URLs wie z. B. Google-Fonts) über HTTPS laufen und ein Zertifikat installiert sein.
 
@@ -38,8 +50,9 @@ Darum ist es besser, man bindet die jQuery-Klasse aus Redaxo ein, die bei einem 
 ## Session Hijacking
 
 Beim Session-Hijacking wird eine gültige Session von einem Angreifer entführt (daher das Hijacking). Nach erfolgreicher Entführung kann der Angreifer im schlimmsten Fall die Identität des Nutzers übernehmen und die Anwendung in dessen Namen nutzen. 
-Verhindern kann man das, indem man für Cookies das Secure Flag sowie die Option httpOnly aktiviert. In Redaxo dazu die config.yml öffnen und die Parameter auf true setzen:
-cookie: { lifetime: null, path: null, domain: null, secure: true, httponly: true, samesite: Strict }
+Verhindern kann man das, indem man für Cookies das Secure Flag sowie die Option httpOnly aktiviert. In Redaxo dazu die `config.yml` öffnen und die Parameter auf true setzen:
+
+`cookie: { lifetime: null, path: null, domain: null, secure: true, httponly: true, samesite: Strict }`
 Prüfen, ob Secure Flag und httpOnly aktiv sind: https://gf.dev/secure-cookie-test
 
 ## TLS
@@ -93,6 +106,7 @@ Schwachstellen lassen sich mit vielen kostenlosen Tests aufspüren. Hier ein paa
 - https://observatory.mozilla.org
 - https://gf.dev/toolbox
 - https://securityheaders.com/
+- https://detectify.com/
 
 Allgemeine Tipps:
 * Redakteure sollten keine Möglichkeit haben, PHP-Code direkt einzugeben
