@@ -1,22 +1,36 @@
-HSTS
+# Sicherheitsempfehlungen
+
+## HTTP Strict Transport Security (HSTS)
+
 HTTP Strict Transport Security (HSTS) ist ein Webserver Verzeichnis, das Benutzer und Webbrowser informiert, wie die Verbindung zwischen Response Header, der ganz am Anfang gesendet und später zurück zum Browser gesendet wird, zu handhaben ist.
-Damit wird der ‚Strict-Transport-Security‘ Parameter festgelegt. Es zwingt diese Verbindungen zur HTTPS Verschlüsselung, und ignoriert jedes Skript, das Ressourcen der Domain über HTTP laden will. HSTS ist ein Teil eines großen Bündels an Sicherheitsmaßnahmen, das Sie für Ihren Webserver oder Webhosting-Dienst nutzen können.
+
+Damit wird der `Strict-Transport-Security`-Parameter festgelegt. Es zwingt diese Verbindungen zur HTTPS Verschlüsselung, und ignoriert jedes Skript, das Ressourcen der Domain über HTTP laden will. HSTS ist ein Teil eines großen Bündels an Sicherheitsmaßnahmen, das Sie für Ihren Webserver oder Webhosting-Dienst nutzen können.
 Hier ein Beispiel, wie das unter einem Apache-Webserver aussieht (Code für die .htaccess):
+
+```text
 Header set Strict-Transport-Security: "max-age=63072000; includeSubDomains; preload"
-Wert für max-age: minimum 10886400, optimal 63072000
-Wichtig: für HSTS muss die Domain (und alle eingebundenen URLs wie z. B. Google-Fonts) über HTTPS laufen und ein Zertifikat installiert sein.
-Hinweis: HSTS kann auch über die config.yml (redaxo/data/core/) aktiviert werden:
-use_hsts: true
-hsts_max_age: 63072000
-Die Variante über .htaccess ist jedoch zu empfehlen. 
-Prüfen, ob HSTS-Header gesetzt ist: https://gf.dev/hsts-test 
+```
 
-jQuery
-Oftmals wird jQuery verwendet. Viele legen dazu eine jQuery-Klasse im Dateisystem ab und binden dieses im Template ein. Leider vergessen viele, jQuery regelmäßig zu aktualisieren. 
+Wert für `max-age`: minimum `10886400`, optimal `63072000`
+
+> **Wichtig:** für HSTS muss die Domain (und alle eingebundenen URLs wie z. B. Google-Fonts) über HTTPS laufen und ein Zertifikat installiert sein.
+
+> **Hinweis:** HSTS kann auch über die config.yml (redaxo/data/core/) aktiviert werden: `use_hsts: true`, `hsts_max_age: 63072000`. Die Variante über .htaccess ist jedoch zu empfehlen.
+
+> **Tipp:** Online-Tool zum Prüfen, ob HSTS-Header gesetzt ist: https://gf.dev/hsts-test 
+
+## jQuery
+
+Oftmals wird jQuery verwendet. Viele legen dazu eine jQuery-Klasse im Dateisystem ab und binden dieses im Template ein. Leider vergessen viele, jQuery regelmäßig zu aktualisieren.
+
 Darum ist es besser, man bindet die jQuery-Klasse aus Redaxo ein, die bei einem Core-Update in der Regel mit aktualisiert wird:
-<script src="<?= rex_url::base('assets/core/jquery.min.js') ?>"></script>
 
-Session Hijacking 
+```html
+<script src="<?= rex_url::base('assets/core/jquery.min.js') ?>"></script>
+```
+
+## Session Hijacking
+
 Beim Session-Hijacking wird eine gültige Session von einem Angreifer entführt (daher das Hijacking). Nach erfolgreicher Entführung kann der Angreifer im schlimmsten Fall die Identität des Nutzers übernehmen und die Anwendung in dessen Namen nutzen. 
 Verhindern kann man das, indem man für Cookies das Secure Flag sowie die Option httpOnly aktiviert. In Redaxo dazu die config.yml öffnen und die Parameter auf true setzen:
 cookie: { lifetime: null, path: null, domain: null, secure: true, httponly: true, samesite: Strict }
