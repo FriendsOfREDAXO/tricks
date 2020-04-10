@@ -36,10 +36,8 @@ Verhindern kann man das, indem man für Cookies das Secure Flag sowie die Option
 cookie: { lifetime: null, path: null, domain: null, secure: true, httponly: true, samesite: Strict }
 Prüfen, ob Secure Flag und httpOnly aktiv sind: https://gf.dev/secure-cookie-test
 
-## TLS
-
-Transport Layer Security (TLS, englisch für Transportschichtsicherheit), weitläufiger bekannt unter der Vorgängerbezeichnung Secure Sockets Layer (SSL), ist ein hybrides Verschlüsselungsprotokoll zur sicheren Datenübertragung im Internet. Die letzte Version des SSL-Protokolls war die Version 3.0; danach wurde es unter dem neuen Namen TLS, beginnend mit Version 1.0, weiterentwickelt und standardisiert. Auf vielen Servern laufen die Versionen 1.0, 1.1, 1.2 und 1.3 parallel, um alle gängigen (und auch veralteten Browser) zu unterstützen.
-
+** TLS **
+Transport Layer Security (TLS, englisch für Transportschichtsicherheit), weitläufiger bekannt unter der Vorgängerbezeichnung Secure Sockets Layer (SSL), ist ein hybrides Verschlüsselungsprotokoll zur sicheren Datenübertragung im Internet. Die letzte Version des SSL-Protokolls war die Version 3.0; danach wurde es unter dem neuen Namen TLS, beginnend mit Version 1.0, weiterentwickelt und standardisiert. Auf vielen Servern laufen die Versionen 1.0, 1.1, 1.2 und 1.3 parallel, um alle gängigen (und auch veralteten Browser) zu unterstützen. 
 Die meisten Browser unterstützen bereits TLS 1.3. Die Version 1.0 ist veraltet und sollte am Server deaktiviert werden. Dazu muss man sich an den Hoster wenden. 
 
 Prüfen, ob TLS 1.0 deaktiviert ist: https://gf.dev/tls-test 
