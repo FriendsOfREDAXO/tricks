@@ -76,6 +76,16 @@ Hilfen zur Generierung und Test der Policy bieten u.a.:
 - [Content Security Policy (CSP) Generator](https://csper.io/generator)
 
 
+## X-Powered-By verstecken
+
+X-Powered kann kann sensible Informationen über die verwendete PHP, APACHE oder nginx übermitteln. Die Ausgabe der Versionen sollte vermieden werden. 
+
+Folgende Header Anweisung sollte hierbei helfen
+
+`Header unset X-Powered-By`
+
+
+
 ## Grundsätzlich
 
 Schwachstellen lassen sich mit vielen kostenlosen Tests aufspüren. Hier ein paar Beispiele:
