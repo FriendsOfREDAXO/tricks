@@ -1,3 +1,9 @@
+---
+title: Sicherheitsempfehlungen
+authors: [engel4u]
+prio:
+---
+
 # Sicherheitsempfehlungen
 
 ## HTTP Strict Transport Security (HSTS)
