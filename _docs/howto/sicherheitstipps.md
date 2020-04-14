@@ -22,7 +22,7 @@ Alternativ kannst Du HSTS auch in Redaxo aktivieren (entweder während des Setup
 `use_hsts: true`
 `hsts_max_age: 63072000`
 
-Es ist auch eine Aktivierung über .htaccess (bei Apache-Servern) möglich. Davon raten wir ab, da z. B. bei Einsatz von yRerwrite bei einer Aktualisierung die htaccess die .htaccess überschrieben wird und HSTS dadurch deaktiviert wird. 
+Es ist auch eine Aktivierung über .htaccess (bei Apache-Servern) möglich. Davon raten wir ab, da z. B. bei Einsatz von yRerwrite bei einer Aktualisierung die .htaccess überschrieben und HSTS dadurch deaktiviert wird. 
 
 Hat man HSTS aktiviert, kann man seine Domain auch in eine Preload-Liste aufnehmen lassen. Dadurch werden die Browser Chrome, Firefox und Safari gezwungen, für die  Domain HTTPS zu nutzen.
 
