@@ -14,27 +14,20 @@ HTTP Strict Transport Security (HSTS) ist ein Webserver Verzeichnis, das Benutze
 
 Damit wird der `Strict-Transport-Security`-Parameter festgelegt. Es zwingt diese Verbindungen zur HTTPS Verschlüsselung, und ignoriert jedes Skript, das Ressourcen der Domain über HTTP laden will. HSTS ist ein Teil eines großen Bündels an Sicherheitsmaßnahmen, das Sie für Ihren Webserver oder Webhosting-Dienst nutzen können.
 
-Um HSTS zu aktivieren gibt es mehrere Möglichkeiten. Die Aufzählung erfolgt in der Reihenfolge der Prio: 
-1. Einstellungen am Zertifikat (z. B. bei Let's encrypt)
-2. Aktivierung direkt am Webserver: z. B. Apache (vhosts), nginx (nginx.conf) oder lighttpd (lighttpd.conf)
-3. in Redaxo selbst, und zwar in der Datei config.yml: 
+Um HSTS zu aktivieren gibt es mehrere Möglichkeiten. 
+
+Wir empfehlen die Einstellung auf dem Server oder dem Zertifikat vorzunehmen. Dazu wende Dich bitte an Deinen Hoster. 
+
+Alternativ kannst Du HSTS auch in Redaxo aktivieren (entweder während des Setups oder nachträglich in der config.yml):  
 `use_hsts: true`
 `hsts_max_age: 63072000`
-4. bei Apache-Servern über die .htaccess (ACHTUNG: bei Einsatz von yRerwrite wird bei einer Aktualisierung der htaccess die manuelle Aktivierung von HSTS überschrieben und ist damit inaktiv)
 
-Hier ein Beispiel, wie das unter einem Apache-Webserver aussieht (Code für die .htaccess):
-
-```text
-Header set Strict-Transport-Security: "max-age=63072000; includeSubDomains; preload"
-```
-
-Wert für `max-age`: minimum `10886400`, optimal `63072000`
+Es ist auch eine Aktivierung über .htaccess (bei Apache-Servern) möglich. Davon raten wir ab, da z. B. bei Einsatz von yRerwrite bei einer Aktualisierung die htaccess die .htaccess überschrieben wird und HSTS dadurch deaktiviert wird. 
 
 Hat man HSTS aktiviert, kann man seine Domain auch in eine Preload-Liste aufnehmen lassen. Dadurch werden die Browser Chrome, Firefox und Safari gezwungen, für die  Domain HTTPS zu nutzen.
 
 > **Wichtig:** für HSTS muss die Domain (und alle eingebundenen URLs wie z. B. Google-Fonts) über HTTPS laufen und ein Zertifikat installiert sein.
 
-> **Hinweis:** HSTS kann auch über die config.yml (redaxo/data/core/) aktiviert werden: `use_hsts: true`, `hsts_max_age: 63072000`. Die Variante über .htaccess ist jedoch zu empfehlen.
 
 > **Tipp:** Online-Tool zum Prüfen, ob HSTS-Header gesetzt ist: https://gf.dev/hsts-test 
 
