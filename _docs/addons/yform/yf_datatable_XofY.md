@@ -1,5 +1,5 @@
 ---
-title: Gefilterte Liste: Anzahl Sätze anzeigen (x von Y)
+title: Gefilterte Liste - Anzahl Sätze anzeigen (x von Y)
 authors: [christophboecker]
 prio:
 ---
