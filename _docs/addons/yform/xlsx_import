@@ -7,8 +7,7 @@ prio:
 # YForm Table Manager XLSX-Import
 
 - [Background](#background)
-- [Überschriften](#ueberschriften)
-- [Links](#links)
+- [Code](#code)
 
 <a name="background"></a>
 ## Background
@@ -20,6 +19,10 @@ Ich habe hier ein funktionstüchtiges Skript gefunden, mit dem sich direkt Excel
 Das habe ich entsprechend erweitert um eine Funktion, die noch zusätzliche Fehlermeldungen liefert und REDAXO-Pfade benutzt (gemünzt auf das Project Addon). 
 Es berücksichtigt ebenfalls das normalisieren von Spaltennamen 
 [#487](https://github.com/yakamara/redaxo_yform/issues/487)
+
+
+<a name="code"></a>
+## Code
 
 ```
 $array = xlsx_import(rex_path::media().'datei.xlsx');
