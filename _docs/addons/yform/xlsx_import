@@ -6,30 +6,17 @@ prio:
 
 # YForm Table Manager XLSX-Import
 
-- [Background](#background)
-- [Code](#code)
+[Basis dieses Skripts](https://gist.github.com/searbe/3284011)
 
-<a name="background"></a>
-## Background
+## Aufruf:
 
-Ich habe hier ein funktionstüchtiges Skript gefunden, mit dem sich direkt Excel-Dateien im Office 2007-Format und höher einlesen lassen, z.B. durch das Zitiersystem Citavi (das war der konkrete Anwendungsfall)
-
-[Quelle](https://gist.github.com/searbe/3284011)
-
-Das habe ich entsprechend erweitert um eine Funktion, die noch zusätzliche Fehlermeldungen liefert und REDAXO-Pfade benutzt (gemünzt auf das Project Addon). 
-Es berücksichtigt ebenfalls das normalisieren von Spaltennamen 
-[#487](https://github.com/yakamara/redaxo_yform/issues/487)
-
-
-<a name="code"></a>
-## Code
-
-```
+```php
 $array = xlsx_import(rex_path::media().'datei.xlsx');
 ```
 
-Funktion:
-```
+## Diese Funktion über das project-Addon oder das theme-Addon integrieren.
+
+```php
 function xlsx_import($inputFile) {
     /**
      * I had to parse an XLSX spreadsheet (which should damn well have been a CSV!)
