@@ -26,7 +26,8 @@ DDEV ist ein auf Docker basierendes Open-Source-Tool. Es ermöglicht es, ganz sc
 ## DDEV Voraussetzungen
 
 - [Homebrew](https://brew.sh/index_de)
-- [Docker](https://docker.com)
+- [Docker Desktop (Mac & Windows 10 Pro](https://www.docker.com/products/docker-desktop)
+- [Docker Toolbox (Windows 10 Home)](https://github.com/docker/toolbox/releases)
 - [DDEV Anleitung](https://ddev.readthedocs.io/en/stable/)
 
 <a name="redaxo-klonen"></a>
