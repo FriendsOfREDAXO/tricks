@@ -35,14 +35,14 @@ DDEV ist ein auf Docker basierendes Open-Source-Tool. Es ermöglicht, ganz schne
 
 Als erstes erstellst du dir ein Projektverzeichnis für das REDAXO-Projekt. Dann klonst du REDAXO in das Projektverzeichnis, indem du im Terminal folgenden Befehl ausführst:
 
-  $ git clone https://github.com/redaxo/redaxo.git
+    $ git clone https://github.com/redaxo/redaxo.git
 
 <a name="ddev-konfigurieren"></a>
 ## DDEV konfigurieren
 
 Als nächstes muss DDEV noch konfiguriert werden, das machen wir mit folgendem Befehl:
 
-  $ ddev config --project-type=php --webserver-type=apache-fpm
+    $ ddev config --project-type=php --webserver-type=apache-fpm
   
 Alternativ hätten wir auch einfach nur `ddev config` ausführen und die Schritte durchgehen können, aber so geht es ein wenig schneller.
 
@@ -52,7 +52,7 @@ Alternativ hätten wir auch einfach nur `ddev config` ausführen und die Schritt
 <a name="projekt-starten"></a>
 ## Projekt starten
 
-  $ ddev start
+    $ ddev start
   
 Damit wird das Projekt gestartet. (Beim ersten Mal kann es etwas dauern, weil noch die ganzen Pakete heruntergeladen und installiert werden.)
 
