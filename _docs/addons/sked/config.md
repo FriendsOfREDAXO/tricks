@@ -59,7 +59,7 @@ Die Custom Definitionen liegen in `data/addons/sked/definitions`.
 <a name="custom_entries"></a>
 ### custom_entries.yml
 
-```yml
+```yaml
 langfields:
   - name: 'subtitle'
     type: 'text'
@@ -137,7 +137,7 @@ Das schöne an der yml-Konfiguration ist, dass man diese Dateien einfach bearbei
 <a name="custom_categories"></a>
 ### custom_categories.yml
 
-```yml
+```yaml
 langfields:
   - name: subtitle
     type: text
