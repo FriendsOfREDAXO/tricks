@@ -74,7 +74,7 @@ Mit dem Befehl `ddev describe` Kannst du dir die Informationen zu deinem Projekt
 
 In deiner DDEV Konfiguration `.ddev/config.yml`:
 
-```yml
+```yaml
 php_version: "7.3"
 ```
 
