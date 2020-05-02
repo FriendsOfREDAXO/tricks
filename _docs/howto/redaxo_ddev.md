@@ -44,7 +44,7 @@ Als nächstes muss DDEV noch Konfiguriert werden, das machen wir mit Folgendem B
 <a name="projekt-starten"></a>
 ## Projekt Starten
 
-- `ddev start` Damit wird das Projekt gestartet. (Beim Ersten mal kann es etwas dauern, da noch die ganzen packte heruntergeladen und installiert werden.)
+- `ddev start` Damit wird das Projekt gestartet. (Beim Ersten mal kann es etwas dauern, da noch die ganzen Pakete heruntergeladen und installiert werden.)
 
 - Die Projekt URL Aufrufen (HTTP): `http://ORDNERNAME.ddev.site:8000`
  - Falls man nach der DDEV Installation `mkcert -install` ausgeführt hat, kann man sein Projekt auch über HTTPS Aufrufen: `https://ORDNERNAME.ddev.site:8443`.
