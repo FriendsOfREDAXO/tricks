@@ -30,7 +30,7 @@ DDEV ist ein auf Docker basierendes Open-Source-Tool. Es ermöglicht es, ganz sc
 <a name="redaxo-klonen"></a>
 ## REDAXO Klonen
 
-Als erstes, erstellt man sich ein Projekt Verzeichnis für das REDAXO Projekt. Dann klont man sich REDAXO in das Projekt Verzeichnis und führt im Terminal folgenden Befehl aus: `git clone https://github.com/redaxo/redaxo.git .`. Im Anschluss noch die submodule updaten `git submodule init && git submodule update`.
+Als erstes, erstellt man sich ein Projekt Verzeichnis für das REDAXO Projekt. Dann klont man sich REDAXO in das Projekt Verzeichnis und führt im Terminal folgenden Befehl aus: `git clone https://github.com/redaxo/redaxo.git .`.
 
 <a name="ddev-konfigurieren"></a>
 ## DDEV Konfigurieren
