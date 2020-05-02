@@ -6,6 +6,8 @@ prio:
 
 # REDAXO mit DDEV Installieren
 
+> Entwicklerversionen aus GitHub sollten ausschließlich zu Testzwecken und zur Unterstützung bei der Entwicklung installiert werden. Ein produktiver Einsatz wird nicht empfohlen. Für einen produktiven Einsatz bitte die ZIP Version von REDAXO.org downloaden.
+
 - [Was ist DDEV?](#was-ist-ddev)
 - [DDEV Voraussetzungen](#ddev-voraussetzungen)
 - [REDAXO Klonen](#redaxo-klonen)
