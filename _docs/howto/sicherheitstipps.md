@@ -97,10 +97,10 @@ Folgende Header Anweisung sollte hierbei helfen
 
 Schwachstellen lassen sich mit vielen kostenlosen Tests aufspüren. Hier ein paar Beispiele:
 
-- https://observatory.mozilla.org
-- https://gf.dev/toolbox
-- https://securityheaders.com/
-- https://detectify.com/
+- [https://observatory.mozilla.org](https://observatory.mozilla.org)
+- [https://gf.dev/toolbox](https://gf.dev/toolbox)
+- [https://securityheaders.com/](https://securityheaders.com/)
+- [https://detectify.com/](https://detectify.com/)
 
 Allgemeine Tipps:
 * Redakteure sollten keine Möglichkeit haben, PHP-Code direkt einzugeben
