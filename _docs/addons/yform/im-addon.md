@@ -261,6 +261,7 @@ Um die beiden Parameter ```yformTitle``` und ```yformClass``` zu berücksichtige
 
 Hier ist der vollständige Code der perfekten(?) Lösung:
 <a href="final"></a>
+
 ```php
 <?php
 $target_page = rex_request( 'page', 'string' );

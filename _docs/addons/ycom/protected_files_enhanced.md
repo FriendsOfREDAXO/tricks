@@ -28,7 +28,7 @@ Im Backend müssen bei den Gruppen einzelne Nutzergruppen angelegt werden. Die N
 #### 2. Meta Infos anlegen
 Über das Meta Infos Addon werden zwei Metafelder für Medien angelegt:
 
-```
+```yml
 Spaltenname : ycom_users
 Feldbezeichnung : translate:ycom_user
 Feldtyp : select
@@ -40,7 +40,7 @@ _bei "Nur in folgenden Kategorien verfügbar" noch die festgelegte Medienpool-Ka
 
 Wenn Benutzergruppen verwendet werden, sollte noch das folgende Metafeld angelegt werden:
 
-```
+```yml
 Spaltenname : ycom_groups
 Feldbezeichnung : translate:ycom_groups
 Feldtyp : select

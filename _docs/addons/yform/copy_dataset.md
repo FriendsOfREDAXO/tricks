@@ -20,6 +20,7 @@ Das hier abgebildete Skript sucht die Felder name und status. Werden diese Felde
 Die Zeilen 19 `case: 'name'` und 22 `case: 'status'` müssen ggf. von Tabelle zu Tabelle angepasst werden, wenn diese Funktion erwünscht ist. Das Kopieren des Datensatzes funktioniert jedoch auch, wenn diese Felder nicht vorhanden sind. 
 
 <a name="skript"></a>
+
 ```php
 <?php
 $orgTable = rex_request('table_name', 'string', '');

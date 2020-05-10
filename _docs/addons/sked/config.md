@@ -327,7 +327,7 @@ if (rex::isBackend() && rex_get('sked_cat_id') && rex::getUser()) {
 ```
 
 <a name="yform"></a>
-## yform
+## YForm
 
 In yform muss noch die Kategorientabelle `rex_sked_event_categories` über den Tablemanager angelegt werden. In unserem Falle benötigen wir lediglich die Felder `name_1` und `name_2`, also die Namen für die Sprache 1 und Sprache 2.
 
