@@ -10,6 +10,7 @@ prio:
 
 - [Was ist DDEV?](#was-ist-ddev)
 - [DDEV Voraussetzungen](#ddev-voraussetzungen)
+- [DDEV Installieren (Windows)](#ddev-installieren-windows)
 - [REDAXO Klonen](#redaxo-klonen)
 - [DDEV Konfigurieren](#ddev-konfigurieren)
 - [Projekt Starten](#projekt-starten)
@@ -25,10 +26,31 @@ DDEV ist ein auf Docker basierendes Open-Source-Tool. Es ermöglicht, ganz schne
 <a name="ddev-voraussetzungen"></a>
 ## DDEV Voraussetzungen
 
-- [Homebrew](https://brew.sh/index_de)
+- [Homebrew (MacOS)](https://brew.sh/index_de)
+- [Chocolatey (Windows)](https://chocolatey.org/)
 - [Docker Desktop (Mac & Windows 10 Pro)](https://www.docker.com/products/docker-desktop)
 - [Docker Toolbox (Windows 10 Home)](https://github.com/docker/toolbox/releases)
 - [DDEV-Anleitung](https://ddev.readthedocs.io/en/stable/)
+
+<a name="ddev-installieren-windows"></a>
+## DDEV Installieren unter Windows
+
+DDEV funktioniert natürlich auch unter Windows, nur ist die Installation ein wenig anders, als bei MacOS.
+
+Nachdem du Chocolatey Installiert hast führst du Powershell als Administrator aus, und gibst dann Folgenden Befehl ein:
+
+    $ choco install ddev
+
+Und folgst den Anweisungen in Powershell.
+
+Für ein Update von DDEV, führst du einfach folgenden Befehl aus:
+
+    $ ddev poweroff && choco upgrade ddev
+
+Der Befehl `ddev poweroff` Stoppt alle DDEV Projekte, und alle Container.
+
+#### Anleitung für die Chocolatey Installation
+- [Chocolatey Installation](https://chocolatey.org/install)
 
 <a name="redaxo-klonen"></a>
 ## REDAXO klonen
