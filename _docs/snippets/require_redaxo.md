@@ -16,6 +16,6 @@ $REX['LOAD_PAGE'] = false;
 // REDAXO einbinden
 require $REX['HTDOCS_PATH'].$REX['BACKEND_FOLDER'].'/src/core/boot.php';
 
-// Addons einbinden
+// Addons einbinden (optional)
 include_once rex_path::core('packages.php')
 ```
