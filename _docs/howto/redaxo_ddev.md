@@ -118,3 +118,9 @@ Danach startest du dein Projekt mit `ddev restart` neu, und alles sollte wieder 
 ### DDEV-Projekt stoppen
 
 Wenn du dein DDEV-Projekt stoppen möchtest, kannst du dies ganz einfach mit `ddev stop` tun. Und beim nächsten mal wieder mit `ddev start` starten.
+
+## DDEV Befehle
+
+Eine Übersicht und Erklärung, aller befehle in DDEV erhalte ich mit dem 'ddev help' Befehl.
+
+![Screenshot](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/redaxo_ddev/redaxo_ddev_commands.png)
