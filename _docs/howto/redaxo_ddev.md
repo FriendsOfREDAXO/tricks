@@ -121,6 +121,6 @@ Wenn du dein DDEV-Projekt stoppen möchtest, kannst du dies ganz einfach mit `dd
 
 ## DDEV Befehle
 
-Eine Übersicht und Erklärung, aller befehle in DDEV erhalte ich mit dem 'ddev help' Befehl.
+Eine Übersicht und Erklärung, aller befehle in DDEV erhaltest du mit dem 'ddev help' Befehl.
 
 ![Screenshot](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/redaxo_ddev/redaxo_ddev_commands.png)
