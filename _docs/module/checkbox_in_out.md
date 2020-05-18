@@ -6,6 +6,9 @@ prio:
 
 # Checkbox im Modul
 
+# Beschreibung
+Dieses Modul Beinhaltet eine Checkbox als Modul.
+
 ## Input
 
 ```html
