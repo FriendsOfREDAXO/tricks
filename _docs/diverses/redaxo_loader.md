@@ -44,7 +44,7 @@ $loader_file = $install_path . 'redaxo_loader.php';
 define('REPO', 'redaxo/redaxo');
 $opts = ['http' => ['method' => 'GET', 'header' => ['User-Agent: PHP']]];
 $context = stream_context_create($opts);
-$releases = curl_file_get_contents('https://api.github.com/repos/' . REPO . '/releases', false, $context);
+$releases = file_get_contents('https://api.github.com/repos/' . REPO . '/releases', false, $context);
 $releases = json_decode($releases);
 $url = $releases[0]->assets[0]->browser_download_url;
 
