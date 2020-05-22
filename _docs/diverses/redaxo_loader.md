@@ -21,6 +21,21 @@ Skript zum Download und Entpacken der aktuellen REDAXO-Release aus GitHub.
  * Download latest REDAXO release from github
  * License: Public Domain
  */
+ 
+// Funktion die file_get_contents mit curl ersetzt
+
+function curl_file_get_contents($url)
+ {
+ $curly = curl_init();
+ curl_setopt($curly, CURLOPT_HEADER, 0);
+ curl_setopt($curly, CURLOPT_RETURNTRANSFER, 1); //Return Data
+ curl_setopt($curly, CURLOPT_FOLLOWLOCATION, 1);
+ curl_setopt($curly, CURLOPT_URL, $url);
+ $content = curl_exec($curly);
+ curl_close($curly);
+ return $content;
+ } 
+ 
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 $install_path = './';
@@ -29,7 +44,7 @@ $loader_file = $install_path . 'redaxo_loader.php';
 define('REPO', 'redaxo/redaxo');
 $opts = ['http' => ['method' => 'GET', 'header' => ['User-Agent: PHP']]];
 $context = stream_context_create($opts);
-$releases = file_get_contents('https://api.github.com/repos/' . REPO . '/releases', false, $context);
+$releases = curl_file_get_contents('https://api.github.com/repos/' . REPO . '/releases', false, $context);
 $releases = json_decode($releases);
 $url = $releases[0]->assets[0]->browser_download_url;
 
@@ -45,19 +60,7 @@ if (is_dir($folder))
  exit();
  }
 
-// Funktion die file_get_contents mit curl ersetzt
 
-function curl_file_get_contents($url)
- {
- $curly = curl_init();
- curl_setopt($curly, CURLOPT_HEADER, 0);
- curl_setopt($curly, CURLOPT_RETURNTRANSFER, 1); //Return Data
- curl_setopt($curly, CURLOPT_FOLLOWLOCATION, 1);
- curl_setopt($curly, CURLOPT_URL, $url);
- $content = curl_exec($curly);
- curl_close($curly);
- return $content;
- }
 
 echo '<pre>Folgende aktuelle Datei wurde gefunden: ' . $url . '</pre>';
 $redaxo_core = curl_file_get_contents($url);
