@@ -1,5 +1,5 @@
 ---
-title: Kopieren eines YForm-Datensatzes
+title: YForm - Datensätze auf Validierungen prüfen
 authors: [tbaddade]
 prio:
 ---
