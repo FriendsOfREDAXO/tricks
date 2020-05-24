@@ -1,10 +1,10 @@
 ---
-title: YForm - Datensätze auf Validierungen prüfen
+title: YForm - Alle Datensätze auf Validierungen prüfen
 authors: [tbaddade]
 prio:
 ---
 
-# YForm - Datensätze auf Validierungen prüfen
+# Alle Datensätze auf Validierungen prüfen
 
 ## Hintergrund:
 
