@@ -6,30 +6,30 @@
 - title: AddOns
   url: /addons
   subitems:
-  - title: Cronjob
-    url: /addons/cronjob
-  - title: Focuspoint
-    url: /addons/focuspoint
-  - title: Media-Pool
-    url: /addons/mediapool
-  - title: MForm
-    url: /addons/mform
-  - title: Project
-    url: /addons/project
-  - title: Sked
-    url: /addons/sked
-  - title: Structure
-    url: /addons/structure
-  - title: Theme
-    url: /addons/theme
-  - title: URL
-    url: /addons/url
-  - title: YCom
-    url: /addons/ycom
-  - title: YForm
-    url: /addons/yform
-  - title: YRewrite
-    url: /addons/yrewrite
+    - title: Cronjob
+      url: /addons/cronjob
+    - title: Focuspoint
+      url: /addons/focuspoint
+    - title: Media-Pool
+      url: /addons/mediapool
+    - title: MForm
+      url: /addons/mform
+    - title: Project
+      url: /addons/project
+    - title: Sked
+      url: /addons/sked
+    - title: Structure
+      url: /addons/structure
+    - title: Theme
+      url: /addons/theme
+    - title: URL
+      url: /addons/url
+    - title: YCom
+      url: /addons/ycom
+    - title: YForm
+      url: /addons/yform
+    - title: YRewrite
+      url: /addons/yrewrite
 - title: Module
   url: /module
 - title: Backend
@@ -40,3 +40,5 @@
   url: /howto
 - title: Snippets
   url: /snippets
+- title: Development
+  url: /development
