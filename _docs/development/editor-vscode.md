@@ -40,7 +40,7 @@ Folgende Einstellung in die VSCode Konfigurationsdatei `settings.json` kopieren
 
 ### **Step 2**: Erweiterung `junstyle.php-cs-fixer` installieren
 
-Die Erweiterung `junstyle.php-cs-fixer` PHP CS Fixer for Visual Studio Code [(github)](https://github.com/junstyle/vscode-php-cs-fixer.git) enthält den PHP Coding Standards Fixer [(github)](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
+Die Erweiterung `junstyle.php-cs-fixer` PHP CS Fixer for Visual Studio Code [(marketplace)](https://marketplace.visualstudio.com/items?itemName=junstyle.php-cs-fixer) enthält den PHP Coding Standards Fixer [(github)](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
 
 > **Hinweis:** Die richtige Erweiterung installieren! (Suche nach _junstyle.php-cs-fixer_)
 
@@ -172,7 +172,7 @@ if ('php' === $file->getExtension()) {
 
 Im Marketplace nach `redhat.vscode-yaml` suchen und installieren.
 
-YAML Language Support by Red Hat ([github](https://github.com/redhat-developer/vscode-yaml))
+YAML Language Support by Red Hat [(marketplace)](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
 
 ### **Step 2**: Settings für die Erweiterung anpassen
 
@@ -193,15 +193,15 @@ YAML Language Support by Red Hat ([github](https://github.com/redhat-developer/v
 <a name="vscode-erweiterungen"></a>
 ## Nützliche Erweiterungen für VSCode
 
-* `ms-ceintl.vscode-language-pack-de` - Deutsches Sprachpaket für VS Code
-* `shan.code-settings-sync` - Settings Sync
-* `adamvoss.vscode-languagetool` - LanguageTool Extension for Visual Studio Code
-* `adamvoss.vscode-languagetool-en` - English Support for LanguageTool
-* `adamvoss.vscode-languagetool-de` - German Support for LanguageTool
-* `davidanson.vscode-markdownlint` - markdownlint
-* `bierner.github-markdown-preview` - Github Markdown Preview
-* `felixfbecker.php-intellisense` - PHP IntelliSense
-* `ikappas.phpcs` - PHP CodeSniffer for Visual Studio Code
+* `ms-ceintl.vscode-language-pack-de` - [Deutsches Sprachpaket für VS Code](https://marketplace.visualstudio.com/items?itemName=ms-ceintl.vscode-language-pack-de)
+* `shan.code-settings-sync` - [Settings Sync](https://marketplace.visualstudio.com/items?itemName=shan.code-settings-sync)
+* `adamvoss.vscode-languagetool` - [LanguageTool Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=adamvoss.vscode-languagetool)
+* `adamvoss.vscode-languagetool-en` - [English Support for LanguageTool](https://marketplace.visualstudio.com/items?itemName=adamvoss.vscode-languagetool-en)
+* `adamvoss.vscode-languagetool-de` - [German Support for LanguageTool](https://marketplace.visualstudio.com/items?itemName=adamvoss.vscode-languagetool-de)
+* `davidanson.vscode-markdownlint` - [markdownlint](https://marketplace.visualstudio.com/items?itemName=davidanson.vscode-markdownlint)
+* `bierner.github-markdown-preview` - [Github Markdown Preview](https://marketplace.visualstudio.com/items?itemName=bierner.github-markdown-preview)
+* `felixfbecker.php-intellisense` - [PHP IntelliSense](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-intellisense)
+* `ikappas.phpcs` - [PHP CodeSniffer for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs)
 
 
 
