@@ -40,7 +40,7 @@ Die Funktion `setlocale()` benötigt eine Kombination aus `Language Code` und `C
 	  setlocale(LC_TIME, $clang->getCode()."_".$clang->getValue('country').".utf8");
 	```
 
-4. Nun ist der aktuelle Sprachcode überal gesetzt und ein Datum kann ganz einfach mit `strftime()` formatiert werden, z. B.
+4. Nun ist der aktuelle Sprachcode überall gesetzt und ein Datum kann ganz einfach mit `strftime()` formatiert werden, z. B.
 
 	```php
 	  strftime('%d. %B %Y', strtotime($event['date_begin'])) // Ergibt 03. Februar 2013
