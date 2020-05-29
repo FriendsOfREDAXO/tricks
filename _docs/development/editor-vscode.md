@@ -40,7 +40,7 @@ Folgende Einstellung in die VSCode Konfigurationsdatei `settings.json` kopieren
 
 
 
-### **Schritt 2**: Erweiterung `PHP CS Fixer` installieren
+### **Schritt 2**: Erweiterung **PHP CS Fixer** installieren
 
 Die Erweiterung [PHP CS Fixer von Junstyle](https://marketplace.visualstudio.com/items?itemName=junstyle.php-cs-fixer) für Visual Studio Code enthält den [PHP Coding Standards Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
 
