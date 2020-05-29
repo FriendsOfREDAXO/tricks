@@ -36,9 +36,14 @@ Folgende Einstellung in die VSCode Konfigurationsdatei `settings.json` kopieren
 ```
 
 > **Hinweis:** Pfad an die eigene PHP-Umgebung anpassen!
-### **Schritt 2**: Erweiterung `junstyle.php-cs-fixer` installieren
 
-Die Erweiterung `junstyle.php-cs-fixer` PHP CS Fixer for Visual Studio Code [(marketplace)](https://marketplace.visualstudio.com/items?itemName=junstyle.php-cs-fixer) enthält den PHP Coding Standards Fixer [(github)](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
+
+
+### **Schritt 2**: Erweiterung **PHP CS Fixer** installieren
+
+Die Erweiterung [PHP CS Fixer von Junstyle](https://marketplace.visualstudio.com/items?itemName=junstyle.php-cs-fixer) für Visual Studio Code enthält den [PHP Coding Standards Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
+
+
 
 > **Hinweis:** Die richtige Erweiterung installieren! (Suche nach _junstyle.php-cs-fixer_)
 
@@ -161,6 +166,7 @@ if ('php' === $file->getExtension()) {
 
 
 <a name="vscode-yaml"></a>
+
 ## YAML - Schema für config.yml und package.yml
 
 **Folgende Schritte zur Umsetzung**
@@ -172,7 +178,7 @@ if ('php' === $file->getExtension()) {
 
 Im Marketplace nach `redhat.vscode-yaml` suchen und installieren.
 
-YAML Language Support by Red Hat [(marketplace)](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
+ [YAML Language Support by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
 
 ### **Schritt 2**: Settings für die Erweiterung anpassen
 
@@ -191,6 +197,7 @@ YAML Language Support by Red Hat [(marketplace)](https://marketplace.visualstudi
 
 
 <a name="vscode-erweiterungen"></a>
+
 ## Nützliche Erweiterungen für VSCode
 
 * `ms-ceintl.vscode-language-pack-de` - [Deutsches Sprachpaket für VS Code](https://marketplace.visualstudio.com/items?itemName=ms-ceintl.vscode-language-pack-de)
