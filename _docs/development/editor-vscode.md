@@ -55,7 +55,7 @@ $finder = PhpCsFixer\Finder::create()
     ->in([__DIR__]);
 ```
 
-Und hier der gesamte Code für die `.php_cs.dist` zum CopyPasten ...
+Nachfolgenden Code in die `.php_cs.dist` zum kopieren;
 ```php
 <?php
 
