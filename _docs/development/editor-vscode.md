@@ -4,30 +4,26 @@ authors: []
 prio:
 ---
 
-
-
 # Editor-Einstellungen Visual Studio Code (VSCode)
 
 - [PHP - REDAXO-Coding-Standards](#vscode-php)
 - [YAML - Schema für config.yml und package.yml](#vscode-yaml)
 - [Nützliche Erweiterungen für VSCode](#vscode-erweiterungen)
 
-
-
 <a name="vscode-php"></a>
+
 ## PHP - REDAXO-Coding-Standards
 
 **Zusammenfassend werden 4 Schritte benötigt, diese werden nachfolgend genauer erläutert.**
-1. Pfad zum PHP-Executable einstellen
+
+1. Pfad zur PHP-Executable einstellen
 2. Erweiterung `junstyle.php-cs-fixer` installieren
 3. REDAXO-Coding-Standards lokal als Datei `.php_cs.dist` speichern
 4. Einstellungen der Erweiterungen wie gewünscht anpassen
 
-
-
 ### **Schritt 1**: Pfad zur PHP-Executable einstellen
 
-Falls noch nicht geschehen muss VSCode der Pfad zum PHP-Executable mitgeteilt werden.
+Falls noch nicht geschehen muss VSCode der Pfad zur PHP-Executable mitgeteilt werden.
 
 Folgende Einstellung in die VSCode Konfigurationsdatei `settings.json` kopieren
 
@@ -37,17 +33,11 @@ Folgende Einstellung in die VSCode Konfigurationsdatei `settings.json` kopieren
 
 > **Hinweis:** Pfad an die eigene PHP-Umgebung anpassen!
 
-
-
 ### **Schritt 2**: Erweiterung **PHP CS Fixer** installieren
 
-Die Erweiterung [PHP CS Fixer von Junstyle](https://marketplace.visualstudio.com/items?itemName=junstyle.php-cs-fixer) für Visual Studio Code enthält den [PHP Coding Standards Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
-
-
+Die Erweiterung [PHP CS Fixer von Junstyle](https://marketplace.visualstudio.com/items?itemName=junstyle.php-cs-fixer) für Visual Studio Code enthält den [PHP Coding Standards Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer).
 
 > **Hinweis:** Die richtige Erweiterung installieren! (Suche nach _junstyle.php-cs-fixer_)
-
-
 
 ### **Schritt 3**: REDAXO-Coding-Standards lokal als Datei `.php_cs.dist` speichern
 
@@ -134,8 +124,6 @@ return PhpCsFixer\Config::create()
 Die lokal abgespeicherte Datei wird im folgenden Schritt für die Einstellungen der Erweiterung verwendet.
 Eine Kopie der Datei kann aber auch z.B. direkt im eigenen Addon-Verzeichnis gespeichert werden.
 
-
-
 ### **Schritt 4**: Settings für die Erweiterung anpassen
 
 Folgende Einstellung in die VSCode Konfigurationsdatei `settings.json` kopieren
@@ -153,6 +141,7 @@ if ($file->getExtension()==='php') {
 echo "blafasel";
 }
 ```
+
 folgendes ersetzt wird
 
 ```php
@@ -163,13 +152,11 @@ if ('php' === $file->getExtension()) {
 
 > **Tipp:** Es gibt noch einige weitere Einstellungen für die Erweiterung  - diese einfach nach den eigenen Wünschen konfigurieren :)
 
-
-
 <a name="vscode-yaml"></a>
 
 ## YAML - Schema für config.yml und package.yml
 
-**Folgende Schritte zur Umsetzung**
+**Zusammenfassend werden 2 Schritte benötigt, diese werden nachfolgend genauer erläutert.**
 
 1. Erweiterung `redhat.vscode-yaml` installieren
 2. Einstellungen für die Erweiterung anpassen
@@ -192,20 +179,19 @@ Im Marketplace nach `redhat.vscode-yaml` suchen und installieren.
         ],
     },
 ```
+
 > **Hinweis:** Die Schema-Dateien können auch lokal gespeichert werden und müssen dann mit `"file://C:\\Ordner\\package.json"` angegeben werden.
-
-
 
 <a name="vscode-erweiterungen"></a>
 
 ## Nützliche Erweiterungen für VSCode
 
-* `ms-ceintl.vscode-language-pack-de` - [Deutsches Sprachpaket für VS Code](https://marketplace.visualstudio.com/items?itemName=ms-ceintl.vscode-language-pack-de)
-* `shan.code-settings-sync` - [Settings Sync](https://marketplace.visualstudio.com/items?itemName=shan.code-settings-sync)
-* `adamvoss.vscode-languagetool` - [LanguageTool Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=adamvoss.vscode-languagetool)
-* `adamvoss.vscode-languagetool-en` - [English Support for LanguageTool](https://marketplace.visualstudio.com/items?itemName=adamvoss.vscode-languagetool-en)
-* `adamvoss.vscode-languagetool-de` - [German Support for LanguageTool](https://marketplace.visualstudio.com/items?itemName=adamvoss.vscode-languagetool-de)
-* `davidanson.vscode-markdownlint` - [markdownlint](https://marketplace.visualstudio.com/items?itemName=davidanson.vscode-markdownlint)
-* `bierner.github-markdown-preview` - [Github Markdown Preview](https://marketplace.visualstudio.com/items?itemName=bierner.github-markdown-preview)
-* `felixfbecker.php-intellisense` - [PHP IntelliSense](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-intellisense)
-* `ikappas.phpcs` - [PHP CodeSniffer for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs)
+- `ms-ceintl.vscode-language-pack-de` - [Deutsches Sprachpaket für VS Code](https://marketplace.visualstudio.com/items?itemName=ms-ceintl.vscode-language-pack-de)
+- `shan.code-settings-sync` - [Settings Sync](https://marketplace.visualstudio.com/items?itemName=shan.code-settings-sync)
+- `adamvoss.vscode-languagetool` - [LanguageTool Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=adamvoss.vscode-languagetool)
+- `adamvoss.vscode-languagetool-en` - [English Support for LanguageTool](https://marketplace.visualstudio.com/items?itemName=adamvoss.vscode-languagetool-en)
+- `adamvoss.vscode-languagetool-de` - [German Support for LanguageTool](https://marketplace.visualstudio.com/items?itemName=adamvoss.vscode-languagetool-de)
+- `davidanson.vscode-markdownlint` - [markdownlint](https://marketplace.visualstudio.com/items?itemName=davidanson.vscode-markdownlint)
+- `bierner.github-markdown-preview` - [Github Markdown Preview](https://marketplace.visualstudio.com/items?itemName=bierner.github-markdown-preview)
+- `felixfbecker.php-intellisense` - [PHP IntelliSense](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-intellisense)
+- `ikappas.phpcs` - [PHP CodeSniffer for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs)
