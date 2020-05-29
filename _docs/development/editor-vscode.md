@@ -160,7 +160,7 @@ if ('php' === $file->getExtension()) {
 <a name="vscode-yaml"></a>
 ## YAML - Schema für config.yml und package.yml
 
-**Folgende Steps zur Umsetzung**
+**Folgende Schritte zur Umsetzung**
 
 1. Erweiterung `redhat.vscode-yaml` installieren
 2. Settings für die Erweiterung anpassen
