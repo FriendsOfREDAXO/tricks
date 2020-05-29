@@ -35,7 +35,7 @@ Folgende Einstellung in die VSCode Konfigurationsdatei `settings.json` kopieren
 ```
 
 > **Hinweis:** Pfad an die eigene PHP-Umgebung anpassen!
-### **Step 2**: Erweiterung `junstyle.php-cs-fixer` installieren
+### **Schritt 2**: Erweiterung `junstyle.php-cs-fixer` installieren
 
 Die Erweiterung `junstyle.php-cs-fixer` PHP CS Fixer for Visual Studio Code [(marketplace)](https://marketplace.visualstudio.com/items?itemName=junstyle.php-cs-fixer) enthält den PHP Coding Standards Fixer [(github)](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
 
