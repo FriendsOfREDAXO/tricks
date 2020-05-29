@@ -15,6 +15,7 @@ prio:
 
 
 <a name="vscode-php"></a>
+
 ## PHP - REDAXO-Coding-Standards
 
 **Zusammenfassend werden 4 Schritte benötigt, diese werden nachfolgend genauer erläutert.**
@@ -36,9 +37,12 @@ Folgende Einstellung in die VSCode Konfigurationsdatei `settings.json` kopieren
 ```
 
 > **Hinweis:** Pfad an die eigene PHP-Umgebung anpassen!
-### **Schritt 2**: Erweiterung `junstyle.php-cs-fixer` installieren
 
-Die Erweiterung `junstyle.php-cs-fixer` PHP CS Fixer for Visual Studio Code [(marketplace)](https://marketplace.visualstudio.com/items?itemName=junstyle.php-cs-fixer) enthält den PHP Coding Standards Fixer [(github)](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
+
+
+### **Schritt 2**: Erweiterung `PHP CS Fixer` installieren
+
+Die Erweiterung [PHP CS Fixer von Junstyle](https://marketplace.visualstudio.com/items?itemName=junstyle.php-cs-fixer) für Visual Studio Code enthält den [PHP Coding Standards Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
 
 > **Hinweis:** Die richtige Erweiterung installieren! (Suche nach _junstyle.php-cs-fixer_)
 
