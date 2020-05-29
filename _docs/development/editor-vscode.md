@@ -50,7 +50,8 @@ Aus der [REDAXO .php_cs.dist](https://raw.githubusercontent.com/redaxo/redaxo/ma
 > **Hinweis:** Am besten im Extension-Verzeichnis des VSCode, z.b. `C:\Users\USERID\.vscode\extensions\.php_cs.dist`
 
 Die folgenden Zeilen oben am Code einfügen ...
-```
+
+```php
 $finder = PhpCsFixer\Finder::create()
     ->in([__DIR__]);
 ```
@@ -173,7 +174,7 @@ YAML Language Support by Red Hat [(marketplace)](https://marketplace.visualstudi
 
 ### **Schritt 2**: Settings für die Erweiterung anpassen
 
-```
+```json
     "yaml.schemas": {
         "https://raw.githubusercontent.com/redaxo/redaxo/master/redaxo/src/core/schemas/config.json": [
             "/redaxo/data/core/config.yml"
