@@ -171,7 +171,7 @@ Im Marketplace nach `redhat.vscode-yaml` suchen und installieren.
 
 YAML Language Support by Red Hat [(marketplace)](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
 
-### **Step 2**: Settings für die Erweiterung anpassen
+### **Schritt 2**: Settings für die Erweiterung anpassen
 
 ```
     "yaml.schemas": {
