@@ -25,7 +25,7 @@ prio:
 
 
 
-### **Step 1**: Pfad zum PHP-Executable einstellen
+### **Schritt 1**: Pfad zur PHP-Executable einstellen
 
 Falls noch nicht geschehen muss VSCode der Pfad zum PHP-Executable mitgeteilt werden.
 
@@ -202,4 +202,3 @@ YAML Language Support by Red Hat [(marketplace)](https://marketplace.visualstudi
 * `bierner.github-markdown-preview` - [Github Markdown Preview](https://marketplace.visualstudio.com/items?itemName=bierner.github-markdown-preview)
 * `felixfbecker.php-intellisense` - [PHP IntelliSense](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-intellisense)
 * `ikappas.phpcs` - [PHP CodeSniffer for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs)
-
