@@ -21,7 +21,7 @@ prio:
 1. Pfad zum PHP-Executable einstellen
 2. Erweiterung `junstyle.php-cs-fixer` installieren
 3. REDAXO-Coding-Standards lokal als Datei `.php_cs.dist` speichern
-4. Settings für die Erweiterung anpassen
+4. Einstellungen der Erweiterungen wie gewünscht anpassen
 
 
 
@@ -202,5 +202,4 @@ YAML Language Support by Red Hat [(marketplace)](https://marketplace.visualstudi
 * `bierner.github-markdown-preview` - [Github Markdown Preview](https://marketplace.visualstudio.com/items?itemName=bierner.github-markdown-preview)
 * `felixfbecker.php-intellisense` - [PHP IntelliSense](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-intellisense)
 * `ikappas.phpcs` - [PHP CodeSniffer for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs)
-
 
