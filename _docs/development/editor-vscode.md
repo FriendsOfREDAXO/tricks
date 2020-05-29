@@ -17,7 +17,7 @@ prio:
 <a name="vscode-php"></a>
 ## PHP - REDAXO-Coding-Standards
 
-**Folgende Steps zur Umsetzung**
+**Zusammenfassend werden 4 Schritte benötigt, diese werden nachfolgend genauer erläutert.**
 1. Pfad zum PHP-Executable einstellen
 2. Erweiterung `junstyle.php-cs-fixer` installieren
 3. REDAXO-Coding-Standards lokal als Datei `.php_cs.dist` speichern
@@ -202,6 +202,5 @@ YAML Language Support by Red Hat [(marketplace)](https://marketplace.visualstudi
 * `bierner.github-markdown-preview` - [Github Markdown Preview](https://marketplace.visualstudio.com/items?itemName=bierner.github-markdown-preview)
 * `felixfbecker.php-intellisense` - [PHP IntelliSense](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-intellisense)
 * `ikappas.phpcs` - [PHP CodeSniffer for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs)
-
 
 
