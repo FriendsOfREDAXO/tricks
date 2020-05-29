@@ -123,7 +123,7 @@ return PhpCsFixer\Config::create()
 ;
 ```
 
-Die lokal abgespeicherte Datei wird im folgenden Step für die Einstellungen der Erweiterung verwendet.
+Die lokal abgespeicherte Datei wird im folgenden Schritt für die Einstellungen der Erweiterung verwendet.
 Eine Kopie der Datei kann aber auch z.B. direkt im eigenen Addon-Verzeichnis gespeichert werden.
 
 
