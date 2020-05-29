@@ -128,7 +128,7 @@ Eine Kopie der Datei kann aber auch z.B. direkt im eigenen Addon-Verzeichnis ges
 
 
 
-### **Step 4**: Settings für die Erweiterung anpassen
+### **Schritt 4**: Settings für die Erweiterung anpassen
 
 Folgende Einstellung in die VSCode Konfigurationsdatei `settings.json` kopieren
 
