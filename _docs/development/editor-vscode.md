@@ -165,6 +165,7 @@ if ('php' === $file->getExtension()) {
 
 
 <a name="vscode-yaml"></a>
+
 ## YAML - Schema für config.yml und package.yml
 
 **Folgende Schritte zur Umsetzung**
@@ -176,7 +177,7 @@ if ('php' === $file->getExtension()) {
 
 Im Marketplace nach `redhat.vscode-yaml` suchen und installieren.
 
-YAML Language Support by Red Hat [(marketplace)](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
+ [YAML Language Support by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
 
 ### **Schritt 2**: Settings für die Erweiterung anpassen
 
@@ -195,6 +196,7 @@ YAML Language Support by Red Hat [(marketplace)](https://marketplace.visualstudi
 
 
 <a name="vscode-erweiterungen"></a>
+
 ## Nützliche Erweiterungen für VSCode
 
 * `ms-ceintl.vscode-language-pack-de` - [Deutsches Sprachpaket für VS Code](https://marketplace.visualstudio.com/items?itemName=ms-ceintl.vscode-language-pack-de)
