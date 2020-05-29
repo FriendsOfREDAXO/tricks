@@ -153,7 +153,7 @@ if ('php' === $file->getExtension()) {
 }
 ```
 
-> **Letzter Hinweis:** Die sonstigen Einstellungen für die Erweiterung nach eigenem Wohlbefinden vornehmen :)
+> **Tipp:** Es gibt noch einige weitere Einstellungen für die Erweiterung  - diese einfach nach den eigenen Wünschen konfigurieren :)
 
 
 
