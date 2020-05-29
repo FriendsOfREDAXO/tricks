@@ -163,7 +163,7 @@ if ('php' === $file->getExtension()) {
 **Folgende Schritte zur Umsetzung**
 
 1. Erweiterung `redhat.vscode-yaml` installieren
-2. Settings für die Erweiterung anpassen
+2. Einstellungen für die Erweiterung anpassen
 
 ### **Step 1**: Erweiterung `redhat.vscode-yaml` installieren
 
