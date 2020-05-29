@@ -138,7 +138,7 @@ Folgende Einstellung in die VSCode Konfigurationsdatei `settings.json` kopieren
 
 > **Hinweis:** hier wird die Suchreihenfolge für die Config-Datei festgelegt, als letzter Datei-Name inkl. Pfad der oben bereits genannte.
 
-Die Erweiterung arbeitet wie gewünscht wenn z.B. aus
+Die Erweiterung arbeitet wie gewünscht, wenn z.B. aus
 
 ```php
 if ($file->getExtension()==='php') {
