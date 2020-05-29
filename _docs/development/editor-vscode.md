@@ -1,6 +1,6 @@
 ---
 title: Editor-Einstellungen Visual Studio Code (VSCode)
-authors: []
+authors: [aeberhard]
 prio:
 ---
 
