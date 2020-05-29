@@ -30,6 +30,7 @@ prio:
 Falls noch nicht geschehen muss VSCode der Pfad zum PHP-Executable mitgeteilt werden.
 
 Folgende Einstellung in die VSCode Konfigurationsdatei `settings.json` kopieren
+
 ```
 "php.validate.executablePath": "C:\\xampp\\php\\php.exe",
 ```
@@ -57,6 +58,7 @@ $finder = PhpCsFixer\Finder::create()
 ```
 
 Nachfolgenden Code in die `.php_cs.dist` zum kopieren;
+
 ```php
 <?php
 
