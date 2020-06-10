@@ -31,15 +31,13 @@ Hat man HSTS aktiviert, kann man seine Domain auch in eine Preload-Liste aufnehm
 
 > **Tipp:** Online-Tool zum Prüfen, ob HSTS-Header gesetzt ist: https://gf.dev/hsts-test 
 
-## jQuery
+## Assets
 
-Oftmals wird jQuery verwendet. Viele legen dazu eine jQuery-Klasse im Dateisystem ab und binden dieses im Template ein. Leider vergessen viele, jQuery regelmäßig zu aktualisieren.
+Der Einsatz der vom REDAXO core im Backend verwendeten Assets wie JQuery,JQueryUi, Font-Awsome usw. sollte 
+im Frontend vermieden werden. Diese Assets werden für das Backend aktualsiert, abhängige Frontend-PlugIns könnten ggf. nicht funktionieren, sollte für das Backend das Major-Release gewechselt werden. 
 
-Darum ist es besser, man bindet die jQuery-Klasse aus Redaxo ein, die bei einem Core-Update in der Regel mit aktualisiert wird:
+Wir empfehlen diese Assets separat für für das Frontend einzubinden und die Sicherheitshinweise zu den Skripten regelmäßig zu beachten.  
 
-```html
-<script src="<?= rex_url::base('assets/core/jquery.min.js') ?>"></script>
-```
 
 ## Session Hijacking
 
