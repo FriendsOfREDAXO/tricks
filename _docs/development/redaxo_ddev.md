@@ -100,6 +100,8 @@ Du installierst REDAXO wie gewohnt und verwendest für die Datenbank-Einstellung
 <a name="tipps"></a>
 ## Tipps
 
+### Projekt Informationen
+
 Mit dem Befehl `ddev describe` Kannst du dir die Informationen zu deinem Projekt anzeigen lassen.
 ![Screenshot](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/redaxo_ddev/redaxo_ddev_projekt_infos.png)
 
