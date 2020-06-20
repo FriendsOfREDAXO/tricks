@@ -17,8 +17,8 @@ prio:
 **Zusammenfassend werden 4 Schritte benötigt, diese werden nachfolgend genauer erläutert.**
 
 1. Pfad zur PHP-Executable einstellen
-2. Erweiterung `junstyle.php-cs-fixer` installieren
-3. REDAXO-Coding-Standards lokal als Datei `.php_cs.dist` speichern
+2. Erweiterung **junstyle.php-cs-fixer** installieren
+3. REDAXO-Coding-Standards lokal als Datei **.php_cs.dist** speichern
 4. Einstellungen der Erweiterungen wie gewünscht anpassen
 
 ### **Schritt 1**: Pfad zur PHP-Executable einstellen
@@ -52,7 +52,7 @@ $finder = PhpCsFixer\Finder::create()
     ->in([__DIR__]);
 ```
 
-Nachfolgenden Code in die `.php_cs.dist` zum kopieren;
+Nachfolgenden Code in die **.php_cs.dist** zum kopieren;
 
 ```php
 <?php
@@ -186,12 +186,12 @@ Im Marketplace nach `redhat.vscode-yaml` suchen und installieren.
 
 ## Nützliche Erweiterungen für VSCode
 
-- `ms-ceintl.vscode-language-pack-de` - [Deutsches Sprachpaket für VS Code](https://marketplace.visualstudio.com/items?itemName=ms-ceintl.vscode-language-pack-de)
-- `shan.code-settings-sync` - [Settings Sync](https://marketplace.visualstudio.com/items?itemName=shan.code-settings-sync)
-- `adamvoss.vscode-languagetool` - [LanguageTool Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=adamvoss.vscode-languagetool)
-- `adamvoss.vscode-languagetool-en` - [English Support for LanguageTool](https://marketplace.visualstudio.com/items?itemName=adamvoss.vscode-languagetool-en)
-- `adamvoss.vscode-languagetool-de` - [German Support for LanguageTool](https://marketplace.visualstudio.com/items?itemName=adamvoss.vscode-languagetool-de)
-- `davidanson.vscode-markdownlint` - [markdownlint](https://marketplace.visualstudio.com/items?itemName=davidanson.vscode-markdownlint)
-- `bierner.github-markdown-preview` - [Github Markdown Preview](https://marketplace.visualstudio.com/items?itemName=bierner.github-markdown-preview)
-- `felixfbecker.php-intellisense` - [PHP IntelliSense](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-intellisense)
-- `ikappas.phpcs` - [PHP CodeSniffer for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs)
+- [Deutsches Sprachpaket für VS Code von Microsoft](https://marketplace.visualstudio.com/items?itemName=ms-ceintl.vscode-language-pack-de)
+- [Settings Sync von Shan Khan](https://marketplace.visualstudio.com/items?itemName=shan.code-settings-sync)
+- [LanguageTool Extension for Visual Studio Code von Adam Voss](https://marketplace.visualstudio.com/items?itemName=adamvoss.vscode-languagetool)
+- [English Support for LanguageTool von Adam Voss](https://marketplace.visualstudio.com/items?itemName=adamvoss.vscode-languagetool-en)
+- [German Support for LanguageTool von Adam Voss](https://marketplace.visualstudio.com/items?itemName=adamvoss.vscode-languagetool-de)
+- [markdownlint von David Anson](https://marketplace.visualstudio.com/items?itemName=davidanson.vscode-markdownlint)
+- [GitHub Markdown Preview von Matt Bierner](https://marketplace.visualstudio.com/items?itemName=bierner.github-markdown-preview)
+- [PHP IntelliSense von Felix Becker](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-intellisense)
+- [PHP CodeSniffer for Visual Studio Code von Ioannis Kappas](https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs)
