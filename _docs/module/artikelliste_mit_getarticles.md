@@ -39,50 +39,51 @@ In einer foreach-Schleife werden die einzelnen Artikel abgearbeitet und deren Ei
 
 ```php
 <?php
-$articleId = $class = $articleName =  $artOutput = "";  
+$articleId = $class = $articleName =  $artOutput = "";
 
 // Aktuelle Kategorie ermitteln und Artikel auslesen
 $articles = rex_category::getCurrent()->getArticles();
 
 // Prüfen ob das Ergebnis gefüllt ist
-if ( is_array( $articles) && count( $articles) > 0) {
+if (is_array($articles) && count($articles) > 0) {
 
-	// Einzelne Artikel auslesen
-	foreach ( $articles as $article ) {
+    // Einzelne Artikel auslesen
+    foreach ($articles as $article) {
 
-		if ($article->isOnline()) {
-      
-			// Überspringen wenn aktueller Artikel gefunden. (auskommentieren) 
-			// if ( $article->getId() == 'REX_ARTICLE_ID') continue; 
-      
-			// Aktive CSS-Classe festlegen 
-      $class= '';
-			if ( $article->getId() == 'REX_ARTICLE_ID') {
-				$class="active";
-			}
+        if ($article->isOnline()) {
 
-			// Überspringen wenn Startartikel gefunden 
-			if ( $article->isStartArticle()) continue;
+            // Überspringen wenn aktueller Artikel gefunden. (auskommentieren) 
+            // if ( $article->getId() == 'REX_ARTICLE_ID') continue; 
 
-			// ID des Artikels ermitteln
-			$articleId = $article->getId();
+            // Aktive CSS-Classe festlegen 
+            $class = '';
+            if ($article->getId() == 'REX_ARTICLE_ID') {
+                $class = "active";
+            }
 
-			// Name des Artikels ermitteln
-			$articleName = $article->getName();
+            // Überspringen wenn Startartikel gefunden 
+            if ($article->isStartArticle()) continue;
 
-			// Weitere Daten  der Metainfos können wie folgt abgerufen werden:     
-			// Beispiel für eine Meta-Info art_Image
-			// $articleImage = $article->getValue("art_Image");
+            // ID des Artikels ermitteln
+            $articleId = $article->getId();
 
-			// Ausgabe erstellen 
-			$artOutput .= '<li class="'.$class.'"><a "'.$class.'" href="'.rex_getUrl($articleId).'">'.$articleName.'</a></li>'."\n"; 
-		}
-	}
+            // Name des Artikels ermitteln
+            $articleName = $article->getName();
 
-	// Ausgabe 
-	echo '<ul class="catlist">'.$artOutput.'</ul>';
-	unset ($articles);
+            // Weitere Daten  der Metainfos können wie folgt abgerufen werden:     
+            // Beispiel für eine Meta-Info art_Image
+            // $articleImage = $article->getValue("art_Image");
+
+            // Ausgabe erstellen 
+            $artOutput .= '<li class="' . $class . '"><a "' . $class . '" href="' . rex_getUrl($articleId) . '">' . $articleName . '</a></li>' . "\n";
+        }
+    }
+
+    // Ausgabe 
+    echo '<ul class="catlist">' . $artOutput . '</ul>';
+    unset($articles);
 }
+
 ```
 
 
