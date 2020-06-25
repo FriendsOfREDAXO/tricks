@@ -75,7 +75,7 @@ if (is_array($articles) && count($articles) > 0) {
             // $articleImage = $article->getValue("art_Image");
 
             // Ausgabe erstellen 
-            $artOutput .= '<li class="' . $class . '"><a "' . $class . '" href="' . rex_getUrl($articleId) . '">' . $articleName . '</a></li>' . "\n";
+            $artOutput .= '<li class="' . $class . '"><a class="' . $class . '" href="' . rex_getUrl($articleId) . '">' . $articleName . '</a></li>' . "\n";
         }
     }
 
