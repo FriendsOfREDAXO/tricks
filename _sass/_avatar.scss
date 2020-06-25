@@ -3,14 +3,34 @@
   box-sizing: content-box;
   border-radius: 50%;
   border: 2px solid #eee;
-  transition: border-color 150ms ease-out, -webkit-transform 200ms ease-out;
-  transition: border-color 150ms ease-out, transform 200ms ease-out;
-  transition: border-color 150ms ease-out, transform 200ms ease-out, -webkit-transform 200ms ease-out;
+  transition: border-color 150ms ease-out, -webkit-transform 1000ms ease-out;
+  transition: border-color 150ms ease-out, transform 1000ms ease-out;
+  transition: border-color 150ms ease-out, transform 1000ms ease-out, -webkit-transform 1000ms ease-out;
 
   :hover > &,
   :focus > & {
     border-color: #85c2ff;
     -webkit-transform: rotate(15deg);
             transform: rotate(15deg);
+  }
+}
+
+// https://stackoverflow.com/a/41096631
+@function randomNum($min, $max) {
+  $rand: random();
+  $randomNum: $min + floor($rand * (($max - $min) + 1));
+
+  @return $randomNum;
+}
+
+@for $i from 1 through 20 {
+  $randomNumber: randomNum(-(360 * 3), (360 * 3));
+
+  .avatar--fx-#{$i} .avatar {
+    &:hover,
+    &:focus {
+      -webkit-transform: rotate(#{$randomNumber}deg);
+      transform: rotate(#{$randomNumber}deg);
+    }
   }
 }
