@@ -51,11 +51,12 @@ if ( is_array( $articles) && count( $articles) > 0) {
 	foreach ( $articles as $article ) {
 
 		if ($article->isOnline()) {
-
+      
 			// Überspringen wenn aktueller Artikel gefunden. (auskommentieren) 
 			// if ( $article->getId() == 'REX_ARTICLE_ID') continue; 
-
+      
 			// Aktive CSS-Classe festlegen 
+      $class= '';
 			if ( $article->getId() == 'REX_ARTICLE_ID') {
 				$class="active";
 			}
