@@ -8,6 +8,8 @@ prio:
 
 REDAXO prüft nicht ob Medien oder Artikel in anderen Tabellen als den Artikeln und Metas verlinkt sind. Daher können Medien gelöscht werden, die in YForm verlinkt sind
 
+> Dieser Trick gilt für YFORM bis einschließlich Version 3.3.1 [issue 247](https://github.com/yakamara/redaxo_yform/issues/247)
+
 ## Beispiel
 
 Es existiert z.B. ein yForm-Formular, mit dessen Hilfe ein Frontend-User Bilder hochlädt und zum Medienpool hinzufügt.
@@ -38,7 +40,7 @@ class YForm
 
 wird z.B. 
 
-```
+```php
 class MediaInUseCheck
 ```
 

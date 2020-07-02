@@ -52,14 +52,14 @@ Die in dieser Konfiguration verwendeten AddOns sind:
 
 Damit die gleichartigen Termine verwaltet werden können, müssen in den Kategorien und den Veranstaltungen die jeweiligen Felder doppelt vorhanden sein. Beim Erfassen des Termins wird der Standardtext aus der Kategorie angzeigt, kann aber im Termin überschrieben werden.
 
-Die Kategorien von Sked werden verwendet, um Veranstaltungsgruppen zu definieren. Zusätzlich soll es Veranstaltungstypen geben. Hierfür wird eine eigene yform-Tabelle angelegt.
+Die Kategorien von Sked werden verwendet, um Veranstaltungsgruppen zu definieren. Zusätzlich soll es Veranstaltungstypen geben. Hierfür wird eine eigene YForm-Tabelle angelegt.
 
 Die Custom Definitionen liegen in `data/addons/sked/definitions`.
 
 <a name="custom_entries"></a>
 ### custom_entries.yml
 
-```yml
+```yaml
 langfields:
   - name: 'subtitle'
     type: 'text'
@@ -137,7 +137,7 @@ Das schöne an der yml-Konfiguration ist, dass man diese Dateien einfach bearbei
 <a name="custom_categories"></a>
 ### custom_categories.yml
 
-```yml
+```yaml
 langfields:
   - name: subtitle
     type: text
@@ -327,9 +327,9 @@ if (rex::isBackend() && rex_get('sked_cat_id') && rex::getUser()) {
 ```
 
 <a name="yform"></a>
-## yform
+## YForm
 
-In yform muss noch die Kategorientabelle `rex_sked_event_categories` über den Tablemanager angelegt werden. In unserem Falle benötigen wir lediglich die Felder `name_1` und `name_2`, also die Namen für die Sprache 1 und Sprache 2.
+In YForm muss noch die Kategorientabelle `rex_sked_event_categories` über den Tablemanager angelegt werden. In unserem Falle benötigen wir lediglich die Felder `name_1` und `name_2`, also die Namen für die Sprache 1 und Sprache 2.
 
 Damit ist die Backendkonfiguration abgeschlossen und das Backend sollte funktionieren.
 
@@ -338,7 +338,7 @@ Damit ist die Backendkonfiguration abgeschlossen und das Backend sollte funktion
 
 Die Frontendausgabe ist natürlich auch sehr individuell und von Projekt zu Projekt verschieden. Deswegen ist hier lediglich ein Beispiel wiedergegeben - zur eigenen Verwendung bzw. Variation. Bei mir hat es sich als sinnvoll erwiesen möglichst viel mit yorm abzudecken. YORM nimmt einem viel Arbeit ab und erlaubt den flexiblen Zugriff auf die Datenbankausgabe. Man kann das natürlich alles mit rex_sql abbilden, das ist aber mehr Codieraufwand und es wird auch nicht so übersichtlich. Deswegen werde ich hier die YORM Variante zeigen.
 
-Voraussetzung für YORM ist, dass die Tabellen yform Tabellen sind. Deswegen migrieren wir per Mausklick im yform Tablemanager die Sked Tabellen zu yform Tabellen. Dabei werden die Tabellen nicht verändert. Es wird lediglich die Tabellenkonfiguration in den yform Tabellendefinitionen abgelegt. Die Tabellen stellen wir dann auf "in Navigation versteckt".
+Voraussetzung für YORM ist, dass die Tabellen YForm Tabellen sind. Deswegen migrieren wir per Mausklick im YForm Tablemanager die Sked Tabellen zu YForm Tabellen. Dabei werden die Tabellen nicht verändert. Es wird lediglich die Tabellenkonfiguration in den YForm Tabellendefinitionen abgelegt. Die Tabellen stellen wir dann auf "in Navigation versteckt".
 
 <a name="functions"></a>
 ### functions.php

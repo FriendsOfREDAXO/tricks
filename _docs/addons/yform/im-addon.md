@@ -86,7 +86,7 @@ Konkret sind zwei Schritte notwendig:
 In der `package.yml` des Addons wird das Menü um Einträge erweitert, die jeweils eine
 Tabelle anzeigen und die Bearbeitung ermöglichen:
 
-```yml
+```yaml
 page:
     title: 'Addon-Titel'
     subpages:
@@ -168,7 +168,7 @@ Im Unterschied zur einfachen Version erfolgt die komplette Konfiguration der Auf
 
 In der `package.yml` des Addons wird das Menü um Einträge erweitert, die jeweils eine Tabelle anzeigen und die Bearbeitung ermöglichen:
 
-```yml
+```yaml
 page:
     title: 'Addon-Titel'
     subpages:
@@ -261,6 +261,7 @@ Um die beiden Parameter ```yformTitle``` und ```yformClass``` zu berücksichtige
 
 Hier ist der vollständige Code der perfekten(?) Lösung:
 <a href="final"></a>
+
 ```php
 <?php
 $target_page = rex_request( 'page', 'string' );

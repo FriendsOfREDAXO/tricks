@@ -43,10 +43,10 @@ $pagination = new Pagination($total, $page, $limit);
 # $pagination->setHtml('a', '<a href="###href###" class="###class###">###text###</a>');
 
 // Text der Navigations-Links überschreiben
-# $pagination->setText['first'] = '«';
-# $pagination->setText['last'] = '»';
-# $pagination->setText['prev'] = '‹';
-# $pagination->setText['next'] = '›';
+# $pagination->setText('first', '«');
+# $pagination->setText('last', '»');
+# $pagination->setText('prev', '‹');
+# $pagination->setText('next', '›');
 
 // Pagination ausgeben
 echo $pagination->show();

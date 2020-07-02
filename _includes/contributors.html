@@ -9,10 +9,18 @@
     <div class="contributors">
       <ul class="contributors__list">
 
+        {%- assign count = 0 -%}
+
         {%- for a in site.github.contributors -%}
 
+          {%- if count >= 20 -%}
+            {%- assign count = 1 -%}
+          {%- else -%}
+            {%- assign count = count | plus: 1 -%}
+          {%- endif -%}
+
           <li class="contributors__item">
-            <a class="contributors__link" href="{{ a.html_url }}" title="{{ a.login }} ({{ a.contributions }} contributions)">
+            <a class="contributors__link avatar--fx-{{ count }}" href="{{ a.html_url }}" title="{{ a.login }} ({{ a.contributions }} contributions)">
               {% avatar user=a.login size={{ size }} %}
             </a>
           </li>

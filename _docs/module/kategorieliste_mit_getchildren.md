@@ -86,7 +86,9 @@ if ($cats) {
 
 Evtl. möchte man nicht die Unterkategorien der aktuellen Kategorie, sondern die Unterkategorien einer bestimmten Kategorie ausgeben. Hierzu muss man das Modul ein wenig verändern. 
 
-Zunächst benötigt mann eine Lösung eine Kategorie auswählen zu können. REDAXO bietet hierzu jedoch kein fertiges Widget an. Man kann zwar auf die Linklist zurückgreifen und dann die Startartikel der jeweiligen Kategorie auswählen, dies erschließt sich jedoch einem Redakteur nicht unbedingt. Besser ist es eine reine Kategorieauswahl anzubieten. 
+Zunächst benötigt mann eine Lösung eine Kategorie auswählen zu können. REDAXO bietet hierzu jedoch kein Widget im Stil der Linklist an. Man könnte zwar auf die Linklist zurückgreifen und dann die Startartikel der jeweiligen Kategorie auswählen, aber dies erschließt sich jedoch einem Redakteur nicht unbedingt. 
+
+Besser ist es eine reine Kategorieauswahl mit `rex_category_select` anzubieten
 
 Code für die Kategorie-Auswahl (Moduleingabe): 
 
