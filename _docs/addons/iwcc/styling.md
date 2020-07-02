@@ -8,8 +8,9 @@ prio:
 
 
 - [Einleitung](#einleitung)
-- [Code](#code)
 - [Beispiel](#beispiel)
+- [Code](#code)
+
 
 <a name="einleitung"></a>
 ## Einleitung
@@ -22,6 +23,12 @@ Anschließend können die Änderungen vorgenommen werden.
 
 Im nachfolgenden Beispiel wird auf pretty-checkbox und fontello verzichtet. 
 Das CSS aus iwcc_frontend.css wird geändert in die Haupt-CSS-Datei der Website eingefügt.
+
+<a name="beispiel"></a>
+## Beispiel
+
+![Cookie](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/cookie-footer.png "Cookie-Leiste im Footer")
+
 
 <a name="code"></a>
 ## Code
@@ -382,7 +389,4 @@ if ($this->getVar('debug'))
     
 
 
-<a name="beispiel"></a>
-## Beispiel
 
-![Cookie](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/cookie-footer.png "Cookie-Leiste im Footer")
