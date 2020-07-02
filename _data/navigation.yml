@@ -10,6 +10,8 @@
       url: /addons/cronjob
     - title: Focuspoint
       url: /addons/focuspoint
+    - title: Cookie Gedöns
+      url: /addons/iwcc
     - title: Media-Pool
       url: /addons/mediapool
     - title: MForm
