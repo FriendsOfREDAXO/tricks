@@ -6,7 +6,7 @@ prio:
 
 # Soziale Netzwerke ausgeben mit MBlock
 
-> Setzt das FOR-AddOn MBlock voraus!
+> Benötigt das [MBlock Addon](https://github.com/friendsofredaxo/mblock)!
 
 - [Beschreibung](#beschreibung)
 - [Moduleingabe](#moduleingabe)
