@@ -60,7 +60,7 @@ xdebug
 ## Welche Möglichkeiten zur Verbesserung bietet REDAXO?
 
 an dieser Stelle sei auf diesen trick hingewiesen:
-[Performance prüfen](https://github.com/FriendsOfREDAXO/tricks/blob/master/_docs/snippets/performance_pruefen.md)
+[Performance prüfen](https://friendsofredaxo.github.io/tricks/snippets/performance_pruefen)
 
 cache
 
