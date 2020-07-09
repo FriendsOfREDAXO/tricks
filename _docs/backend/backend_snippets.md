@@ -1,6 +1,6 @@
 ---
 title: Backend Snippets
-authors: [alexplusde,ansichtsache,eaCe,skerbis]
+authors: [alexplusde,ansichtsache,eaCe,skerbis,]
 prio:
 ---
 
@@ -38,6 +38,8 @@ if (rex::isBackend() and rex_backend_login::hasSession()) {
 
 Es ist möglich, einzelne AddOns auch für Administratoren auszublenden. In diesem Beispiel werden der Installer und die Systemverwaltung ausgeblendet.
 
+### Möglichkeit 1: Direkt via rex_be_controller
+
 **Folgenden Code in die boot.php des Project-AddOns platzieren:**
 
 ```php
@@ -49,6 +51,25 @@ if (rex::isBackend() and rex_backend_login::hasSession()) {
   $page = rex_be_controller::getPageObject('packages');
   $page->setHidden(true);
   $page->setPath('...');
+}
+```
+
+### Möglichkeit 2: Via Extension Point PAGES_PREPARED
+
+Möchte man auch Systemseiten individualisiert ausgeben, kann man über den Extension Point.
+
+In diesem Ausgangsszenario von Simon waren für Benutzer Admin-Rechte notwendig, aber diese Benutzer sollen dennoch nicht alles sehen und machen können. Diese Benutzer sollen bspw. Templates bearbeiten können, jedoch keine Module. Das war notwendig, da auf Grundlage der Templates von der Drittagentur eine Erweiterung geschrieben werden sollte, die sich am Grundtemplate der Seite orientiert.
+
+Reines Ausblenden per CSS erfüllt diesen Zweck nicht.
+
+Folgenden Snippet in die boot.php des Project-AddOns eingebunden.
+
+```php
+if ( ( rex::isBackend() ) && ( rex::getUser()->getLogin() == 'LOGINNAME' ) ) {
+   rex_extension::register('PAGES_PREPARED', function (rex_extension_point $ep) {
+      $page = rex_be_controller::getPageObject( 'modules' );
+      $page->setHidden( true );
+      $page->setPath( '...' );
 }
 ```
 
