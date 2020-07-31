@@ -28,8 +28,7 @@ DDEV ist ein auf Docker basierendes Open-Source-Tool. Es ermöglicht, ganz schne
 
 - [Homebrew (MacOS)](https://brew.sh/index_de)
 - [Chocolatey (Windows)](https://chocolatey.org/)
-- [Docker Desktop (Mac & Windows 10 Pro)](https://www.docker.com/products/docker-desktop)
-- [Docker Toolbox (Windows 10 Home)](https://github.com/docker/toolbox/releases)
+- [Docker Desktop (Mac & Windows 10 Pro, Windows 10 Home)](https://www.docker.com/products/docker-desktop)
 - [DDEV-Anleitung](https://ddev.readthedocs.io/en/stable/)
 
 <a name="ddev-installieren-windows"></a>
