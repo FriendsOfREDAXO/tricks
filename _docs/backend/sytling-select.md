@@ -24,7 +24,7 @@ Beispiel:
 ```
 
 ## Bootstrap-Select
-In REDAXO ist bereits Bootstrap-Select https://silviomoreto.github.io/bootstrap-select/ integriert.
+In REDAXO ist bereits [Bootstrap-Select](https://silviomoreto.github.io/bootstrap-select/) integriert.
 Hiermit können die Select-Felder schöner in REDAXO gestaltet werden. Darüber hinaus ist es möglich auch eine Suche leicht in die Selects zu integrieren.
 Um den Stil anzuwenden muss das Select mit der CSS-Class **selectpicker** ausgestattet werden:
 
@@ -64,11 +64,12 @@ echo $mform->show();
 
 ### Anwendung in yForm
 Anwendung unter **Individuelle Attribute**:
-```
+
+```json
 {"class": "form-control selectpicker","data-live-search": "true"}
 ```
 
-> Die Selects können mit weitaus mehr Funktionen ausgestattet werden, mehr dazu unter: https://silviomoreto.github.io/bootstrap-select/examples/
+> Die Selects können mit weitaus mehr Funktionen ausgestattet werden, mehr dazu unter: [silviomoreto.github.io/bootstrap-select/examples/](https://silviomoreto.github.io/bootstrap-select/examples/)
 
 
 
