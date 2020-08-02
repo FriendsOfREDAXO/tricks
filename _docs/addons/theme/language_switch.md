@@ -104,4 +104,4 @@ echo getLangNav(true, true, true, 'my--class');
 <a name="theme-debug-module"></a>
 ## Theme Debug Module
 
-Eine kleine Funktion um die Inhalte der REX_VALUES auszugeben. Vor allem hilfreich beim Einsatz von [mform](https://github.com/FriendsOfREDAXO/mform) und [mblock](https://github.com/FriendsOfREDAXO/mblock). Zur Anleitung: [Theme Debug Module](https://github.com/FriendsOfREDAXO/tricks/blob/master/theme_debug_module.md)
+Eine kleine Funktion um die Inhalte der REX_VALUES auszugeben. Vor allem hilfreich beim Einsatz von [MForm](https://github.com/FriendsOfREDAXO/mform) und [MBlock](https://github.com/FriendsOfREDAXO/mblock). Zur Anleitung: [Theme Debug Module](https://github.com/FriendsOfREDAXO/tricks/blob/master/theme_debug_module.md)
