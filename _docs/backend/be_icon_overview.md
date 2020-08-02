@@ -45,6 +45,7 @@ Das Script ist konzipiert als Seite in einem Service-Addon - z.B. im "Projekt-Ad
 
 * Script speichern als `«domain»/redaxo/src/addons/project/pages/icons.php` (falls der Ordner `pages` nicht vorhanden ist, diesen vorher erstellen)
 * Script `icons.php` jetzt in der `index.php` des `pages`-Orders einbinden (falls die Datei `index.php` nicht vorhanden ist, diese neu erstellen)
+  
   ```php
   <?php
 
@@ -55,6 +56,7 @@ Das Script ist konzipiert als Seite in einem Service-Addon - z.B. im "Projekt-Ad
   ```
 
 * Seite über `package.yml` einbinden
+    
     ```yml
     page:
         title: 'Projekt-Addon'
