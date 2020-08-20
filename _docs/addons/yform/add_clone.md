@@ -91,7 +91,7 @@ Die Lösung kann über den EP `YFORM_DATA_LIST` aktiviert werden. Nach der erste
         $name = $rex_list->getColumnNames()[0];
         if( substr($name,0,27) != '<a href="index.php?func=add' ) return;
 
-        $rex_list->addColumn('clone', '<i class="rex-icon fa-clone"></i>', 1);
+        $rex_list->addColumn('clone', '<i class="fa fa-clone"></i>', 1);
         $rex_list->setColumnLayout('clone', ['<th></th>', '<td class="rex-table-icon">###VALUE###</td>']);
         $params = $rex_list->getColumnParams($name);
         $params['func'] = 'add';
@@ -146,7 +146,7 @@ der ersten Spalte, aber ergänzt um den Parameter `clone=1`:
         $name = $rex_list->getColumnNames()[0];
         if( substr($name,0,27) != '<a href="index.php?func=add' ) return;
 
-        $rex_list->addColumn('clone', '<i class="rex-icon fa-clone"></i>', 1);
+        $rex_list->addColumn('clone', '<i class="rex-icon rex-icon-duplicate"></i>', 1);
         $rex_list->setColumnLayout('clone', ['<th></th>', '<td class="rex-table-icon">###VALUE###</td>']);
         $params = $rex_list->getColumnParams($name);
         $params['clone'] = 1;
