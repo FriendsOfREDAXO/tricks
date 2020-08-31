@@ -15,6 +15,8 @@ prio:
 <a name="einleitung"></a>
 ## Einleitung
 
+Achtung: Diese Anleitung bezieht sich auf Version 1 des Addons. In Version 2 gab es Änderungen am Fragment "iwcc_box.php".
+
 Der Cookie Hinweis des iwcc Cookie Gedöns Addons erscheint standardmäßig als Lightbox welche die gesamte Seite überlagert.
 Zudem werden CSS- und Javascript-Dateien des Addons im Head-Bereich reingeladen.
 Dies läasst sich über das Fragment iwcc_box.php aus dem Ordner fragments im Ordner eigenen Wünschen anpassen.
