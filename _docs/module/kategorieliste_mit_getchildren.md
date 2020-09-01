@@ -104,7 +104,10 @@ Code für die Kategorie-Auswahl (Moduleingabe):
 
 		// Legt fest welcher Wert ausgewählt werden soll, hier der Wert von REX_VALUE[1]
 		$select->setSelected("REX_VALUE[1]"); 
+    // style für das Select festlegen
 		$select->setAttribute('class', 'form-control');
+    // Live-Suche hinzufügen
+    $select->setAttribute('data-live-search','true');
 		$select->setSize(20); 
 
 		echo $select->get(); 
