@@ -101,15 +101,13 @@ Code für die Kategorie-Auswahl (Moduleingabe):
 		// Siehe http://www.redaxo.org/docs/master/class-rex_category_select.html
 		$select = new rex_category_select($ignore_offlines = false, $clang = false,  $check_perms = true, $add_homepage = false); 
 		$select->setName("REX_INPUT_VALUE[1]"); 
-
-		// Legt fest welcher Wert ausgewählt werden soll, hier der Wert von REX_VALUE[1]
+    // Legt fest welcher Wert ausgewählt werden soll, hier der Wert von REX_VALUE[1]
 		$select->setSelected("REX_VALUE[1]"); 
     // style für das Select festlegen
 		$select->setAttribute('class', 'form-control');
     // Live-Suche hinzufügen
     $select->setAttribute('data-live-search','true');
 		$select->setSize(20); 
-
 		echo $select->get(); 
 		?>
 	</div>
