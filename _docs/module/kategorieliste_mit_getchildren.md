@@ -1,5 +1,5 @@
 ---
-title: "Kategorielisten mit getChildren()"
+title: "Kategorieliste und `rex_category_select`"
 authors: [skerbis]
 prio:
 ---
