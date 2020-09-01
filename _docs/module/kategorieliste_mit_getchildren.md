@@ -4,7 +4,7 @@ authors: [skerbis]
 prio:
 ---
 
-# Kategorielisten mit `getChildren()`
+# Kategorielisten mit `rex_category_select`
 
 - [Beschreibung](#beschreibung)
 - [Moduleingabe](#moduleingabe)
