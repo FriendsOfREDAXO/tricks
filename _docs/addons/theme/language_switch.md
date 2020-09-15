@@ -25,7 +25,7 @@ Eine kleine Funktion um die Sprachen im Frontend als stylebare Liste auszugeben.
 Lege eine Datei namens `clang_switch.php` im [Theme Addon](https://github.com/FriendsOfREDAXO/theme) im Ordner `theme/private/inc/frontend` an.
 
 **Inhalt der Datei**
-    
+
 ```php
 <?php
 /* ----- Language Switch -----
@@ -43,19 +43,17 @@ if(!function_exists("getLangNav"))
         $langOutput = '';
 
         $langOutput  .= ($wrappingList ? '<ul class="lang--nav '.$css_extra.'">' : '');
-        foreach(rex_clang::getAll() as $lang) {
-            if(rex_clang::getCurrentId() == $lang->getId()) {
-                if($showCurLang) {
-                    $langOutput .= '<li class="lang--item lang--item__active lang--'.$lang->getCode().'">'.($countryCode ? $lang->getCode() : $lang->getName()).'</li>';
-                }
+        $langs = rex_clang::getAll();
+            if($showCurLang) {
+                $langOutput .= '<li class="lang--item lang--item__active lang--' . rex_clang::getCurrent()->getCode() . '">' . ($countryCode ? rex_clang::getCurrent()->getCode() : rex_clang::getCurrent()->getName()) . '</li>';
             }
-            else {
-                if($lang->isOnline()) {
-                    if(rex_article::getCurrent($lang->getId())->isOnline()) {
-                        $langOutput .= '<li class="lang--item lang--item__inactive lang--'.$lang->getCode().'"><a title="'.$lang->getName().'" href="'.rex_getUrl('',$lang->getId()).'">'.($countryCode ? $lang->getCode() : $lang->getName()).'</a></li>';
-                    } elseif ($fallbackHome == true && rex_article::getSiteStartArticle($lang->getId())->isOnline()) {
-                        $langOutput .= '<li class="lang--item lang--item__inactive lang--'.$lang->getCode().'"><a title="'.$lang->getName().'" href="' . rex_article::getSiteStartArticle($lang->getId())->getUrl() . '">'.($countryCode ? $lang->getCode() : $lang->getName()).'</a></li>';
-                    }
+        unset($langs[rex_clang::getCurrentId()]);
+        foreach($langs as $lang) {
+            if($lang->isOnline()) {
+                if(rex_article::getCurrent($lang->getId())->isOnline()) {
+                    $langOutput .= '<li class="lang--item lang--item__inactive lang--'.$lang->getCode().'"><a title="'.$lang->getName().'" href="'.rex_getUrl('',$lang->getId()).'">'.($countryCode ? $lang->getCode() : $lang->getName()).'</a></li>';
+                } elseif ($fallbackHome == true && rex_article::getSiteStartArticle($lang->getId())->isOnline()) {
+                    $langOutput .= '<li class="lang--item lang--item__inactive lang--'.$lang->getCode().'"><a title="'.$lang->getName().'" href="' . rex_article::getSiteStartArticle($lang->getId())->getUrl() . '">'.($countryCode ? $lang->getCode() : $lang->getName()).'</a></li>';
                 }
             }
         }
@@ -76,12 +74,12 @@ Anschließend wird die Datei `clang_switch.php` in die `functions.php` im Ordner
 <?php
 
 if (!rex::isBackend()) {
-    // Frontend 
+    // Frontend
 
     include('frontend/clang_switch.php');
 
 } else {
-    // Backend 
+    // Backend
 
     //get REDAXO config file
     $configFile = rex_path::coreData('config.yml');
