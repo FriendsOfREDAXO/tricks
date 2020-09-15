@@ -32,12 +32,13 @@ Lege eine Datei namens `clang_switch.php` im [Theme Addon](https://github.com/Fr
 $showCurLang : true / false - if the current language shall be displayed
 $wrappingList: true / false - adds wrapping ul with extra css if given
 $countryCode : true / false - Shows Country Code as Name
+$fallbackHome : true / false - Shows Language Homepage if article is not online
 $css_extra   : adds extra css classes
    ----- Language Switch ----- */
 
 if(!function_exists("getLangNav"))
 {
-    function getLangNav($showCurLang = true, $wrappingList = true, $countryCode = true, $css_extra = '')
+    function getLangNav($showCurLang = true, $wrappingList = true, $countryCode = true, $fallbackHome = false, $css_extra = '')
     {
         $langOutput = '';
 
@@ -49,8 +50,12 @@ if(!function_exists("getLangNav"))
                 }
             }
             else {
-                if($lang->isOnline() && rex_article::getCurrent($lang->getId())->isOnline()) {
-                    $langOutput .= '<li class="lang--item lang--item__inactive lang--'.$lang->getCode().'"><a title="'.$lang->getName().'" href="'.rex_getUrl('',$lang->getId()).'">'.($countryCode ? $lang->getCode() : $lang->getName()).'</a></li>';
+                if($lang->isOnline()) {
+                    if(rex_article::getCurrent($lang->getId())->isOnline()) {
+                        $langOutput .= '<li class="lang--item lang--item__inactive lang--'.$lang->getCode().'"><a title="'.$lang->getName().'" href="'.rex_getUrl('',$lang->getId()).'">'.($countryCode ? $lang->getCode() : $lang->getName()).'</a></li>';
+                    } elseif ($fallbackHome == true && rex_article::getSiteStartArticle($lang->getId())->isOnline()) {
+                        $langOutput .= '<li class="lang--item lang--item__inactive lang--'.$lang->getCode().'"><a title="'.$lang->getName().'" href="' . rex_article::getSiteStartArticle($lang->getId())->getUrl() . '">'.($countryCode ? $lang->getCode() : $lang->getName()).'</a></li>';
+                    }
                 }
             }
         }
