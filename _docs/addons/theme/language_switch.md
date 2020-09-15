@@ -60,7 +60,6 @@ if(!function_exists("getLangNav"))
             }
         }
         $langOutput .= ($wrappingList ? '</ul>' : '');
-        //return languagelist
         return $langOutput;
     }
 }
