@@ -41,4 +41,15 @@ Dann funktioniert euer Community Login schonmal. Auch über den Sprachwechsel hi
 
 Eigenartigerweise funktioniert jetzt der Backend Login nicht mehr. Damit dieser wieder funktioniert, ändert ihr bitte die Zeile, die für das Backend gilt identisch ab.
 
+## Die Ergänzung: Multidomain
+
+Nun kann es geschehen, dass jede Sprache eine eigene Domain bekommt. Dann funktioniert die obige Lösung nicht mehr. @skerbis hatte hierfür den richtigen Tipp im Slack: Domain leer lassen. Das sieht dann so aus:
+
+```
+    backend:
+        cookie: { lifetime: null, path: null, domain: "", secure: null, httponly: true, samesite: Lax }
+    frontend:
+        cookie: { lifetime: null, path: null, domain: "", secure: null, httponly: true, samesite: Lax }
+```
+
 Umgebung war hier REDAXO 5.11 und ycom 4.0.3.
