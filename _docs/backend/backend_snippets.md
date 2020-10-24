@@ -23,7 +23,7 @@ Es ist möglich, die Hauptnavigation und die AddOns auszublenden. Nutzt die Boot
 **Folgenden Code in die boot.php des Project-AddOns platzieren:**
 
 ```php
-if (rex::isBackend() and rex_backend_login::hasSession()) {
+if (rex::isBackend() && rex_backend_login::hasSession()) {
     rex_extension::register('OUTPUT_FILTER', static function (rex_extension_point $ep) {
         $search = '<h4 class="rex-nav-main-title">' . rex_i18n::msg('navigation_addons') . '</h4>' . "\n        " . '<ul class="rex-nav-main-list nav nav-pills nav-stacked">';
         $replace = '<h4 class="rex-nav-main-title" data-toggle="collapse" data-target="#'.rex_i18n::msg('navigation_addons').'" style="cursor: pointer;" onclick="$(\'#collapsed-chevron\').toggleClass(\'fa-rotate-180\')">'.rex_i18n::msg('navigation_addons').'<i class="fa fa-chevron-circle-down pull-right" id="collapsed-chevron"></i></h4><ul class="rex-nav-main-list nav nav-pills nav-stacked collapse" id="'.rex_i18n::msg('navigation_addons').'">';
@@ -43,7 +43,7 @@ Es ist möglich, einzelne AddOns auch für Administratoren auszublenden. In dies
 **Folgenden Code in die boot.php des Project-AddOns platzieren:**
 
 ```php
-if (rex::isBackend() and rex_backend_login::hasSession()) {
+if (rex::isBackend() && rex_backend_login::hasSession()) {
   $page = rex_be_controller::getPageObject('system');
   $page->setHidden(true);
   $page->setPath('...');
@@ -107,7 +107,7 @@ Verwendeter Extension point: [PAGES_PREPARED](https://github.com/redaxo/redaxo/b
 ## Subpage eines AddOns durch eigene entsprechend Recht austauschen/ersetzen
 
 ```php
-if (is_object(rex::getUser()) AND rex::getUser()->hasPerm('addonname[recht]') AND !rex::getUser()->isAdmin()):
+if (is_object(rex::getUser()) && rex::getUser()->hasPerm('addonname[recht]') && !rex::getUser()->isAdmin()):
 $addon = rex_addon::get('addonname');
 $page = $addon->getProperty('page');
         $page['subpages']['config'] = [
