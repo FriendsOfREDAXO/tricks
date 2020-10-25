@@ -23,7 +23,7 @@ SEO42 kann nahezu vollständig durch **YRewrite** ersetzt werden (empfohlen), od
 
 ### Slice on / off
 
-Ab REDAXO 5.11 ist diese funktion nativ im core integriert.
+Ab REDAXO 5.10 ist diese Funktion nativ im Core integriert.
 
 Dies Funktion wird in REDAXO 5 vom Addon `bloecks` übernommen 
 * `bloecks` installieren und unter Addons das bloecks-plugin `status` installieren.
