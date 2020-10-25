@@ -23,6 +23,8 @@ SEO42 kann nahezu vollständig durch **YRewrite** ersetzt werden (empfohlen), od
 
 ### Slice on / off
 
+Ab REDAXO 5.11 ist diese funktion nativ im core integriert.
+
 Dies Funktion wird in REDAXO 5 vom Addon `bloecks` übernommen 
 * `bloecks` installieren und unter Addons das bloecks-plugin `status` installieren.
 * Über die Datenbank (PHPMyAdmin oder REDAXO 5-Addon `adminer`) die alten Werte kopieren: `UPDATE rex_article_slice SET status = a356_is_online`
