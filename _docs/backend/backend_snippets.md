@@ -70,8 +70,22 @@ if ( ( rex::isBackend() ) && ( rex::getUser()->getLogin() == 'LOGINNAME' ) ) {
       $page = rex_be_controller::getPageObject( 'modules' );
       $page->setHidden( true );
       $page->setPath( '...' );
+      });
 }
 ```
+
+Hier z.B. Seite verstecken bei allen Nicht-Admins 
+
+```php
+if (( rex::isBackend() ) && ( !rex::getUser()->isAdmin()) ) {
+rex_extension::register('PAGES_PREPARED', function (rex_extension_point $ep) {	
+  $page = rex_be_controller::getPageObject('yform');
+  $page->setHidden(true);
+});
+}
+```
+
+
 
 <a name="replacepage"></a>
 ## Seite eines AddOns durch eigene austauschen/ersetzen
