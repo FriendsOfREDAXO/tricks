@@ -36,7 +36,7 @@ if (rex::isBackend() && rex_backend_login::hasSession()) {
 <a name="addonhide"></a>
 ## AddOn ausblenden
 
-Es ist möglich, einzelne AddOns auch für Administratoren auszublenden. In diesem Beispiel werden der Installer und die Systemverwaltung ausgeblendet.
+Es ist möglich, einzelne AddOns (auch für Administratoren) auszublenden. In diesem Beispiel werden der Installer und die Systemverwaltung ausgeblendet.
 
 ### Möglichkeit 1: Direkt via rex_be_controller
 
@@ -64,6 +64,8 @@ Reines Ausblenden per CSS erfüllt diesen Zweck nicht.
 
 Folgenden Snippet in die boot.php des Project-AddOns eingebunden.
 
+**Ausblenden für einen bestimmten User und URL aufheben:** 
+
 ```php
 if ( ( rex::isBackend() ) && ( rex::getUser()->getLogin() == 'LOGINNAME' ) ) {
    rex_extension::register('PAGES_PREPARED', function (rex_extension_point $ep) {
@@ -74,7 +76,7 @@ if ( ( rex::isBackend() ) && ( rex::getUser()->getLogin() == 'LOGINNAME' ) ) {
 }
 ```
 
-Hier z.B. Seite verstecken bei allen Nicht-Admins 
+**Hier z.B. Menüpunkt verstecken bei allen Nicht-Admins, aber weiterhin verfügbar** 
 
 ```php
 if (( rex::isBackend() ) && ( !rex::getUser()->isAdmin()) ) {
