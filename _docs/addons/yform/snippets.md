@@ -11,7 +11,7 @@ prio:
 - [Table Manager: Bilderspalte in Tabellenansicht (Bild statt Dateiname)](#ytbilder)
 - [Table Manager: Extensionpoint / Listensortierung beeinflussen)](#ytlistsort)
 - [Choice Feld Optionen holen](#Choicefieldoptionen)
-- [YFORM-Menüpunkt ausblenden bei Redakteuren](#yform_menu)
+- [YForm Menüpunkt für Redakteure ausblenden](#yform_menu)
 
 >Hinweis: Teile dieses Abschnitts werden ggf. in die YFORM-Doku übernommen und können daher verschwinden. Sollte das gewünschte Snippet nicht mehr hier zu finden sein, bitte in die YFORM-Doku schauen.  
 
