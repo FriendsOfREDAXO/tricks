@@ -11,6 +11,7 @@ prio:
 - [Table Manager: Bilderspalte in Tabellenansicht (Bild statt Dateiname)](#ytbilder)
 - [Table Manager: Extensionpoint / Listensortierung beeinflussen)](#ytlistsort)
 - [Choice Feld Optionen holen](#Choicefieldoptionen)
+- [YFORM-Menüpunkt ausblenden bei Redakteuren](#yform_menu)
 
 >Hinweis: Teile dieses Abschnitts werden ggf. in die YFORM-Doku übernommen und können daher verschwinden. Sollte das gewünschte Snippet nicht mehr hier zu finden sein, bitte in die YFORM-Doku schauen.  
 
@@ -169,5 +170,27 @@ Mit dieser Funktion lassen sich die Optionen eines Choice Feldes auslesen. Zu ü
     return $options;
 
   }
+
+```
+
+
+<a name="yform_menu"></a>
+### YForm Menüpunkt für Redakteure ausblenden
+
+Redakteure sehen einen Menüpunkt Yform, der jedoch nach Aufruf den Fehler wirft: Tabelle nicht gefunden. 
+Dies ist ein Bug in YForm der sich bis Version 3.4.1 wie folgt beheben lässt. 
+
+Diesen Code in die boot.php des Project-AddOns einsetzen: 
+
+```php
+
+if (( rex::isBackend() ) && rex::getUser() && ( !rex::getUser()->isAdmin()) ) {
+rex_extension::register('PAGES_PREPARED', function (rex_extension_point $ep) {	
+  $page = rex_be_controller::getPageObject('yform');
+  $page->setHidden(true);
+});
+}
+
+```
 
 ```
