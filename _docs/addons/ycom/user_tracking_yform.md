@@ -22,6 +22,7 @@ class my_ycom {
         return $subject ;
     }
 }
+```
 
 - In die boot.php folgenden Code einsetzen: 
 
