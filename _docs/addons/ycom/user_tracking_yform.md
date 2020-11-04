@@ -6,7 +6,7 @@ prio:
 
 # YCom-User in YForm Tabellen-History
 
-Für YCOM > 4.0.3 // oder aktuelle GitHub-Version
+Für YForm > 3.4.1 // oder aktuelle GitHub-Version
 
 Bei Aktionen im Frontend werden in der Tabellen-History von YForm die User aus YCom nicht erfasst. Stattdessen steht dort FrontendUser. Über den Extensionpoint `YCOM_HISTORY_USER` lässt sich der User überschreiben, der vom System vorgegeben ist. 
 
