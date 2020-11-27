@@ -5,6 +5,7 @@ prio:
 ---
 
 # Kopfzeilenbild
+(Headergrafik, Headerimage, Headerbild)
 
 Sucht, ausgehend vom aktuellen Artikel, rekursiv alle übergeordneten Artikel/Kategorien nach einem Kopfzeilen-Bild ab.
 
