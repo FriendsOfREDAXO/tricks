@@ -72,3 +72,6 @@ Im eigenen Modul oder Addon dann die gewünschte Textarea für den CKEditor zum 
 ```html
 <textarea name="editor1" id="editor1" class="form-control cke5-editor" rows="10" data-profile="frontend" data-lang="de" data-content-lang="de"></textarea>
 ```
+
+> **Hinweis:** Der CKEditor wird nur eingebunden wenn auch die Klasse **cke5-editor** vorhanden ist. Bei Textareas die mit JavaScript eingefügt werden wird also der CKEditor auch nicht geladen.
+
