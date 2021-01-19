@@ -100,8 +100,8 @@ Hinter REDAXO stehen zahlreiche Entwickler und die Agentur Yakamara, die federf�
 
 Ein Vergleich mit Wordpress zeigt, dass REDAXO zum einen nicht das große Angriffsziel ist, es zum anderen nur geringe Sicherheitslücken gab und diese zeitnah geschlossen wurden:
 
-https://www.cvedetails.com/vulnerability-list/vendor_id-4626/REDAXO.html
-https://www.cvedetails.com/vulnerability-list/vendor_id-2337/product_id-4096/
+* [Liste Schwachstellen in Redaxo](https://www.cvedetails.com/vulnerability-list/vendor_id-4626/REDAXO.html) (externer Verweis)
+* [Liste der Schwachstellen in WordPress](https://www.cvedetails.com/vulnerability-list/vendor_id-2337/product_id-4096/) (externer Verweis)
 
 Inoffizielle Audits, die innerhalb der Community durchgeführt wurden, bestätigen die Robustheit des REDAXO CMS in puncto Sicherheit.
 
