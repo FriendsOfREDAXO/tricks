@@ -6,361 +6,203 @@ prio:
 
 # YForm-Tabellen und Formulare im eigenen Addon einbinden
 
-* [1. Zielsetzung](#ziel)
-* [2. Zwei Schritte zum Glück](#schritte)
-* [2.1 Die einfache Lösung](#einfach)
-* [2.2 Die perfekte(?) Lösung](#komplex)
-* [3. Anmerkungen](#anmerkung)
-* [4. Testumgebung](#MD)
+- [Zielsetzung](#a)
+- [Wie macht das YForm?](#b)
+- [Kann man das adaptieren?](#c)
+- [Umsetzung](#d)
+    - [package.yml](#d1)
+        - [YForm-Tabellen als Seiten festlegen](#d1a)
+        - [YForm-Seiten konfigurierten](#d1b)
+    - [pages/yform.php](#d2)
+- [Testumgebung](#e)
 
-<a name="ziel"></a>
-## 1. Zielsetzung
+Changelog:
+- **V 2.0 / 30.01.2021**
+  - benötigt YForm ab V3.4: Titel per EP ausblenden
+  - neue Struktur der Properties in *package.yml*
+  - Text und Musterscript komplett neu
 
-YForm bietet sich an, Tabellen zu verwalten. Damit stehen auch jede Menge Feldtypen
-und Validierungen zur Verfügung. Man findet dort auch so schöne Feldtypen wie
-google_geomap bzw. osm_geomap zur Karteneinbindung. Und es gib eine Suchfunktion, und die Massenänderung,
- ...
+<a name="a"></a>
+## Zielsetzung
 
-Viele Addon basieren auf eigenen Tabellen und bauen sie z.B. mit rex_form und rex_list zusammen.
-Nichts spricht gegen diese Vorgehensweise. Aber muss man *immer*
-auf selbstgebaute Tabellen und Formulare aufsetzen? Oder lässt sich YForm elegant nutzen? So z.B.
+Statt der klassischen Variante mit rex_list/rex_form steht mit dem Addon **YForm** eine Alternative
+zur Verfügung, die über wesentlich mehr Datentypen und weitere Features (z.B. Suchfunktion,
+Massenänderung) verfügt. Der Artikel befasst sich mit YForm-Tabellen, die mit dem Table-Manager
+angelegt und verwaltet werden.
+
+**Hier soll gezeigt werden, wie einfach es möglich ist, per YForm verwaltete Tabellen in einem Addon
+so zu nutzen, als seien es originäre Listen- und Formular-Seiten des Addons.** Es erfordert nur
+wenig Aufwand. Im Endergebnis kann es z.B. so aussehen:
 
 ![Beispiel](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/yform_im-addon_screenhot_01.png "Beispiel")
 
-**Hier soll gezeigt werden, wie einfach es möglich ist, per YForm verwaltete
-Tabellen in einem Addon so zu nutzen, als seien es originäre Listen- und Formular-Seiten des Addons.**
+<a name="b"></a>
+## Wie macht das YForm?
 
-<a name="schritte"></a>
-## 2. Zwei Schritte zum Glück
+Das Manager-Plugin für den Table-Manager stellt ein Seiten-Script zum Aufruf einer Tabelle zur
+Verfügung: [yform/plugins/manager/pages/data_edit.php](https://github.com/yakamara/redaxo_yform/blob/master/plugins/manager/pages/data_edit.php).
 
-Die Lösung besteht aus zwei Teilen
+Der unbedingt notwendige Aufruf-Parameter ist der Tabellenname (`$table_name`), der aus der URL
+übernommenen wird (`...&table_name=«tabellenmane»`). *data_edit.php* ruft den Tabellennamen aus
+`$_REQUEST['table_name']` ab.
 
-1. Addon-Menü konfigurieren
-1. Helper-Funktion (page) für das Addon-Menü schreiben
+Zum Ausgabestandard gehört auch die Titelzeile. Innerhalb eines Addon ist sie meist redundant, wenn
+das Addon seine Seiten über eine übliche *pages/index.php* verwaltet und mit einem Titel versieht.
 
-Im ersten Schritt wird die Tabelle als Seitenaufruf im Menü des eigenen Addons eingebaut. Über den Menüpunkt
-wird eine Seite aufgerufen, die von einer dafür vorgesehenen PHP-Datei (zweiter Schritt) im Verzeichnis `myaddon/pages`
-erzeugt wird.
+<a name="c"></a>
+## Kann man das adaptieren?
 
-Nachfolgend werden zwei Varianten beschrieben. Die [einfache](#einfach) basiert auf einer je YForm-Tabelle individuell
-konfigurierten PHP-Page, die zweite zeigt eine [universelle Version](#komfort), die über `package.yml` konfiguriert wird.
+Eine relativ einfache Variante ist, *data_edit.php* in das *pages*-Verzeichnis des Addons zu
+kopieren und so anzupassen, dass der initiale Tabellenname fest vorgegeben ist. Unerwünschte
+Titelzeilen können per EP `YFORM_MANAGER_DATA_PAGE_HEADER` unterdrückt werden.
 
-Die eigentlich ausführende Funktion in YForm - das Original - findet sich in der Datei
-[`yform/plugins/manager/pages/data_edit.php`](https://github.com/yakamara/redaxo_yform/blob/master/plugins/manager/pages/data_edit.php).
-Sie kann mit geringem Aufwand als Blaupause für eine eigene Aufrufseite dienen:
+Mehrere Tabellen erfordern mehrere Adaptionen der *data_edit.php*. Zudem müssen Änderung in der
+Originaldatei erkannt und ggf. nachgezogen werden.
 
+Die folgende Lösung arbeitet mit einem standardisierten Script im Addon, dass seine Parameter wie
+z.B. den Tabellennamen aus der *package.yml* entnimmt.
 
-```php
-<?php
-$table_name = rex_request('table_name', 'string');
-$table = rex_yform_manager_table::get($table_name);
+<a name="d"></a>
+## Umsetzung
 
-if ($table && rex::getUser() && (rex::getUser()->isAdmin() || rex::getUser()->getComplexPerm('yform_manager_table')->hasPerm($table->getTableName()))) {
-    try {
-        $page = new rex_yform_manager();
-        $page->setTable($table);
-        $page->setLinkVars(['page' => 'yform/manager/data_edit', 'table_name' => $table->getTableName()]);
-        echo $page->getDataPage();
-    } catch (Exception $e) {
-        $message = nl2br($e->getMessage()."\n".$e->getTraceAsString());
-        echo rex_view::warning($message);
-    }
-} else {
-    if (!$table) {
-        echo rex_view::warning(rex_i18n::msg('yform_table_not_found'));
-    }
-}
-```
+Der Vorschlag beruht auf zwei Teilen:
+- In der *package.yml* werden die Seiten für YForm-Tabellen konfiguriert
+- Den Seitenaufbau übernimmt ein vorgeschaltetes Script (*pages/yform.php*), das auf Basis der
+  *package.yml* den Aufruf der *data_edit.php* vorbereitet und durchführt.
 
-<a name="einfach"></a>
-## 2.1 Die einfache Lösung
+<a name="d1"></a>
+### package.yml
 
-Konkret sind zwei Schritte notwendig:
+Der einfache erste Gedanke, in der *package.yml* die Seitendefinition um Tabellenangaben zu
+erweitern, ist grundsätzlich machbar. Leider sind die Daten in den Properties schwierig auffindbar,
+da REDAXO nur ausgewählte Seiten-Properties direkt abrufbar in die Page-Properties lädt.
 
-1. [Addon-Menü konfigurieren](#einfachA)
-1. [Helper-Funktion für das Addon-Menü schreiben](#einfachB)
+Um den einfachen Zugriff zu ermöglichen, wird ein eigener Zweig `yform:` angelegt. Zu jeder Seite
+gibt es einen eigenen Eintrag mit den Tabellen-Parametern.
 
-<a name="einfachA"></a>
-### 2.1.1 Addon-Menü konfigurieren
+<a name="d1a"></a>
+#### YForm-Tabellen als Seiten festlegen
 
-In der `package.yml` des Addons wird das Menü um Einträge erweitert, die jeweils eine
-Tabelle anzeigen und die Bearbeitung ermöglichen:
+Im folgenden Beispiel wird eine Seitenstruktur gezeigt, deren erste Seite (`...&page=«addon»/config`)
+klassisch auf ein Script *pages/config.php* verweist. Die Seiten `...&page=«addon»/mapset` und
+`...&page=«addon»/layer` hingegen greifen auf das im [nächsten Absatz](#d2) beschriebene Script
+*pages/yform.php* zu.
 
-```yaml
+```YML
 page:
-    title: 'Addon-Titel'
+    title: translate:geolocation_title
     subpages:
-        orte:
-            title: 'Orte'
-            icon: rex-icon fa-map-marker
-        termine:
-            title: 'Termine'
-            icon: rex-icon fa-calendar
+        config:
+            title: translate:geolocation_config
+        mapset:
+            title: translate:geolocation_mapset
+            subPath: pages/yform.php
+        layer:
+            title: translate:geolocation_layer
+            subPath: pages/yform.php
 ```
 
-Das führt dazu, dass für `orte` eine Datei `myaddon/pages/orte.php` und für `termine` eine Datei
-`myaddon/pages/orte.php` aufgerufen werden. Beide müssen existieren.
+<a name="d1b"></a>
+#### YForm-Seiten konfigurierten
 
+Die YForm-Tabellen werden über den Seitennamen, der sich aus der Page-Definiton ergibt, im Zweig
+`yform:` identifiziert (Beispiel: `«addon»/mapset`). Mögliche Properties sind
 
-<a name="einfachB"></a>
-### 2.1.2 Helper-Funktion für das Addon-Menü schreiben
+Property | Beschreibung | Typ | Default
+---| --- | --- | ---
+table_name | Der Name der Tabelle, die bearbeitet werden soll | notwendig |
+wrapper_class | CSS-Klassename für einen `<div>`-Tag, der um das von *data_edit.php* generierte HTML gelegt wird. Das erleichtert die Suche in Output-Filtern und ermöglicht individuelle CSS-Konfigurationen | optional | keine `<div>`-Klammer
+show_title | Wenn angegeben und auf `true` gesetzt wird die (meist im Addon überflüssige) Titelzeile doch eingeblendet. | optional | `false`
 
-Die beiden Dateien `myaddon/pages/orte.php` bzw. `myaddon/pages/orte.php` werden Varianten der
-`data_edit.php`. Zwei Änderungen sind zwingend notwendig.
+```YML
+yform:
+    «addon»/mapset:
+        table_name: rex_geolocation_mapset
+    «addon»/layer:
+        table_name: rex_geolocation_layer
+```
 
-1. **$table_name fest vorgeben**
+Das Script *pages/yform.php* sucht im Zweig `yform:` den Eintrag zur aktuellen Seite wie von
+`\rex_be_controller::getCurrentPage()` ermittelt.
 
-    Im Originalcode wird der Tabellenname aus den Request-Parametern abgelesen
-    (`$table_name = rex_request('table_name', 'string');`). Das funktioniert beim ersten
-    Aufruf aus dem Menü noch nicht; daher wird der Name der zu bearbeitenden Tabelle
-    (im Beispiel "rex_myaddon_orte" bzw. "rex_myaddon_termine" ) fest eingegeben.
+<a name="d2"></a>
+### pages/yform.php
 
-2. **YForm mitteilen, dass die Tabellen/Formulare im Addon angezeigt werden**
+Die eigentliche Seitensteuerung bleibt beim Script *data_edit.php*. Das im Addon vorgeschaltete
+Script *pages/yform.php* hat vier Aufgaben:
 
-    Für alle Folgeaufrufe ist im Original die Zielseite mit `yform/manager/data_edit` fest angegeben.
-    Dort muss entweder der eigene Seitenname fest eingetragen werden (im Beispiel: 'myaddon/orte' bzw. 'myaddon/termine') oder
-    noch besser ganz allgemein der Seitenpfad, über den die Datei eh grade aufgerufen wurde
-    (also `rex_request('page', 'string')`).
+- Platziere den Parameter `...&table_name=«tabellenmane»` in der URL per Simulation.
+    ```PHP
+    $_REQUEST['table_name'] = $table_name;
+    ```
+- Erzeuge das YForm-HTML für die Tabellenseite via *data_edit.php*.
+    ```PHP
+    include \rex_path::plugin('yform','manager','pages/data_edit.php');
+    ```
+- Optional: blende die YForm-Titelzeile aus.
+    ```PHP
+    if( !$show_title ){
+        \rex_extension::register(
+            'YFORM_MANAGER_DATA_PAGE_HEADER',
+            function( \rex_extension_point $ep ) {
+                if ($ep->getParam('yform')->table->getTableName() === $ep->getParam('table_name')) {
+                    return '';
+                }
+            },
+            \rex_extension::EARLY,['table_name'=>$table_name]
+        );
+    }
+    ```
+- Optional: setze eine DIV-Klammer mit eigener Klasse um das YForm-HTML.
+    ```PHP
+    if( $wrapper_class ){
+        echo '<div class="',$wrapper_class,'">';
+    }
+    include \rex_path::plugin('yform','manager','pages/data_edit.php');
+    if( $wrapper_class ) {
+        echo '</div>';
+    }
+    ```
 
-Die einfachste Lösung besteht also darin, je zu bearbeitender Tabelle eine eigene Variante der
-`data_edit.php` im pages-Verzeichnis des Addons abzulegen.
+Die Parameter werden der *package.yml* entnommen. Die YML-Struktur ist [oben beschrieben](#d1).
 
 ```PHP
-<?php
-$table_name = 'rex_myaddon_orte';
-$table = rex_yform_manager_table::get($table_name);
+$yform = $this->getProperty('yform',[]);
+$yform = $yform[\rex_be_controller::getCurrentPage()] ?? [];
 
-if ($table && rex::getUser() && (rex::getUser()->isAdmin() || rex::getUser()->getComplexPerm('yform_manager_table')->hasPerm($table->getTableName()))) {
-    try {
-        $page = new rex_yform_manager();
-        $page->setTable($table);
-        $page->setLinkVars(['page' => rex_request('page', 'string'), 'table_name' => $table->getTableName()]);
-        echo $page->getDataPage();
-    } catch (Exception $e) {
-        $message = nl2br($e->getMessage()."\n".$e->getTraceAsString());
-        echo rex_view::warning($message);
-    }
-} else {
-    if (!$table) {
-        echo rex_view::warning(rex_i18n::msg('yform_table_not_found'));
-    }
+$table_name = $yform['table_name'] ?? '';
+$show_title = true === ($yform['show_title'] ?? false);
+$wrapper_class = $yform['wrapper_class'] ?? '';
+
+if( $table_name ) {
+    $_REQUEST['table_name'] = $table_name;
+}
+
+if( !$show_title ){
+    \rex_extension::register(
+        'YFORM_MANAGER_DATA_PAGE_HEADER',
+        function( \rex_extension_point $ep ) {
+            if ($ep->getParam('yform')->table->getTableName() === $ep->getParam('table_name')) {
+                return '';
+            }
+        },
+        \rex_extension::EARLY,['table_name'=>$table_name]
+    );
+}
+
+if( $wrapper_class ){
+    echo '<div class="',$wrapper_class,'">';
+}
+
+include \rex_path::plugin('yform','manager','pages/data_edit.php');
+
+if( $wrapper_class ) {
+    echo '</div>';
 }
 ```
 
-Das Verfahren ist einfach, hat jedoch noch einen Schönheitsfehler. Die YForm-Seiten werden immer mit der
-Seiten-Titelzeile angezeigt. Sie kann auch nicht wirksam über Parameter oder Extension-Points unterdrückt
-werden. Wie man sie trotzdem loswerden kann, wird in einem [späteren Kapitel](#titelzeile) beschrieben.
+<a name="e"></a>
+## Testumgebung
 
-
-<a name="komplex"></a>
-## 2.2 Die perfekte(?) Lösung
-
-Nachfolgend wird beschrieben, wie man statt mit separaten Dateien pro Tabelle mit einer universellen
-Page-Datei die Tabellen einbinden kann. Wieder sind es zwei Schritte:
-
-1. [Addon-Menü konfigurieren](#komplexA)
-1. [Helper-Funktion für das Addon-Menü schreiben](#komplexB)
-
-Im Unterschied zur einfachen Version erfolgt die komplette Konfiguration der Aufrufe über `package.yml`.
-
-<a name="komplexA"></a>
-### 2.1 Addon-Menü konfigurieren
-
-In der `package.yml` des Addons wird das Menü um Einträge erweitert, die jeweils eine Tabelle anzeigen und die Bearbeitung ermöglichen:
-
-```yaml
-page:
-    title: 'Addon-Titel'
-    subpages:
-        orte:
-            title: 'Orte'
-            icon: rex-icon fa-map-marker
-            subPath: pages/data_edit.php
-            yformTable: rex_myaddon_orte
-            yformClass: myaddon-yform
-        termine:
-            title: 'Termine'
-            icon: rex-icon fa-calendar
-            subPath: pages/data_edit.php
-            yformTable: rex_myaddon_termine
-            yformClass: myaddon-yform
-            yformTitle: true
-```
-
-"Normale" Menüpunkte würden zur Bearbeitung die Datei `myaddon/pages/orte.php` bzw.
-`myaddon/pages/termine.php` heranziehen.
-Aber `subPath: pages/data_edit.php` leitet den Aufruf auf die Datei
-`myaddon/pages/data_edit.php` um.
-
-Es kann auch ein anderes Verzeichnis als `myaddon/pages` sein (z.B. `project/pages`), das ist nur ein Beispiel.
-
-Damit `myaddon/pages/data_edit.php` unterscheiden kann, was eigentlich zu tun ist, wird mit zusätzlichen
-Parametern die Anforderung spezifiziert:
-
-Property | Beschreibung
----| ---
-yformTable | Der Name der Tabelle, die bearbeitet werden soll (notwendig).
-yformClass | CSS-Klassename für einen `<div>`-Tag, der um die generierte Seite gelegt wird. Das erleichtert die Suche in Output-Filtern und ermöglicht individuelle CSS-Konfigurationen (default: keine `<div>`-Klammer).
-yformTitle | Wenn angegeben und auf `true` gesetzt wird die (eigentlich im Addon überflüssige) Titelzeile doch eingeblendet (default: false).
-
-Eine Lösung für die in einem [späteren Kapitel](#titelzeile) beschriebene Kopfzeilenproblematik ist
-hier schon mal vorweggenommen.
-
-<a name="komplexB"></a>
-### 2.2 Helper-Funktion für das Addon-Menü schreiben
-
-
-1. **$table_name aus der package.yml nehmen**
-
-    Im Originalcode wird der Tabellenname aus den Request-Parametern abgelesen
-    (`$table_name = rex_request('table_name', 'string');`). Das funktioniert beim ersten
-    Aufruf aus dem Menü noch nicht; statt dessen soll die Property `yformTable` herangezogen werden.
-
-2. **YForm mitteilen, dass die Tabellen/Formulare im Addon angezeigt werden**
-
-    Dazu reicht es aus, in ```setLinkVars``` den Url-Parameter "page" auf den Wert aus der
-    URL zu setzen.
-
-Die neue, eigene `myaddon/pages/data_edit.php` könnte in der Basisversion so aussehen:
-
-```PHP
-<?php
-if( isset( $this->getProperty('page')['subpages'][rex_be_controller::getCurrentPagePart(2)] ) )
-{
-    $properties = $this->getProperty('page')['subpages'][rex_be_controller::getCurrentPagePart(2)];
-    if( $sub=rex_be_controller::getCurrentPagePart(3) ) $properties = $properties['subpages'][$sub];
-    $table_name = isset( $properties['yformTable'] ) ? $properties['yformTable'] : '';
-    $target_page = rex_request('page', 'string');
-}
-else
-{
-    $table_name = '';
-}
-
-$table = rex_yform_manager_table::get($table_name);
-
-if ($table && rex::getUser() && (rex::getUser()->isAdmin() || rex::getUser()->getComplexPerm('yform_manager_table')->hasPerm($table->getTableName()))) {
-    try {
-        $page = new rex_yform_manager();
-        $page->setTable($table);
-        $page->setLinkVars([ 'page' => $target_page, 'table_name' => $table->getTableName()]);
-        echo $page->getDataPage();
-    } catch (Exception $e) {
-        $message = nl2br($e->getMessage()."\n".$e->getTraceAsString());
-        echo rex_view::warning($message);
-    }
-} else {
-    if (!$table) {
-        echo rex_view::warning(rex_i18n::msg('yform_table_not_found'));
-    }
-}
-```
-
-Die Version ist der allgemeinere Ansatz ggü. der [einfachen Lösung](#einfach), hat aber noch nicht alle angestrebten Features.
-Um die beiden Parameter ```yformTitle``` und ```yformClass``` zu berücksichtigen, ist etwas mehr Code erforderlich:
-
-Hier ist der vollständige Code der perfekten(?) Lösung:
-<a href="final"></a>
-
-```php
-<?php
-$target_page = rex_request( 'page', 'string' );
-
-if( $target_page == 'yform/manager/data_edit' )
-{
-    $table_name = rex_request( 'table_name', 'string' );
-    $wrapper = '';
-    $show_title = true;
-}
-elseif( isset( $this->getProperty('page')['subpages'][rex_be_controller::getCurrentPagePart(2)] ) )
-{
-    # page-Properties allgemein abrufen
-    $properties = $this->getProperty('page')['subpages'][rex_be_controller::getCurrentPagePart(2)];
-    if( $sub=rex_be_controller::getCurrentPagePart(3) ) $properties = $properties['subpages'][$sub];
-    # yform-properties
-    $table_name = isset( $properties['yformTable'] ) ? $properties['yformTable'] : '';
-    $wrapper = isset( $properties['yformClass'] ) ? $properties['yformClass'] : '';
-    $show_title = isset( $properties['yformTitle'] ) && $properties['yformTitle'] == true;
-}
-else
-{
-    $table_name = '';
-}
-
-$table = rex_yform_manager_table::get($table_name);
-
-if ($table && rex::getUser() && (rex::getUser()->isAdmin() || rex::getUser()->getComplexPerm('yform_manager_table')->hasPerm($table->getTableName())))
-{
-    try {
-
-        $page = new rex_yform_manager();
-        $page->setTable( $table );
-        $page->setLinkVars( ['page' => $target_page, 'table_name' => $table->getTableName()] );
-
-        if( $wrapper ) echo "<div class=\"$wrapper\">";
-
-        if( $show_title )
-        {
-            echo $page->getDataPage();
-        }
-        else
-        {
-            # Seite erzeugen und abfangen
-            ob_start();
-            echo $page->getDataPage();
-            $page = ob_get_clean();
-            # Such den Header - Fall 1: mit Suchspalte?
-            $p = strpos( $page,'</header>'.PHP_EOL.'<div class="row">' );
-            # Such den Header - Fall 2: ohne Suchspalte
-            if( $p === false ) $p = strpos( $page,'</header>'.PHP_EOL.'<section class="rex-page-section">' );
-            # Header rauswerfen
-            if( $p !== false ) $page = substr( $page, $p );
-            # ausgabe
-            echo $page;
-        }
-
-        if( $wrapper ) echo '</div>';
-
-    } catch (Exception $e) {
-        $message = nl2br($e->getMessage()."\n".$e->getTraceAsString());
-        echo rex_view::warning($message);
-    }
-
-} elseif ( !$table ) {
-
-    echo rex_view::warning(rex_i18n::msg('yform_table_not_found'));
-
-}
-```
-
-
-<a name="MC"></a>
-## 3. Anmerkungen
-
-### 3.1 Titelzeile
-
-Die Titelzeile kann via EP "PAGE_TITLE" auf "leer" gesetzt werden. Der entsprechende `<header>`-Tag wird trotzdem eingebaut. Er wäre zwar nicht sichtbar, aber in Installationen mit dem Addon [quick_navigation](https://github.com/FriendsOfREDAXO/quick_navigation) hilft das
-nicht weiter, da die Quick-Navigation in den `<header>`-Tag gehängt wird.
-
-Andere vorgegebene Möglichkeiten, die Headerzeile zu beeinflussen oder auszublenden, bestehen nicht.
-
-Somit bleibt nur, die Titelzeile entweder per CSS auszublenden oder wie oben beschrieben herauszulöschen. Schöner wäre es, wenn sie gar nicht erst erzeugt werden würde.
-Dazu bedarf es aber Änderungen in der Klasse ```rex_yform_manager``` z.B. in Form einer Methode, die ein Flag `showTitle=false` setzen würde.
-
-### 3.2 Idee: Integration in YForm
-
-Die [oben beschriebene](#final) `data_edit.php` ist geeeignet, die originale `yform/plugins/manager/pages/data_edit.php` zu ersetzen.
-
-Der Aufruf in der package.yml des Addons wäre dann
-
-```
-    subPath: ../yform/plugins/manager/pages/data_edit.php
-```
-
-Zudem würde der Code etwas entlastet, wenn der Klasse ```rex_yform_manager``` ein Mechanismus spendiert wird, der die Ausgabe der Titelzeile unterdrückt. Dies kann z.B. durch eine Methode, die ein Flag `showTitle=false` setzt, realisiert werden.
-
-<a name="MD"></a>
-## 4. Testumgebung
-
-* REDAXO 5.5.1
-* YFORM 2.3
+* REDAXO 5.11
+* YFORM 3.4
