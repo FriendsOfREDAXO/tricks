@@ -6,6 +6,8 @@ prio:
 
 # REDAXO Loader
 
+> 👉🏻 Die aktuelle Version findet man hier: https://github.com/FriendsOfREDAXO/redaxo_loader
+
 Skript zum Download und Entpacken der aktuellen REDAXO-Release aus GitHub.
 (Basiert auf einem Gist von Jan Kristinus)
 
