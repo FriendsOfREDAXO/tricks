@@ -138,7 +138,7 @@ Formatierungsklassen den *\<td>* eine Hover-Farbe zugewiesen werden.
 ```CSS
 .xyz-privacy-internal, .xyz-privacy-internal ~ td {background-color: ivory;}
 .xyz-privacy-classified, .xyz-privacy-classified ~ td {background-color: coral;}
-.table-hover tbody td:hover {background-color: #e0f5ee;}
+.table-hover tbody tr:hover td {background-color: #e0f5ee;}
 ```
 
 <a name=""></a>
@@ -197,7 +197,7 @@ den *\<td>* eine Hover-Farbe zugewiesen werden.
 ```CSS
 td[data-privacy="internal"], td[data-privacy="internal"] ~ td {background-color: ivory;}
 td[data-privacy="classified"], td[data-privacy="classified"] ~ td {background-color: coral;}
-.table-hover tbody td:hover {background-color: #e0f5ee;}
+.table-hover tbody tr:hover td {background-color: #e0f5ee;}
 ```
 
 <a name="opt"></a>
