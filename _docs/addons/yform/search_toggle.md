@@ -148,7 +148,7 @@ Der Header des Suchformulars wird mit einem Click-Handler versehen, der `kv30-yf
 toggelt.
 
 ```js
-$(document).ready( function(){
+$(document).on('rex:ready', function (event, container) {
     let search, data;
     for( search of document.querySelectorAll('form[id^="rex_yform_searchvars"]') ) {
         search = search.closest('section').parentNode;
