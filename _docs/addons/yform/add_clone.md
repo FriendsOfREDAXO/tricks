@@ -64,7 +64,7 @@ Daten eines Referenzsatzes komplett zu übernehmen als Vorbefüllung des Formula
 * Look and Feel wie bei einem normalen "Add".
 * Problem: Relationendatensätze in einer verknüpften Tabelle können nicht einfach so mitkopiert werden. 
 
-> Im weiteren Verlauf wird nur diese Idde weiterverfolgt.
+> Im weiteren Verlauf wird nur diese Idee weiterverfolgt.
 
 
 <a name="einfach"></a>
