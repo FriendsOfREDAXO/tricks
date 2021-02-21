@@ -24,14 +24,14 @@ Icons der `style.css` schaffen und auch die rex-icon ausweisen.
 für Icons sehen z.B. so aus:
 
 ```css
-.fa-user:before,.rex-icon-user:before,.rex-icon-userrole:before{content:"\f007"}
+.fa-user:before,.rex-icon-user:before,.rex-icon-userrole:before{content:"...zeichen.."}
 ```
 
 Sie lassen sich leicht herausfiltern und aufbereitet als Page ausgeben. Zusätzlich wird eine Such- und
 Selektier-Möglichkeit geschaffen:
 
 * Per Checkbock selektieren, welche Gruppe angezeigt wird (`.fa`, `.glyphicon`, `.rex-icon`)
-* Volltextsuche in den Icon-Bezeichnern (Im Beispiel: "user,userrole").
+* Volltextsuche in den Icon-Bezeichnern (Im Beispiel: "use" findet alle Elemente mit der Folge "use" im Namen).
 
 ![](https://user-images.githubusercontent.com/10065904/51799583-01265580-2223-11e9-9746-b32004ea5edf.png)
 
@@ -70,42 +70,46 @@ Und hier das Script inklusive CSS und JS:
 
 ```php
 <?php
-
-$types = ['FontAwesome'=>'fa','REX'=>'rex-icon','Glyphicons'=>'glyphicon'];
+$types = ['FontAwesome'=>'fa','Glyphicons'=>'glyphicon','REX'=>'rex-icon'];
 $filename = $this->getCachePath('icons.html');
+$stylename = rex_path::addonAssets('be_style','css/styles.css');
 
 //------ Typen einlesen oder neu generieren
-$html = @file_get_contents($filename);
+
+if( filemtime($filename) < filemtime($stylename) ) {
+    $html = false;
+} else {
+    $html = @file_get_contents($filename);
+}
 
 if( !$html ) {
 
-    // styles.css einlesen, Kommentare rauswerfen
-    $styles = preg_replace('~\/\*[^*]*\*+([^/*][^*]*\*+)*\/~m','',file_get_contents( rex_path::addonAssets('be_style','css/styles.css') ));
-    // in Definitionen aufsplitten (schließendes '}' fällt dabei raus, is egal.)
-    $styles = explode('}',$styles);
-    // alle Zeilen rauswerfen, die nicht mit ".rex-icon-", ".glyphicon-" oder ".fa-" beginnen
-    $referenz = [];
-    foreach( $types as $v ) $referenz[".$v-"] = strlen($v) + 2;
-    $styles = array_filter($styles,function($v) use($referenz){foreach($referenz as $t=>$l){ if( substr($v,0,$l)==$t ) return true;} return false;} );
-    // Restzeilen, die den korrekten Grundaufbau haben, in ein Icon-Array überführen (je Unicode ein Eintrag)
-    // .fa-name:before,.rex-icon-name{content:"\A234"
-    $patternA = '/^(\.[\w\-]+)\:before(\,(\.[\w\-]+)\:before)*\{content\:"\\\(?<unicode>[a-z\d]{4})"$/';
-    $patternB = '/\.(?<klasse>(?<typ>'.implode('|',$types).')\-(?<name>[\w\-]+))\:before/';
+    // be_style auf relevante Einträge reduzieren
+    $css = file_get_contents( $stylename );
+    $typeset = implode('|',$types);
+    $p = preg_match_all(
+        '/((\.('.$typeset.')\-[a-z0-9_-]+)((\:before,\.('.$typeset.')\-[a-z0-9_-]+))*)\:before{content\:"(?<marker>(.*?))"}/m',
+        $css,
+        $match,
+    );
+
+    // Einträge aufbereiten
     $icons = [];
-    foreach( $styles as $k=>$v ) {
-        if( preg_match($patternA,$v,$match) ) {
-            $unicode = $match['unicode'];
-            if( preg_match_all($patternB,substr($v,0,-16),$match) && count($match)) {
-                foreach( $match['typ'] as $k=>$typ ) {
-                    if( !isset($icons[$unicode]['html']) ) $icons[$unicode]['html'] = "<i class=\"$typ $typ-{$match['name'][$k]}\"></i>";
-                    $icons[$unicode]['name'][$match['name'][$k]] = $match['name'][$k];
-                    $icons[$unicode]['class'][$match['klasse'][$k]] = $match['klasse'][$k];
-                    $icons[$unicode]['type'][$typ] = "x-$typ";
-                }
-            }
+    foreach( $match['marker'] as $k=>$code ) {
+        $code = sprintf("%04X",mb_ord($code));
+        $unicode = $result[$code] ?? [];
+        preg_match_all( '/(?<class>\.(?<type>('.$typeset.'))-(?<name>[a-z0-9_-]+))/',$match[1][$k],$data );
+        foreach( $data['class'] as $i => $class ){
+            $type = $data['type'][$i];
+            $name = $data['name'][$i];
+            $unicode['class'][$class] = $class;
+            $unicode['name'][$name] = $name;
+            $unicode['type'][$type] = 'x-'.$type;
+            if( !isset($unicode['html']) ) $unicode['html'] = "<i class=\"$type $type-$name\"></i>";
         }
+        $icons[$code] = $unicode;
     }
-    unset($styles);
+    unset( $match );
     ksort($icons);
 
     //------ Section zusammenbauen
@@ -124,7 +128,7 @@ if( !$html ) {
     // Suchfeld für textbasierte Selektion
     $search = new rex_fragment();
     $elements = [
-            'field' => '<input onchange="f_search(this.value)" type="text" class="form-control" placeholder="Search for..." id="search">',
+            'field' => '<input oninput="f_search(this.value)" type="text" class="form-control" placeholder="Search for..." id="search">',
             'right' => '<button onclick="f_reset()"class="btn btn-default" type="button"><i class="fa fa-close"></i></button>',
         ];
     $search->setVar('elements', [$elements], false);
@@ -194,7 +198,7 @@ function f_copy( event ) {
     var target = event.target;
     if( target.tagName.toLowerCase() != 'span' ) return;
     for( var type of typeList ) {
-        if( target.innerText.startsWith(type) ) {
+        if( target.innerText.startsWith('.'+type) ) {
             var node = document.createElement('textarea');
             node.value = '<i class="'+type+' '+target.innerText+'"></i>';
             node.style = {position: 'absolute', left: '-9999px'};
