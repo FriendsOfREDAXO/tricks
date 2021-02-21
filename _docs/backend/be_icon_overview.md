@@ -76,11 +76,13 @@ $stylename = rex_path::addonAssets('be_style','css/styles.css');
 
 //------ Typen einlesen oder neu generieren
 
-if( filemtime($filename) < filemtime($stylename) ) {
-    $html = false;
-} else {
+if( !is_readable($stylename) ) return;
+
+$html = false;
+if( is_readable($filename) && filemtime($filename) < filemtime($stylename) ){
     $html = @file_get_contents($filename);
 }
+$html = false;
 
 if( !$html ) {
 
@@ -96,7 +98,7 @@ if( !$html ) {
     // Einträge aufbereiten
     $icons = [];
     foreach( $match['marker'] as $k=>$code ) {
-        $code = sprintf("%04X",mb_ord($code));
+        $code = sprintf("\\%04X",mb_ord($code));
         $unicode = $result[$code] ?? [];
         preg_match_all( '/(?<class>\.(?<type>('.$typeset.'))-(?<name>[a-z0-9_-]+))/',$match[1][$k],$data );
         foreach( $data['class'] as $i => $class ){
@@ -213,4 +215,5 @@ function f_copy( event ) {
     }
 }
 </script>
+
 ```
