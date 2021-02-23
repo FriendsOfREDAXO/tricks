@@ -12,7 +12,7 @@ Bei sich häufiger ändernden Assets wie CSS- oder Javascript-Dateien hat man ge
 
 ## Funktion einbinden
 
-Diese Funktion wird am besten im Project-AddOn hinterlegt oder in der functions.php des Theme-AddOns:
+Diese Funktion wird am besten in die `boot.php` des Project-AddOn hinterlegt oder in der `functions.php` des Theme-AddOns:
 
 ```php
 function stamp_file ($filename_with_path) {    
