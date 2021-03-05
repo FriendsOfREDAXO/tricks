@@ -10,7 +10,11 @@ Einzelne Zellen können per Callback bei der Ausgabe der rex_list angepasst und 
 Geht? Geht! Auch für YForm.
 
 - [Grundannahmen und Beispiel](#basic)
-- [Lösungsweg](#weg)
+- [Ab REDAXO 5.12](#neu)
+    - [Eine Klasse mit Feldwerten zuweisen](#neu1)
+    - [Eine Klasse aus komplexen Abfragen zuweisen](#neu2)
+    - [YForm-Beispiel: den aktuellen Datensatz markieren](#neu3)
+- [Bis REDAXO 5.11.2](#alt)
     - [\<td>-Tag um eine Klasse erweitern](#weg_class)
         - [Aufruf des EP](#weg_class_ep)
         - [Die Callback-Funktion *rex_list_set_row_class*](#weg_class_cb)
@@ -20,9 +24,9 @@ Geht? Geht! Auch für YForm.
         - [Die Callback-Funktion *rex_list_set_row_class*](#weg_attr_cb)
         - [Das CSS](#weg_attr_css)
 
-- [Optionen](#opt)
-    - [YForm](#yform)
-    - [Komplexe Basisdaten](#kompl)
+    - [Optionen](#opt)
+        - [YForm](#yform)
+        - [Komplexe Basisdaten](#kompl)
 
 <a name="basic"></a>
 ## Grundannahmen und Beispiel
@@ -34,20 +38,112 @@ In der Beispieltabelle gibt es ein Feld `privacy` mit den Werten `public`, `inte
 `classified`. Die Zeilen sollen entsprechend der Klassifizierung eingefärbt werden (standard, beige
 und rot).
 
+Für die Beschriebenen Verfahren gilt, dass sie entweder in der Listendefinition (sofern man sie
+selbst vornimmt) eingebaut werden oder in an anderer Stelle generierten Listen mittels Extension-Point
+(EP) *REX_LIST_GET*. Für YForm-Listen, die auf *rex_list* basieren, solte der EP *YFORM_DATA_LIST*
+genutzt werden.
+
 ![Beispiel](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/rex_list_row_marker.jpg "Beispiel")
 
+<a name="neu"></a>
+## Ab REDAXO 5.12.0
 
-<a name="weg"></a>
-## Lösungsweg
+Seit Version REDAXO 5.12.0 verfügt *rex_list* über eine Methode _setRowAttributes_, mit der Attribute
+auf Zeilenebene (\<tr>-Tag) gesetzt werden können. In den Attributen sind Feld-Platzhalter möglich.
+So könnte z.B. die Satznummer in den tr-Tag übernommen werden (`$list->setRowAttributes(['data-id','###id###']);`).
 
-Der ideale Weg, über eine optionale Klasse auf der Zeile (`<tr class="xyz">`) die gewünschte
-Formatierung zu erhalten, ist mangels Einstiegspunkt verwehrt. Allerdings kann man per Extension-Point
-(EP) *REX_LIST_GET* den Aufbau der Zeile auf Spaltenebene verändern.
+Alternativ kann eine Callback-Funktion angegeben werden, die Attribute auf Basis der Zeilenwerte
+erstellt.
 
-Ob man die Callback-Funktion des EP als anonyme Funktion, als benannte Funktion oder als (statische)
-Methode eine Klasse anlegt, ist dabei irrelevant. Das Beispiel geht von einer benannten Funktion aus.
+<a name="neu1"></a>
+### Eine Klasse mit Feldwerten zuweisen
 
-Für eine ansprechende Optik muss die Tabellenzelle (*\<td>*) formatiert werden, nicht der Inhalt.
+Da die Attribute auch Platzhalter für Zeilenwerte enthalten dürfen, kann ein mit *$list->setRowAttributes*
+erstelltes *class*-Attribut zusammengesetzt werden aus einem festen Teil und einem variablen Teil
+aus dem Datensatz:
+
+```php
+$list->setRowAttributes(['class','xyz-privacy-###privacy###']);
+```
+
+```css
+tr.xyz-privacy-internal:not(:hover) {background-color: ivory;}
+tr.xyz-privacy-classified:not(:hover) {background-color: coral;}
+```
+
+<a name="neu2"></a>
+### Eine Klasse aus komplexen Abfragen zuweisen
+
+Das obige Beispiel ist nicht immer anwendbar. Was bei einer sehr geringen Anzahl Werten, die zudem
+statisch sind, noch funktioniert, gerät bei dynamischen Werten schnell an Grenzen.
+
+Alternativ werden die Daten per Callback-Funktion ausgewertet und dann gezielt Attribute gesetzt.
+Im Beispiel werden veraltete Dokumente (älter als 1 Jahr) orange markiert:
+
+```php
+$list->setRowAttributes(function($list){
+    if( $list->getValue('lastupdate') < time() ) {
+        return 'class="xyz-oudated"';
+    }
+    return '';
+});
+```
+
+```css
+tr.xyz-oudated:not(:hover) {background-color: orange;}
+```
+
+<a name="neu3"></a>
+### YForm-Beispiel: den aktuellen Datensatz markieren
+
+Ansatzpunkt ist der EP *REX_YFORM_SAVED*, der sowohl beim Hinzufügen als auch beim Ändern eines
+Datensatzes durchlaufen wird. Er stellt über die Parameter die Datensatznummer zur Verfügung.
+
+Damit wird der Folge-EP *YFORM_DATA_LIST* aktiviert, der der Liste per *setRowAttributes* eine
+Callback-Funktion zuweist. Die Funktion prüft, ob die ID des geänderten Datensatzes mit der ID des
+angezeigten übereinstimmt und entsprechend eine Klasse zuweist oder nicht.
+
+```php
+\rex_extension::register('REX_YFORM_SAVED',
+    function( \rex_extension_point $ep )
+    {
+        \rex_extension::register('YFORM_DATA_LIST',
+            function( \rex_extension_point $ep)
+            {
+                if( $ep->getParam('table')->getTablename() == $ep->getParam('__TABLE') ) {
+                    $list = $ep->getSubject();
+                    $id = $ep->getParam('__ID');
+                    $list->setRowAttributes( function($list) use ($id) {
+                        if ($id === $list->getValue('id')) {
+                            return 'class="highlight-last-updated"';
+                        }
+                    });
+                }
+            },
+            rex_extension::NORMAL,
+            ['__TABLE' => $ep->getParam('table'), '__ID' => $ep->getParam('id')]
+        );
+    }
+);
+```
+
+```css
+tr.highlight-last-updated:not(:hover) {background-color: ivory;}
+```
+
+
+<a name="alt"></a>
+## Bis REDAXO 5.11.2
+
+Der ideale Weg, über eine Methode wie *setRowAttributes* auf der Zeile (`<tr class="xyz">`) die
+gewünschte Formatierung zu erhalten, fehlt. NAchfolgend wird direkt der komplexe Weg, Listen via EP
+zu ändern, beschrieben. Ob man die Callback-Funktion des EP als anonyme Funktion, als benannte
+Funktion oder als (statische) Methode eine Klasse anlegt, ist dabei irrelevant. Das Beispiel geht
+von einer benannten Funktion aus.
+
+Die Lösung für selbsterstellte Liste läßt sich daraus ableiten.
+
+Für gewünschte Optik muss die Tabellenzelle (*\<td>*) formatiert werden, nicht der Inhalt.
 Die dafür zuständigen Angaben sind im `columnLayout` der *rex_list* abrufbar und änderbar. Für
 die Änderung ist kein Callback auf eine Custom-Funktion möglich wie beim Zellinhalt (`columnFormat`).
 
@@ -201,10 +297,10 @@ td[data-privacy="classified"], td[data-privacy="classified"] ~ td {background-co
 ```
 
 <a name="opt"></a>
-## Optionen
+### Optionen
 
 <a name="yform"></a>
-### YForm
+#### YForm
 
 Die Datentabellen in YForm basieren auf *rex_list*, damit greift auch der EP *REX_LIST_GET*. Im
 Kontext von YForm sollte aber der EP *YFORM_DATA_LIST* genutzt werden, der zusätzliche Informationen
@@ -212,7 +308,7 @@ zur Tabelle enthält. Über den Tabellennamen kann im EP geprüft werden, ob die
 *rex_list* geändert wird.
  
 <a name="kompl"></a>
-### Komplexe Basisdaten
+#### Komplexe Basisdaten
 
 Wie beschrieben sind nur Formatierungen auf Feldwerte möglich. Komplexe Kriterien (größer, kleiner,
 Wertebereiche etc.) sind mit dem beschriebenen Mechanismus nicht abdeckbar, da immer nur ein
