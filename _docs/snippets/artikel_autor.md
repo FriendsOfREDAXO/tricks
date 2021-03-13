@@ -4,7 +4,7 @@ authors: []
 prio:
 ---
 
-# Artikel-Autor auslesen
+# TEST
 
 In REDAXO werden der ursprüngliche Autor (CreateUser) und die Person die den Artikel zuletzt aktualisiert hat (UpdateUser) im Artikel hinterlegt. Möchte man diese auslesen, erhält man deren Logins wie folgt: 
 
