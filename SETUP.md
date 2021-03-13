@@ -84,7 +84,17 @@ Weitere Dokumentation zur Verwendung von Jekyll findet sich hier: https://help.g
 
 * Hier findest du eine Dokumentation bei GitHub darüber, wie man Jekyll lokal verwendet: https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/
 
+
+## GitHub Actions
+
+Wir nutzen GitHub Actions, um in regelmäßigen Abständen (`schedule`) die Website zu aktualisieren.
+
+Zu beachten ist dabei, dass der [`GITHUB_TOKEN`](https://docs.github.com/en/actions/reference/authentication-in-a-workflow#about-the-github_token-secret) nicht über die notwendigen Rechte verfügt, um die Aktualisierung anzustoßen. Es muss stattdessen ein Personal Access Token (PAT) von einem Nutzer mit Schreibrechten (`write`) auf das Repo — wir benutzen dazu üblicherweise den [FOR Bot](https://github.com/FriendsOfREDAXO-T) — eingerichtet werden. Dieser benötigt lediglich den Scope `public_repo` und wird anschließend als __Repository Secret__ hinterlegt, so dass er innerhalb der GitHub Actions benutzt werden kann.
+
+
 ## Travis CI
+
+_(Update 2021: Statt Travis CI nutzen wir inzwischen GitHub Actions.)_
 
 Bei Travis läuft ein täglicher Cronjob, um die Website zu aktualisieren, auch wenn keine Commits gemacht worden sind. Damit Travis auf die GitHub-Metadaten des Repositorys zugreifen kann, muss ein GitHub-Token angegeben werden. Dieser kann in einem der verknüpften GitHub-Accounts (also jedem FOR-Mitglied) angelegt werden unter »Settings > Developer settings > [Personal access tokens](https://github.com/settings/tokens)«. Er benötigt lediglich die Permission `public_repo`.
 
