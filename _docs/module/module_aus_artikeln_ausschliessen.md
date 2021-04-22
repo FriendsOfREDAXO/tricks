@@ -4,7 +4,7 @@ authors: [marcohanke]
 prio:
 ---
 
-# Module nur in ausgewählten Modulen anzeigen
+# Module nur in ausgewählten Kategorien anzeigen
 
 Manchmal hat man Module die nur in speziellen Artikeln benötigt werden. Jetzt kann man die Module einfach überall weiter mit anbieten, die Module nur in bestimmtne Tamplates erlauben, oder die Module nur einem bestimmten Benutzer zuweisen.
 
