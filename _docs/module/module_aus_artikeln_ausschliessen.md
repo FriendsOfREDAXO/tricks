@@ -1,10 +1,10 @@
 ---
-title: "Module aus Artikeln ausschließen"
+title: "Module in bestimmten Artikeln deaktivieren"
 authors: [marcohanke]
 prio:
 ---
 
-# Module in ausgewählten Artikeln ausblenden
+# Module nur in ausgewählten Modulen anzeigen
 
 Manchmal hat man Module die nur in speziellen Artikeln benötigt werden. Jetzt kann man die Module einfach überall weiter mit anbieten, die Module nur in bestimmtne Tamplates erlauben, oder die Module nur einem bestimmten Benutzer zuweisen.
 
