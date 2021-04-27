@@ -31,7 +31,7 @@ foreach ($includeModules as $category => $modules) {
         }
       }
     }
-    $this->setVar('items', $items);
+    $this->setVar('items', $items, false);
   }
 }
 ```
