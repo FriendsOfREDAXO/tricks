@@ -8,7 +8,7 @@ prio:
 
 > Die hier genannte Lösung ist sinnvoll bei REDAXO (Backend) vor Version 5.3 und für das Frontend alle Versionen
 
-Bei sich häufiger ändernden Assets wie CSS- oder Javascript-Dateien hat man gelegentlich das Problem, dass der Besucher noch eine alte Version sieht, die sich in seinem Browser-Cache befindet. Hier hilft es, den Zeitpunkt der letzten Änderung mit an den Dateinamen anzuhängen. Wenn dann der Browser beim Laden der Seite eine vermeintliche andere Datei findet, wird er diese neu laden.
+Bei sich häufiger ändernden Assets wie CSS- oder Javascript-Dateien hat man gelegentlich das Problem, dass der Besucher noch eine alte Version sieht, die sich in seinem Browser-Cache befindet. Hier hilft es, einen Cachebuster zu nutzen, also den Zeitpunkt der letzten Änderung mit an den Dateinamen anzuhängen. Wenn dann der Browser beim Laden der Seite eine vermeintliche andere Datei findet, wird er diese neu laden.
 
 ## Funktion einbinden
 
