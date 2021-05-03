@@ -330,5 +330,34 @@ $query = "SELECT *, IF(entfernung<50,'0',IF(entfernung>100,'3','1')) as tdcolor 
 $list = rex_list::factory( $query );
 ```
 
-Für YForm-Tabellen gibt es den EP *YFORM_DATA_LIST_SQL*, über den die SQL-Abfrage verändert werden
+Für YForm-Tabellen gibt es den EP *YFORM_DATA_LIST_SQL*, über den die SQL-Abfrage verändert werden. Hier ein komplexes Beispiel
 kann.
+
+```php
+
+rex_extension::register('YFORM_DATA_LIST_SQL', function( $ep ){
+
+    switch( substr($ep->getParams()['table']['table_name'],strlen(rex::getTablePrefix())) ) {
+        case 'tabelle_1':
+            # Liste umbauen
+            rex_extension::register('YFORM_DATA_LIST', function( $ep ) {
+                $list = $ep->getSubject();
+                $list->removeColumn('id');
+                $list->addColumn('Anschrift','###strasse###<br>###land###-###plz### ###ort###',3);
+                $list->removeColumn(rex_i18n::msg('yform_delete'));
+                $list->setColumnFormat('bild','custom', function( $params ) {
+                    if (!$params["value"]) return '';
+                    if( !is_file( rex_path::media($params["value"])) ) return '';
+                    return '<img src="'.rex_url::backendController( ['rex_media_type'=>'rex_mediapool_preview','rex_media_file'=>$params["value"]] ).'" />';
+                });
+                return $list;
+            });
+            # Abfrage umbauen
+            return str_replace (',`name`',',concat (`name`,", ",`vorname`) as `name`,',$ep->getSubject());
+            break;
+        case 'tabelle_2':
+            break;
+    }
+});
+
+```
