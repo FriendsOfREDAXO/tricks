@@ -57,7 +57,7 @@ class rex_api_add_tag extends rex_api_function
 		// Alle Parameter prüfen ob gesetzt
         if ( !$tag )
         {
-            header( 'HTTP/1.1 500 Internal Server Error' );
+            header( 'HTTP/1.1 400 Bad Request' );
             header( 'Content-Type: application/json; charset=UTF-8' );
             $result = [ 'errorcode' => 1, 'message' => 'A parameter is missing' ];
             exit( json_encode( $result ) );
