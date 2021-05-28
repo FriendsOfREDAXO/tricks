@@ -6,7 +6,7 @@ prio:
 
 # Durchsuchbare Blockauswahl / Modulauswahl
 
-Wenn man in einer REDAXO-Installation viele Module angelegt hat, kann es anstregend sein bei der Eingabe von neuem Content, schnell das richtige Modul in der Auswahlliste zu finden. Dieser Trick beschreibt, wie man die Modulauswahl im Editiermodus durchsuchbar macht. Natürlich kann man die Auwahl der Module pro Template oder Benutzerrolle einschränken, dennoch hilft dieser Trick beim schnellen Finden von Modulnamen.
+Wenn man in einer REDAXO-Installation viele Module angelegt hat, kann es anstregend sein,bei der Eingabe von neuem Content, schnell das richtige Modul in der Auswahlliste zu finden. Dieser Trick beschreibt, wie man die Modulauswahl im Editiermodus durchsuchbar macht. Natürlich kann man die Auwahl der Module pro Template oder Benutzerrolle einschränken, dennoch hilft dieser Trick beim schnellen Finden von Modulnamen.
 
 ***Das Fragment `module_select.php` kopieren***
 Es muss der folgende Code als `module_select.php`-Fragment updatesicher angelegt werden. Hierzu eignet sich das Theme-AddOn oder das project-Addon.
