@@ -102,6 +102,8 @@ Wenn man die Funktion mit `exit;` oder `die();` statt des `return;` bendet?
 ```php
     class rex_api_xyz extends rex_api_function
     {
+            protected $published = true;
+
         function execute()
 	{
             echo '<p>mach mal was sinnvolles</p>';
