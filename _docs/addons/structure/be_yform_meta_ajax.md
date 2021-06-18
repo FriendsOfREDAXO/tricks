@@ -1,10 +1,12 @@
 ---
-title: Artikel-Metadaten aus YForm-Tabelle per Ajax im Artikel hinzufügen
+title: Tagging Artikel-Metadaten mit YForm per Ajax im Artikel hinzufügen
 authors: [danspringer]
 prio:
 ---
 
-# Seitenüberschrift
+![Screenshot](https://github.com/FriendsOfREDAXO/tricks/blob/12221fef91c200bc561123fb8c8fed5c24a441f5/screenshots/122577838-878d9d00-d053-11eb-9615-0981d57dff7b.gif?raw=true)
+
+# Inhalt
 
 - [Einleitung](#einleitung)
 - [YForm-Tabelle](#yformtabelle)
