@@ -20,9 +20,6 @@ prio:
 
 Manchmal möchte man REDAXO-Artikeln Artikel-Metadaten per Checkbox hinzufügen (z.B. für Tags, Farben, etc.). Im Beispiel möchten wir REDAXO-Artikeln verschiedene, in einer YForm-Tabelle vorgehaltene, Tags hinzufügen. Damit ein Redakteuer nun zur Ergänzung von neuen Tags seinen Workflow bei der Bearbeitung eines Artikels nicht unterbrechen muss, um neue Tags in der YForm-Tabelle anzulegen eignet sich dieser Trick. Er zeigt, wie man im Bearbeiten-Modus des REDAXO-Artikels neue Tags "on-the-fly" per Ajax anlegen kann.
 
-![Tags per Ajax hinzufügen](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/be_yform_meta_ajax.gif "Tags per Ajax hinzufügen")
-
-
 <a name="yformtabelle"></a>
 ## YForm-Tabelle
 
