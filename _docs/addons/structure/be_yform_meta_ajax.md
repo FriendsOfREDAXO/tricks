@@ -1,10 +1,10 @@
 ---
-title: Tagging Artikel-Metadaten mit YForm per Ajax im Artikel hinzufügen
+title: Artikel-Tagging per AJAX und YForm 
 authors: [danspringer]
 prio:
 ---
 
-# Inhalt
+# Artikel-Tagging per AJAX und YForm 
 
 - [Einleitung](#einleitung)
 - [YForm-Tabelle](#yformtabelle)
