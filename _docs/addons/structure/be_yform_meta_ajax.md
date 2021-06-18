@@ -4,8 +4,6 @@ authors: [danspringer]
 prio:
 ---
 
-![Screenshot](https://github.com/FriendsOfREDAXO/tricks/blob/12221fef91c200bc561123fb8c8fed5c24a441f5/screenshots/122577838-878d9d00-d053-11eb-9615-0981d57dff7b.gif?raw=true)
-
 # Inhalt
 
 - [Einleitung](#einleitung)
@@ -15,9 +13,10 @@ prio:
 - [Eingabefeld per JS](#eingabe)
 - [Funktionsweise](#funktion)
 
-
 <a name="Einleitung"></a>
 ## Einleitung
+
+![Screenshot](https://github.com/FriendsOfREDAXO/tricks/blob/12221fef91c200bc561123fb8c8fed5c24a441f5/screenshots/122577838-878d9d00-d053-11eb-9615-0981d57dff7b.gif?raw=true)
 
 Manchmal möchte man REDAXO-Artikeln Artikel-Metadaten per Checkbox hinzufügen (z.B. für Tags, Farben, etc.). Im Beispiel möchten wir REDAXO-Artikeln verschiedene, in einer YForm-Tabelle vorgehaltene, Tags hinzufügen. Damit ein Redakteuer nun zur Ergänzung von neuen Tags seinen Workflow bei der Bearbeitung eines Artikels nicht unterbrechen muss, um neue Tags in der YForm-Tabelle anzulegen eignet sich dieser Trick. Er zeigt, wie man im Bearbeiten-Modus des REDAXO-Artikels neue Tags "on-the-fly" per Ajax anlegen kann.
 
