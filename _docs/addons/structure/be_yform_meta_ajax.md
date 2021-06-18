@@ -40,7 +40,7 @@ Damit man inenrhalb eines Artikels bequem neue Tags in die YForm-Tabelle speiche
 
 Der Inhalt dieser Datei ist wie folgt und legt einen neuen Datensatz in der YForm-Tabelle an:
 
-```
+```php
 <?php
 
 class rex_api_add_tag extends rex_api_function
@@ -93,7 +93,7 @@ Damit in der Bearbeiten-Maske des REDAXO-Artikels auch das Eingabefeld für die 
 Der JS-Code ist in diesem Beispiel auf den Metanamen `rex_tags` ausgerichtet. Wenn dein Metafeld anders heisst, musst du den JS-Code entsprechend anpassen, damit das JS den Button und das Modal, etc. entsprechend einfügen kann.
 Im Beispiel hängt es an das Label von `rex-metainfo-art_tags` den entsprechenden HTML-Code.
 
-```
+```php
 $(document).on('rex:ready', function(event, container) {
     
 	
