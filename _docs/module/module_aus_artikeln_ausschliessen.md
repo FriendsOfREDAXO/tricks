@@ -21,9 +21,8 @@ $includeModules = [
   15 => '1'
 ];
 
-if (!empty(rex_article::getCurrent()->getPathAsArray() )) {
     foreach ($includeModules as $category => $modules) {
-        if(rex_category::getCurrent()->getId() != $category) {
+        if(null?->rex_category::getCurrent()->getId() != $category ) {
             $items = $this->getVar('items');
             foreach ($items as $key => $item ) {
                 foreach (explode(',',$modules) as $module) {
@@ -35,7 +34,6 @@ if (!empty(rex_article::getCurrent()->getPathAsArray() )) {
             $this->setVar('items', $items, false);
         }
     }
-}
 
 $this->subfragment('/core/dropdowns/dropdown.php');
 
