@@ -22,19 +22,24 @@ $includeModules = [
 ];
 
 if (!empty(rex_article::getCurrent()->getPathAsArray() )) {
-  foreach ($includeModules as $category => $modules) {
-    if(rex_category::getCurrent()->getId() != $category) {
-      $items = $this->getVar('items');
-      foreach ($items as $key => $item ) {
-        foreach (explode(',',$modules) as $module) {
-          if ($item["id"] == $module) {
-            unset($items[$key]);
-         }
+    foreach ($includeModules as $category => $modules) {
+        if(rex_category::getCurrent()->getId() != $category) {
+            $items = $this->getVar('items');
+            foreach ($items as $key => $item ) {
+                foreach (explode(',',$modules) as $module) {
+                    if ($item["id"] == $module) {
+                        unset($items[$key]);
+                    }
+                }
+            }
+            $this->setVar('items', $items, false);
         }
-      }
-      $this->setVar('items', $items, false);
     }
-  }
+}
+
+$this->subfragment('/core/dropdowns/dropdown.php');
+
+
 ```
 Im Array `$includeModules` trägt man die KategorieID gefolgt von den ModulIDs ein die in der Kategorie angezeigt werden sollen. In allen anderen Kategorien werden die Module ab jetzt ausgeblendet. Es können mehrere Kategorie/Modul-Kombinationen gewählt werden.
 
