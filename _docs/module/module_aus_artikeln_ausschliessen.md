@@ -22,7 +22,7 @@ $includeModules = [
 ];
 
     foreach ($includeModules as $category => $modules) {
-        if(null?->rex_category::getCurrent()->getId() != $category ) {
+        if(rex_category::getCurrent()?->getId() != $category ) {
             $items = $this->getVar('items');
             foreach ($items as $key => $item ) {
                 foreach (explode(',',$modules) as $module) {
@@ -37,7 +37,7 @@ $includeModules = [
 
 $this->subfragment('/core/dropdowns/dropdown.php');
 ```
- **Der Code verwendet den null safe operator aus PHP8. Für frühere PHP versionen das `null?->` aus dem Code entfernen. In der RootCategory gibt es dann allerdings einen Fehler**
+ **Der Code verwendet den null safe operator aus PHP8. Für frühere PHP versionen das `?` aus dem Code entfernen. In der RootCategory gibt es dann allerdings einen Fehler**
 
 Im Array `$includeModules` trägt man die KategorieID gefolgt von den ModulIDs ein die in der Kategorie angezeigt werden sollen. In allen anderen Kategorien werden die Module ab jetzt ausgeblendet. Es können mehrere Kategorie/Modul-Kombinationen gewählt werden.
 
