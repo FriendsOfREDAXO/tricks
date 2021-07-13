@@ -57,15 +57,15 @@ Das Script ist konzipiert als Seite in einem Service-Addon - z.B. im "Projekt-Ad
 
 * Seite über `package.yml` einbinden
     
-    ```yml
-    page:
-        title: 'Projekt-Addon'
-        perm: project[]
-        subpages:
-            icons:
-                title: 'Icons'
-                icon: fa fa-table
-    ```
+```yml
+page:
+  title: 'Projekt-Addon'
+  perm: project[]
+    subpages:
+        icons:
+           title: 'Icons'
+           icon: fa fa-table
+```
 Und hier das Script inklusive CSS und JS:
 
 ```php
