@@ -16,7 +16,7 @@ prio:
 
 Für die Frontend-Anzeige der letzten Aktualisierung einer Website kann das Feld `updatedate` der Tabelle `rex_article` verwendet werden. Dieses Feld speichert immer einen timestamp der letzten Aktualisierung.
 
-Folgende Datenbankabfrage liest das Feld `updatedate` aus der rex_article-Tabelle. Durch die Limitierung auf nur eine Datensatz und die absteigende Sortierung wird immer der Datensatz der letzten Aktualisierung ausgewählt.
+Folgende Datenbankabfrage liest das Feld `updatedate` aus der rex_article-Tabelle. Durch die Limitierung auf nur einen Datensatz und die absteigende Sortierung wird immer der Datensatz der letzten Aktualisierung ausgewählt.
 Da es nur einen Datensatz gibt, kann man mit `$update[0]` auf das erste Element des Arrays zugreifen.  
 
 ```php
@@ -40,7 +40,7 @@ echo 'Zuletzt aktualisiert am '.$update[0]['last_update'];
 <a name="yform"></a>
 ## YForm-Tabellen einbeziehen
 
-Sofern es weitere - z.B. über YForm erzeugte - Tabellen in der Website gibt, will man auch deren Aktualisierung berücksichtigen. In jeder der Tabellen wird ein Feld vom Typ `datestamp` und mit dem Namen `updatedate`angelegt. Sodann können mittels UNION die Abfragen aller Tabellen kombiniert. Das Beispiel zeigt die Kombination mit einer Tabelle `rex_projects`.
+Sofern es weitere - z.B. über YForm erzeugte - Tabellen in der Website gibt, will man auch deren Aktualisierung berücksichtigen. In jeder der Tabellen wird ein Feld vom Typ `datestamp` und mit dem Namen `updatedate`angelegt. Sodann können mittels UNION die Abfragen aller Tabellen kombiniert werden. Das Beispiel zeigt die Kombination mit einer Tabelle `rex_projects`.
 
 ```php
 $query = '
