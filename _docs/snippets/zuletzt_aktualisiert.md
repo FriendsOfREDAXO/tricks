@@ -48,7 +48,7 @@ SELECT updatedate, date_format(updatedate, "%d.%m.%Y") as last_update FROM rex_a
 UNION SELECT updatedate, date_format(updatedate, "%d.%m.%Y") FROM rex_projects
 ORDER BY updatedate desc LIMIT 1';
 $update = rex_sql::factory()->getArray($query);
-echo 'aktualisiert am '.$update[0]['last_update'];
+echo 'Zuletzt aktualisiert am '.$update[0]['last_update'];
 ```
 
 
