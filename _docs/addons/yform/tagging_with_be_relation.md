@@ -15,6 +15,8 @@ prio:
 <a name="Einleitung"></a>
 ## Einleitung
 
+![Screenshot](https://github.com/FriendsOfREDAXO/tricks/blob/3bacb1d899836fd764e54e1753283a2015110158/screenshots/yform_tagging_be-relation.gif?raw=true)
+
 Die Umsetzung dieser Tagging Funktion basiert maßgeblich auf dem Trick des Taggings in einem Meta-Info Feld (siehe hier: https://friendsofredaxo.github.io/tricks/addons/structure/be_yform_meta_ajax)
 
 Dieses Tagging setzt auf das im Tools Plugin von yform enthaltenen select2 und einer be-relation Tabelle. Die Funktionsweise ist allerdings ziemlich gleich. Man kann innerhalb des Tag-Feldes sowohl aus vorhandenen Tags auswählen als auch direkt neue Tags anlegen.
