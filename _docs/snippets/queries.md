@@ -12,6 +12,9 @@ prio:
 - [Paginierung auf Datum basierende Datensätze](#paginierung-datum)
     - [vorheriger Datensatz](#paginierung-datum-vorheriger-datensatz)
     - [nächster Datensatz](#paginierung-datum-naechster-datensatz)
+- [Paginierung auf Prio basierende Datensätze](#paginierung-prio)
+    - [vorheriger Datensatz](#paginierung-prio-vorheriger-datensatz)
+    - [nächster Datensatz](#paginierung-prio-naechster-datensatz)   
 - [Query inkl. einer "Bitte auswählen" Option](#option-please-select)
 
 
@@ -96,6 +99,34 @@ public function getNext()
             ['id' => $this->id, 'date' => $this->date])
         ->orderBy('date', 'DESC')
         ->orderBy('id', 'DESC');
+    return $query->findOne();
+}
+```
+
+<a name="paginierung-prio-vorheriger-datensatz"></a>
+### vorherigen Datensatz holen
+
+```php
+public function getPrevious()
+{
+    $query = self::query()
+        ->where('status', '1')
+        ->whereRaw('prio < :prio', ['prio' => $this->prio])
+        ->orderBy('prio', 'DESC');
+    return $query->findOne();
+}
+```
+
+<a name="paginierung-prio-naechster-datensatz"></a>
+### nächsten Datensatz holen
+ 
+```php
+public function getNext()
+{
+    $query = self::query()
+        ->where('status', '1')
+        ->whereRaw('prio > :prio', ['prio' => $this->prio])
+        ->orderBy('prio', 'ASC');
     return $query->findOne();
 }
 ```
