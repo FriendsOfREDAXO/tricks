@@ -103,6 +103,20 @@ public function getNext()
 }
 ```
 
+
+<a name="paginierung-prio"></a>
+## Blättern auf Prio basierende Datensätze zu erstellen
+
+Die Methoden basieren auf Yorm und gehören in eine Class wie zum Beispiel
+
+```php
+class Item extends rex_yform_manager_dataset
+{
+}
+```
+
+Die Queries lassen sich aber auch sehr einfach für eine normale DB-Abfrage adaptieren.
+
 <a name="paginierung-prio-vorheriger-datensatz"></a>
 ### vorherigen Datensatz holen
 
