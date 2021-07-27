@@ -52,27 +52,27 @@ if (is_array($articles) && count($articles) > 0) {
 
         if ($article->isOnline()) {
 
-            // Überspringen wenn aktueller Artikel gefunden. (auskommentieren) 
-            // if ( $article->getId() == 'REX_ARTICLE_ID') continue; 
-
-            // Aktive CSS-Classe festlegen 
-            $class = '';
-            if ($article->getId() == 'REX_ARTICLE_ID') {
-                $class = "active";
-            }
+             // ID des Artikels ermitteln
+            $articleId = $article->getId(); 
 
             // Überspringen wenn Startartikel gefunden 
             if ($article->isStartArticle()) continue;
+            
+            // Überspringen wenn aktueller Artikel gefunden. (auskommentieren) 
+            // if ($articleId == 'REX_ARTICLE_ID') continue; 
 
-            // ID des Artikels ermitteln
-            $articleId = $article->getId();
-
+            $class = 'list';
+            // Aktive CSS-Classe festlegen 
+            if ($articleId == 'REX_ARTICLE_ID') {
+                $class = $class.' active';
+            }
+           
             // Name des Artikels ermitteln
             $articleName = $article->getName();
 
             // Weitere Daten  der Metainfos können wie folgt abgerufen werden:     
             // Beispiel für eine Meta-Info art_Image
-            // $articleImage = $article->getValue("art_Image");
+            // $articleImage = $article->getValue("art_image");
 
             // Ausgabe erstellen 
             $artOutput .= '<li class="' . $class . '"><a class="' . $class . '" href="' . rex_getUrl($articleId) . '">' . $articleName . '</a></li>' . "\n";
@@ -80,7 +80,7 @@ if (is_array($articles) && count($articles) > 0) {
     }
 
     // Ausgabe 
-    echo '<ul class="catlist">' . $artOutput . '</ul>';
+    echo '<ul class="my_list">' . $artOutput . '</ul>';
     unset($articles);
 }
 
