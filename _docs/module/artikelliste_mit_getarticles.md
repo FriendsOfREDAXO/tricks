@@ -4,7 +4,7 @@ authors: [skerbis]
 prio:
 ---
 
-# Einfache Artikelliste / getArticles / toLink
+# Einfache Artikelliste / getArticles()
 
 - [Beschreibung](#beschreibung)
 - [Moduleingabe](#moduleingabe)
