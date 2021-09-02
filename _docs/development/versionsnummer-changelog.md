@@ -93,10 +93,11 @@ Theoretisch kann man Changelogs pflegen wie man möchte, es haben sich aber ein 
 
 ```
 <a name="ablauf"></a>
-## Alles viel zu Aufwändig?
-Eigentlich gar nicht. Am einfachsten ist ein Abschnitt [UNRELEASED] am Anfang des Changelogs. Nach jedem Commit einer fertigen Änderung schreibt man eine Zeile in den entsprechenden Bereich, fertig.
-Beim Release schaut man im Changelog ob es BreakingChanges, Features oder Bugfixes gab, passt die Versionsnummer und das Datum an, fertig.
-Kein Grübeln mehr über die Versionsnummer und als Sahnehäubchen hat man quasi schon eine (fast) fertige Releasenote.
+## Alles viel zu Aufwändig? Nein !
+1. Am Anfang des Changelogs ist ein Abschnitt [UNRELEASED]
+2. Nach jeder fertigen Änderung schreibt man eine Zeile in den entsprechenden Bereich (Der Text kann ggf. gleichzeitig als CommitMessage genutzt werden)
+3. Beim Release schaut man im Changelog ob es BreakingChanges, Features oder Bugfixes gab, passt die Versionsnummer und das Datum an.
+**Kein Grübeln mehr über die Versionsnummer mehr und als Sahnehäubchen hat man schon eine (fast) fertige Releasenote.**
 
 
 <a name="for"></a>
