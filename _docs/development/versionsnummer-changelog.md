@@ -9,6 +9,7 @@ prio:
 - [Einleitung](#intro)
 - [Versionsnummer vergeben](#version)
 - [Changelog pflegen](#changelog)
+- [Alles viel zu aufwändig? Nein!](#ablauf)
 - [Versionsnummern und Changelogs in FOR Projekten](#for)
 
 <a name="intro"></a>
@@ -44,7 +45,6 @@ Wird eine Beta oder Alpha Version veröffentlicht, hängt man die Information zu
 <a name="changelog"></a>
 ## Changelog
 Oft wird das pflegen eines Changelogs als nervig empfunden, trotzdem überwiegen hier hoft die Vorteile. Es lässt sich jederzeit schnell nachvollziehen, wann welche Änderungen vorgenommen wurden und man kann im Zweifel auf eine älter Version ausweichen. Außerdem kann man Teile des changelogs anschließend als release note verwenden.
->Am einfachsten ist es, wenn schon während der Entwicklung die einzelnen Änderungen in einem Abschnitt [UNRELEASED] gesammelt werden. Beim Release muss man dann nur noch die Überschrift durch die Versionsnummer und Datum ersetzen.**
 
 ### Changelog vorgaben
 Theoretisch kann man Changelogs pflegen wie man möchte, es haben sich aber ein paar Dinge etabliert.
@@ -92,6 +92,13 @@ Theoretisch kann man Changelogs pflegen wie man möchte, es haben sich aber ein 
  ---
 
 ```
+<a name="ablauf"></a>
+## Alles viel zu Aufwändig?
+Eigentlich gar nicht. Am einfachsten ist ein Abschnitt [UNRELEASED] am Anfang des Changelogs. Nach jedem Commit einer fertigen Änderung schreibt man eine Zeile in den entsprechenden Bereich, fertig.
+Beim Release schaut man im Changelog ob es BreakingChanges, Features oder Bugfixes gab, passt die Versionsnummer und das Datum an, fertig.
+Kein Grübeln mehr über die Versionsnummer und als Sahnehäubchen hat man quasi schon eine (fast) fertige Releasenote.
+
+
 <a name="for"></a>
 ## Versionsnummern und Changelogs in FOR Projekten
 Richtig geführte Versionsnummern und sauber gepflegte Changelogs verbessern die Qualität der FOR Projekte. Es wäre wünschenswert wenn man sich auf einen Changelog-Standard einigen könnte und danach arbeitet.
