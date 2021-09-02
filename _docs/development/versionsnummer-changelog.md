@@ -99,7 +99,7 @@ Theoretisch kann man Changelogs pflegen wie man möchte, es haben sich aber ein 
 
 ```
 <a name="ablauf"></a>
-## Alles viel zu Aufwändig? Nein !
+## Alles viel zu aufwändig? Nein !
 1. Am Anfang des Changelogs ist ein Abschnitt [UNRELEASED]
 2. Nach jeder fertigen Änderung schreibt man eine Zeile in den entsprechenden Bereich (Der Text kann ggf. gleichzeitig als CommitMessage genutzt werden)
 3. Beim Release schaut man im Changelog ob es BreakingChanges, Features oder Bugfixes gab, passt die Versionsnummer und das Datum an.
