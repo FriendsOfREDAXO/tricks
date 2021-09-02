@@ -35,10 +35,16 @@ Jede Anpassung (egal wie banal) die bestehende Funktionalitäten so verändert, 
 > Aus Version 1.0.0 wird Version 2.0.0
 >**Vor einem Update solltem man sich in jedem Fall den Changelog ansehen und die Breaking Changes prüfen**
 
-### Pre-Release (beta Versionen)
-Wird eine Beta oder Alpha Version veröffentlicht, hängt man die Information zusätzlich mit einem Bindestrich an die Versionsnummer an
+### Pre-Release (alpha, beta und RC-Versionen)
+Wird eine Alpha-, Beta- oder Release-Candidate-Version veröffentlicht, hängt man die Information zusätzlich mit einem Bindestrich an die Versionsnummer an.
+
+* dev = mitten in der Entwicklung, keine Festlegung ob Patch, Minor, Major o.ä.
+* alpha = mitten in der Entwicklung, erste Änderungen sichtbar. Änderungen sind explizit vorgesehen.
+* beta = stabiler, aber dennoch mitten in der Entwicklung, zum Testen für Feedback. Änderungen sind wahrscheinlich.
+* RC = Release Candidate = keine neuen Features, zum Testen für Feedack einsetzbar. Unter Umständen bereits der Code, der 1:1 so veröffentlicht (released) wird.
+
 > Aus Version 1.0.0 wird Version 2.0.0-beta.1
-> **Achtung: Beta Versionen sind noch nicht final getestet und können sich bis zum Release noch erheblich ändern**
+> **Achtung: Pre-Release-Versionen sind noch nicht final getestet und können sich bis zum Release noch erheblich ändern**
 
 
 <a name="changelog"></a>
