@@ -38,10 +38,10 @@ Jede Anpassung (egal wie banal) die bestehende Funktionalitäten so verändert, 
 ### Pre-Release (alpha, beta und RC-Versionen)
 Wird eine Alpha-, Beta- oder Release-Candidate-Version veröffentlicht, hängt man die Information zusätzlich mit einem Bindestrich an die Versionsnummer an.
 
-* dev = mitten in der Entwicklung, keine Festlegung ob Patch, Minor, Major o.ä.
-* alpha = mitten in der Entwicklung, erste Änderungen sichtbar. Änderungen sind explizit vorgesehen.
-* beta = stabiler, aber dennoch mitten in der Entwicklung, zum Testen für Feedback. Änderungen sind wahrscheinlich.
-* RC = Release Candidate = keine neuen Features, zum Testen für Feedack einsetzbar. Unter Umständen bereits der Code, der 1:1 so veröffentlicht (released) wird.
+- dev = mitten in der Entwicklung, keine Festlegung ob Patch, Minor, Major o.ä.
+- alpha = mitten in der Entwicklung, erste Änderungen sichtbar. Änderungen sind explizit vorgesehen.
+- beta = stabiler, aber dennoch mitten in der Entwicklung, zum Testen für Feedback. Änderungen sind wahrscheinlich.
+- RC = Release Candidate = keine neuen Features, zum Testen für Feedack einsetzbar. Unter Umständen bereits der Code, der 1:1 so veröffentlicht (released) wird.
 
 > Aus Version 1.0.0 wird Version 2.0.0-beta.1
 > **Achtung: Pre-Release-Versionen sind noch nicht final getestet und können sich bis zum Release noch erheblich ändern**
