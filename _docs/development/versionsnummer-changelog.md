@@ -27,7 +27,7 @@ Wird im Projekt ein Fehler behoben der sonst keine Auswirkung auf das Projekt ha
 >**Das Update kann bedenkenlos durchgeführt werden**
 
 ### Minor (Neues Feature)
-Wird im Projekt ein neues Feautre integriert, das sonst keine Auswirkung auf das Projekt hat, also alles noch so funktioniert wie zuvor, spricht man von einem Minor Update. Diee zweite Stelle der Version wird um einen Zähler erhöht. *Beispiel: Es gibt ein neues Icon im Set*
+Wird im Projekt ein neues Feautre integriert, das sonst keine Auswirkung auf das Projekt hat, also alles noch so funktioniert wie zuvor, spricht man von einem Minor Update. Die zweite Stelle der Version wird um einen Zähler erhöht. *Beispiel: Es gibt ein neues Icon im Set*
 > Aus Version 1.0.0 wird Version 1.1.0
 >**Das Update kann bedenkenlos durchgeführt werden, ggf. schaut man sich die neuen Features an.**
 
@@ -50,7 +50,7 @@ Wird eine Alpha-, Beta- oder Release-Candidate-Version veröffentlicht, hängt m
 
 <a name="changelog"></a>
 ## Changelog
-Oft wird das pflegen eines Changelogs als nervig empfunden, trotzdem überwiegen hier hoft die Vorteile. Es lässt sich jederzeit schnell nachvollziehen, wann welche Änderungen vorgenommen wurden und man kann im Zweifel auf eine älter Version ausweichen. Außerdem kann man Teile des changelogs anschließend als release note verwenden.
+Oft wird das pflegen eines Changelogs als nervig empfunden, trotzdem überwiegen hier oft die Vorteile. Es lässt sich jederzeit schnell nachvollziehen, wann welche Änderungen vorgenommen wurden und man kann im Zweifel auf eine älter Version ausweichen. Außerdem kann man Teile des changelogs anschließend als release note verwenden.
 
 ### Changelog vorgaben
 Theoretisch kann man Changelogs pflegen wie man möchte, es haben sich aber ein paar Dinge etabliert.
