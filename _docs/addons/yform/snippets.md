@@ -30,8 +30,10 @@ if (rex::isBackend())
 		$list = $ep->getSubject();
 
 		$list->removeColumn("id");
+		}
 	});
-});
+}
+
 
 ``` 
 
