@@ -83,8 +83,7 @@ Diesen Code am Anfang der aktiven Templates einbauen, dem Kunden anschließend d
 
 ```PHP
 <?php
-
-session_start();
+rex_login::startSession();
 // Festlegen des Sicherheitscodes
 $code = "abc123";
 // GET-Parameter abfragen
@@ -92,11 +91,11 @@ $code2 = rex_request('vorschau', 'string', 0);
 
 // speichert den Code in der Session
 if ($code2) {
-  $_SESSION['vorschau'] = $code2;
+rex_set_session('vorschau', $code2)
 }
 
 // Ausgabe abbrechen, wenn der übermittelte Code nicht stimmt.
-if ($_SESSION['vorschau'] !== $code and !rex_backend_login::hasSession()) {
+if (rex_session('vorschau') !== $code and !rex_backend_login::hasSession()) {
  echo '<strong>Unberechtigter Zugriff</strong>';
  exit();
 }
