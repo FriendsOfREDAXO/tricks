@@ -22,6 +22,8 @@ Im Folgenden Beispiel sieht das ganze dann so aus:
 
 
 ```php
+<script type="text/javascript" src="//unpkg.com/alpinejs" defer="defer"></script>
+
 <script>
     if(typeof Alpine !== 'undefined') {
         /**
@@ -91,6 +93,7 @@ Im Folgenden Beispiel sieht das ganze dann so aus:
                         id: '',
                         name: '',
                     },
+                    image: '',
                 });
             },
             removeGroup(index)
@@ -154,7 +157,29 @@ Im Folgenden Beispiel sieht das ganze dann so aus:
                 this.groups[groupIndex].fields[index].link['id'] = '';
                 this.groups[groupIndex].fields[index].link['name'] = '';
                 this.updateValues();
-            }
+            },
+
+            addImage(id, groupIndex, index) {
+                const media = addREXMedia(id);
+                $(media).on('rex:selectMedia', (event, mediaName) => {
+                    this.groups[groupIndex].fields[index].image = mediaName;
+                    this.updateValues();
+                });
+                return false;
+            },
+            selectImage(id, groupIndex, index) {
+                const media = openREXMedia(id);
+                $(media).on('rex:selectMedia', (event, mediaName) => {
+                    this.groups[groupIndex].fields[index].image = mediaName;
+                    this.updateValues();
+                });
+                return false;
+            },
+            deleteImage(id, groupIndex, index) {
+                deleteREXMedia(id);
+                this.groups[groupIndex].fields[index].image = '';
+                this.updateValues();
+            },
         }
     }
 </script>
@@ -248,31 +273,62 @@ Im Folgenden Beispiel sieht das ganze dann so aus:
                                           x-on:change="updateValues()"></textarea>
 
                                 <!-- Beispiel für einen internen Link -->
-                                <label :for="'link-'+groupIndex+'-'+index+'_NAME'">Link</label>
-                                <div class="input-group">
-                                    <input class="form-control"
-                                           type="text"
-                                           x-model="field.link.name"
-                                           :id="'link-'+groupIndex+'-'+index+'_NAME'"
-                                           readonly=""
-                                           >
-                                    <input type="hidden"
-                                           name="link[]"
-                                           x-model="field.link.id"
-                                           :id="'link-'+groupIndex+'-'+index"
-                                    >
-                                    <span class="input-group-btn">
-                                        <a href="#"
-                                           class="btn btn-popup"
-                                           @click.prevent="addLink('link-'+groupIndex+'-'+index, groupIndex, index)"
-                                           title="Link auswählen"><i class="rex-icon rex-icon-open-linkmap"></i>
-                                        </a>
-                                        <a href="#"
-                                           class="btn btn-popup"
-                                           @click.prevent="removeLink(groupIndex, index);return false;"
-                                           title="Ausgewählten Link löschen"><i class="rex-icon rex-icon-delete-link"></i>
-                                        </a>
-                                    </span>
+                                <div class="mb-3">
+                                    <label :for="'link-'+groupIndex+'-'+index+'_NAME'">Link</label>
+                                    <div class="input-group">
+                                        <input class="form-control"
+                                               type="text"
+                                               x-model="field.link.name"
+                                               :id="'link-'+groupIndex+'-'+index+'_NAME'"
+                                               readonly=""
+                                        >
+                                        <input type="hidden"
+                                               name="link[]"
+                                               x-model="field.link.id"
+                                               :id="'link-'+groupIndex+'-'+index"
+                                        >
+                                        <span class="input-group-btn">
+                                            <a href="#"
+                                               class="btn btn-popup"
+                                               @click.prevent="addLink('link-'+groupIndex+'-'+index, groupIndex, index)"
+                                               title="Link auswählen"><i class="rex-icon rex-icon-open-linkmap"></i>
+                                            </a>
+                                            <a href="#"
+                                               class="btn btn-popup"
+                                               @click.prevent="removeLink(groupIndex, index);return false;"
+                                               title="Ausgewählten Link löschen"><i class="rex-icon rex-icon-delete-link"></i>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Beispiel für ein Bild -->
+                                <div>
+                                    <label :for="'REX_MEDIA_image-'+groupIndex+'-'+index">Bild</label>
+                                    <div class="input-group">
+                                        <input class="form-control"
+                                               type="text"
+                                               name="image"
+                                               :id="'REX_MEDIA_image-'+groupIndex+'-'+index"
+                                               readonly=""
+                                               x-model="field.image">
+                                        <span class="input-group-btn">
+                                            <a href="#"
+                                               class="btn btn-popup"
+                                               @click.prevent="selectImage('image-'+groupIndex+'-'+index, groupIndex, index)"
+                                               title="Medium auswählen"><i class="rex-icon rex-icon-open-mediapool"></i></a>
+
+                                            <a href="#"
+                                               class="btn btn-popup"
+                                               @click.prevent="addImage('image-'+groupIndex+'-'+index, groupIndex, index)"
+                                               title="Neues Medium hinzufügen"><i class="rex-icon rex-icon-add-media"></i></a>
+
+                                            <a href="#"
+                                               class="btn btn-popup"
+                                               @click.prevent="deleteImage('image-'+groupIndex+'-'+index, groupIndex, index)"
+                                               title="Ausgewähltes Medium löschen"><i class="rex-icon rex-icon-delete-media"></i></a>
+                                        </span>
+                                    </div>
                                 </div>
 
                             </div>
