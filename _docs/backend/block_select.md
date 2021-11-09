@@ -3,6 +3,7 @@ title: Blockauswahl mit Vorschau
 authors: [tbaddade,anveno]
 prio:
 --- 
+Man kann das Modul_Preview-AddOn https://github.com/FriendsOfREDAXO/module_preview nutzen oder die folgenden Varianten für eigene Lösungen übernehmen. 
 
 # Variante 1: Blockauswahl mit Vorschau via CSS
 
