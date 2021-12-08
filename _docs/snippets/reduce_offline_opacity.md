@@ -1,3 +1,9 @@
+---
+title: Offline-Artikel/Kategorien in der Opacity reduzieren
+authors: [danspringer]
+prio:
+---
+
 # Offline-Artikel/Kategorien in der Opacity reduzieren
 
 Sind Artikel oder Kategorien offline, so kann man deren Darstellung seit REDAXO 5.13 in der Strukturverwaltung beeinflussen.
