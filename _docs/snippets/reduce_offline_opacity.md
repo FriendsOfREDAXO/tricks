@@ -13,7 +13,7 @@ Mit diesem Trick kann man offline-Artikel/Kategorien in der Deckkraft reduzieren
 
 Dazu muss man im Backend ein CSS-Schnipsel unterbringen. Am einfachsten funktioniert das mit dem Theme-AddOn. Hier nutzt man die backend.css in `theme/public/assets/backend/backend.css` und ergänzt sie um folgenden CSS-Teil:
 
-```
+```css
 .rex-status[data-status="0"] td:not(.rex-table-action-no-dropdown, .rex-table-action-dropdown) {
 	opacity: 0.5;
 }
