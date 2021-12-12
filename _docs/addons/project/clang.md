@@ -33,7 +33,7 @@ Die Funktion `setlocale()` benötigt eine Kombination aus `Language Code` und `C
 
 	_Eine vollständige Liste an korrekten Country-Codes gibt es auf oracle.com: [Language Codes](https://docs.oracle.com/cd/E13214_01/wli/docs92/xref/xqisocodes.html#wp1252447) und [Country Codes](https://docs.oracle.com/cd/E13214_01/wli/docs92/xref/xqisocodes.html#wp1250799)_
   
-  **Tipp*
+  **Tipp**
   Die auf dem Server vorhandenen Sprachen kann man wie folgt ermitteln: 
 
 ```php
