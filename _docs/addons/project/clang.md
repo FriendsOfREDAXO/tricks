@@ -32,6 +32,17 @@ Die Funktion `setlocale()` benötigt eine Kombination aus `Language Code` und `C
 2. In __System__ unter Sprachen die gewünschten Sprachen anlegen und dabei in den Feldern __Code__ (für `Language Code`) und __Country Code__ den korrekten Sprach- und Region-Codes eintragen, z.B. `de` und `DE`, `de` und `AT`, `en` und `GB` oder `en` und `US`.
 
 	_Eine vollständige Liste an korrekten Country-Codes gibt es auf oracle.com: [Language Codes](https://docs.oracle.com/cd/E13214_01/wli/docs92/xref/xqisocodes.html#wp1252447) und [Country Codes](https://docs.oracle.com/cd/E13214_01/wli/docs92/xref/xqisocodes.html#wp1250799)_
+  
+Die auf dem Server vorhandenen Sprachen kann man wie folgt ermitteln: 
+
+```php
+<?php
+dump(ResourceBundle::getLocales(''));
+?>
+```
+
+  
+  
 
 3. Im __project-Addon__ in der `boot.php` folgenden Code einfügen:
 
