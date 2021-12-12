@@ -40,9 +40,10 @@ Die Funktion `setlocale()` benötigt eine Kombination aus `Language Code` und `C
 	  setlocale(LC_TIME, $clang->getCode()."_".$clang->getValue('country').".utf8");
 	```
 
-4. Nun ist der aktuelle Sprachcode überall gesetzt und ein Datum kann ganz einfach mit `strftime()` formatiert werden, z. B.
+4. Nun ist der aktuelle Sprachcode überall gesetzt und ein Datum kann ganz einfach mit `rex_formatter::intlDate` formatiert werden, z. B.
 
 	```php
-	  strftime('%d. %B %Y', strtotime($event['date_begin'])) // Ergibt 03. Februar 2013
+	  echo rex_formatter::intlDate(time(), IntlDateFormatter::MEDIUM); // ergibt 12. Dez. 2021
 	```
 
+Mehr Informationen zur Datumsformatierung in der [Doku](https://redaxo.org/doku/main/formatierungen#intlformat)
