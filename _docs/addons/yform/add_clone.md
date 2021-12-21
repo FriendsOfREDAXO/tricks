@@ -1,5 +1,5 @@
 ---
-title: YForm-Datensätze klonen ("Add" mit Vorbelegung)
+title: Datensätze klonen ("Add" mit Vorbelegung)
 authors: [christophboecker]
 prio:
 ---
@@ -26,7 +26,7 @@ In diesem Beitrag wird ein Weg aufgezeigt, wie neue Datensätze aus bestehenden 
 * [**Warnung**](#warnung)
 
 <a name="problem"></a>
-## 1. Das Problem beim Klonen   
+## 1. Das Problem beim Klonen
 
 In YForm ist es nicht unüblich, über den Datentyp `be_manager_relation` verknüpfte Daten in und aus
 anderen Tabellen einzubeziehen. Alle Varianten, die lediglich Referenzen (einzelne Id oder komma-separierte Liste)
@@ -34,7 +34,7 @@ in der Haupttabelle einfügen, sind zu unkritisch, da die Daten Teil der Hauptta
 
 Kniffelig sind Relationen, die die Sätze der anderen Tabelle als Relation verknüpfen.
 In dem Fall findet sich innerhalb des generierten HTML entweder eine Referenz auf einen vorhandenen
-Datensatz (z.B. bei n:m-Relationen) oder gleich ganze Datensätze (Variante "inline") mit der zugehörigen id 
+Datensatz (z.B. bei n:m-Relationen) oder gleich ganze Datensätze (Variante "inline") mit der zugehörigen id
 als "Hidden Input".
 
 
@@ -49,7 +49,7 @@ inhaltlich identische Datensätze in der Tabelle und ggf. auch in Relationentabe
 
 * Das Verfahren kann relativ leicht mit einem passenden Script für die Tabelle realisiert werden (z.B. im ExtensionPoint `YFORM_DATA_ADD`)
 * Da es dabei zu doppelten Schlüsselwerten kommen kann, die im Falle eines "Unique"-Schlüssels kollidieren,
-ist es nicht ohne Risiko. 
+ist es nicht ohne Risiko.
 * Nach dem Dulizieren muss das Editieren als zweiter Schritt aufgerufen werden; (z.B. per Redirect)
 * Wird der Satz doch nicht benötigt (Abbruch) muss man unbedingt daran denken, den Datensatz auch wieder zu löschen!
 
@@ -62,7 +62,7 @@ Daten eines Referenzsatzes komplett zu übernehmen als Vorbefüllung des Formula
 * Doppelte Schlüsselwerte werden beim Speichern (idealerweise über einen Validator) erkannt und im Formular mitgeteilt
 * Ein Abbruch tut nicht weh, da noch keine Daten gespeichert sind.
 * Look and Feel wie bei einem normalen "Add".
-* Problem: Relationendatensätze in einer verknüpften Tabelle können nicht einfach so mitkopiert werden. 
+* Problem: Relationendatensätze in einer verknüpften Tabelle können nicht einfach so mitkopiert werden.
 
 > Im weiteren Verlauf wird nur diese Idee weiterverfolgt.
 
@@ -76,7 +76,7 @@ sie werden also einfach mitkopiert.
 
 Es reicht aus, die normale Add-URL um einen Parameter "data_id=xyz" zu ergänzen. xyz ist die Id des
 zu klonenden Datensatzes. YForm wird damit gewissermaßen überlistet. Der vorhandene Datensatz wird in das Formular
-geladen, trotzdem läuft das Add-Prozedere ab. Das klappt ähnlich auch mit rex_list/rex_form. 
+geladen, trotzdem läuft das Add-Prozedere ab. Das klappt ähnlich auch mit rex_list/rex_form.
 
 Alternativ wird in der Edit-URL der Parameter `func=`auf "add" gesetzt, wie im Beispiel.
 
@@ -104,7 +104,7 @@ Sobald aber andere Relationen inline eingebunden sind, bleibt der geklonte Inhal
 Relationendaten nicht geladen werden.
 
 <a name="yorm"></a>
-## 4. Die Lösung für komplexe Relationen-Formulare 
+## 4. Die Lösung für komplexe Relationen-Formulare
 
 In diesem Fall kann man über YOrm zum Ziel kommen. Der YOrm-Kosmos stellt eine Klasse `rex_yform_manager_dataset`
 zur Verfügung, die innerhalb von YForm der Datensatzverwaltung dient. Ein Formular wird mit der Methode
@@ -113,7 +113,7 @@ $datensatz->executeForm( $yform, $afterFieldsExecuted )
 ```
 ausgeführt. Das umfasst einerseits den Aufbau des gesamten HTML für das Formular, aber auch die
 Nachbearbeitung des abgeschickten Formulars. Der Table_Manager ruft `executeForm`  auf und gibt auch
-noch eine Callback-Funktion `$afterFieldsExecuted` mit, die nach allen anderen ExtensionPoints und 
+noch eine Callback-Funktion `$afterFieldsExecuted` mit, die nach allen anderen ExtensionPoints und
 kurz vor dem Aufbau des finalen HTML ausgeführt wird.
 
 An dieser Stelle greifen wir in den Ablauf ein.
@@ -132,7 +132,7 @@ den Klonvorgang startet.
 ### 4.1 Die Datenliste erweitern: Spalte "Klonen"
 
 I.d.R. ist die erste Spalte der Tabelle mit dem "+"-Symbol im Header für "Neuer Datensatz" und in den
-Zeilen mit einem Formularsymbol für "Datensatz editieren" versehen. 
+Zeilen mit einem Formularsymbol für "Datensatz editieren" versehen.
 
 Wir erzeugen eine neue zweite Spalte mit einen Duplizier-Symbol und packen darauf den Editier-Link
 der ersten Spalte, aber ergänzt um den Parameter `clone=1`:
@@ -160,8 +160,8 @@ Dann übernimmt der Klon-Dataset.
 
 
 <a name="dataset"></a>
-### 4.2 Den Klon-Dataset bereitstellen  
- 
+### 4.2 Den Klon-Dataset bereitstellen
+
 In der Methode `executeForm` wird zuerst geprüft, ob der URL-Parameter `clone=1` gesetzt ist. Wenn
 nein wird ganz normal `parent::executeForm` abgearbeitet.
 
@@ -221,18 +221,18 @@ class klon_dataset extends \rex_yform_manager_dataset
         }
 
         // clone angefordert! afterFieldsExecuted wird durch ein eigenes Callback ersetzt,
-        
+
         $callback = function( rex_yform $yform ) use ( $afterFieldsExecuted )
         {
-            // Titelzeile frisieren: mangels EP wird die i18n-Tabelle geändert. 
+            // Titelzeile frisieren: mangels EP wird die i18n-Tabelle geändert.
             rex_i18n::addMsg('yform_editdata','Datensatz klonen [Original: {0}]');
 
-            // Für das Formular an sich: Auf "Add" umschalten, indem func auf "add" gesetzt und 
+            // Für das Formular an sich: Auf "Add" umschalten, indem func auf "add" gesetzt und
             // die Datensatznummer entfernt wird.
             $yform->objparams['form_hiddenfields']['func'] = 'add';
             unset( $yform->objparams['form_hiddenfields']['data_id'] );
 
-            // Änderungen in den Values: jeweils den vorgenerierten HTML-Code ändern 
+            // Änderungen in den Values: jeweils den vorgenerierten HTML-Code ändern
             foreach( $yform->objparams['values'] as $k=>$v )
             {
                 // Submit-Buttons von "Edit" auf "Add" zurückstellen
@@ -256,10 +256,10 @@ class klon_dataset extends \rex_yform_manager_dataset
                     $yform->objparams['form_output'][$k] = preg_replace( $pattern, '', $yform->objparams['form_output'][$k] );
                 }
             }
-            
+
             call_user_func( $afterFieldsExecuted, $yform );
         };
-        
+
         return parent::executeForm($yform, $callback);
     }
 
@@ -288,13 +288,13 @@ Beim Speichern des Datensatzes greifen wieder die regulären EPs `YFORM_DATA_ADD
 
 
 <a name="warnung"></a>
-# Warnung 
+# Warnung
 
 Verfahren wie
 
 * i18n-Einträge ändern
 * HTML umbauen
-* das große YForm-Array (hier als `$yform->objparams`) nutzen/verändern 
+* das große YForm-Array (hier als `$yform->objparams`) nutzen/verändern
 
 sind immer riskant, da Seiteneffekte nie auszuschließen sind und das generierte HTML auch schon mal
 anders aussehen kann als gedacht, z.B. wenn ein anderes Template/Fragment zum Einsatz kommt.
