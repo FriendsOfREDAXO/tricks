@@ -20,7 +20,7 @@ Die DSGVO verlangt grundsätzlich Datensparsamkeit. Daten sollen nur zweckgebund
 Folgenden Code bitte in der boot.php im project Addon oder in der functions.php im Theme Addon ablegen, e-mail-template-key ersetzen, fertig.
 ```php
 if(rex::isFrontend()) {
-    // Delete attachments after sending application e-mails
+    // Delete attachments after sending e-mails
     rex_extension::register('YFORM_EMAIL_SENT', function (rex_extension_point $ep_yform_sent) {
       if($ep_yform_sent->getSubject() == 'email-template-key') {
         rex_extension::register('RESPONSE_SHUTDOWN', function (rex_extension_point $ep_response_shutdown) {
