@@ -11,8 +11,9 @@ prio:
 
 Die DSGVO verlangt grundsätzlich Datensparsamkeit. Daten sollen nur zweckgebunden gespeichert werden, nur so lange wie nötig und technisch so sicher wie möglich. Wurde mit Redaxo eine E-Mail mit Anhang versandt ist in der Regel keine Speicherung auf dem Server mehr nötig. Mit diesem Snippet werden Anhänge nach erfolgreichem Versand automatisch gelöscht.
 
-> **Hinweis** Es werden nur die Anhänge eines bestimmten yform-E-Mail Templates gelöscht. Bitte im Code `email-template-key` durch den eigenen key ersetzen.
+> **Hinweis** Es werden alle hochgeladenen Anhänge gelöscht.
 
+> **Hinweis** Die Aktion wird nur nach einem bestimmten yform-E-Mail Template ausgeführt. Bitte im Code `email-template-key` durch den eigenen key ersetzen.
 
 <a name="skript"></a>
 
