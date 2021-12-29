@@ -13,6 +13,7 @@ Snippets und Tweaks zur Modifikation des Backends
 3. [Subpage eines AddOns durch eigene entsprechend Recht austauschen/ersetzenn](#replacepage2)
 4. [Sortierung des Medienpools ändern](#mediasort)
 5. [Nur zugelassenen IPs Zugriff aufs Backend gewähren](#blockIP)
+6. [Theme erzwingen ohne config.yml zu ändern](#theme)
 
 
 <a name="navhide"></a>
@@ -173,3 +174,17 @@ Den nachfolgenden Code in die `boot.php` des **project-Addons** kopieren und IPs
 	      }
 	}
 ```
+
+<a name="theme"></a>
+
+In die boot.php des projekt-Addons oder eines eigenen AddOns: 
+
+```php
+rex::setProperty('theme','light');
+```
+oder 
+
+```php
+rex::setProperty('theme','dark');
+```
+
