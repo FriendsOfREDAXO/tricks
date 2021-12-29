@@ -177,6 +177,8 @@ Den nachfolgenden Code in die `boot.php` des **project-Addons** kopieren und IPs
 
 <a name="theme"></a>
 
+## Theme erzwingen ohne config.yml zu ändern
+
 In die boot.php des projekt-Addons oder eines eigenen AddOns: 
 
 ```php
