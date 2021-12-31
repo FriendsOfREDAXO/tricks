@@ -17,7 +17,7 @@ Ok ... da muss dann jedesmal vom Url AddOn eine entsprechende Datenbankabfrage a
 
 Eine einzige Datenbankabfrage, die alle Urls auf einmal abfrägt sollte das Ganze beschleunigen. Da die Urls auch sehr schön in der Tabelle rex_url_generator_url mit passender Datensatz Id liegen, sollte das auch einfach zu machen sein. Da gibt es sicher verschiedene Ansätze. Ich habe es mal so gelöst:
 
-```
+```php
 // Ein leeres Array, falls was nicht funktioniert, ist das schonmal da.
 $urls = [];
 
@@ -40,7 +40,7 @@ if (count($profile) == 1) {
 
 Dieses Array können wir dann direkt in einer Ausgabe verwenden. Hier wurde die Produktliste als yorm Objekt abgeholt
 
-```
+```php
 <ul>
 <?php foreach ($products as $prod) : ?>
     <li>
