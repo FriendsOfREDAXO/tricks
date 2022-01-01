@@ -8,7 +8,7 @@ prio:
 
 ```php
 $string = "Über uns hängen Äpfel";
-$new_string = rex_string::normalize($string);
+$new_string = rex_string::normalize($string, '-');
 
 # Result: ueber-uns-haengen-aepfel
 ```
