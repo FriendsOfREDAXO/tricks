@@ -8,6 +8,16 @@ prio:
 
 ```php
 $string = "Über uns hängen Äpfel";
+$new_string = rex_string::normalize($string);
+
+# Result: ueber_uns_haengen_aepfel
+```
+
+
+Mit eigenem Trennzeichen: 
+
+```php
+$string = "Über uns hängen Äpfel";
 $new_string = rex_string::normalize($string, '-');
 
 # Result: ueber-uns-haengen-aepfel
