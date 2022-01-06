@@ -22,3 +22,22 @@ rex_extension::register('PAGE_NAVIGATION', function (rex_extension_point $ep) {
     $ep->setSubject($nav);
 });
 ```
+## Backend-Navigation im eigenen Addon festlegen
+
+In der `package.yml` eines jeden Addons lassen sich beliebige Backend-Seiten erstellen, die dann im Addon-Bereich oder sogar als Eintrag im Hauptemnü erscheinen. Beispiel:
+
+```yml
+pages:
+    project:
+        title: translate:project
+        main: true
+        block: system
+        prio: 15
+        subpages: 
+            settings:
+            ...
+```
+
+> Hinweis: Das Hauptmenü (`block: system`) hat Menüpunkte im Abstand von 10er-Schritten. `prio: 15` fügt den eigenen Menüpunkt als zweites zwsichen Struktur und Medienpool.
+
+> Hinweis: Ein eigener Abschnitt mit Zwischenüberschrift wird im Hauptmenü erzeugt, wenn man einen eigenen neuen `block`-Eintrag definiert. YCom macht z.B. davon Gebrauch.
