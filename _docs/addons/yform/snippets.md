@@ -173,6 +173,12 @@ Mit dieser Funktion lassen sich die Optionen eines Choice Feldes auslesen. Zu ü
 
   }
 
+// Aufruf mit Tabellen-Prefix:
+getYFormChoices('rex_table_name','field_name');
+
+// Aufruf ohne Tabellen-Prefix: 
+getYFormChoices(rex::getTable('table_name'),'field_name');
+
 ```
 
 
