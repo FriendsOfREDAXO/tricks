@@ -166,7 +166,7 @@ Mit dieser Funktion lassen sich die Optionen eines Choice Feldes auslesen. Zu ü
     }
 
     $choice  = new rex_yform_value_choice();
-    $options = $choice->getArrayFromString((rex_yform_manager_table::get(rex::getTable($table_name))->getValueField($field_name)->getElement('choices')));
+    $options = $choice->getArrayFromString(rex_yform_manager_table::get($table_name)->getValueField($field_name)->getElement('choices'));
     $options = rex_i18n::translateArray($options);
     
     return $options;
