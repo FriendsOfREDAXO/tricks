@@ -16,6 +16,7 @@ Möchte man die Daten manipulieren und wieder zurück ins Formular packen, oder 
 Man muss also nach dem manipulieren `$yform->initializeFields(false);` setzen, dann werden mit `echo $yform->getForm()` die Felder ein zweites mal initalisiert und so sind auch die nachträglich angefügten Felder dabei.
 
 ##Vorher
+
 ```php
 // Aufbau des Formulars mit den gewünschten Objectparams und Valuefields
 $yform = new rex_yform();
@@ -28,7 +29,9 @@ $yform->setActionField('tpl2email', ["template-name", "email@reciptient.de"]);
 //Ausgabe des Formular
 echo '<div class="output">'.$yform->getForm().'</div>';
 ```
-##Nachher
+
+###Nachher
+
 ```php
 // Aufbau des Formulars mit den gewünschten Objectparams und Valuefields
 $yform = new rex_yform();
