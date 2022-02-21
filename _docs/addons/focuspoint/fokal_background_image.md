@@ -14,13 +14,14 @@ Mit folgendem Code kann man ein Bild als Hintergrundbild einbinden, wobei der Fo
 <?php
 $style = '';
 
-//Abfrage ob Medium vorhanden
-if ('REX_MEDIA[id=1]' != '') {
-    $file_name = 'REX_MEDIA[id=1]';
+$file_name = 'REX_MEDIA[id=1]';
+$fpMedia = focuspoint_media::get($file_name);
 
+if(!is_null($fpMedia)) {
+    
     // Focuspoint-Werte auslesen und als Variablen $x und $y speichern
     // (Fallback auf `50% 50%` ist in `getFocus()` enthalten)
-    list($x,$y) = focuspoint_media::get($file_name)->getFocus();
+    list($x,$y) = $fpMedia->getFocus();
 
     // Inline-CSS-Ausgabe mit entsprechendem Medientyp und Focuspoint-Koordinaten
     $style = 'style="background-image: url(/mediatypes/1200/'.$file_name.'); background-size: cover; background-position:'.$x.'% '.$y.'%;';
