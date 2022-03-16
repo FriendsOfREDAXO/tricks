@@ -167,6 +167,9 @@ Script *pages/yform.php* hat vier Aufgaben:
 Die Parameter werden der *package.yml* entnommen. Die YML-Struktur ist [oben beschrieben](#d1).
 
 ```PHP
+
+echo rex_view::title(rex_i18n::msg('mein_addon_titel'));
+
 $yform = $this->getProperty('yform',[]);
 $yform = $yform[\rex_be_controller::getCurrentPage()] ?? [];
 
