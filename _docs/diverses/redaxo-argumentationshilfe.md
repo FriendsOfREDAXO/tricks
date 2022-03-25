@@ -64,7 +64,8 @@ Suchmaschinen-Optimierung ist ein weites Feld und heutzutage mehr eine konzeptio
 * Mit REDAXO behält man die volle Kontrolle über die Ausgabe des HTML-Codes, sodass der Entwickler Optimierungen direkt selbst vornehmen kann.
 * Mit dem Addon Minify lassen sich optimierte Javascript und CSS-Dateien ausgeben, um die Ladezeit zu verrringern.
 * Mit dem Addon Media Manager lassen sich Bildprofile erzeugen, um die Dateigröße der Bilder zu verringern und die Ladezeit zu verringern.
-
+* Mit dem Addon Speed Up kann die wahrgenommene Ladezeit der Website-Besucher in bestimmten Szenarien auf wenige Millisekunden reduziert werden. 
+ 
 ### Tracking
 * Mit REDAXO kann an beliebiger Stelle, je nach Vorgabe der Tracking-Software (bspw. Piwik oder Google Analytics) Tracking-Code eingebunden werden.
 
