@@ -12,6 +12,7 @@ prio:
 - [Table Manager: Extensionpoint / Listensortierung beeinflussen)](#ytlistsort)
 - [Choice Feld Optionen holen](#Choicefieldoptionen)
 - [YForm Menüpunkt für Redakteure ausblenden](#yform_menu)
+- [Details zum Datensatz nach dem Erstellen erhalten](#yform_created)
 
 >Hinweis: Teile dieses Abschnitts werden ggf. in die YFORM-Doku übernommen und können daher verschwinden. Sollte das gewünschte Snippet nicht mehr hier zu finden sein, bitte in die YFORM-Doku schauen.  
 
@@ -200,5 +201,23 @@ rex_extension::register('PAGES_PREPARED', function (rex_extension_point $ep) {
 }
 
 ```
+<a name="yform_created"></a>
+### Details zum Datensatz nach dem Erstellen erhalten
 
+Manchmal möchte man im Frontend im Nachgang noch Informationen zum erstellten Datensatz erhalten. Dieser Trick erfordert eine db-Action
+
+```php
+$yform = new rex_yform();
+
+// [...]
+echo $yform->getForm();
+
+
+if ($yform->getObjectparams('send') && !$yform->getObjectparams('warning')) {
+    // Hier weitere Ausgabe außerhalb des Formulars durchführen
+    dump($yform->getObjectparams('value_pool'));
+}
+```
+
+Wichtig ist nur, dass man die Abfrage
 
