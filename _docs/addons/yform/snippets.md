@@ -204,7 +204,7 @@ rex_extension::register('PAGES_PREPARED', function (rex_extension_point $ep) {
 <a name="yform_created"></a>
 ### Details zum Datensatz nach dem Erstellen erhalten
 
-Manchmal möchte man im Frontend im Nachgang noch Informationen zum erstellten Datensatz erhalten. Dieser Trick erfordert eine db-Action
+Manchmal möchte man im Frontend im Nachgang noch Informationen zum erstellten Datensatz erhalten. Dieser Trick erfordert u.a. eine db-Action.
 
 ```php
 $yform = new rex_yform();
@@ -219,5 +219,5 @@ if ($yform->getObjectparams('send') && !$yform->getObjectparams('warning')) {
 }
 ```
 
-Wichtig ist nur, dass man die Abfrage
+Wichtig ist nur, dass man die Abfrage nach `getForm()` durchführt.
 
