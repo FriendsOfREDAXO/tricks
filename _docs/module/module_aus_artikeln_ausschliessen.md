@@ -10,7 +10,7 @@ Manchmal hat man Module die nur in speziellen Artikeln benötigt werden. Jetzt k
 
 Will man Module aber nur in bestimmten Artikeln zur Auswahl anbieten lässt sich das über [Fragmente](https://redaxo.org/doku/main/fragmente) lösen.
 
-Für die Modulauswahl kopiert man das Fragment `redaxo/src/adons/structure/fragments/module_select.php` in theme oder project. Anschließend kann man mit `$this->getVar('items');` die Module als Array holen, manipulieren und mit `$this->setVar('items', $items)` wieder zurückgeben.
+Für die Modulauswahl kopiert man das Fragment `redaxo/src/adons/structure/plugins/content/fragments/module_select.php` in theme oder project. Anschließend kann man mit `$this->getVar('items');` die Module als Array holen, manipulieren und mit `$this->setVar('items', $items)` wieder zurückgeben.
 
 ## Code für module_select.php
 
