@@ -147,12 +147,28 @@ Verwendeter Extension point: [MEDIA_LIST_QUERY](https://github.com/redaxo/redaxo
 
 **Folgenden Code in die boot.php des Project-AddOns platzieren:**
 
+### Bis REDAXO 5.13.2
+
 ```php
 // Sortierung Medienpool aufsteigend
 if (rex::isBackend() && rex::getUser()) {
   rex_extension::register('MEDIA_LIST_QUERY', function (rex_extension_point $ep) {
     $subject = $ep->getSubject();
     $subject = str_replace("f.updatedate", "f.filename, f.updatedate", $subject);
+    $subject = str_replace("desc", "asc", $subject);
+    return $subject;
+  });
+}
+```
+
+### Ab REDAXO 5.13.3
+
+```php
+// Sortierung Medienpool aufsteigend
+if (rex::isBackend() && rex::getUser()) {
+  rex_extension::register('MEDIA_LIST_QUERY', function (rex_extension_point $ep) {
+    $subject = $ep->getSubject();
+    $subject = str_replace("m.updatedate", "m.filename, m.updatedate", $subject);
     $subject = str_replace("desc", "asc", $subject);
     return $subject;
   });
