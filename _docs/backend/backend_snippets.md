@@ -147,7 +147,7 @@ Verwendeter Extension point: [MEDIA_LIST_QUERY](https://github.com/redaxo/redaxo
 
 **Folgenden Code in die boot.php des Project-AddOns platzieren:**
 
-### Bis REDAXO 5.13.2
+### Bis REDAXO 5.12.1
 
 ```php
 // Sortierung Medienpool aufsteigend
@@ -160,6 +160,8 @@ if (rex::isBackend() && rex::getUser()) {
   });
 }
 ```
+
+Danach gabe es einen Bug der dazu führte dass es erst ab 5.13.3 wieder genutzt werden kann. 
 
 ### Ab REDAXO 5.13.3
 
