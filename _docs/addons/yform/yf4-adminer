@@ -11,8 +11,8 @@ Rechten sehen, Ergebnisse kontrollieren oder sonstwie eingreifen möchte oder mu
 Das empfehlenswerte Addon ["Adminer"](https://github.com/FriendsOfREDAXO/adminer) bietet hierfür
 zahlreiche Möglichkeiten.
 
-In diesem Trick wird beschrieben, wie Adminer direkt aus einer YForm-Tabelle heraus aufgerufen werden
-kann. Dazu werden mehree Buttons an den passenden Stellen eingebaut
+In diesem Trick wird beschrieben, wie der Adminer direkt aus einer YForm-Tabelle heraus aufgerufen werden
+kann. Dazu werden Buttons an den passenden Stellen im Table-Manager und der Datentabelle eingebaut.
 
 ![Übersicht im Table-Manager](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/yform_adminer_01.jpg)
 
