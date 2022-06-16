@@ -10,7 +10,7 @@ prio:
 
 [Visual Studio Code](https://code.visualstudio.com/) ist ein Quelltext-Editor von Microsoft. Er kann plattformübergreifend und kostenfrei genutzt werden (Windows, macOS, Linux). 
 
-"Ein schlanker Codeeditor der Software-Entwickler nicht nur beim Editieren, sondern auch beim Verwalten und Testen von Code unterstützt. Insbesondere lassen sich Codedateien außerhalb von Projekten schnell mit VS Code bearbeiten, ohne dabei auf die gewohnte Unterstützung seitens einer IDE verzichten zu müssen. Dabei wird nicht nur die Syntax farblich hervorgehoben, sondern auch andere von IDEs bekannte Funktionen zur Verfügung gestellt." Tobias Kahlert 
+"Ein schlanker Codeeditor der Software-Entwickler nicht nur beim Editieren, sondern auch beim Verwalten und Testen von Code unterstützt. Insbesondere lassen sich Codedateien außerhalb von Projekten schnell mit VS Code bearbeiten, ohne dabei auf die gewohnte Unterstützung seitens einer IDE verzichten zu müssen. Dabei wird nicht nur die Syntax farblich hervorgehoben, sondern auch andere von IDEs bekannte Funktionen zur Verfügung gestellt." Tobias Kahlert  
 Quelle: [Visual Studio Code (1): Grundlagen](https://www.microsoft.com/de-de/techwiese/know-how/visual-studio-code-01-die-grundlagen.aspx) via microsoft.
 
 Für die Software-Entwicklung im Kontext von REDAXO empfehlen wir:  
