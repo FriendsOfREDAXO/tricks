@@ -186,12 +186,37 @@ Im Marketplace nach `redhat.vscode-yaml` suchen und installieren.
 
 ## Nützliche Erweiterungen für VSCode
 
+### Allgemein
+
 - [Deutsches Sprachpaket für VS Code von Microsoft](https://marketplace.visualstudio.com/items?itemName=ms-ceintl.vscode-language-pack-de)
 - [Settings Sync von Shan Khan](https://marketplace.visualstudio.com/items?itemName=shan.code-settings-sync)
+- https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme
+
+### HTML und CSS
+
+- https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify
+
+### PHP
+
+- [PHP IntelliSense von Felix Becker](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-intellisense)
+- [PHP CodeSniffer for Visual Studio Code von Ioannis Kappas](https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs)
+- https://marketplace.visualstudio.com/items?itemName=getpsalm.psalm-vscode-plugin
+- https://marketplace.visualstudio.com/items?itemName=junstyle.php-cs-fixer
+- 
+### Dokumentation
+
+- [markdownlint von David Anson](https://marketplace.visualstudio.com/items?itemName=davidanson.vscode-markdownlint)
+- [GitHub Markdown Preview von Matt Bierner](https://marketplace.visualstudio.com/items?itemName=bierner.github-markdown-preview)
+- 
+
 - [LanguageTool Extension for Visual Studio Code von Adam Voss](https://marketplace.visualstudio.com/items?itemName=adamvoss.vscode-languagetool)
 - [English Support for LanguageTool von Adam Voss](https://marketplace.visualstudio.com/items?itemName=adamvoss.vscode-languagetool-en)
 - [German Support for LanguageTool von Adam Voss](https://marketplace.visualstudio.com/items?itemName=adamvoss.vscode-languagetool-de)
-- [markdownlint von David Anson](https://marketplace.visualstudio.com/items?itemName=davidanson.vscode-markdownlint)
-- [GitHub Markdown Preview von Matt Bierner](https://marketplace.visualstudio.com/items?itemName=bierner.github-markdown-preview)
-- [PHP IntelliSense von Felix Becker](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-intellisense)
-- [PHP CodeSniffer for Visual Studio Code von Ioannis Kappas](https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs)
+
+### Datentransfer
+
+- https://marketplace.visualstudio.com/items?itemName=Natizyskunk.sftp
+
+### Git und GitHub
+
+- https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens
