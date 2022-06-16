@@ -1,4 +1,4 @@
-7---
+---
 title: Editor-Einstellungen Visual Studio Code (VSCode)
 authors: []
 prio:
