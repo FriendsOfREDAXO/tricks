@@ -6,9 +6,17 @@ prio:
 
 # Editor-Einstellungen Visual Studio Code (VSCode)
 
+[ letztes update: 2022-07-04 ]
+
+[Visual Studio Code](https://code.visualstudio.com/) ist ein Quelltext-Editor von Microsoft. Er kann plattformübergreifend und kostenfrei genutzt werden (Windows, macOS, Linux). 
+
+Anfangs als schlanker Editor für die Quellcode-Entwicklung gedacht, hat sich VS Code durch seine vielen Erweiterungen zu einer vollständigen und modularen integrierten Entwicklungsumgebung (IDE) entwickelt. Durch den Verzicht auf Projektdateien kann VSCode wie ein einfacher Editor aufgerufen werden, bietet jedoch durch Quellcode-Analyse des aktuellen Ordners den Komfort großer Projektverwaltungen mit Code-Vervollständigung und Fehleranalyse.
+
+Für die Software-Entwicklung im Kontext von REDAXO empfehlen wir:  
 - [PHP - REDAXO-Coding-Standards](#vscode-php)
 - [YAML - Schema für config.yml und package.yml](#vscode-yaml)
 - [Nützliche Erweiterungen für VSCode](#vscode-erweiterungen)
+
 
 <a name="vscode-php"></a>
 
@@ -16,10 +24,13 @@ prio:
 
 **Zusammenfassend werden 4 Schritte benötigt, diese werden nachfolgend genauer erläutert.**
 
-1. Pfad zur PHP-Executable einstellen
-2. Erweiterung **junstyle.php-cs-fixer** installieren
-3. REDAXO-Coding-Standards lokal als Datei **.php_cs.dist** speichern
-4. Einstellungen der Erweiterungen wie gewünscht anpassen
+1. [Pfad zur PHP-Executable einstellen](#vscode-php-1)
+2. [Erweiterung **junstyle.php-cs-fixer** installieren](#vscode-php-2)
+3. [REDAXO-Coding-Standards lokal als Datei **.php_cs.dist** speichern](#vscode-php-3)
+4. [Einstellungen der Erweiterungen wie gewünscht anpassen](#vscode-php-4)
+
+
+<a name="vscode-php-1"></a>
 
 ### **Schritt 1**: Pfad zur PHP-Executable einstellen
 
@@ -31,7 +42,10 @@ Folgende Einstellung in die VSCode Konfigurationsdatei `settings.json` kopieren
 "php.validate.executablePath": "C:\\xampp\\php\\php.exe",
 ```
 
-> **Hinweis:** Pfad an die eigene PHP-Umgebung anpassen!
+> **Hinweis:** Passe den Pfad an Deine eigene PHP-Umgebung an.
+
+
+<a name="vscode-php-2"></a>
 
 ### **Schritt 2**: Erweiterung **PHP CS Fixer** installieren
 
@@ -39,9 +53,14 @@ Die Erweiterung [PHP CS Fixer von Junstyle](https://marketplace.visualstudio.com
 
 > **Hinweis:** Die richtige Erweiterung installieren! (Suche nach _junstyle.php-cs-fixer_)
 
+
+<a name="vscode-php-3"></a>
+
 ### **Schritt 3**: REDAXO-Coding-Standards lokal als Datei `.php_cs.dist` speichern
 
 Aus der [REDAXO .php_cs.dist](https://raw.githubusercontent.com/redaxo/redaxo/master/.php_cs.dist) den unteren Block ab `return PhpCsFixer\Config::create()` kopieren und lokal abspeichern.
+
+// NOTIZ [madiko]: Bitte Link aktualisieren //
 
 > **Hinweis:** Am besten im Extension-Verzeichnis des VSCode, z.b. `C:\Users\USERID\.vscode\extensions\.php_cs.dist`
 
@@ -121,8 +140,11 @@ return PhpCsFixer\Config::create()
 ;
 ```
 
-Die lokal abgespeicherte Datei wird im folgenden Schritt für die Einstellungen der Erweiterung verwendet.
+Die lokal abgespeicherte Datei wird im folgenden Schritt für die Einstellungen der Erweiterung verwendet.  
 Eine Kopie der Datei kann aber auch z.B. direkt im eigenen Addon-Verzeichnis gespeichert werden.
+
+
+<a name="vscode-php-4"></a>
 
 ### **Schritt 4**: Settings für die Erweiterung anpassen
 
@@ -151,6 +173,7 @@ if ('php' === $file->getExtension()) {
 ```
 
 > **Tipp:** Es gibt noch einige weitere Einstellungen für die Erweiterung  - diese einfach nach den eigenen Wünschen konfigurieren :)
+
 
 <a name="vscode-yaml"></a>
 
@@ -182,41 +205,66 @@ Im Marketplace nach `redhat.vscode-yaml` suchen und installieren.
 
 > **Hinweis:** Die Schema-Dateien können auch lokal gespeichert werden und müssen dann mit `"file://C:\\Ordner\\package.json"` angegeben werden.
 
+
+
 <a name="vscode-erweiterungen"></a>
 
 ## Nützliche Erweiterungen für VSCode
 
-### Allgemein
+Die im Folgenden genannten PlugIns von VSCode dienen Anfänger:innen als Einstiegshilfe &mdash; ohne Anspruch auf Vollständigkeit.  
+Letztes Update: 2022-07-04
 
-- [Deutsches Sprachpaket für VS Code von Microsoft](https://marketplace.visualstudio.com/items?itemName=ms-ceintl.vscode-language-pack-de)
-- [Settings Sync von Shan Khan](https://marketplace.visualstudio.com/items?itemName=shan.code-settings-sync)
-- https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme
+### Bedien-Oberfläche
+
+- [German Language Pack (Deutsches Sprachpaket)](https://marketplace.visualstudio.com/items?itemName=ms-ceintl.vscode-language-pack-de) von Microsoft
+- [Settings Sync](https://marketplace.visualstudio.com/items?itemName=shan.code-settings-sync) (via GitHub Gist) von Shan Khan
+- [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) von Philipp Kief
+
+### Rechtschreib-/Grammatik-Korrekturen für Texte
+
+- [LanguageTool Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=adamvoss.vscode-languagetool) von Adam Voss
+- [English Support for LanguageTool](https://marketplace.visualstudio.com/items?itemName=adamvoss.vscode-languagetool-en) von Adam Voss
+- [German Support for LanguageTool](https://marketplace.visualstudio.com/items?itemName=adamvoss.vscode-languagetool-de) von Adam Voss
+- [Simple German Support for LanguageTool (Leichte Sprache)](https://marketplace.visualstudio.com/items?itemName=adamvoss.vscode-languagetool-de-DE-x-simple-language) von Adam Voss
+- weitere Sprachen suchen: [Visual Studio Code LanguageTool](https://marketplace.visualstudio.com/search?term=LanguageTool&target=VSCode&category=Other&sortBy=Name)
+
+### Programmiersprachen übergreifend
+
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) von Prettier (JavaScript, TypeScript, Flow, JSX, JSON, CSS, SCSS, Less, HTML, Vue, Angular HANDLEBARS, Ember, Glimmer, GraphQL, Markdown, YAML)
+
 
 ### HTML und CSS
 
-- https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify
+- [HTMLHint (Static Code Analysis Tool for HTML)](https://marketplace.visualstudio.com/items?itemName=mkaufman.HTMLHint) von Mike Kaufman
+
+### JavaScript
+
+- [ESLint JavaScript](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) von Microsoft
+
 
 ### PHP
 
-- [PHP IntelliSense von Felix Becker](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-intellisense)
-- [PHP CodeSniffer for Visual Studio Code von Ioannis Kappas](https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs)
-- https://marketplace.visualstudio.com/items?itemName=getpsalm.psalm-vscode-plugin
-- https://marketplace.visualstudio.com/items?itemName=junstyle.php-cs-fixer
-- 
+- [PHP Intelephense](https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client) von Ben Mewburn
+- [PHP CodeSniffer for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs) von Ioannis Kappas
+- [Psalm (PHP Static Analysis Linting Machine)](https://marketplace.visualstudio.com/items?itemName=getpsalm.psalm-vscode-plugin) von Psalm
+- [php cs fixer](https://marketplace.visualstudio.com/items?itemName=junstyle.php-cs-fixer) von junstyle
+
+### MySQL
+
+- [MySQL Management Tool](https://marketplace.visualstudio.com/items?itemName=formulahendry.vscode-mysql) von Jun Han
+
+
 ### Dokumentation
 
-- [markdownlint von David Anson](https://marketplace.visualstudio.com/items?itemName=davidanson.vscode-markdownlint)
-- [GitHub Markdown Preview von Matt Bierner](https://marketplace.visualstudio.com/items?itemName=bierner.github-markdown-preview)
-- 
+- [markdownlint](https://marketplace.visualstudio.com/items?itemName=davidanson.vscode-markdownlint) von David Anson
+- [GitHub Markdown Preview](https://marketplace.visualstudio.com/items?itemName=bierner.github-markdown-preview) von Matt Bierner
 
-- [LanguageTool Extension for Visual Studio Code von Adam Voss](https://marketplace.visualstudio.com/items?itemName=adamvoss.vscode-languagetool)
-- [English Support for LanguageTool von Adam Voss](https://marketplace.visualstudio.com/items?itemName=adamvoss.vscode-languagetool-en)
-- [German Support for LanguageTool von Adam Voss](https://marketplace.visualstudio.com/items?itemName=adamvoss.vscode-languagetool-de)
 
 ### Datentransfer
 
-- https://marketplace.visualstudio.com/items?itemName=Natizyskunk.sftp
+- [sFTP](https://marketplace.visualstudio.com/items?itemName=Natizyskunk.sftp) von Natizyskunk
+
 
 ### Git und GitHub
 
-- https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens
+- [GitLens — Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) von GitKraken
