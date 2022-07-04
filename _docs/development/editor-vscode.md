@@ -6,7 +6,7 @@ prio:
 
 # Editor-Einstellungen Visual Studio Code (VSCode)
 
-[ letztes update: 2022-06-16 ]
+[ letztes update: 2022-07-04 ]
 
 [Visual Studio Code](https://code.visualstudio.com/) ist ein Quelltext-Editor von Microsoft. Er kann plattformübergreifend und kostenfrei genutzt werden (Windows, macOS, Linux). 
 
