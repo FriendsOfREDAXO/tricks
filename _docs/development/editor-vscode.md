@@ -10,8 +10,7 @@ prio:
 
 [Visual Studio Code](https://code.visualstudio.com/) ist ein Quelltext-Editor von Microsoft. Er kann plattformübergreifend und kostenfrei genutzt werden (Windows, macOS, Linux). 
 
-"Ein schlanker Codeeditor der Software-Entwickler nicht nur beim Editieren, sondern auch beim Verwalten und Testen von Code unterstützt. Insbesondere lassen sich Codedateien außerhalb von Projekten schnell mit VS Code bearbeiten, ohne dabei auf die gewohnte Unterstützung seitens einer IDE verzichten zu müssen. Dabei wird nicht nur die Syntax farblich hervorgehoben, sondern auch andere von IDEs bekannte Funktionen zur Verfügung gestellt." Tobias Kahlert  
-Quelle: [Visual Studio Code (1): Grundlagen](https://www.microsoft.com/de-de/techwiese/know-how/visual-studio-code-01-die-grundlagen.aspx) via microsoft.
+Anfangs als schlanker Editor für die Quellcode-Entwicklung gedacht, hat sich VS Code durch seine vielen Erweiterungen zu einer vollständigen und modularen integrierten Entwicklungsumgebung (IDE) entwickelt. Durch den Verzicht auf Projektdateien kann VSCode wie ein einfacher Editor aufgerufen werden, bietet jedoch durch Quellcode-Analyse des aktuellen Ordners den Komfort großer Projektverwaltungen mit Code-Vervollständigung und Fehleranalyse.
 
 Für die Software-Entwicklung im Kontext von REDAXO empfehlen wir:  
 - [PHP - REDAXO-Coding-Standards](#vscode-php)
@@ -211,6 +210,9 @@ Im Marketplace nach `redhat.vscode-yaml` suchen und installieren.
 <a name="vscode-erweiterungen"></a>
 
 ## Nützliche Erweiterungen für VSCode
+
+Die im Folgenden genannten PlugIns von VSCode dienen Anfänger:innen als Einstiegshilfe &mdash; ohne Anspruch auf Vollständigkeit. 
+Letztes Update: 2022-07-04
 
 ### Bedien-Oberfläche
 
