@@ -211,7 +211,7 @@ Im Marketplace nach `redhat.vscode-yaml` suchen und installieren.
 
 ## Nützliche Erweiterungen für VSCode
 
-Die im Folgenden genannten PlugIns von VSCode dienen Anfänger:innen als Einstiegshilfe &mdash; ohne Anspruch auf Vollständigkeit. 
+Die im Folgenden genannten PlugIns von VSCode dienen Anfänger:innen als Einstiegshilfe &mdash; ohne Anspruch auf Vollständigkeit.  
 Letztes Update: 2022-07-04
 
 ### Bedien-Oberfläche
