@@ -6,11 +6,18 @@ prio:
 
 # Datensatz-Tagging in YForm per AJAX und select2
 
+- [Hinweis](#hinweis)
 - [Einleitung](#einleitung)
 - [YForm-Tabellen](#yformtabellen)
 - [Ajax-Funktion](#ajax)
 - [Eingabefeld per JS](#eingabe)
 - [Funktionsweise](#funktion)
+
+<a name="hinweis"></a>
+## Hinweis
+
+Dieser Tipp ist veraltet. select2 ist seit yform 4 nicht mehr Bestandteil des AddOns. Daher funktioniert dieser Tipp nur mit yform 3.
+
 
 <a name="Einleitung"></a>
 ## Einleitung
