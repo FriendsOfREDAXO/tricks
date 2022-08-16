@@ -4,7 +4,8 @@ authors: [skerbis]
 prio:
 ---
 
-# RSS mit YORM und SimpleXML
+# RSS mit YORM und (SimpleXML)[https://www.php.net/manual/de/book.simplexml.php]
+
 
 
 ```php
