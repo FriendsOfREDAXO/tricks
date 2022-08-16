@@ -36,7 +36,7 @@ $channel->addChild("language", "de-de");
 $channel->addChild('generator', 'REDAXO rss');
 
 // YFORM Daten auslesen per YORM
-$children = rex_yform_manager_table::get('news')
+$children = rex_yform_manager_table::get('rex_news')
     ->query()
     ->whereRaw('date <= NOW() AND status = "1"')
     ->orderBy('date', 'DESC')
