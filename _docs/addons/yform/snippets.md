@@ -31,7 +31,7 @@ Zur Erkennung der Nutzer:innen greifen wir auf die Rolle in der Benutzerverwatlt
 
 // Filter für Rolle 4 
 // Es sollen nur Datensätze der Kategorie 2 angezeigt werden
-// Es sollen nur Datensätze der Kategorie 2 angelegt werden 
+// Es sollen nur Datensätze der Kategorie 2 erstellt werden können
 
 // Prüfe ob wir uns in der Tabelle rex_news befinden
 if (rex::isBackend() && rex::getUser() && rex_request('table_name') == 'rex_news') {
