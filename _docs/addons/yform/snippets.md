@@ -55,8 +55,8 @@ if (rex::isBackend() && rex::getUser() && rex_request('table_name') == 'rex_news
         $filter = $ep->getSubject();
         $roles =  array_map('intval', explode(',', $role));
         $roles = [];
-        $roles = explode(",", $roles);   
-        if (in_array(4, $role) {
+        $roles = explode(",", $role);   
+        if (in_array(4, $roles) {
             // Lege die Kategrie fest, die für diese Rolle erlaubt ist
             // User kann die Kategorie nicht mehr wählen, sie ist festgelegt
             $filter = ['cat' => '2'];
