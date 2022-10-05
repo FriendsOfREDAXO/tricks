@@ -6,6 +6,7 @@ prio:
 
 # Nützliche YForm-Snippets
 
+- [Table Manager: Ansicht und Eingabe nach Userrechten einschränken](#rights)
 - [Table Manager: Spalte ausblenden](#spalteausblenden)
 - [Table Manager: Spalteninhalt vor Anzeige in Übersicht ändern](#Spalteninhalt)
 - [Table Manager: Bilderspalte in Tabellenansicht (Bild statt Dateiname)](#ytbilder)
@@ -15,6 +16,53 @@ prio:
 - [Details zum Datensatz nach dem Erstellen erhalten](#yform_created)
 
 >Hinweis: Teile dieses Abschnitts werden ggf. in die YFORM-Doku übernommen und können daher verschwinden. Sollte das gewünschte Snippet nicht mehr hier zu finden sein, bitte in die YFORM-Doku schauen.  
+
+
+<a name="rights"></a>
+## Table Manager: Ansicht und Eingabe nach Userrechten einschränken
+
+Manchmal ist es erforder lich das Nutzer:innen nur festgelegte Felder oder Ansichten erhalten sollen. 
+Das folgende Beispiel schränkt die Ansicht auf die Kategorie 2 einer Newstabelle ein und erlaubt nur die Erstellung der News der Kategorie 2. 
+Zur Erkennung der Nutzer:innen greifen wir auf die Rolle in der Benutzerverwatltung zurück. 
+
+
+```php
+<?php
+
+// Filter für Rolle 4 
+// Es sollen nur Datensätze der Kategorie 2 angezeigt werden
+// Es sollen nur Datensätze der Kategorie 2 angelegt werden 
+
+// Prüfe ob wir uns in der Tabelle rex_news befinden
+if (rex::isBackend() && rex::getUser() && rex_request('table_name') == 'rex_news') {
+    // Setze Filter
+    rex_extension::register('YFORM_MANAGER_DATA_EDIT_FILTER', function ($ep) {
+        
+        $filter = $ep->getSubject();
+        // Lese Rolle aus
+        $role =  rex::getUser()->getValue('role');
+        if ($role == 4) {
+            // Setze Filter auf Kategorie 2
+            $filter = ['cat' => '2'];
+        }
+        return $filter;
+    });
+
+    rex_extension::register('YFORM_MANAGER_DATA_EDIT_SET', function ($ep) {
+        $filter = $ep->getSubject();
+        $role =  rex::getUser()->getValue('role');
+        if ($role == 4) {
+            // Lege die Kategrie fest, die für diese Rolle erlaubt ist
+            $filter = ['cat' => '2'];
+        }
+        return $filter;
+    });
+}
+```
+
+
+
+
 
 <a name="spalteausblenden"></a>
 ## Table Manager: Spalte ausblenden
