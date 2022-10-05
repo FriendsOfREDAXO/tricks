@@ -43,7 +43,7 @@ if (rex::isBackend() && rex::getUser() && rex_request('table_name') == 'rex_news
         $roles = [];
         $roles =  array_map('intval', explode(',', $role));
         // hat User Rolle 4?
-        if (in_array(4, $roles) {
+        if (in_array(4, $roles)) {
             // Setze Listen-Filter auf Kategorie 2
             $filter = ['cat' => '2'];
         }
@@ -56,7 +56,7 @@ if (rex::isBackend() && rex::getUser() && rex_request('table_name') == 'rex_news
         $role =  rex::getUser()->getValue('role');
         $roles = [];
         $roles =  array_map('intval', explode(',', $role));
-        if (in_array(4, $roles) {
+        if (in_array(4, $roles)) {
             // Lege die Kategrie fest, die für diese Rolle erlaubt ist
             // User kann die Kategorie nicht mehr wählen, sie ist festgelegt
             $editset = ['cat' => '2'];
