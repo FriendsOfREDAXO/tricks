@@ -36,8 +36,7 @@ Zur Erkennung der Nutzer:innen greifen wir auf die Rolle in der Benutzerverwatlt
 // Prüfe ob wir uns in der Tabelle rex_news befinden
 if (rex::isBackend() && rex::getUser() && rex_request('table_name') == 'rex_news') {
     // Setze Filter
-    rex_extension::register('YFORM_MANAGER_DATA_EDIT_FILTER', function ($ep) {
-        
+    rex_extension::register('YFORM_MANAGER_DATA_EDIT_FILTER', function ($ep) {      
         $filter = $ep->getSubject();
         // Lese Rollen aus
         $role =  rex::getUser()->getValue('role');
@@ -53,21 +52,19 @@ if (rex::isBackend() && rex::getUser() && rex_request('table_name') == 'rex_news
     
     // Lege Felder und Werte Fest, die durch die User nicht bearbeitet werden können. 
     rex_extension::register('YFORM_MANAGER_DATA_EDIT_SET', function ($ep) {
-        $filter = $ep->getSubject();
+        $editset = $ep->getSubject();
         $role =  rex::getUser()->getValue('role');
         $roles = [];
         $roles =  array_map('intval', explode(',', $role));
         if (in_array(4, $roles) {
             // Lege die Kategrie fest, die für diese Rolle erlaubt ist
             // User kann die Kategorie nicht mehr wählen, sie ist festgelegt
-            $filter = ['cat' => '2'];
+            $editset = ['cat' => '2'];
         }
-        return $filter;
+        return $editset;
     });
 }
 ```
-
-
 
 
 
