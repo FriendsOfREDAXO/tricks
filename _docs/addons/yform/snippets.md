@@ -1,6 +1,6 @@
 ---
 title: Nützliche YForm-Snippets
-authors: [isospin,netzproductions,pschuchmann,rotzek,alxndr-w]
+authors: [skerbis,isospin,netzproductions,pschuchmann,rotzek,alxndr-w]
 prio:
 ---
 
