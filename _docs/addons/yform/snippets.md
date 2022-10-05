@@ -54,9 +54,9 @@ if (rex::isBackend() && rex::getUser() && rex_request('table_name') == 'rex_news
     // Lege Felder und Werte Fest, die durch die User nicht bearbeitet werden können. 
     rex_extension::register('YFORM_MANAGER_DATA_EDIT_SET', function ($ep) {
         $filter = $ep->getSubject();
-        $roles =  array_map('intval', explode(',', $role));
+        $role =  rex::getUser()->getValue('role');
         $roles = [];
-        $roles = explode(",", $role);   
+        $roles =  array_map('intval', explode(',', $role));
         if (in_array(4, $roles) {
             // Lege die Kategrie fest, die für diese Rolle erlaubt ist
             // User kann die Kategorie nicht mehr wählen, sie ist festgelegt
