@@ -41,8 +41,10 @@ if (rex::isBackend() && rex::getUser() && rex_request('table_name') == 'rex_news
         $filter = $ep->getSubject();
         // Lese Rolle aus
         $role =  rex::getUser()->getValue('role');
-        if ($role == 4) {
-            // Setze Filter auf Kategorie 2
+        $roles = [];
+        $roles =  array_map('intval', explode(',', $role));
+        if (in_array(4, $role) {
+            // Setze Listen-Filter auf Kategorie 2
             $filter = ['cat' => '2'];
         }
         return $filter;
@@ -50,8 +52,10 @@ if (rex::isBackend() && rex::getUser() && rex_request('table_name') == 'rex_news
 
     rex_extension::register('YFORM_MANAGER_DATA_EDIT_SET', function ($ep) {
         $filter = $ep->getSubject();
-        $role =  rex::getUser()->getValue('role');
-        if ($role == 4) {
+        $roles =  array_map('intval', explode(',', $role));
+        $roles = [];
+        $roles = explode(",", $role);   
+        if (in_array(4, $role) {
             // Lege die Kategrie fest, die für diese Rolle erlaubt ist
             $filter = ['cat' => '2'];
         }
