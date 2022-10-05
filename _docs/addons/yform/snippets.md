@@ -39,10 +39,11 @@ if (rex::isBackend() && rex::getUser() && rex_request('table_name') == 'rex_news
     rex_extension::register('YFORM_MANAGER_DATA_EDIT_FILTER', function ($ep) {
         
         $filter = $ep->getSubject();
-        // Lese Rolle aus
+        // Lese Rollen aus
         $role =  rex::getUser()->getValue('role');
         $roles = [];
         $roles =  array_map('intval', explode(',', $role));
+        // hat User Rolle 4?
         if (in_array(4, $role) {
             // Setze Listen-Filter auf Kategorie 2
             $filter = ['cat' => '2'];
