@@ -6,18 +6,20 @@
 - title: AddOns
   url: /addons
   subitems:
+    - title: Cookie Gedöns
+      url: /addons/iwcc
     - title: Cronjob
       url: /addons/cronjob
     - title: Focuspoint
       url: /addons/focuspoint
-    - title: Cookie Gedöns
-      url: /addons/iwcc
+    - title: FOR Calendar
+      url: /addons/forcal
+    - title: Geolocation
+      url: /addons/geolocation
     - title: Media-Pool
       url: /addons/mediapool
     - title: Project
       url: /addons/project
-    - title: FOR Calendar
-      url: /addons/forcal
     - title: Structure
       url: /addons/structure
     - title: Theme
