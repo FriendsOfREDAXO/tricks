@@ -82,11 +82,15 @@ Geolocation.tools.positionplus = function(...args) { return new Geolocation.Tool
 
 Beispiel:
 ```php
-$konstanz = \Geolocation\Calc\Point::byLatLng([47.658968, 9.178456]);
+use Geolocation\Mapset;
+use Geolocation\Calc\Box;
+use Geolocation\Calc\Point;
 
-$bounds = \Geolocation\Calc\Box::byInnerCircle($konstanz,5000);
+$konstanz = Point::byLatLng([47.658968, 9.178456]);
 
-echo \Geolocation\Mapset::take()
+$bounds = Box::byInnerCircle($konstanz,5000);
+
+echo Mapset::take()
     ->dataset('bounds',$bounds->latLng())
     ->dataset('positionplus',$konstanz->latLng())
     ->parse();
@@ -154,11 +158,15 @@ Geolocation.tools.markerplus = function(...args) { return new Geolocation.Tools.
 
 Beispiel:
 ```php
-$konstanz = \Geolocation\Calc\Point::byLatLng([47.658968, 9.178456]);
-$kressbronn = \Geolocation\Calc\Point::byLatLng([47.586204, 9.560653]);
-$friedrichshafen = \Geolocation\Calc\Point::byLatLng([47.651695, 9.485064]);
+use Geolocation\Mapset;
+use Geolocation\Calc\Box;
+use Geolocation\Calc\Point;
 
-$bounds = \Geolocation\Calc\Box::factory([$konstanz,$friedrichshafen,$kressbronn]);
+$konstanz = Point::byLatLng([47.658968, 9.178456]);
+$kressbronn = Point::byLatLng([47.586204, 9.560653]);
+$friedrichshafen = Point::byLatLng([47.651695, 9.485064]);
+
+$bounds = Box::factory([$konstanz,$friedrichshafen,$kressbronn]);
 
 $marker = [
     [$konstanz->latLng(), '<strong>Konstanz:</strong> '.$konstanz->text(Point::DMS),'DarkSeaGreen'],
@@ -166,7 +174,7 @@ $marker = [
     [$kressbronn->latLng(),'<strong>Konstanz:</strong> '.$kressbronn->text(Point::DMS)],
 ];
 
-echo \Geolocation\Mapset::take()
+echo Mapset::take()
     ->dataset('bounds',$bounds->latLng())
     ->dataset('markerplus',$marker)
     ->parse();
