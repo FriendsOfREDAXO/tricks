@@ -82,7 +82,7 @@ Geolocation.tools.positionplus = function(...args) { return new Geolocation.Tool
 
 Beispiel:
 ```php
-$konstanz = Point::byLatLng([47.658968, 9.178456]);
+$konstanz = \Geolocation\Calc\Point::byLatLng([47.658968, 9.178456]);
 
 $bounds = \Geolocation\Calc\Box::byInnerCircle($konstanz,5000);
 
@@ -154,9 +154,9 @@ Geolocation.tools.markerplus = function(...args) { return new Geolocation.Tools.
 
 Beispiel:
 ```php
-$konstanz = Point::byLatLng([47.658968, 9.178456]);
-$kressbronn = Point::byLatLng([47.586204, 9.560653]);
-$friedrichshafen = Point::byLatLng([47.651695, 9.485064]);
+$konstanz = \Geolocation\Calc\Point::byLatLng([47.658968, 9.178456]);
+$kressbronn = \Geolocation\Calc\Point::byLatLng([47.586204, 9.560653]);
+$friedrichshafen = \Geolocation\Calc\Point::byLatLng([47.651695, 9.485064]);
 
 $bounds = \Geolocation\Calc\Box::factory([$konstanz,$friedrichshafen,$kressbronn]);
 
