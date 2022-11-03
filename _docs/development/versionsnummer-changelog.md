@@ -58,7 +58,7 @@ Theoretisch kann man Changelogs pflegen wie man möchte, es haben sich aber ein 
 - Am Anfang steht der Projekt Name
 - Jedes Release erhält einen eigenen Abschnitt mit Versionsnummer und Datum
 - Im Abschnitt sollten die Änderungen kurz, gut verständlich und strukturiert aufgeführt werden
-- Breaking Changes, Features und Bugfixes (wie oben Beschrieben) sollten so beschrieben werden.
+- Breaking Changes, Features und Bugfixes (wie oben Beschrieben) sollten so beschrieben werden **Bei BreakingChanges sollte eine Lösung gezeigt werden. **
 - Optional kann man weitere Dinge mit auflisten bzw. Gliedern. (Zum Beispiel Deprecated - Funktionalitäten die in Zukunft entfernt werden)
 
 ### Changelog Beispiel
@@ -83,10 +83,10 @@ Theoretisch kann man Changelogs pflegen wie man möchte, es haben sich aber ein 
 
  ##[3.0.0] - 21-12-01
 ### 💥 Breaking changes
-* Klasse **my-class** entfernt
+* Klasse **my-class-A** entfernt. Stattdessen kann **my-class-B** genutzt werden.
 
 ### 💣 Deprecated *(wird im nächstene Release entfernt)
-* Klasse **my-class** wird entfernt
+* Klasse **my-class-123** wird im nächsten Release entfernt
 
 ### 🚀 Features
 * Neuer MM-Effekt *Funny* hinzugefügt
