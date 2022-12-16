@@ -200,11 +200,28 @@ Den nachfolgenden Code in die `boot.php` des **project-Addons** kopieren und IPs
 In die boot.php des projekt-Addons oder eines eigenen AddOns: 
 
 ```php
-rex::setProperty('theme','light');
+if (rex::isBackend())
+{ 
+   rex_extension::register('PACKAGES_INCLUDED', static function (rex_extension_point $ep) {
+   rex::setProperty('theme', 'light');
+   // CKE5 fix   
+   rex_view::setJsProperty('cke5theme', 'light');   
+   }, rex_extension::EARLY);  
+}
+
 ```
-oder 
+oder für dunkel
 
 ```php
-rex::setProperty('theme','dark');
+<?php
+if (rex::isBackend())
+{ 
+   rex_extension::register('PACKAGES_INCLUDED', static function (rex_extension_point $ep) {
+   rex::setProperty('theme', 'dark');
+   // CKE5 fix   
+   rex_view::setJsProperty('cke5theme', 'dark');   
+   }, rex_extension::EARLY);  
+}
+
 ```
 
