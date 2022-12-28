@@ -21,6 +21,7 @@ Hier eine Anleitung um **XAMPP** mit mehreren PHP-Versionen und SSL-Verschlüsse
 - [Zusätzliche PHP-Versionen installieren](#xamppphpversions)
 - [Apache konfigurieren](#xamppapache)
 - [REDAXO installieren](#xamppredaxo)
+- [Sonstiges / Hinweise](#xampphints)
 
 ---
 
@@ -507,9 +508,9 @@ Listen 8200
 </VirtualHost>
 ```
 
-Jetzt ändern wir noch die Datei `c:\work\xamppapache\conf\extra\httpd-ssl.conf` um die PHP-Versionen auch per SSL erreichbar zu machen.
+Jetzt ändern wir noch die Datei `c:\work\xampp\apache\conf\extra\httpd-ssl.conf` um die PHP-Versionen auch per SSL erreichbar zu machen.
 
-Dazu folgenden Code am Dateieende der Datei `c:\work\xamppapache\conf\extra\httpd-ssl.conf` einfügen.
+Dazu folgenden Code am Dateieende der Datei `c:\work\xampp\apache\conf\extra\httpd-ssl.conf` einfügen.
 
 ```
 Listen 8003 https
@@ -577,7 +578,7 @@ Listen 8203 https
 </VirtualHost>
 ```
 
-Hinweis: Die angepassten Apache-conf-Dateien können hier heruntergeladen werden: https://gist.github.com/aeberhard/a208fd67d7f0e28ad7ec9239117fe8c9
+Hinweis: Die angepassten Apache-conf-Dateien können hier heruntergeladen werden: [https://gist.github.com/aeberhard/a208fd67d7f0e28ad7ec9239117fe8c9](https://gist.github.com/aeberhard/a208fd67d7f0e28ad7ec9239117fe8c9)
 
 Jetzt den Apache neu starten und dann sollten folgende Links alle funktionieren!
 
@@ -606,14 +607,24 @@ PHP 8.2.x
 
 ## REDAXO installieren
 
-verzeichnis htdocs/REDAXO anleen und loader herunterladen
+Um eine aktuelle REDAXO-Version unter unserem neuen XAMPP zu installieren empfehle ich den [REDAXO-Loader](https://github.com/FriendsOfREDAXO/redaxo_loader).
 
-https://github.com/FriendsOfREDAXO/redaxo_loader
+Ein Verzeichnis `c:\work\xampp\htdocs\REDAXO` anlegen und die Datei `redaxo_loader.php` aus dem oben genannten Repo anlegen.
 
-http://localhost/REDAXO/redaxo_loader.php
+Die Url `https://localhost/REDAXO/redaxo_loader.php` aufrufen, die gewünschte REDAXO-Version auswählen und den Anweisungen folgen.
+
+![REDAXO-Loader](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/xampp/REDAXO-Loader.png "REDAXO-Loader")
+
+Nach erfolgreichem Download wird automatisch zur REDAXO-Installation weitergeleitet.
+
+> **Hinweis:** Das root-Passwort für die Datenbanken ist '' (leer)
 
 ---
 
+<a name="xampphints"></a>
 
+## Sonstiges / Hinweise
 
-
+Im Gist zu dieser Anleitung gibt es auch eine angepasste XAMPP-Startseite die Links zu den verschiedenen PHP-Versionen enthält.
+Einfach die `index.html` aus dem Gist unter `c:\work\xampp\htdocs\dashboard\index.html` speichern
+[https://gist.github.com/aeberhard/a208fd67d7f0e28ad7ec9239117fe8c9](https://gist.github.com/aeberhard/a208fd67d7f0e28ad7ec9239117fe8c9)
