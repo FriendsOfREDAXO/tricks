@@ -12,7 +12,7 @@ Unter Windows ist m. E. [**XAMPP**](https://www.apachefriends.org/) (Apache + Ma
 
 Hier eine Anleitung um **XAMPP** mit mehreren PHP-Versionen und SSL-Verschlüsselung einzurichten!
 
-> **Hinweis:** Bei Installation in einem anderen Ordner als `c:\work` müssen die Pfade entsprechend angepasst werden.
+> **Hinweis:** Bei Installation in einem anderen Ordner als `c:\work\xampp\` müssen die Pfade entsprechend angepasst werden.
 
 - [XAMPP installieren](#xamppinstall)
 - [XAMPP Setup](#xamppsetup)
@@ -80,7 +80,7 @@ durch Klick auf die Buttons `Starten` gestartet werden ....
 
 ![XAMPP localhost](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/xampp/XAMPP-control-localhost.png "XAMPP localhost")
 
-Apache und Mysql jetzt wieder durch klick auf die Buttons `Stoppen` beenden.
+Apache und MySQL jetzt wieder durch klick auf die Buttons `Stoppen` beenden.
 
 ---
 
@@ -92,30 +92,36 @@ Durch das Script `setup_xampp.bat` wurden bereits einige Einstellungen geändert
 
 Folgende Einträge in der `php.ini` müssen noch angepasst bzw. auskommentiert und kontrolliert werden:
 
-* error_log="\Work\xampp\php\logs\php_error_log"
-* include_path = \Work\xampp\php\PEAR
-* extension_dir = "\Work\xampp\php\ext"
-* sys_temp_dir = "\Work\xampp\tmp"
-* upload_tmp_dir = "\Work\xampp\tmp"
-* date.timezone=Europe/Berlin
-* browscap = "\Work\xampp\php\extras\browscap.ini"
-* session.save_path = "\Work\xampp\tmp"
-* curl.cainfo = "\Work\xampp\apache\bin\curl-ca-bundle.crt"
-* openssl.cafile = "\Work\xampp\apache\bin\curl-ca-bundle.crt"
+```
+error_log="\Work\xampp\php\logs\php_error_log"
+include_path = \Work\xampp\php\PEAR
+extension_dir = "\Work\xampp\php\ext"
+sys_temp_dir = "\Work\xampp\tmp"
+upload_tmp_dir = "\Work\xampp\tmp"
+date.timezone=Europe/Berlin
+browscap = "\Work\xampp\php\extras\browscap.ini"
+session.save_path = "\Work\xampp\tmp"
+curl.cainfo = "\Work\xampp\apache\bin\curl-ca-bundle.crt"
+openssl.cafile = "\Work\xampp\apache\bin\curl-ca-bundle.crt"
+```
 
 Folgende Extensions aktivieren (auskommentieren):
 
-* extension=ftp
-* extension=intl
-* extension=openssl
+```
+extension=ftp
+extension=intl
+extension=openssl
+```
 
 Folgende Einträge können bei Bedarf noch angepasst werden:
 
-* max_execution_time = 120
-* max_input_time = 120
-* memory_limit = 1024M
-* post_max_size = 120M
-* upload_max_filesize = 120M
+```
+max_execution_time = 120
+max_input_time = 120
+memory_limit = 1024M
+post_max_size = 120M
+upload_max_filesize = 120M
+```
 
 > **Hinweis:** Eine angepasste `php.ini` (php74.ini) kann hier heruntergeladen werden: [https://gist.github.com/aeberhard/a208fd67d7f0e28ad7ec9239117fe8c9](https://gist.github.com/aeberhard/a208fd67d7f0e28ad7ec9239117fe8c9)
 
@@ -243,7 +249,7 @@ Fertig. Das Zertifikat sollte jetzt korrekt importiert sein!
 
 ![XAMPP localhost mit SSL](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/xampp/XAMPP-localhost-ssl.png "XAMPP localhost mit SSL")
 
-Apache und Mysql jetzt wieder durch klick auf die Buttons `Stoppen` beenden.
+Apache und MySQL jetzt wieder durch klick auf die Buttons `Stoppen` beenden.
 
 ---
 
@@ -291,40 +297,46 @@ In den drei Verzeichnissen `php80`, `php81` und `php82` jeweils die Datei `php.i
 
 Folgende Einträge in der `php.ini` müssen noch angepasst bzw. auskommentiert und kontrolliert werden:
 
-* error_log="\Work\xampp\ `php80` \logs\php_error_log"
-* include_path = \Work\xampp\php\PEAR
-* extension_dir = "\Work\xampp\ `php80` \ext"
-* sys_temp_dir = "\Work\xampp\tmp"
-* upload_tmp_dir = "\Work\xampp\tmp"
-* date.timezone=Europe/Berlin
-* browscap = "\Work\xampp\php\extras\browscap.ini"
-* session.save_path = "\Work\xampp\tmp"
-* curl.cainfo = "\Work\xampp\apache\bin\curl-ca-bundle.crt"
-* openssl.cafile = "\Work\xampp\apache\bin\curl-ca-bundle.crt"
+```
+error_log="\Work\xampp\ `php80` \logs\php_error_log"
+include_path = \Work\xampp\php\PEAR
+extension_dir = "\Work\xampp\ `php80` \ext"
+sys_temp_dir = "\Work\xampp\tmp"
+upload_tmp_dir = "\Work\xampp\tmp"
+date.timezone=Europe/Berlin
+browscap = "\Work\xampp\php\extras\browscap.ini"
+session.save_path = "\Work\xampp\tmp"
+curl.cainfo = "\Work\xampp\apache\bin\curl-ca-bundle.crt"
+openssl.cafile = "\Work\xampp\apache\bin\curl-ca-bundle.crt"
+```
 
 Folgende Extensions aktivieren (auskommentieren):
 
-* extension=bz2
-* extension=curl
-* extension=ftp
-* extension=fileinfo
-* extension=gd
-* extension=gettext
-* extension=intl
-* extension=mbstring
-* extension=exif
-* extension=mysqli
-* extension=openssl
-* extension=pdo_mysql
-* extension=pdo_sqlite
+```
+extension=bz2
+extension=curl
+extension=ftp
+extension=fileinfo
+extension=gd
+extension=gettext
+extension=intl
+extension=mbstring
+extension=exif
+extension=mysqli
+extension=openssl
+extension=pdo_mysql
+extension=pdo_sqlite
+```
 
 Folgende Einträge können bei Bedarf noch angepasst werden:
 
-* max_execution_time = 120
-* max_input_time = 120
-* memory_limit = 1024M
-* post_max_size = 120M
-* upload_max_filesize = 120M
+```
+max_execution_time = 120
+max_input_time = 120
+memory_limit = 1024M
+post_max_size = 120M
+upload_max_filesize = 120M
+```
 
 > **Hinweis:** Eine angepasste `php.ini` (php80.ini) kann hier heruntergeladen werden: [https://gist.github.com/aeberhard/a208fd67d7f0e28ad7ec9239117fe8c9](https://gist.github.com/aeberhard/a208fd67d7f0e28ad7ec9239117fe8c9)
 
@@ -332,6 +344,7 @@ Folgende Einträge können bei Bedarf noch angepasst werden:
 
 Folgende Einträge in der `php.ini` müssen noch angepasst bzw. auskommentiert und kontrolliert werden:
 
+```
 * error_log="\Work\xampp\ `php81` \logs\php_error_log"
 * include_path = \Work\xampp\php\PEAR
 * extension_dir = "\Work\xampp\ `php81` \ext"
@@ -342,9 +355,11 @@ Folgende Einträge in der `php.ini` müssen noch angepasst bzw. auskommentiert u
 * session.save_path = "\Work\xampp\tmp"
 * curl.cainfo = "\Work\xampp\apache\bin\curl-ca-bundle.crt"
 * openssl.cafile = "\Work\xampp\apache\bin\curl-ca-bundle.crt"
+```
 
 Folgende Extensions aktivieren (auskommentieren):
 
+```
 * extension=bz2
 * extension=curl
 * extension=ftp
@@ -358,14 +373,17 @@ Folgende Extensions aktivieren (auskommentieren):
 * extension=openssl
 * extension=pdo_mysql
 * extension=pdo_sqlite
+```
 
 Folgende Einträge können bei Bedarf noch angepasst werden:
 
+```
 * max_execution_time = 120
 * max_input_time = 120
 * memory_limit = 1024M
 * post_max_size = 120M
 * upload_max_filesize = 120M
+```
 
 > **Hinweis:** Eine angepasste `php.ini` (php81.ini) kann hier heruntergeladen werden: [https://gist.github.com/aeberhard/a208fd67d7f0e28ad7ec9239117fe8c9](https://gist.github.com/aeberhard/a208fd67d7f0e28ad7ec9239117fe8c9)
 
@@ -373,6 +391,7 @@ Folgende Einträge können bei Bedarf noch angepasst werden:
 
 Folgende Einträge in der `php.ini` müssen angepasst bzw. auskommentiert werden:
 
+```
 * error_log="\Work\xampp\ `php82` \logs\php_error_log"
 * include_path = \Work\xampp\php\PEAR
 * extension_dir = "\Work\xampp\ `php82` \ext"
@@ -383,9 +402,11 @@ Folgende Einträge in der `php.ini` müssen angepasst bzw. auskommentiert werden
 * session.save_path = "\Work\xampp\tmp"
 * curl.cainfo = "\Work\xampp\apache\bin\curl-ca-bundle.crt"
 * openssl.cafile = "\Work\xampp\apache\bin\curl-ca-bundle.crt"
+```
 
 Folgende Extensions aktivieren (auskommentieren):
 
+```
 * extension=bz2
 * extension=curl
 * extension=ftp
@@ -399,14 +420,17 @@ Folgende Extensions aktivieren (auskommentieren):
 * extension=openssl
 * extension=pdo_mysql
 * extension=pdo_sqlite
+```
 
 Folgende Einträge können bei Bedarf noch angepasst werden:
 
+```
 * max_execution_time = 120
 * max_input_time = 120
 * memory_limit = 1024M
 * post_max_size = 120M
 * upload_max_filesize = 120M
+```
 
 > **Hinweis:** Eine angepasste `php.ini` (php82.ini) kann hier heruntergeladen werden: [https://gist.github.com/aeberhard/a208fd67d7f0e28ad7ec9239117fe8c9](https://gist.github.com/aeberhard/a208fd67d7f0e28ad7ec9239117fe8c9)
 
