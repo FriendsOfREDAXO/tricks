@@ -156,7 +156,7 @@ echo.
 pause
 ```
 
-Datei `D:\ampp\apache\cert.conf` im XAMPP-Verzeichnis mit folgendem Inhalt **anlegen** und ggf. anpassen.
+Datei `D:\xampp\apache\cert.conf` im XAMPP-Verzeichnis mit folgendem Inhalt **anlegen** und ggf. anpassen.
 
 ```INI
 [ req ]
