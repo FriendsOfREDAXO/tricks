@@ -645,6 +645,8 @@ Die Url `https://localhost/REDAXO/redaxo_loader.php` aufrufen, die gewünschte R
 
 Nach erfolgreichem Download wird automatisch zur REDAXO-Installation weitergeleitet.
 
+![REDAXO-Setup](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/xampp/REDAXO-Setup.png "REDAXO-Setup")
+
 > **Hinweis:** Das root-Passwort für die Datenbanken ist '' (leer)
 
 ---
