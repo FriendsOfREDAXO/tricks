@@ -1,6 +1,6 @@
 ---
 title: Datensätze duplizieren ("Add" mit Vorbelegung)
-authors: [christophboecker]
+authors: [christophboecker,xong]
 prio:
 ---
 
