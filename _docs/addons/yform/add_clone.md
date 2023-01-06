@@ -1,315 +1,497 @@
----
-title: Datensätze klonen ("Add" mit Vorbelegung)
-authors: [christophboecker]
-prio:
----
+YForm-Datensätze duplizieren ("Add" mit Vorbelegung)
+Es kann recht lästig sein, wenn komplexe Datensätze immer wieder ähnlich zu einem anderen erfasst werden müssen. Die Übernahme von Inhalten aus bestehenden Datensätzen ist in YForm nicht per se vorgesehen.
 
-# YForm-Datensätze klonen ("Add" mit Vorbelegung)
+In diesem Beitrag wird ein Weg aufgezeigt, wie neue Datensätze aus bestehenden dupliziert werden.
 
-Es kann recht lästig sein, wenn komplexe Datensätze immer wieder ähnlich zu einem anderen erfasst werden müssen. Die
-Übernahme von Inhalten aus bestehenden Datensätzen ist in YForm wie in rex_form nicht per se
-vorgesehen.
+Ein bestehender Datensatz erhält über den EP YFORM_DATA_LIST (bzw. YFORM_DATA_LIST_ACTION_BUTTONS) in der Listenansicht einen Duplizier-Button bzw. eine Duplizier-Aktion.
+Dahinter verbirgt sich ein Editier-Button (Editier-Aktion) mit zusätzlichem Url-Parameter &clone=1.
+Das Formular wird zunächst als normales Edit-Formular aufgebaut.
+Unmittelbar vor der Anzeige wird das Edit-Formular durch kleinere Änderungen zu einem Add-Formular.
+Ohne Einsatz einer Dataset-Klasse für die Tabelle, die auf rex_yform_manager_dataset beruht, geht es nicht. Alle anderen Eingriffspunkte (z.B. EPs) liegen zu früh. Der späteste Eingriffspunkt vor der Anzeige ist in der Callback-Funktion afterFieldsExecuted von function executeForm(..).
+TOC
+Basislösung
+Erweiterung 1: Basis-Dataset-Klasse und und individuelle Klassen für Tabellen
+Erweiterung 2: Trait zur Nutzung in Dataset-Klassen
+Warung, bitte beachten!
 
-In diesem Beitrag wird ein Weg aufgezeigt, wie neue Datensätze aus bestehenden geklont werden.
+Basis-Lösung
+Step 1: Aufruf
+Im Beispiel werden zwei i18n-Einträge gesetzt (kann man auch in eine .lang-Datei packen), eine Tabelle wird mit der Dataset-Klasse gekoppelt und die EPs YFORM_DATA_LIST und YFORM_DATA_LIST_ACTION_BUTTON werden belegt.
 
+rex_i18n::addMsg('yform_clonedata','Datensatz klonen [Original: {0}]');
+rex_i18n::addMsg('my_yform_duplicate_action','Duplizieren');
 
-* [1. Das Problem beim Klonen](#problem)
-* [2. Die zwei Varianten des Klonens](#variante)
-* [2.1 Datensatz kopieren, dann editieren](#variante-a)
-* [2.2 Leeren Datensatz vorbefüllen und editieren](#variante-b)
-* [3. Eine einfache Lösung für einfache Tabellen](#einfach)
-* [4. Die Lösung für komplexe Relationen-Formulare](#yorm)
-* [4.1 Die Datenliste erweitern: Spalte "Klonen"](#ep)
-* [4.2 Den Klon-Dataset bereitstellen (YOrm)](#dataset)
-* [4.3 Die Tabellen auf die neue Dataset-Klasse umleiten](#boot)
-* [4.4 Extension-Points beim Klonen](#ep-mismatch)
-* [**Warnung**](#warnung)
+rex_yform_manager_dataset::setModelClass('rex_myfirsttable', Dataset::class);
 
-<a name="problem"></a>
-## 1. Das Problem beim Klonen
-
-In YForm ist es nicht unüblich, über den Datentyp `be_manager_relation` verknüpfte Daten in und aus
-anderen Tabellen einzubeziehen. Alle Varianten, die lediglich Referenzen (einzelne Id oder komma-separierte Liste)
-in der Haupttabelle einfügen, sind zu unkritisch, da die Daten Teil der Haupttabelle sind.
-
-Kniffelig sind Relationen, die die Sätze der anderen Tabelle als Relation verknüpfen.
-In dem Fall findet sich innerhalb des generierten HTML entweder eine Referenz auf einen vorhandenen
-Datensatz (z.B. bei n:m-Relationen) oder gleich ganze Datensätze (Variante "inline") mit der zugehörigen id
-als "Hidden Input".
-
-
-<a name="variante"></a>
-## 2. Die zwei Varianten des Klonens
-
-<a name="variante-a"></a>
-### 2.1 Datensatz kopieren, dann editieren
-
-In der Variante wird der Datensatz und ggf. Einträge in Relationentabellen dupliziert. Anschließend stehen zwei
-inhaltlich identische Datensätze in der Tabelle und ggf. auch in Relationentabellen.
-
-* Das Verfahren kann relativ leicht mit einem passenden Script für die Tabelle realisiert werden (z.B. im ExtensionPoint `YFORM_DATA_ADD`)
-* Da es dabei zu doppelten Schlüsselwerten kommen kann, die im Falle eines "Unique"-Schlüssels kollidieren,
-ist es nicht ohne Risiko.
-* Nach dem Dulizieren muss das Editieren als zweiter Schritt aufgerufen werden; (z.B. per Redirect)
-* Wird der Satz doch nicht benötigt (Abbruch) muss man unbedingt daran denken, den Datensatz auch wieder zu löschen!
-
-<a name="variante-b"></a>
-### 2.2 Leeren Datensatz vorbefüllen und editieren
-
-Das zweite Verfahren basiert auf der Idee, einen neuen Datensatz anzulegen ("add"), dabei aber die
-Daten eines Referenzsatzes komplett zu übernehmen als Vorbefüllung des Formulars.
-
-* Doppelte Schlüsselwerte werden beim Speichern (idealerweise über einen Validator) erkannt und im Formular mitgeteilt
-* Ein Abbruch tut nicht weh, da noch keine Daten gespeichert sind.
-* Look and Feel wie bei einem normalen "Add".
-* Problem: Relationendatensätze in einer verknüpften Tabelle können nicht einfach so mitkopiert werden.
-
-> Im weiteren Verlauf wird nur diese Idee weiterverfolgt.
-
-
-<a name="einfach"></a>
-## 3. Eine einfache Lösung für einfache Tabellen
-
-Ein einfacher Fall liegt dann vor, wenn Tabellen ohne inline-Relationen oder n:m-Relationentabellen auskommen.
-Die Referenzen auf die weiteren Tabellen speichert `be_manager_relation` direkt im Datensatz der Haupttabelle,
-sie werden also einfach mitkopiert.
-
-Es reicht aus, die normale Add-URL um einen Parameter "data_id=xyz" zu ergänzen. xyz ist die Id des
-zu klonenden Datensatzes. YForm wird damit gewissermaßen überlistet. Der vorhandene Datensatz wird in das Formular
-geladen, trotzdem läuft das Add-Prozedere ab. Das klappt ähnlich auch mit rex_list/rex_form.
-
-Alternativ wird in der Edit-URL der Parameter `func=`auf "add" gesetzt, wie im Beispiel.
-
-Die Lösung kann über den EP `YFORM_DATA_LIST` aktiviert werden. Nach der ersten Spalte (Add/Edit) wird die Klon-Spalte eingefügt.
-
-```php
-\rex_extension::register('YFORM_DATA_LIST',
-    function( \rex_extension_point $ep )
-    {
-        $rex_list = $ep->getSubject();
-
-        $name = $rex_list->getColumnNames()[0];
-        if( substr($name,0,27) != '<a href="index.php?func=add' ) return;
-
-        $rex_list->addColumn('clone', '<i class="fa fa-clone"></i>', 1);
-        $rex_list->setColumnLayout('clone', ['<th></th>', '<td class="rex-table-icon">###VALUE###</td>']);
-        $params = $rex_list->getColumnParams($name);
-        $params['func'] = 'add';
-        $rex_list->setColumnParams('clone', $params );
-    }
-);
-```
-
-Sobald aber andere Relationen inline eingebunden sind, bleibt der geklonte Inhalt unvollständig, da die
-Relationendaten nicht geladen werden.
-
-<a name="yorm"></a>
-## 4. Die Lösung für komplexe Relationen-Formulare
-
-In diesem Fall kann man über YOrm zum Ziel kommen. Der YOrm-Kosmos stellt eine Klasse `rex_yform_manager_dataset`
-zur Verfügung, die innerhalb von YForm der Datensatzverwaltung dient. Ein Formular wird mit der Methode
-```php
-$datensatz->executeForm( $yform, $afterFieldsExecuted )
-```
-ausgeführt. Das umfasst einerseits den Aufbau des gesamten HTML für das Formular, aber auch die
-Nachbearbeitung des abgeschickten Formulars. Der Table_Manager ruft `executeForm`  auf und gibt auch
-noch eine Callback-Funktion `$afterFieldsExecuted` mit, die nach allen anderen ExtensionPoints und
-kurz vor dem Aufbau des finalen HTML ausgeführt wird.
-
-An dieser Stelle greifen wir in den Ablauf ein.
-
-* Eine von `rex_yform_manager_dataset` abgeleitete Klasse überschreibt die Methode `executeForm` und
-schleust den Code für das Klonen ein. Ziel:
-    * Der Datensatz wird mit allen Elementen inkl. verlinkten (inline) Datensätzen vorbereitet.
-    * Aus dem Formular werden die Referenzen auf die existenten Datensätze entfernt, die Daten können
-      also beim Speichern nicht **zurück**geschrieben werden.
-    * Kleine weitere Anpassungen, damit das Formular vom "Edit-Formular" zum "Add-Formular" wird.
-* Die Klasse wird allen Tabellen, die die Klon-Fuktionalität erhalten sollen, als Datensatz-Klasse zugewiesen
-* Via Extension-Point `YFORM_DATA_LIST` wird eine Aktionsspalte "Klonen" eingefügt, die je Datensatz
-den Klonvorgang startet.
-
-<a name="ep"></a>
-### 4.1 Die Datenliste erweitern: Spalte "Klonen"
-
-I.d.R. ist die erste Spalte der Tabelle mit dem "+"-Symbol im Header für "Neuer Datensatz" und in den
-Zeilen mit einem Formularsymbol für "Datensatz editieren" versehen.
-
-Wir erzeugen eine neue zweite Spalte mit einen Duplizier-Symbol und packen darauf den Editier-Link
-der ersten Spalte, aber ergänzt um den Parameter `clone=1`:
-
-```php
-\rex_extension::register('YFORM_DATA_LIST',
-    function( \rex_extension_point $ep )
-    {
-        $rex_list = $ep->getSubject();
-
-        $name = $rex_list->getColumnNames()[0];
-        if( substr($name,0,27) != '<a href="index.php?func=add' ) return;
-
-        $rex_list->addColumn('clone', '<i class="rex-icon rex-icon-duplicate"></i>', 1);
-        $rex_list->setColumnLayout('clone', ['<th></th>', '<td class="rex-table-icon">###VALUE###</td>']);
-        $params = $rex_list->getColumnParams($name);
-        $params['clone'] = 1;
-        $rex_list->setColumnParams('clone', $params );
-    }
-);
-
-```
-Klickt man diesen Link an, wird der Datensatz zunächst wie bei jedem Editiervorgang behandelt.
-Dann übernimmt der Klon-Dataset.
-
-
-<a name="dataset"></a>
-### 4.2 Den Klon-Dataset bereitstellen
-
-In der Methode `executeForm` wird zuerst geprüft, ob der URL-Parameter `clone=1` gesetzt ist. Wenn
-nein wird ganz normal `parent::executeForm` abgearbeitet.
-
-Im anderen Fall wird eine neue Callback-Funktion an Stelle von `$afterFieldsExecuted` vorbereitet,
-die folgende Aktionen ausführt:
-
-**Da es keinen anderen Einstieg gibt, um den Formulartitel von "Datensatz editieren" auf "Datensatz anlegen" zu ändern, wird die
-i18n-Übersetzung manipuliert:**
-```php
-rex_i18n::addMsg('yform_editdata','Datensatz klonen [Original: {0}]');
-```
-Idealerweise wird auch der neue Text über .lang-Dateien zur Verfügung gestellt.
-
-**Damit das Formular beim Speichern auch wirklich als "Add"-Formular arbeitet, werden die als
-"Hidden Input" vorgesehenen Werte verändert. Die Datensatznummer wird entfernt, der Funktionstyp
-von "edit" auf "add" gesetzt**
-```php
-$yform->objparams['form_hiddenfields']['func'] = 'add';
-unset( $yform->objparams['form_hiddenfields']['data_id'] );
-```
-
-**In den Value-Feldern des Formulars, deren HTML bereits generiert ist (`$yform->objparams['form_output'][$k]`),
-wird für be_manager_relation-Felder des Typs 5 (inline) ebenfalls der "Hidden Input" mit der Satznummer entfernt.**
-Das ist hier etwas komplizierter, da das HTML bereits generiert ist. Der Input-Tag wird komplett entfernt.
-```php
-if( $v instanceof rex_yform_value_be_manager_relation && 5 == $v->getElement('type') )
-{
-    $fieldName = preg_quote ( $v->getFieldName() );
-    $pattern = '/<input type="hidden" name="'.$fieldName.'(\[\d+\])*\[id\]" value="\d+" \/>/';
-    $yform->objparams['form_output'][$k] = preg_replace( $pattern, '', $yform->objparams['form_output'][$k] );
-}
-```
-
-Auch die Submit-Button werden noch überarbeitet, um die Add-spezifischen Texte auszugeben.
-```php
-$yform->objparams['form_output'][$k] = str_replace(
-    [ rex_i18n::msg('yform_save').'</button', rex_i18n::msg('yform_save_apply').'</button' ],
-    [ rex_i18n::msg('yform_add').'</button', rex_i18n::msg('yform_add_apply').'</button' ],
-    $yform->objparams['form_output'][$k]
-);
-```
-
-Zum Schluß ruft die neue Callback-Funktion die ursprüngliche auf.
-
-Hier der komplette Code:
-
-```php
-class klon_dataset extends \rex_yform_manager_dataset
-{
-
-    public function executeForm(rex_yform $yform, callable $afterFieldsExecuted = null)
-    {
-        // clone angefordert? Wenn nein: normale Bearbeitung
-        if( 1 !== rex_request('clone','integer',0) )
-        {
-            return parent::executeForm($yform, $afterFieldsExecuted);
+rex_extension::register(['YFORM_DATA_LIST', 'YFORM_DATA_LIST_ACTION_BUTTONS'],
+    static function (rex_extension_point $ep) {
+        /** @var rex_yform_manager_table $table */
+        $table = $ep->getParam('table');
+        $modelClass = rex_yform_manager_dataset::getModelClass($table->getTableName());
+        $epName = $ep->getName();
+        if( null !== $modelClass && method_exists($modelClass, $epName)) {
+            return $modelClass::$epName($ep); // @phpstan-ignore-line
         }
+    }
+);
+Die EP-Funktion prüft ab, ob es für die angegebene Tabelle ($ep->getParam('table')) eine eigene Dataset-Klasse gibt (rex_yform_manager_dataset::getModelClass) und ob die Klasse eine dem EP-Namen entsprechende Methode hat (hier z.B. Dataset::YFORM_DATA_LIST). Wenn ja wird die Methode ausgeführt.
 
-        // clone angefordert! afterFieldsExecuted wird durch ein eigenes Callback ersetzt,
+Step 2: Die Dataset-Klasse
+Die Dataset-Klasse ist ein All-In-One-Beispiel. Wie man die Struktur auch anders handhaben kann, wird später beschrieben.
 
-        $callback = function( rex_yform $yform ) use ( $afterFieldsExecuted )
-        {
-            // Titelzeile frisieren: mangels EP wird die i18n-Tabelle geändert.
-            rex_i18n::addMsg('yform_editdata','Datensatz klonen [Original: {0}]');
+class Dataset extends rex_yform_manager_dataset
+{
+    protected static string $CLONE_PARAM = 'clone';
+    protected static string $CLONE_COLUMN = 'clone';
 
-            // Für das Formular an sich: Auf "Add" umschalten, indem func auf "add" gesetzt und
-            // die Datensatznummer entfernt wird.
-            $yform->objparams['form_hiddenfields']['func'] = 'add';
-            unset( $yform->objparams['form_hiddenfields']['data_id'] );
+    public function executeForm(rex_yform $yform, callable $afterFieldsExecuted = null): string
+    {
+        $afterFieldsExecuted = $this->getCloneFormCallback($afterFieldsExecuted);
+        return parent::executeForm($yform, $afterFieldsExecuted);
+    }
 
-            // Änderungen in den Values: jeweils den vorgenerierten HTML-Code ändern
-            foreach( $yform->objparams['values'] as $k=>$v )
-            {
-                // Submit-Buttons von "Edit" auf "Add" zurückstellen
-                if( $v instanceof rex_yform_value_submit )
-                {
-                    $yform->objparams['form_output'][$k] = str_replace(
-                        [ rex_i18n::msg('yform_save').'</button', rex_i18n::msg('yform_save_apply').'</button' ],
-                        [ rex_i18n::msg('yform_add').'</button', rex_i18n::msg('yform_add_apply').'</button' ],
-                        $yform->objparams['form_output'][$k]
-                    );
-                    continue;
+    /**
+     * @api
+     * @param rex_extension_point<rex_yform_list> $ep
+     * @return void|rex_yform_list
+     */
+    public static function YFORM_DATA_LIST(rex_extension_point $ep)
+    {
+        $list = $ep->getSubject();
+        self::addCloneColumn($list);
+    }
+
+    /**
+     * @api
+     * @param rex_extension_point<array<string,string>> $ep
+     * @return void|array<string,string>
+     */
+    public static function YFORM_DATA_LIST_ACTION_BUTTONS(rex_extension_point $ep)
+    {
+        $action = $ep->getSubject();
+        $action = self::addCloneAction($action);
+        $ep->setSubject($action);
+    }
+
+    /**
+     * erzeugt (für Clone-Formulare) eine Callback-Funktion, die das Formular
+     * kurz vor der Ausgabe von Edit auf Add umstellt und dann den ggf. 
+     * vorhandenen afterFieldsExecuted-Callback ausführt.
+     */
+    protected function getCloneFormCallback(callable $afterFieldsExecuted = null): ?callable
+    {
+        if (1 === rex_request(self::$CLONE_PARAM, 'integer', 0)) {
+            $callback = $afterFieldsExecuted;
+            $afterFieldsExecuted = static function (rex_yform $yform) use ($callback) {
+                self::changeEditToAdd($yform);
+                if (is_callable($callback)) {
+                    $callback($yform);
                 }
+            };
+            rex_i18n::addMsg('yform_editdata', rex_i18n::msg('yform_clonedata'));
+        }
+        return $afterFieldsExecuted;
+    }
 
-                // im Feldtyp be_manager_relation / Typ 5 (=inline) ebenfalls die hidden-inputs mit
-                // der Datensatz-ID der verbundenen Sätze entfernen
-                // Nur "inline" ist problematisch;
-                if( $v instanceof rex_yform_value_be_manager_relation && 5 == $v->getElement('type') )
-                {
-                    $fieldName = preg_quote ( $v->getFieldName() );
-                    $pattern = '/<input type="hidden" name="'.$fieldName.'(\[\d+\])*\[id\]" value="\d+" \/>/';
-                    $yform->objparams['form_output'][$k] = preg_replace( $pattern, '', $yform->objparams['form_output'][$k] );
-                }
+    /**
+     * fügt eine Spalte mit Klonen/Duplizieren-Button ein
+     * Bedingung: Spalte 0 enthält den Edit-Button.
+     * Die Edit-Button-Konfiguration wird weitgehend kopiert und zusätzlich
+     * der Parameter clone=1 angehängt
+     * @api
+     */
+    public static function addCloneColumn(rex_yform_list $list, int $position=1, string $column='clone'): void
+    {
+        $name = $list->getColumnName(0);
+        if (null !== $name && str_contains($name, ' href="index.php?func=add')) {
+            $list->addColumn($column, '<i class="fa fa-clone"></i>', $position);
+            $list->setColumnLayout($column, ['<th></th>', '<td class="rex-table-icon">###VALUE###</td>']);
+            $params = $list->getColumnParams($name);
+            $params[self::$CLONE_PARAM] = 1;
+            $list->setColumnParams($column, $params);
+        }
+    }
+
+    /**
+     * fügt eine Klonen/Duplizieren-Action in das Action Menü ein
+     * @api
+     * @param array<string,string> $action
+     * @return array<string,string>
+     */
+    public static function addCloneAction(array $action) : array
+    {
+        $i = array_search('edit', array_keys($action), true);
+        if (false !== $i) {
+            preg_match('/href="(?<href>.*?)"/',$action['edit'],$match);
+            $template = '<a href="%s&%s=1"><i class="fa fa-clone"></i> %s</a>';
+            $cloneAction = sprintf($template,$match['href'],self::$CLONE_PARAM,rex_i18n::msg('my_yform_duplicate_action'));
+            array_splice( $action, $i+1, 0, ['clone' => $cloneAction]);
+        }
+        return $action;
+    }
+    
+    /**
+     * Ändert ein EDIT-Formular auf ADD.
+     *
+     * Die Daten bleiben erhalten, aber alle Datensatz-Referenzen werden
+     * entfernt etc.
+     * 
+     * Auch Inline-Formulare von be_manager_relation/Typ5 werden umgebaut,
+     * nicht aber Inline-Formulare in Inline-Formularen.
+     * @api
+     */
+    public static function changeEditToAdd(rex_yform $yform): void
+    {
+        // Für das Formular an sich: Auf "Add" umschalten
+        $yform->objparams['form_hiddenfields']['func'] = 'add';
+        unset($yform->objparams['form_hiddenfields']['data_id']);
+
+        // In den Feldern Anpassungen vornehmen
+        foreach ($yform->objparams['values'] as $k => $v) {
+            // Submit-Buttons von "Edit" auf "Add" zurückstellen
+            if ($v instanceof rex_yform_value_submit) {
+                $yform->objparams['form_output'][$k] = str_replace(
+                    [rex_i18n::msg('yform_save').'</button', rex_i18n::msg('yform_save_apply').'</button'],
+                    [rex_i18n::msg('yform_add').'</button', rex_i18n::msg('yform_add_apply').'</button'],
+                    $yform->objparams['form_output'][$k]
+                );
+                continue;
             }
 
-            call_user_func( $afterFieldsExecuted, $yform );
-        };
+            // im Feldtyp be_manager_relation / Typ 5 (inline) ebenfalls die Datensatz-ID der
+            // verbundenen Sätze entfernen. Nur "inline" ist problematisch
+            if ($v instanceof rex_yform_value_be_manager_relation && '5' === $v->getElement('type')) {
+                $fieldName = preg_quote($v->getFieldName());
+                $pattern = '/<input type="hidden" name="'.$fieldName.'(\[\d+\])*\[id\]" value="\d+" \/>/';
+                $yform->objparams['form_output'][$k] = preg_replace($pattern, '', $yform->objparams['form_output'][$k]);
+            }
+        }
+    }
+}
 
-        return parent::executeForm($yform, $callback);
+Erweiterung 1: Basis-Dataset-Klasse und und individuelle Klassen für Tabellen
+Hintegrrund ist die Überlegung, dass man den Duplizier-Button nicht für jede Tabelle benötigt. Wo gewünscht werden den Tabellen, die einen Button oder eine Aktion bekommen sollen, eigene, auf Dataset aufbauende Klassen zugewiesen.
+
+
+Step 1: Aufruf
+rex_i18n::addMsg('yform_clonedata','Datensatz klonen [Original: {0}]');
+rex_i18n::addMsg('my_yform_duplicate_action','Duplizieren');
+
+rex_yform_manager_dataset::setModelClass('rex_myfirsttable', FirstDataset::class);
+rex_yform_manager_dataset::setModelClass('rex_mysecondtable', SecondDataset::class);
+
+rex_extension::register(['YFORM_DATA_LIST', 'YFORM_DATA_LIST_ACTION_BUTTONS'],
+    static function (rex_extension_point $ep) {
+        /** @var rex_yform_manager_table $table */
+        $table = $ep->getParam('table');
+        $modelClass = rex_yform_manager_dataset::getModelClass($table->getTableName());
+        $epName = $ep->getName();
+        if( null !== $modelClass && method_exists($modelClass, $epName)) {
+            return $modelClass::$epName($ep); // @phpstan-ignore-line
+        }
+    }
+);
+Step 2: Basis-Dataset-Klasse (ohne EP-Methoden)
+class Dataset extends rex_yform_manager_dataset
+{
+    protected static string $CLONE_PARAM = 'clone';
+
+    public function executeForm(rex_yform $yform, callable $afterFieldsExecuted = null): string
+    {
+        $afterFieldsExecuted = $this->getCloneFormCallback($afterFieldsExecuted);
+        return parent::executeForm($yform, $afterFieldsExecuted);
     }
 
+    /**
+     * erzeugt (für Clone-Formulare) eine Callback-Funktion, die das Formular
+     * kurz vor der Ausgabe von Edit auf Add umstellt und dann den ggf. 
+     * vorhandenen afterFieldsExecuted-Callback ausführt.
+     */
+    protected function getCloneFormCallback(callable $afterFieldsExecuted = null): ?callable
+    {
+        if (1 === rex_request(self::$CLONE_PARAM, 'integer', 0)) {
+            $callback = $afterFieldsExecuted;
+            $afterFieldsExecuted = static function (rex_yform $yform) use ($callback) {
+                self::changeEditToAdd($yform);
+                if (is_callable($callback)) {
+                    $callback($yform);
+                }
+            };
+            rex_i18n::addMsg('yform_editdata', rex_i18n::msg('yform_clonedata'));
+        }
+        return $afterFieldsExecuted;
+    }
+
+    /**
+     * fügt eine Spalte mit Klonen/Duplizieren-Button ein
+     * Bedingung: Spalte 0 enthält den Edit-Button.
+     * Die Edit-Button-Konfiguration wird weitgehend kopiert und zusätzlich
+     * der Parameter clone=1 angehängt
+     * @api
+     */
+    public static function addCloneColumn(rex_yform_list $list, int $position=1, string $column='clone'): void
+    {
+        $name = $list->getColumnName(0);
+        if (null !== $name && str_contains($name, ' href="index.php?func=add')) {
+            $list->addColumn($column, '<i class="fa fa-clone"></i>', $position);
+            $list->setColumnLayout($column, ['<th></th>', '<td class="rex-table-icon">###VALUE###</td>']);
+            $params = $list->getColumnParams($name);
+            $params[self::$CLONE_PARAM] = 1;
+            $list->setColumnParams($column, $params);
+        }
+    }
+
+    /**
+     * fügt eine Klonen/Duplizieren-Action in das Action Menü ein
+     * @api
+     * @param array<string,string> $action
+     * @return array<string,string>
+     */
+    public static function addCloneAction(array $action) : array
+    {
+        $i = array_search('edit', array_keys($action), true);
+        if (false !== $i) {
+            preg_match('/href="(?<href>.*?)"/',$action['edit'],$match);
+            $template = '<a href="%s&%s=1"><i class="fa fa-clone"></i> %s</a>';
+            $cloneAction = sprintf($template,$match['href'],self::$CLONE_PARAM,rex_i18n::msg('my_yform_duplicate_action'));
+            array_splice( $action, $i+1, 0, ['clone' => $cloneAction]);
+        }
+        return $action;
+    }
+    
+    /**
+     * Ändert ein EDIT-Formular auf ADD.
+     *
+     * Die Daten bleiben erhalten, aber alle Datensatz-Referenzen werden
+     * entfernt etc.
+     * 
+     * Auch Inline-Formulare von be_manager_relation/Typ5 werden umgebaut,
+     * nicht aber Inline-Formulare in Inline-Formularen.
+     * @api
+     */
+    public static function changeEditToAdd(rex_yform $yform): void
+    {
+        // Für das Formular an sich: Auf "Add" umschalten
+        $yform->objparams['form_hiddenfields']['func'] = 'add';
+        unset($yform->objparams['form_hiddenfields']['data_id']);
+
+        // In den Feldern Anpassungen vornehmen
+        foreach ($yform->objparams['values'] as $k => $v) {
+            // Submit-Buttons von "Edit" auf "Add" zurückstellen
+            if ($v instanceof rex_yform_value_submit) {
+                $yform->objparams['form_output'][$k] = str_replace(
+                    [rex_i18n::msg('yform_save').'</button', rex_i18n::msg('yform_save_apply').'</button'],
+                    [rex_i18n::msg('yform_add').'</button', rex_i18n::msg('yform_add_apply').'</button'],
+                    $yform->objparams['form_output'][$k]
+                );
+                continue;
+            }
+
+            // im Feldtyp be_manager_relation / Typ 5 (inline) ebenfalls die Datensatz-ID der
+            // verbundenen Sätze entfernen. Nur "inline" ist problematisch
+            if ($v instanceof rex_yform_value_be_manager_relation && '5' === $v->getElement('type')) {
+                $fieldName = preg_quote($v->getFieldName());
+                $pattern = '/<input type="hidden" name="'.$fieldName.'(\[\d+\])*\[id\]" value="\d+" \/>/';
+                $yform->objparams['form_output'][$k] = preg_replace($pattern, '', $yform->objparams['form_output'][$k]);
+            }
+        }
+    }
 }
-```
+Step 3: Dataset-Klassen für die Tabellen
+class FirstDataset extends Dataset
+{
+    /**
+     * @api
+     * @param rex_extension_point<rex_yform_list> $ep
+     * @return void|rex_yform_list
+     */
+    public static function YFORM_DATA_LIST(rex_extension_point $ep)
+    {
+        $list = $ep->getSubject();
+        self::addCloneColumn($list);
+    }
+}
+class SecondDataset extends Dataset
+{
+    /**
+     * @api
+     * @param rex_extension_point<array<string,string>> $ep
+     * @return void|array<string,string>
+     */
+    public static function YFORM_DATA_LIST_ACTION_BUTTONS(rex_extension_point $ep)
+    {
+        $action = $ep->getSubject();
+        $action = self::addCloneAction($action);
+        $ep->setSubject($action);
+    }
+}
 
-<a name="boot"></a>
-### 4.3 Die Tabellen auf die neue Dataset-Klasse umleiten
+Erweiterung 2: Trait zur Nutzung in Dataset-Klassen
+Der Trait stellt die Hilfsmethoden bereit. Alles weitere z.B. auch executeForm müssen individuell in Dataset-Klassen eingebaut werden:
 
-Zu guter Letzt muss für alle Tabellen, die den Klon-Mechanismus nutzen sollen, die neue Dataset-Klasse als
-Standard zugewiesen werden. Das kann z.B. in einer `boot.php` geschehen:
-```php
-rex_yform_manager_dataset::setModelClass('rex_my_yform_table', klon_dataset::class);
-```
+Step 1: Aufruf
+Siehe Erweiterung 1
 
-<a name="ep-mismatch"></a>
-### 4.4 Extension-Points beim Klonen
+Step 2: Trait
+trait CloneYForm
+{
+    protected static string $CLONE_PARAM = 'clone';
 
-Da hier ein Editier-Prozedere nachträglich in ein Hinzufügen-Prozedere umgebaut wird, werden die
-ExtensionsPoints nicht wie zu erwarten aufgerufen.
+    /**
+     * erzeugt (für Clone-Formulare) eine Callback-Funktion, die das Formular
+     * kurz vor der Ausgabe von Edit auf Add umstellt und dann den ggf. 
+     * vorhandenen afterFieldsExecuted-Callback ausführt.
+     */
+    protected function getCloneFormCallback(callable $afterFieldsExecuted = null): ?callable
+    {
+        if (1 === rex_request(self::$CLONE_PARAM, 'integer', 0)) {
+            $callback = $afterFieldsExecuted;
+            $afterFieldsExecuted = static function (rex_yform $yform) use ($callback) {
+                self::changeEditToAdd($yform);
+                if (is_callable($callback)) {
+                    $callback($yform);
+                }
+            };
+            rex_i18n::addMsg('yform_editdata', rex_i18n::msg('yform_clonedata'));
+        }
+        return $afterFieldsExecuted;
+    }
 
-Beim Aufbau des Formulars nach Klick auf den Klon-Button, wird der EP `YFORM_DATA_UPDATE` aufgerufen und nicht
-`YFORM_DATA_ADD`. Daher muss man ggf. im EP abfragen, ob der URL-Parameter `clone=1` gesetzt ist.
+    /**
+     * fügt eine Spalte mit Klonen/Duplizieren-Button ein
+     * Bedingung: Spalte 0 enthält den Edit-Button.
+     * Die Edit-Button-Konfiguration wird weitgehend kopiert und zusätzlich
+     * der Parameter clone=1 angehängt
+     * @api
+     */
+    public static function addCloneColumn(rex_yform_list $list, int $position=1, string $column='clone'): void
+    {
+        $name = $list->getColumnName(0);
+        if (null !== $name && str_contains($name, ' href="index.php?func=add')) {
+            $list->addColumn($column, '<i class="fa fa-clone"></i>', $position);
+            $list->setColumnLayout($column, ['<th></th>', '<td class="rex-table-icon">###VALUE###</td>']);
+            $params = $list->getColumnParams($name);
+            $params[self::$CLONE_PARAM] = 1;
+            $list->setColumnParams($column, $params);
+        }
+    }
 
-Beim Speichern des Datensatzes greifen wieder die regulären EPs `YFORM_DATA_ADD` und `YFORM_DATA_ADDED`.
+    /**
+     * fügt eine Klonen/Duplizieren-Action in das Action Menü ein
+     * @api
+     * @param array<string,string> $action
+     * @return array<string,string>
+     */
+    public static function addCloneAction(array $action) : array
+    {
+        $i = array_search('edit', array_keys($action), true);
+        if (false !== $i) {
+            preg_match('/href="(?<href>.*?)"/',$action['edit'],$match);
+            $template = '<a href="%s&%s=1"><i class="fa fa-clone"></i> %s</a>';
+            $cloneAction = sprintf($template,$match['href'],self::$CLONE_PARAM,rex_i18n::msg('my_yform_duplicate_action'));
+            array_splice( $action, $i+1, 0, ['clone' => $cloneAction]);
+        }
+        return $action;
+    }
+    
+    /**
+     * Ändert ein EDIT-Formular auf ADD.
+     *
+     * Die Daten bleiben erhalten, aber alle Datensatz-Referenzen werden
+     * entfernt etc.
+     * 
+     * Auch Inline-Formulare von be_manager_relation/Typ5 werden umgebaut,
+     * nicht aber Inline-Formulare in Inline-Formularen.
+     * @api
+     */
+    public static function changeEditToAdd(rex_yform $yform): void
+    {
+        // Für das Formular an sich: Auf "Add" umschalten
+        $yform->objparams['form_hiddenfields']['func'] = 'add';
+        unset($yform->objparams['form_hiddenfields']['data_id']);
 
+        // In den Feldern Anpassungen vornehmen
+        foreach ($yform->objparams['values'] as $k => $v) {
+            // Submit-Buttons von "Edit" auf "Add" zurückstellen
+            if ($v instanceof rex_yform_value_submit) {
+                $yform->objparams['form_output'][$k] = str_replace(
+                    [rex_i18n::msg('yform_save').'</button', rex_i18n::msg('yform_save_apply').'</button'],
+                    [rex_i18n::msg('yform_add').'</button', rex_i18n::msg('yform_add_apply').'</button'],
+                    $yform->objparams['form_output'][$k]
+                );
+                continue;
+            }
 
-<a name="warnung"></a>
-# Warnung
+            // im Feldtyp be_manager_relation / Typ 5 (inline) ebenfalls die Datensatz-ID der
+            // verbundenen Sätze entfernen. Nur "inline" ist problematisch
+            if ($v instanceof rex_yform_value_be_manager_relation && '5' === $v->getElement('type')) {
+                $fieldName = preg_quote($v->getFieldName());
+                $pattern = '/<input type="hidden" name="'.$fieldName.'(\[\d+\])*\[id\]" value="\d+" \/>/';
+                $yform->objparams['form_output'][$k] = preg_replace($pattern, '', $yform->objparams['form_output'][$k]);
+            }
+        }
+    }
+}
+Step 3: Dataset-Klassen für die Tabellen
+class FirstDataset extends rex_yform_manager_dataset
+{
+    use ConeYForm;
 
+    public function executeForm(rex_yform $yform, callable $afterFieldsExecuted = null): string
+    {
+        $afterFieldsExecuted = $this->getCloneFormCallback($afterFieldsExecuted);
+        return parent::executeForm($yform, $afterFieldsExecuted);
+    }
+
+    /**
+     * @api
+     * @param rex_extension_point<rex_yform_list> $ep
+     * @return void|rex_yform_list
+     */
+    public static function YFORM_DATA_LIST(rex_extension_point $ep)
+    {
+        $list = $ep->getSubject();
+        self::addCloneColumn($list);
+    }
+}
+class SecondDataset extends rex_yform_manager_dataset
+{
+    use ConeYForm;
+    
+    public function executeForm(rex_yform $yform, callable $afterFieldsExecuted = null): string
+    {
+        $afterFieldsExecuted = $this->getCloneFormCallback($afterFieldsExecuted);
+        return parent::executeForm($yform, $afterFieldsExecuted);
+    }
+
+    /**
+     * @api
+     * @param rex_extension_point<array<string,string>> $ep
+     * @return void|array<string,string>
+     */
+    public static function YFORM_DATA_LIST_ACTION_BUTTONS(rex_extension_point $ep)
+    {
+        $action = $ep->getSubject();
+        $action = self::addCloneAction($action);
+        $ep->setSubject($action);
+    }
+}
+
+Warnung
 Verfahren wie
 
-* i18n-Einträge ändern
-* HTML umbauen
-* das große YForm-Array (hier als `$yform->objparams`) nutzen/verändern
+i18n-Einträge ändern
+HTML umbauen
+das große YForm-Array (hier als $yform->objparams) nutzen/verändern
+sind immer riskant, da Seiteneffekte nie auszuschließen sind und das generierte HTML auch schon mal anders aussehen kann als gedacht, z.B. wenn ein anderes Template/Fragment zum Einsatz kommt.
 
-sind immer riskant, da Seiteneffekte nie auszuschließen sind und das generierte HTML auch schon mal
-anders aussehen kann als gedacht, z.B. wenn ein anderes Template/Fragment zum Einsatz kommt.
+Es besteht immer auch das Risiko, das sich in YForm etwas ändert - und sei es nur marginal. Für "Hacks" wie hier beschreben gibt es keinen Bestandsschutz gegen Breaking-Changes!
 
-Es besteht immer auch das Risiko, das sich in YForm etwas ändert - und sei es nur marginal. Für "Hacks"
-wie hier beschreben gibt es keinen Bestandsschutz gegen Breaking-Changes!
+Da hier ein Editier-Prozedere nachträglich in ein Hinzufügen-Prozedere umgebaut wird, werden die ExtensionsPoints nicht wie zu erwarten aufgerufen. Beim Aufbau des Formulars nach Klick auf den Klon-Button, wird der EP YFORM_DATA_UPDATE aufgerufen und nicht YFORM_DATA_ADD. Daher muss man ggf. im EP abfragen, ob der URL-Parameter clone=1 gesetzt ist. Beim Speichern des Datensatzes greifen wieder die regulären EPs YFORM_DATA_ADD und YFORM_DATA_ADDED.
 
-Für das Verfahren wurden mehrere be_manager-relation-Varianten untersucht, aber lange nicht alle
-theoretisch denkbaren. Untersucht wurde:
-* __Tabelle A hat eine Relation "inline(multiple 1-n)" auf Tabelle B__:
-Der Fall wird wie oben beschrieben behandelt.
-* __Tabelle A hat eine n:m-Beziehung zu Tabelle B über eine Relationen-Tabelle "popup (multiple)"__:
-Der Fall hat sich als unkritisch erwiesen.
-* __Diverse einfache Varianten ohne Relationen-Tabelle, die ihre Daten direkt in der Haupttabelle ablegen__:
-Alle unkritisch.
+Für das Verfahren wurden mehrere be_manager-relation-Varianten untersucht, aber lange nicht alle theoretisch denkbaren. Untersucht wurde:
 
+Tabelle A hat eine Relation "inline(multiple 1-n)" auf Tabelle B: Der Fall wird wie oben beschrieben behandelt.
+Tabelle A hat eine n:m-Beziehung zu Tabelle B über eine Relationen-Tabelle "popup (multiple)": Der Fall hat sich als unkritisch erwiesen.
+Diverse einfache Varianten ohne Relationen-Tabelle, die ihre Daten direkt in der Haupttabelle ablegen: Alle unkritisch.
 Nicht erfasst sind "private" Datentypen (nicht mit YForm bereitgestellt), die Relationen aufbauen und verwalten. Hier ist Eigeninitiative nötig.
-
