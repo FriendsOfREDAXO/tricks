@@ -1,23 +1,41 @@
-YForm-Datensätze duplizieren ("Add" mit Vorbelegung)
-Es kann recht lästig sein, wenn komplexe Datensätze immer wieder ähnlich zu einem anderen erfasst werden müssen. Die Übernahme von Inhalten aus bestehenden Datensätzen ist in YForm nicht per se vorgesehen.
+---
+title: Datensätze duplizieren ("Add" mit Vorbelegung)
+authors: [christophboecker]
+prio:
+---
+
+# YForm-Datensätze duplizieren ("Add" mit Vorbelegung)
+
+Es kann recht lästig sein, wenn komplexe Datensätze immer wieder ähnlich zu einem anderen erfasst werden müssen. Die
+Übernahme von Inhalten aus bestehenden Datensätzen ist in YForm nicht per se vorgesehen.
 
 In diesem Beitrag wird ein Weg aufgezeigt, wie neue Datensätze aus bestehenden dupliziert werden.
 
-Ein bestehender Datensatz erhält über den EP YFORM_DATA_LIST (bzw. YFORM_DATA_LIST_ACTION_BUTTONS) in der Listenansicht einen Duplizier-Button bzw. eine Duplizier-Aktion.
-Dahinter verbirgt sich ein Editier-Button (Editier-Aktion) mit zusätzlichem Url-Parameter &clone=1.
-Das Formular wird zunächst als normales Edit-Formular aufgebaut.
-Unmittelbar vor der Anzeige wird das Edit-Formular durch kleinere Änderungen zu einem Add-Formular.
-Ohne Einsatz einer Dataset-Klasse für die Tabelle, die auf rex_yform_manager_dataset beruht, geht es nicht. Alle anderen Eingriffspunkte (z.B. EPs) liegen zu früh. Der späteste Eingriffspunkt vor der Anzeige ist in der Callback-Funktion afterFieldsExecuted von function executeForm(..).
-TOC
-Basislösung
-Erweiterung 1: Basis-Dataset-Klasse und und individuelle Klassen für Tabellen
-Erweiterung 2: Trait zur Nutzung in Dataset-Klassen
-Warung, bitte beachten!
+* Ein bestehender Datensatz erhält über den EP `YFORM_DATA_LIST` (bzw. `YFORM_DATA_LIST_ACTION_BUTTONS`)
+  in der Listenansicht einen Duplizier-Button bzw. eine Duplizier-Aktion.
+* Dahinter verbirgt sich ein Editier-Button (Editier-Aktion) mit zusätzlichem Url-Parameter `&clone=1`.
+* Das Formular wird zunächst als normales Edit-Formular aufgebaut.
+* Unmittelbar vor der Anzeige wird das Edit-Formular durch kleinere Änderungen zu einem Add-Formular.
+* Ohne Einsatz einer Dataset-Klasse für die Tabelle, die auf `rex_yform_manager_dataset` beruht, geht es nicht.
+  Alle anderen Eingriffspunkte (z.B. EPs) liegen zu früh. Der späteste Eingriffspunkt vor der Anzeige
+  ist in der Callback-Funktion `afterFieldsExecuted` von `function executeForm(..)`.
 
-Basis-Lösung
-Step 1: Aufruf
-Im Beispiel werden zwei i18n-Einträge gesetzt (kann man auch in eine .lang-Datei packen), eine Tabelle wird mit der Dataset-Klasse gekoppelt und die EPs YFORM_DATA_LIST und YFORM_DATA_LIST_ACTION_BUTTON werden belegt.
+## TOC
+- [Basislösung](#a)
+- [Erweiterung 1: Basis-Dataset-Klasse und und individuelle Klassen für Tabellen](#b)
+- [Erweiterung 2: Trait zur Nutzung in Dataset-Klassen](#c)
+- [Warung, bitte beachten!](#warnung)
 
+<a name="a"></a>
+## Basis-Lösung
+
+### Step 1: Aufruf
+
+Im Beispiel werden zwei i18n-Einträge gesetzt (kann man auch in eine .lang-Datei packen), eine Tabelle
+wird mit der Dataset-Klasse gekoppelt und die EPs `YFORM_DATA_LIST` und `YFORM_DATA_LIST_ACTION_BUTTON`
+werden belegt.
+
+```php
 rex_i18n::addMsg('yform_clonedata','Datensatz klonen [Original: {0}]');
 rex_i18n::addMsg('my_yform_duplicate_action','Duplizieren');
 
@@ -34,11 +52,19 @@ rex_extension::register(['YFORM_DATA_LIST', 'YFORM_DATA_LIST_ACTION_BUTTONS'],
         }
     }
 );
-Die EP-Funktion prüft ab, ob es für die angegebene Tabelle ($ep->getParam('table')) eine eigene Dataset-Klasse gibt (rex_yform_manager_dataset::getModelClass) und ob die Klasse eine dem EP-Namen entsprechende Methode hat (hier z.B. Dataset::YFORM_DATA_LIST). Wenn ja wird die Methode ausgeführt.
+```
 
-Step 2: Die Dataset-Klasse
-Die Dataset-Klasse ist ein All-In-One-Beispiel. Wie man die Struktur auch anders handhaben kann, wird später beschrieben.
+Die EP-Funktion prüft ab, ob es für die angegebene Tabelle (`$ep->getParam('table')`) eine
+eigene Dataset-Klasse gibt (`rex_yform_manager_dataset::getModelClass`) und ob die Klasse
+eine dem EP-Namen entsprechende Methode hat (hier z.B. `Dataset::YFORM_DATA_LIST`). Wenn ja
+wird die Methode ausgeführt.
 
+### Step 2: Die Dataset-Klasse
+
+Die Dataset-Klasse ist ein All-In-One-Beispiel. Wie man die Struktur auch anders handhaben kann,
+wird später beschrieben.
+
+```php
 class Dataset extends rex_yform_manager_dataset
 {
     protected static string $CLONE_PARAM = 'clone';
@@ -168,12 +194,21 @@ class Dataset extends rex_yform_manager_dataset
         }
     }
 }
+```
+### Ergebnis
+![grafik](https://user-images.githubusercontent.com/10065904/211035242-6df3f903-285f-470e-8dbd-cf21f124f879.png)
 
-Erweiterung 1: Basis-Dataset-Klasse und und individuelle Klassen für Tabellen
-Hintegrrund ist die Überlegung, dass man den Duplizier-Button nicht für jede Tabelle benötigt. Wo gewünscht werden den Tabellen, die einen Button oder eine Aktion bekommen sollen, eigene, auf Dataset aufbauende Klassen zugewiesen.
+<a name="b"></a>
+## Erweiterung 1: Basis-Dataset-Klasse und und individuelle Klassen für Tabellen
 
+Hintegrrund ist die Überlegung, dass man den Duplizier-Button nicht für jede Tabelle benötigt. Wo gewünscht
+werden den Tabellen, die einen Button oder eine Aktion bekommen sollen, eigene, auf `Dataset` aufbauende
+Klassen zugewiesen.
 
-Step 1: Aufruf
+<a name="e1s1-aufruf"></a>
+### Step 1: Aufruf
+
+```php
 rex_i18n::addMsg('yform_clonedata','Datensatz klonen [Original: {0}]');
 rex_i18n::addMsg('my_yform_duplicate_action','Duplizieren');
 
@@ -191,7 +226,12 @@ rex_extension::register(['YFORM_DATA_LIST', 'YFORM_DATA_LIST_ACTION_BUTTONS'],
         }
     }
 );
-Step 2: Basis-Dataset-Klasse (ohne EP-Methoden)
+```
+
+
+### Step 2: Basis-Dataset-Klasse (ohne EP-Methoden)
+
+```php
 class Dataset extends rex_yform_manager_dataset
 {
     protected static string $CLONE_PARAM = 'clone';
@@ -297,7 +337,10 @@ class Dataset extends rex_yform_manager_dataset
         }
     }
 }
-Step 3: Dataset-Klassen für die Tabellen
+```
+### Step 3: Dataset-Klassen für die Tabellen
+
+```php
 class FirstDataset extends Dataset
 {
     /**
@@ -311,6 +354,8 @@ class FirstDataset extends Dataset
         self::addCloneColumn($list);
     }
 }
+```
+```php
 class SecondDataset extends Dataset
 {
     /**
@@ -325,14 +370,21 @@ class SecondDataset extends Dataset
         $ep->setSubject($action);
     }
 }
+```
 
-Erweiterung 2: Trait zur Nutzung in Dataset-Klassen
-Der Trait stellt die Hilfsmethoden bereit. Alles weitere z.B. auch executeForm müssen individuell in Dataset-Klassen eingebaut werden:
+<a name="c"></a>
+## Erweiterung 2: Trait zur Nutzung in Dataset-Klassen 
 
-Step 1: Aufruf
-Siehe Erweiterung 1
+Der Trait stellt die Hilfsmethoden bereit. Alles weitere z.B. auch `executeForm` müssen individuell in
+Dataset-Klassen eingebaut werden:
 
-Step 2: Trait
+## Step 1: Aufruf
+
+Siehe [Erweiterung 1](#e1s1-aufruf)
+
+## Step 2: Trait
+
+```php
 trait CloneYForm
 {
     protected static string $CLONE_PARAM = 'clone';
@@ -432,7 +484,11 @@ trait CloneYForm
         }
     }
 }
-Step 3: Dataset-Klassen für die Tabellen
+```
+
+### Step 3: Dataset-Klassen für die Tabellen
+
+```php
 class FirstDataset extends rex_yform_manager_dataset
 {
     use ConeYForm;
@@ -454,6 +510,9 @@ class FirstDataset extends rex_yform_manager_dataset
         self::addCloneColumn($list);
     }
 }
+```
+
+```php
 class SecondDataset extends rex_yform_manager_dataset
 {
     use ConeYForm;
@@ -476,22 +535,37 @@ class SecondDataset extends rex_yform_manager_dataset
         $ep->setSubject($action);
     }
 }
+```
 
-Warnung
+<a name="warnung"></a>
+# Warnung
+
 Verfahren wie
 
-i18n-Einträge ändern
-HTML umbauen
-das große YForm-Array (hier als $yform->objparams) nutzen/verändern
-sind immer riskant, da Seiteneffekte nie auszuschließen sind und das generierte HTML auch schon mal anders aussehen kann als gedacht, z.B. wenn ein anderes Template/Fragment zum Einsatz kommt.
+* i18n-Einträge ändern
+* HTML umbauen
+* das große YForm-Array (hier als `$yform->objparams`) nutzen/verändern
 
-Es besteht immer auch das Risiko, das sich in YForm etwas ändert - und sei es nur marginal. Für "Hacks" wie hier beschreben gibt es keinen Bestandsschutz gegen Breaking-Changes!
+sind immer riskant, da Seiteneffekte nie auszuschließen sind und das generierte HTML auch schon mal
+anders aussehen kann als gedacht, z.B. wenn ein anderes Template/Fragment zum Einsatz kommt.
 
-Da hier ein Editier-Prozedere nachträglich in ein Hinzufügen-Prozedere umgebaut wird, werden die ExtensionsPoints nicht wie zu erwarten aufgerufen. Beim Aufbau des Formulars nach Klick auf den Klon-Button, wird der EP YFORM_DATA_UPDATE aufgerufen und nicht YFORM_DATA_ADD. Daher muss man ggf. im EP abfragen, ob der URL-Parameter clone=1 gesetzt ist. Beim Speichern des Datensatzes greifen wieder die regulären EPs YFORM_DATA_ADD und YFORM_DATA_ADDED.
+Es besteht immer auch das Risiko, das sich in YForm etwas ändert - und sei es nur marginal. Für "Hacks"
+wie hier beschreben gibt es keinen Bestandsschutz gegen Breaking-Changes!
 
-Für das Verfahren wurden mehrere be_manager-relation-Varianten untersucht, aber lange nicht alle theoretisch denkbaren. Untersucht wurde:
+Da hier ein Editier-Prozedere nachträglich in ein Hinzufügen-Prozedere umgebaut wird, werden die
+ExtensionsPoints nicht wie zu erwarten aufgerufen. Beim Aufbau des Formulars nach Klick auf den Klon-Button,
+wird der EP `YFORM_DATA_UPDATE` aufgerufen und nicht `YFORM_DATA_ADD`. Daher muss man ggf. im EP abfragen,
+ob der URL-Parameter `clone=1` gesetzt ist. Beim Speichern des Datensatzes greifen wieder die regulären
+EPs `YFORM_DATA_ADD` und `YFORM_DATA_ADDED`.
 
-Tabelle A hat eine Relation "inline(multiple 1-n)" auf Tabelle B: Der Fall wird wie oben beschrieben behandelt.
-Tabelle A hat eine n:m-Beziehung zu Tabelle B über eine Relationen-Tabelle "popup (multiple)": Der Fall hat sich als unkritisch erwiesen.
-Diverse einfache Varianten ohne Relationen-Tabelle, die ihre Daten direkt in der Haupttabelle ablegen: Alle unkritisch.
+Für das Verfahren wurden mehrere be_manager-relation-Varianten untersucht, aber lange nicht alle
+theoretisch denkbaren. Untersucht wurde:
+* __Tabelle A hat eine Relation "inline(multiple 1-n)" auf Tabelle B__:
+Der Fall wird wie oben beschrieben behandelt.
+* __Tabelle A hat eine n:m-Beziehung zu Tabelle B über eine Relationen-Tabelle "popup (multiple)"__:
+Der Fall hat sich als unkritisch erwiesen.
+* __Diverse einfache Varianten ohne Relationen-Tabelle, die ihre Daten direkt in der Haupttabelle ablegen__:
+Alle unkritisch.
+
 Nicht erfasst sind "private" Datentypen (nicht mit YForm bereitgestellt), die Relationen aufbauen und verwalten. Hier ist Eigeninitiative nötig.
+
