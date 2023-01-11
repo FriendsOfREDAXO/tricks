@@ -52,3 +52,7 @@ exclude:
 - README.md
 - SETUP.md
 - vendor
+
+# Markdown settings
+# https://docs.github.com/de/pages/setting-up-a-github-pages-site-with-jekyll/setting-a-markdown-processor-for-your-github-pages-site-using-jekyll
+markdown: GFM
