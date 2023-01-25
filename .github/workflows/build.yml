@@ -1,20 +1,22 @@
-name: Build Jekyll Site
+# https://github.com/actions/starter-workflows/blob/main/pages/jekyll-gh-pages.yml
+name: Test build within pull requests
 
 on: pull_request
 
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
-  jekyll:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: 📂 setup
-        uses: actions/checkout@v2
-
-      - name: 💎 setup ruby
-        uses: ruby/setup-ruby@v1
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
         with:
-          ruby-version: 2.6
-
-      - name: 🔨 install dependencies & build site
-        uses: limjh16/jekyll-action-ts@v2
-        with:
-          enable_cache: true
+          source: ./
+          destination: ./_site
