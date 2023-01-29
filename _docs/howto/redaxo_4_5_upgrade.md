@@ -17,9 +17,7 @@ Einige AddOns wurden bislang nicht nach REDAXO 5 überführt und stehen nicht me
 ### SEO42
 Nach der Konvertierung sollten sämtliche `SEO42::`-Codes in den Templates und Modulen entfernt werden. YConverter wird diese nicht konvertieren, so dass dies manuell durchgeführt werden muss.  
 
-SEO42 kann nahezu vollständig durch **YRewrite** ersetzt werden (empfohlen), oder in Kombination mit **YRewrite Scheme** (empfohlen), oder in Kombination mit dem AddOn **XCore** ersetzt werden. 
-
-> ** Hinweis:** Das AddOn XCore ist vom selben Entwickler wie SEO42, das viele Funktionalitäten von SEO42 bereitstellt, wird jedoch nicht mehr weiterentwickelt. Meist reicht hier ein Ersetzen der `seo42::` - Aurufe durch die entsprechenden `rexx::` Aufrufe um wieder die gewünschte Funktionalität zu erreichen. 
+SEO42 kann nahezu vollständig durch **YRewrite** ersetzt werden (empfohlen), oder in Kombination mit **YRewrite Scheme** ersetzt werden. 
 
 ### Slice on / off
 
