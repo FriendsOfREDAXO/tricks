@@ -235,7 +235,7 @@ Letztes Update: 2022-07-04
 
 ### HTML und CSS
 
-- [HTMLHint (Static Code Analysis Tool for HTML)](https://marketplace.visualstudio.com/items?itemName=mkaufman.HTMLHint) von Mike Kaufman
+- [HTMLHint (Static Code Analysis Tool for HTML)](https://marketplace.visualstudio.com/items?itemName=HTMLHint.vscode-htmlhint) von [HTMLHint](https://github.com/htmlhint/vscode-htmlhint)
 
 ### JavaScript
 
