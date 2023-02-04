@@ -58,9 +58,10 @@ Die Erweiterung [PHP CS Fixer von Junstyle](https://marketplace.visualstudio.com
 
 ### **Schritt 3**: REDAXO-Coding-Standards lokal als Datei `.php_cs.dist` speichern
 
-Aus der [REDAXO .php_cs.dist](https://raw.githubusercontent.com/redaxo/redaxo/master/.php_cs.dist) den unteren Block ab `return PhpCsFixer\Config::create()` kopieren und lokal abspeichern.
+> **Hinweis:** Die Schritte 3 und 4 sind teils nicht mehr aktuell. Es gibt ein [Issue](https://github.com/FriendsOfREDAXO/tricks/issues/298) mit neueren Informationen, die aber bisher noch nicht hier eingearbeitet werden konnten.
 
-// NOTIZ [madiko]: Bitte Link aktualisieren //
+
+Aus der [REDAXO .php_cs.dist](https://raw.githubusercontent.com/redaxo/redaxo/master/.php_cs.dist) den unteren Block ab `return PhpCsFixer\Config::create()` kopieren und lokal abspeichern.
 
 > **Hinweis:** Am besten im Extension-Verzeichnis des VSCode, z.b. `C:\Users\USERID\.vscode\extensions\.php_cs.dist`
 
