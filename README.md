@@ -15,6 +15,6 @@ Diese Website sammelt Lösungen und hilfreiche Code-Beispiele, die es aus versch
    Alle Inhalte dieser Website kannst du bearbeiten, indem du einen _Fork des Repos_ machst, deine Anpassungen vornimmst und sie dann als _Pull Request_ zurück gibst. Das erfordert Kenntnisse im Umgang mit Git und GitHub, aber keine Sorge, die Community hilft immer gerne.  
    → [Tricks bearbeiten](https://github.com/FriendsOfREDAXO/tricks/tree/master/_docs) 🚀
 
-Wenn du Fragen hast oder Hilfe benötigst, melde dich am besten im Slack-Chat. Eine Einladung erhältst du hier: [redaxo.org/slack/](https://redaxo.org/slack/)
+Wenn du Fragen hast oder Hilfe benötigst, eröffne eine [Diskussion](https://github.com/orgs/FriendsOfREDAXO/discussions) auf Github oder melde dich im Slack-Chat. Eine Einladung erhältst du hier: [redaxo.org/slack/](https://redaxo.org/slack/)
 
 Danke! ❤️

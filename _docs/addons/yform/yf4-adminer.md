@@ -6,6 +6,8 @@ prio:
 
 # Adminer in YForm verlinken
 
+[Auch als AddOn erhältlich](https://github.com/FriendsOfREDAXO/yform_adminer)
+
 Es könnte ja sein, dass man als Entwickler bzw. Admin mal eben in der Datenbank selbst nach dem
 Rechten sehen, Ergebnisse kontrollieren oder sonstwie eingreifen möchte oder muss. 
 Das empfehlenswerte Addon ["Adminer"](https://github.com/FriendsOfREDAXO/adminer) bietet hierfür
