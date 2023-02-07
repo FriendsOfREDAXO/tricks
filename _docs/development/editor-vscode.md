@@ -1,33 +1,39 @@
 ---
 title: Editor-Einstellungen Visual Studio Code (VSCode)
-authors: [aeberhard,alxndr-w,crydotsnake,madiko,skerbis]
+authors: [aeberhard,alxndr-w,crydotsnake,madiko,skerbis,christophboecker]
 prio:
 ---
 
 # Editor-Einstellungen Visual Studio Code (VSCode)
 
-[ letztes update: 2022-07-04 ]
+[ letztes update: 2023-02-06 ]
 
 [Visual Studio Code](https://code.visualstudio.com/) ist ein Quelltext-Editor von Microsoft. Er kann plattformübergreifend und kostenfrei genutzt werden (Windows, macOS, Linux). 
 
 Anfangs als schlanker Editor für die Quellcode-Entwicklung gedacht, hat sich VS Code durch seine vielen Erweiterungen zu einer vollständigen und modularen integrierten Entwicklungsumgebung (IDE) entwickelt. Durch den Verzicht auf Projektdateien kann VSCode wie ein einfacher Editor aufgerufen werden, bietet jedoch durch Quellcode-Analyse des aktuellen Ordners den Komfort großer Projektverwaltungen mit Code-Vervollständigung und Fehleranalyse.
 
 Für die Software-Entwicklung im Kontext von REDAXO empfehlen wir:  
+
 - [PHP - REDAXO-Coding-Standards](#vscode-php)
 - [YAML - Schema für config.yml und package.yml](#vscode-yaml)
 - [Nützliche Erweiterungen für VSCode](#vscode-erweiterungen)
+
+
 
 
 <a name="vscode-php"></a>
 
 ## PHP - REDAXO-Coding-Standards
 
-**Zusammenfassend werden 4 Schritte benötigt, diese werden nachfolgend genauer erläutert.**
+**Zusammenfassend werden 5 Schritte benötigt, diese werden nachfolgend genauer erläutert.**
 
 1. [Pfad zur PHP-Executable einstellen](#vscode-php-1)
 2. [Erweiterung **junstyle.php-cs-fixer** installieren](#vscode-php-2)
-3. [REDAXO-Coding-Standards lokal als Datei **.php_cs.dist** speichern](#vscode-php-3)
-4. [Einstellungen der Erweiterungen wie gewünscht anpassen](#vscode-php-4)
+3. [**REDAXO-Coding-Standards** lokal im VSCode-Extension-Verzeichnis speichern](#vscode-php-3)
+4. [**PHP CS Fixer: custom fixers** lokal im VSCode-Extension-Verzeichnis speichern](#vscode-php-4)
+5. [Einstellungen der Erweiterungen wie gewünscht anpassen](#vscode-php-5)
+
+
 
 
 <a name="vscode-php-1"></a>
@@ -42,122 +48,97 @@ Folgende Einstellung in die VSCode Konfigurationsdatei `settings.json` kopieren
 "php.validate.executablePath": "C:\\xampp\\php\\php.exe",
 ```
 
-> **Hinweis:** Passe den Pfad an Deine eigene PHP-Umgebung an.
+> **Hinweis:** Passe den Pfad an Deine eigene PHP-Umgebung an. Die aktuellen REDAXO-Coding-Standards erfordern PHP 8.x!
+
+
 
 
 <a name="vscode-php-2"></a>
 
-### **Schritt 2**: Erweiterung **PHP CS Fixer** installieren
+### **Schritt 2**: Erweiterung Junstyle PHP CS Fixer installieren    
 
 Die Erweiterung [PHP CS Fixer von Junstyle](https://marketplace.visualstudio.com/items?itemName=junstyle.php-cs-fixer) für Visual Studio Code enthält den [PHP Coding Standards Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer).
 
 > **Hinweis:** Die richtige Erweiterung installieren! (Suche nach _junstyle.php-cs-fixer_)
 
+![junstyle - PHP CS Fixer for Visual Studio Code](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/vscode/junstyle_phpcsfixer.png "junstyle - PHP CS Fixer for Visual Studio Code")
+
+Die Erweiterung enthält bereits die notwendige Datei `php-cs-fixer.phar`. Diese wird als Standard verwendet.
+
+> **Hinweis:** Unter Windows werden VSCode-Erweiterungen im folgenden Verzeichnis gespeichert: `C:\Users\[USERNAME]\.vscode\extensions\`
+
+
+
 
 <a name="vscode-php-3"></a>
 
-### **Schritt 3**: REDAXO-Coding-Standards lokal als Datei `.php_cs.dist` speichern
+### **Schritt 3**: REDAXO-Coding-Standards lokal im VSCode-Extension-Verzeichnis speichern
 
-> **Hinweis:** Die Schritte 3 und 4 sind teils nicht mehr aktuell. Es gibt ein [Issue](https://github.com/FriendsOfREDAXO/tricks/issues/298) mit neueren Informationen, die aber bisher noch nicht hier eingearbeitet werden konnten.
+Für die REDAXO-Coding-Standards gibt es ein eigenes Github-Repo: [https://github.com/redaxo/php-cs-fixer-config](https://github.com/redaxo/php-cs-fixer-config).
 
+Komplettes Repo im Zip-Format unter [https://github.com/redaxo/php-cs-fixer-config/tags](https://github.com/redaxo/php-cs-fixer-config/tags) herunterladen und entpacken. 
 
-Aus der [REDAXO .php_cs.dist](https://raw.githubusercontent.com/redaxo/redaxo/master/.php_cs.dist) den unteren Block ab `return PhpCsFixer\Config::create()` kopieren und lokal abspeichern.
+Das entpackte Repo umbenennen in `php-cs-fixer-config` und in das VSCode-Extension-Verzeichnis kopieren/verschieben -> `C:\Users\[USERNAME]\.vscode\extensions\php-cs-fixer-config`.
 
-> **Hinweis:** Am besten im Extension-Verzeichnis des VSCode, z.b. `C:\Users\USERID\.vscode\extensions\.php_cs.dist`
-
-Die folgenden Zeilen oben am Code einfügen ...
-
-```php
-$finder = PhpCsFixer\Finder::create()
-    ->in([__DIR__]);
-```
-
-Nachfolgenden Code in die **.php_cs.dist** zum kopieren;
+Im Verzeichnis `C:\Users\[USERNAME]\.vscode\extensions\php-cs-fixer-config` eine PHP-Datei `.php-cs-fixer.php` mit folgendem Inhalt anlegen:
 
 ```php
 <?php
 
-// REDAXO-Coding-Standards
-// kann z.B. mit PHPStorm, oder mit VS Code mit der Extension `php cs fixer` verwendet werden
-// https://github.com/redaxo/redaxo/blob/master/.php_cs.dist
+// Custom Fixer
+require __DIR__ . '/php-cs-fixer-custom-fixers/bootstrap.php';
 
-$finder = PhpCsFixer\Finder::create()
-    ->in([__DIR__]);
+// REDAXO Fixer
+require __DIR__ . '/src/Fixer/StatementIndentationFixer.php';
 
-return PhpCsFixer\Config::create()
-    ->setUsingCache(true)
-    ->setRiskyAllowed(true)
-    ->setRules([
-        '@Symfony' => true,
-        '@Symfony:risky' => true,
-        '@PHP71Migration' => true,
-        '@PHP71Migration:risky' => true,
-        '@PHPUnit75Migration:risky' => true,
-        'array_indentation' => true,
-        'blank_line_before_statement' => false,
-        'braces' => ['allow_single_line_closure' => false],
-        'comment_to_phpdoc' => true,
-        'concat_space' => false,
-        'declare_strict_types' => false,
-        'function_to_constant' => ['functions' => ['get_class', 'get_called_class', 'php_sapi_name', 'phpversion', 'pi']],
-        'heredoc_to_nowdoc' => true,
-        'list_syntax' => ['syntax' => 'short'],
-        'logical_operators' => true,
-        'native_constant_invocation' => false,
-        'no_blank_lines_after_phpdoc' => false,
-        'no_null_property_initialization' => true,
-        'no_php4_constructor' => true,
-        'no_superfluous_elseif' => true,
-        'no_unreachable_default_argument_value' => true,
-        'no_useless_else' => true,
-        'no_useless_return' => true,
-        'ordered_class_elements' => ['order' => [
-            'use_trait',
-            'constant_public',
-            'constant_protected',
-            'constant_private',
-            'property',
-            'construct',
-            'phpunit',
-            'method',
-        ]],
-        'php_unit_internal_class' => true,
-        'php_unit_method_casing' => true,
-        'php_unit_set_up_tear_down_visibility' => true,
-        'php_unit_test_case_static_method_calls' => true,
-        'phpdoc_no_package' => false,
-        'phpdoc_order' => true,
-        'phpdoc_types_order' => false,
-        'phpdoc_var_annotation_correct_order' => true,
-        'phpdoc_var_without_name' => false,
-        'psr4' => false,
-        'semicolon_after_instruction' => false,
-        'static_lambda' => true,
-        'string_line_ending' => true,
-        'void_return' => false,
-        'yoda_style' => true,
-    ])
-    ->setFinder($finder)
-;
+include __DIR__ . '/src/Config.php';
+$config = include __DIR__ . '/.php-cs-fixer.dist.php';
+$rules = $config->getRules();
+
+// rules al gusto verändern
+
+$config->setRules($rules);
+return $config;
 ```
 
-Die lokal abgespeicherte Datei wird im folgenden Schritt für die Einstellungen der Erweiterung verwendet.  
-Eine Kopie der Datei kann aber auch z.B. direkt im eigenen Addon-Verzeichnis gespeichert werden.
+![Verzeichnis php-cs-config-fixer](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/vscode/directory-php-cs-config-fixer.png "Verzeichnis php-cs-config-fixer")
+
+> **Hinweis:** Den Pfad zur soeben angelegten Datei benötigen wir in Schritt 5 für die Einstellungen der Erweiterung.
+
+
 
 
 <a name="vscode-php-4"></a>
 
-### **Schritt 4**: Settings für die Erweiterung anpassen
+### **Schritt 4**: PHP CS Fixer: custom fixers lokal im VSCode-Extension-Verzeichnis speichern
 
-Folgende Einstellung in die VSCode Konfigurationsdatei `settings.json` kopieren
+In den REDAXO-Coding-Standards sind einige Funktionen der Custom Fixers im Einsatz.
+Github-Repo: [https://github.com/kubawerlos/php-cs-fixer-custom-fixers/](https://github.com/kubawerlos/php-cs-fixer-custom-fixers/)
 
-```
-    "php-cs-fixer.config": ".php_cs;.php_cs.dist;C:\\Users\\USERID\\.vscode\\extensions\\.php_cs.dist",
-```
+Download im Zip-Format unter [https://github.com/kubawerlos/php-cs-fixer-custom-fixers/tags](https://github.com/kubawerlos/php-cs-fixer-custom-fixers/tags) herunterladen und entpacken.
 
-> **Hinweis:** hier wird die Suchreihenfolge für die Config-Datei festgelegt, als letzter Datei-Name inkl. Pfad der oben bereits genannte.
+Das entpackte Repo umbenennen in `php-cs-fixer-custom-fixers` und komplett in das Verzeichnis `C:\Users\[USERNAME]\.vscode\extensions\php-cs-fixer-config\` kopieren/verschieben.
 
-Die Erweiterung arbeitet wie gewünscht, wenn z.B. aus
+![Verzeichnis php-cs-custom-fixers](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/vscode/directory-php-cs-custom-fixers.png "Verzeichnis php-cs-custom-fixers")
+
+
+
+
+<a name="vscode-php-5"></a>
+
+### **Schritt 5**: Settings für die Erweiterung anpassen
+
+In den Einstellungen von VSCode nach php suchen und PHP CS Fixer auswählen.
+
+Hier muss bei **Config** der Pfad der in Schritt 4 angelegten Datei angegeben werden
+
+`C:\Users\[USERNAME]\.vscode\extensions\php-cs-fixer-config\.php-cs-fixer.php`
+
+Unter **Executable Path** muss der Pfad zur Datei `php-cs-fixer.phar` angegeben werden. Siehe Screenshot.
+
+![Einstellungen php cs fixer](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/vscode/junstyle_phpcsfixer_settings.png "Einstellungen php cs fixer")
+
+Die Erweiterung arbeitet wie gewünscht, wenn z.B. folgender PHP-Code
 
 ```php
 if ($file->getExtension()==='php') {
@@ -165,7 +146,7 @@ echo "blafasel";
 }
 ```
 
-folgendes ersetzt wird
+wie folgt ersetzt wird ...
 
 ```php
 if ('php' === $file->getExtension()) {
@@ -173,7 +154,14 @@ if ('php' === $file->getExtension()) {
 }
 ```
 
-> **Tipp:** Es gibt noch einige weitere Einstellungen für die Erweiterung  - diese einfach nach den eigenen Wünschen konfigurieren :)
+Screenshot Ausgabe der Erweiterung
+
+![Ausgabe php cs fixer](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/vscode/output-php-cs-fixer.png "Ausgabe php cs fixer")
+
+> **Tipp:** Es gibt noch einige weitere Einstellungen für die Erweiterung - diese einfach nach den eigenen Wünschen konfigurieren :)
+
+
+
 
 
 <a name="vscode-yaml"></a>
