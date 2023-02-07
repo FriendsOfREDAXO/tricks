@@ -7,7 +7,7 @@ prio:
 # Artikel einbinden mit `rex_article::get`
 
 Hin und wieder möchte man auf zentrale Daten zurückgreifen. Das können beispielsweise Öffnungszeiten oder Adressen sein. 
-Eine Möglichkeit ist das einbinden zentral abgelegter Artikel. 
+Eine Möglichkeit ist das Einbinden zentral abgelegter Artikel. 
 
 Das nachfolgende Beispiel bindet den ausgewählten Artikel als Block ein. Darüber hinaus wird für eingeloggte Redakteure ein Bearbeitungssymbol (fontawsome) im Frontend eingebaut. Dadurch kann der Redakteur leicht erkennen, dass es sich um einen eingebundenen Artikel handelt und kann direkt ins Backend zur Bearbeitung springen. 
 
