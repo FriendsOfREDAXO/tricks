@@ -48,7 +48,7 @@ Folgende Einstellung in die VSCode Konfigurationsdatei `settings.json` kopieren
 "php.validate.executablePath": "C:\\xampp\\php\\php.exe",
 ```
 
-> **Hinweis:** Passe den Pfad an Deine eigene PHP-Umgebung an. Die aktuellen REDAXO-Coding-Standards erfordern PHP 8.x!
+> **Hinweis:** Passe den Pfad an Deine eigene PHP-Umgebung an. Die aktuellen REDAXO-Coding-Standards erfordern PHP 8.1!
 
 
 
