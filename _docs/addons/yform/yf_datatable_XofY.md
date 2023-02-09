@@ -43,9 +43,11 @@ YForm-EP vor der Tabellenausgabe angezogen wird.
 
 ```php
 \rex_extension::register('YFORM_DATA_LIST',
-    static function (rex_extension_point $ep) {
+    static function (\rex_extension_point $ep) {
         // Anzahl Zeilen in der Query
-        $lines = $ep->getSubject()->getRows(); /** @phpstan-ignore-line */
+        /** @var \rex_yform_list $list */
+        $list = $ep->getSubject();
+        $lines = $list->getRows();
 
         // Anzahl Zeilen in der Tabelle
         $sql = \rex_sql::factory();
@@ -55,7 +57,7 @@ YForm-EP vor der Tabellenausgabe angezogen wird.
 
         // Tabellentitel nur erweitern wenn gefiltert.
         if ($lines < $total) {
-            \rex_i18n::addMsg('yform_tabledata_overview', 'Datentabelle (' . $lines . ' von '. $total . ')');
+            \rex_i18n::addMsg('yform_tabledata_overview', "Datentabelle ($lines von $total)");
         }
     },
 );
@@ -103,9 +105,11 @@ Der Code ändert sich nur geringfügig:
 
 ```php
 \rex_extension::register('YFORM_DATA_LIST',
-    static function (rex_extension_point $ep) {
+    static function (\rex_extension_point $ep) {
         // Anzahl Zeilen in der Query
-        $lines = $ep->getSubject()->getRows(); /** @phpstan-ignore-line */
+        /** @var \rex_yform_list $list */
+        $list = $ep->getSubject();
+        $lines = $list->getRows();
 
         // Anzahl Zeilen in der Tabelle
         $sql = \rex_sql::factory();
@@ -115,7 +119,7 @@ Der Code ändert sich nur geringfügig:
 
         // Tabellentitel nur erweitern wenn gefiltert.
         if ($lines < $total) {
-            $yform_tabledata_overview = \rex_i18n::rawMsg('yform_tabledata_overview_xy', $lines, $total);
+            $yform_tabledata_overview = \rex_i18n::rawMsg('yform_tabledata_overview_xy', (string) $lines, (string) $total);
             \rex_i18n::addMsg('yform_tabledata_overview', $yform_tabledata_overview);
         }
     },
