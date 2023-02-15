@@ -28,7 +28,8 @@ $yf->setValueField('hidden', ['salutation',$res['salutation']]);
 $yf->setValueField('hidden', ['company',$res['company']]);
 // und weitere Felder ...
 $yf->setValueField('hidden', ['email',$res['email']]);
-$yf->setActionField('tpl2email', ["newsletter_registration","email",'newsletteranmeldungen@deinkun.de']);            
+$yf->setActionField('tpl2email', ["newsletter_registration","email"]); // Wenn an die Mail-Adresse im Formular
+$yf->setActionField('tpl2email', ["newsletter_registration","mail@example.org"]); // Eigene zusätzliche Mail-Adresse
 $yf->getForm();
 $yf->setObjectparams('send',1);
 $yf->executeActions();
