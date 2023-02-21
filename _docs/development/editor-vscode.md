@@ -89,6 +89,7 @@ Im Verzeichnis `C:\Users\[USERNAME]\.vscode\extensions\php-cs-fixer-config` eine
 require __DIR__ . '/php-cs-fixer-custom-fixers/bootstrap.php';
 
 // REDAXO Fixer
+require __DIR__ . '/src/Fixer/NoSemicolonBeforeClosingTagFixer.php';
 require __DIR__ . '/src/Fixer/StatementIndentationFixer.php';
 
 include __DIR__ . '/src/Config.php';
