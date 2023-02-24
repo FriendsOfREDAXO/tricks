@@ -89,9 +89,9 @@ Im Verzeichnis `C:\Users\[USERNAME]\.vscode\extensions\php-cs-fixer-config` eine
 require __DIR__ . '/php-cs-fixer-custom-fixers/bootstrap.php';
 
 // REDAXO Fixer
-foreach( scandir($home . '/src/Fixer/') as $file ) {
+foreach( scandir(__DIR__ . '/src/Fixer/') as $file ) {
     if( !str_starts_with($file,'.') && str_ends_with($file,'.php')) {
-        require $home . '/src/Fixer/' . $file;
+        require __DIR__ . '/src/Fixer/' . $file;
     }
 }
 
