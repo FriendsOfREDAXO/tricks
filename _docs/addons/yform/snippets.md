@@ -151,8 +151,6 @@ if (rex::isBackend() && rex_request('table_name') == 'rex_test') {
 Im Table Manager lässt sich _ein_ DB-Feld für die Sortierung der Backendausgabe festlegen. 
 Manchmal ist eine komplexere Sortierung sinnvoll: `ORDER BY column1, column2`
 
->Hinweis: Das geht nur, solange keine andere Spalte zum Sortieren ausgewählt wird. Will man eine andere Spalte zum sortieren auswählen wirft der EP nicht das passende Query aus.
-
 Folgendes Snippet kann im Projekt Addon oder Theme Addon platziert werden und ermöglicht es die Sortierung zu erweitern:
 
 ### Ausführliches Beispiel
@@ -179,29 +177,8 @@ if (
 }
 
 ```
-`<TABLE_NAME>` und `<SOMETHING ELSE>` austauschen und  darauf achten das in der Tabellen Konfiguration die Standardsortierung auf `id` und die Richtung auf  `aufsteigend` steht.
+Einfach `<TABLE_NAME>` und `<SOMETHING ELSE>` wie gewünscht austauschen.
 
-
-### Einfaches Beispiel zur Verwendung des EP
-
-```php
-rex_extension::register('YFORM_DATA_LIST_SQL', function ($ep) {
-  $params  = $ep->getParams(); // EP Params holen
-  $subject = $ep->getSubject(); // EP Subject (SQL) holen
-  // dump($subject); //SQL der rex_list ausgeben lassen
-
-  if ($params['table'] == rex::getTable('my_table')) {
-
-    $sql = 'my_sql_query'; // SQL neu sortieren
-
-    $subject = $ep->setSubject($sql); // neue Liste setzen
-
-  }
-
-  return $subject; // neue Liste zurück geben
-
-});
-```
 
 <a name="Choicefieldoptionen"></a>
 ### Choice Feld Optionen im Frontend verwenden
