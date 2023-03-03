@@ -158,26 +158,26 @@ Folgendes Snippet kann im Projekt Addon oder Theme Addon platziert werden und er
 ### Ausführliches Beispiel
 
 ```php
-if(rex::isBackend() && rex_addon::get('yform')->isAvailable() && rex_plugin::get('yform', 'manager')->isAvailable() &&
-   rex_be_controller::getCurrentPage() == 'yform/manager/data_edit' && rex_request('table_name') == '<TABLE_NAME>') {
-	rex_extension::register('YFORM_DATA_LIST_SQL', function(rex_extension_point $ep){
-		$sortField = $ep->getParam('table')->getSortFieldName();
-		$sortOrder = $ep->getParam('table')->getSortOrderName();
-		$fields = $ep->getParam('table')->getFields();
+if (
+	rex::isBackend() && rex_addon::get('yform')->isAvailable() && rex_plugin::get('yform', 'manager')->isAvailable() && rex_request('table_name') == '<TABLE_NAME>'
+) {
+	rex_extension::register('YFORM_DATA_LIST_QUERY', function (rex_extension_point $ep) {
 
 		// dont prevent sorting of other columns
-		if(rex_request("sort") != "" && rex_request("sort") != $sortField) {
+		$manual_sort = rex_request('sort', 'string', '');
+		if ($manual_sort) {
 			return;
 		}
 
-		$subject = preg_replace(
-			"@ORDER BY `id` ASC$@i", "ORDER BY <SOMETHING ELSE>",
-			$ep->getSubject()
-		);
-
-		$ep->setSubject($subject);
+		$query = $ep->getSubject();
+		$alias = $query->getTableAlias();
+		$query->resetOrderBy();
+		$query->orderByRaw('`' . $alias . '`.<SOMETHING ELSE>', 'DESC');
+		$ep->setSubject($query);
+    
 	}, rex_extension::LATE);
 }
+
 ```
 `<TABLE_NAME>` und `<SOMETHING ELSE>` austauschen und  darauf achten das in der Tabellen Konfiguration die Standardsortierung auf `id` und die Richtung auf  `aufsteigend` steht.
 
