@@ -6,7 +6,7 @@ prio:
 
 # Snippets zum Version-Plugin
 
-## Beibehalten der Der-Arbeitsversion-Ansicht nach Veröffentlichung in der Live Version per ExensionPoint
+## Beibehalten der Arbeitsversion-Ansicht nach Veröffentlichung in der Live Version per ExensionPoint
 
 In die boot.php des project-AddOns einsetzen: 
 
