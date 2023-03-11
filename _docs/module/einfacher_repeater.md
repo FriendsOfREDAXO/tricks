@@ -15,7 +15,7 @@ Man kann diese natürlich auch auslagern.
 
 Im Folgenden Beispiel sieht das ganze dann so aus:
 
-![Repeater](https://github.com/FriendsOfREDAXO/tricks/blob/master/screenshots/repeater.png?raw=true "Repeater")
+![Repeater](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/main/screenshots/repeater.png "Repeater")
 
 
 ## Eingabe
