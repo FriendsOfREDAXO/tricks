@@ -225,6 +225,12 @@ Letztes Update: 2022-07-04
 
 - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) von Prettier (JavaScript, TypeScript, Flow, JSX, JSON, CSS, SCSS, Less, HTML, Vue, Angular HANDLEBARS, Ember, Glimmer, GraphQL, Markdown, YAML)
 
+### Barrierefreiheit / Accessibility
+
+- [Microsoft Edge Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-edgedevtools.vscode-edge-devtools) von Microsoft
+- [axe Accessibility Linter](https://marketplace.visualstudio.com/items?itemName=deque-systems.vscode-axe-linter) von Deque Systems
+- [Web Accessibility](https://marketplace.visualstudio.com/items?itemName=MaxvanderSchee.web-accessibility) von Max van der Schee
+
 
 ### HTML und CSS
 
