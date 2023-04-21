@@ -4,7 +4,7 @@ authors: [skerbis]
 prio:
 ---
 
-## Custom-Link Element
+# Custom-Link Element
 
 Das Custom MForm Custom-Link-Element ermöglicht es durch den Einsatz eines Feldes mehrere Link-Typen definieren zu können.
 Das Custom-Link-Element steht in MForm, YForm und auch als REX_VAR zur Verfügung.
