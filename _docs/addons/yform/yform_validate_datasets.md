@@ -20,7 +20,7 @@ _Der Aufruf `getName()` müsste ggf. angepasst werden_
     {
         $context = new \rex_context([
             'page' => 'yform/manager/data_edit',
-            'table_name' => self::getTableName(),
+            'table_name' => self::table()->getTableName(),
             'func' => 'edit',
         ]);
         $messages = [];
@@ -38,7 +38,7 @@ _Der Aufruf `getName()` müsste ggf. angepasst werden_
 
 **In der boot.php diese Zeile notieren**
 
-_Anzupassen sind `[TABLE_NAME]` und `[MODEL_CLASS]` wo die obige Methode enthalten ist_
+_Anzupassen sind `[TABLE_NAME]` (2x) und `[MODEL_CLASS]` (1x) wo die obige Methode enthalten ist_
 ```php
 if (rex::isBackend() && rex::getUser()) {
     rex_extension::register('PAGE_TITLE', function(\rex_extension_point $extensionPoint) {
