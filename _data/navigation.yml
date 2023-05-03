@@ -18,6 +18,8 @@
       url: /addons/geolocation
     - title: Media-Pool
       url: /addons/mediapool
+    - title: MForm
+      url: /addons/mform
     - title: Project
       url: /addons/project
     - title: Structure
