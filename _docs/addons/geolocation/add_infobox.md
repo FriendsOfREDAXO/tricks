@@ -10,6 +10,9 @@ prio:
 > - [Lies mich](#readme)
 > - [Einzel-Marker mit Popup-Text](#positionplus)
 > - [Markerliste mit Popup-Text](#markerplus)
+> - [Nummerierte Markerliste mit Popup-Text](#nrmarkerplus)
+
+(In Geolocation 2.0 wurde der Namespace von `Geolocation` in `FriendsOfRedaxo\Geolocation` geändert!)
 
 <a name="readme"></a>
 ## Lies mich
@@ -42,9 +45,9 @@ Der PHP-Datensatz ist
 
 ```php
 $dataset = [
-    [breitengrad,längengrad],       // übliche Koordinatenangabe
-    popup_text,                     // optionaler Text; ohne Text ein normaler Marker ohne Popup
-    marker_farbe                    // optional die Markerfarbe; Default: Geolocation.default.positionColor 
+    [breitengrad,längengrad],  // übliche Koordinatenangabe
+    popup_text,                // optionaler Text; ohne Text ein normaler Marker ohne Popup
+    marker_farbe               // optional die Markerfarbe; Default: Geolocation.default.positionColor 
 ];
 ```
 
@@ -82,9 +85,9 @@ Geolocation.tools.positionplus = function(...args) { return new Geolocation.Tool
 
 Beispiel:
 ```php
-use Geolocation\Mapset;
-use Geolocation\Calc\Box;
-use Geolocation\Calc\Point;
+use FriendsOfRedaxo\Geolocation\Mapset;
+use FriendsOfRedaxo\Geolocation\Calc\Box;
+use FriendsOfRedaxo\Geolocation\Calc\Point;
 
 $konstanz = Point::byLatLng([47.658968, 9.178456]);
 
@@ -111,9 +114,9 @@ Der PHP-Datensatz ist
 ```php
 $dataset = [
     [
-        [breitengrad,längengrad],       // übliche Koordinatenangabe
-        popup_text,                     // optionaler Text; ohne Text ein normaler Marker ohne Popup
-        marker_farbe                    // optional die Markerfarbe; Default: Geolocation.default.markerColor 
+        [breitengrad,längengrad],  // übliche Koordinatenangabe
+        popup_text,                // optionaler Text; ohne Text ein normaler Marker ohne Popup
+        marker_farbe               // optional die Markerfarbe; Default: Geolocation.default.markerColor 
     ],
     ...
 ];
@@ -158,9 +161,9 @@ Geolocation.tools.markerplus = function(...args) { return new Geolocation.Tools.
 
 Beispiel:
 ```php
-use Geolocation\Mapset;
-use Geolocation\Calc\Box;
-use Geolocation\Calc\Point;
+use FriendsOfRedaxo\Geolocation\Mapset;
+use FriendsOfRedaxo\Geolocation\Calc\Box;
+use FriendsOfRedaxo\Geolocation\Calc\Point;
 
 $konstanz = Point::byLatLng([47.658968, 9.178456]);
 $kressbronn = Point::byLatLng([47.586204, 9.560653]);
@@ -177,5 +180,92 @@ $marker = [
 echo Mapset::take()
     ->dataset('bounds',$bounds->latLng())
     ->dataset('markerplus',$marker)
+    ->parse();
+```
+
+
+<a name="nrmarkerplus"></a>
+## Nummerierte Markerliste mit Popup-Text
+
+### Kurzbeschreibung
+
+Im Grunde handelt es sich um eine nummerierte Marker-Liste (Tool: `nrmarker` aus den
+([Beispielen](https://github.com/FriendsOfREDAXO/geolocation/blob/master/docs/devtools.md#nrmarker)).
+Die Klasse `Geolocation.Tools.Marker` wird um Popup-Texte und die Nummer je Marker erweitert. Es reicht aus,
+die SetValue-Methode zu überschreiben. Wurde ein Marker erfolgreich angelegt (gültige Koordinaten), hängt die
+Methode den Popup-Text an den Marker. Die Nummer ist ein optionaler Parameter bei `Geolocation.svgIconPin(..)`.
+
+Der PHP-Datensatz ist
+
+```php
+$dataset = [
+    [
+        [breitengrad,längengrad],  // übliche Koordinatenangabe
+        popup_text,                // optionaler Text; ohne Text ein normaler Marker ohne Popup
+        marker_nr                  // optional die Nummer des Markers; Default: ohne
+        marker_farbe               // optional die Markerfarbe; Default: Geolocation.default.markerColor
+    ],
+   ...
+];
+```
+
+Der JS-Code für das Tool
+
+```js
+Geolocation.Tools.NrMarkerPlus = class extends Geolocation.Tools.Marker{
+    setValue( markerArray ) {
+        if( this.map ) {
+            let map = this.map;
+            this.remove();
+            this.map = map;
+        }
+        this.marker = [];
+        markerArray.forEach( (data) => {
+            let pos = L.latLng( data[0] );
+            if( !pos ) return;
+            let marker = L.marker( pos );
+            if( !marker ) return;
+            marker.setIcon( Geolocation.svgIconPin( data[3] || Geolocation.default.markerColor, data[2] || '', 'darkred' ) );
+            if( data[1] ) {
+                marker.bindPopup(data[1]);
+                marker.on('click', function (e) {
+                    // NOTE: ja, ist so - isPopupOpen liefert true wenn geschlossen.
+                    if( this.isPopupOpen() ) {
+                        this.openPopup();
+                    } else {
+                        this.closePopup();
+                    }
+                });
+            }
+            this.marker.push( marker );
+        } );
+        if( this.map ) this.show( this.map );
+        return this;
+    }
+};
+Geolocation.tools.nrmarkerplus = function(...args) { return new Geolocation.Tools.NrMarkerPlus(args); };
+```
+
+Beispiel:
+```php
+use FriendsOfRedaxo\Geolocation\Mapset;
+use FriendsOfRedaxo\Geolocation\Calc\Box;
+use FriendsOfRedaxo\Geolocation\Calc\Point;
+
+$konstanz = Point::byLatLng([47.658968, 9.178456]);
+$kressbronn = Point::byLatLng([47.586204, 9.560653]);
+$friedrichshafen = Point::byLatLng([47.651695, 9.485064]);
+
+$bounds = Box::factory([$konstanz,$friedrichshafen,$kressbronn]);
+
+$marker = [
+    [$konstanz->latLng(), '<strong>Konstanz:</strong> '.$konstanz->text(Point::DMS), 1, 'DarkSeaGreen'],
+    [$friedrichshafen->latLng(),'<strong>Friedrichshafen:</strong> '.$friedrichshafen->text(Point::DMS), 2, 'ForestGreen'],
+    [$kressbronn->latLng(),'<strong>Konstanz:</strong> '.$kressbronn->text(Point::DMS), 3],
+];
+
+echo Mapset::take()
+    ->dataset('bounds',$bounds->latLng())
+    ->dataset('nrmarkerplus',$marker)
     ->parse();
 ```
