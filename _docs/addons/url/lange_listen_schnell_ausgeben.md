@@ -38,7 +38,7 @@ if (count($profile) == 1) {
 }
 ```
 
-Dieses Array können wir dann direkt in einer Ausgabe verwenden. Hier wurde die Produktliste als yorm Objekt abgeholt
+Dieses Array können wir dann direkt in einer Ausgabe verwenden. Hier wurde die Produktliste als [YOrm-Objekt](https://github.com/yakamara/redaxo_yform/blob/master/docs/04_yorm.md) abgeholt
 
 ```php
 <ul>
