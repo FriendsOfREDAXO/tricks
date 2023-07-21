@@ -107,7 +107,7 @@ public function getNext()
 <a name="paginierung-prio"></a>
 ## Blättern auf Prio basierende Datensätze zu erstellen
 
-Die Methoden basieren auf Yorm und gehören in eine Class wie zum Beispiel
+Die Methoden basieren auf [YOrm](https://github.com/yakamara/redaxo_yform/blob/master/docs/04_yorm.md) und gehören in eine Class wie zum Beispiel
 
 ```php
 class Item extends rex_yform_manager_dataset
