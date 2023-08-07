@@ -71,7 +71,7 @@ Als nächstes definieren wir das Grundgerüst des YForm-Formulars.
     /* Hier Felder definieren, die überall mitgegeben werden sollen. z.B. der Schlüssel, aber auch Felder wie datestamp-Felder */
     $yform->setValueField('hidden', array("key", $key));
 
-    if ($step == 1) {
+    if ($step === 1) {
 
         $yform->setValueField('text', array('text1','Beispiel-Textfeld aus Schritt 1'));
         /* Füge hier die passenden Felder und serverseitigen Validierungen zu Schritt 1 ein */
@@ -82,7 +82,7 @@ Als nächstes definieren wir das Grundgerüst des YForm-Formulars.
 
         echo $yform->getForm();
 
-    } else if ($step == 2) {
+    } else if ($step === 2) {
 
         $yform->setValueField('text', array('text1','Beispiel-Textfeld aus Schritt 2'));
         /* Füge hier die passenden Felder und serverseitigen Validierungen zu Schritt 2 ein */
@@ -94,7 +94,7 @@ Als nächstes definieren wir das Grundgerüst des YForm-Formulars.
 
         echo $yform->getForm();
 
-    } else if ($step == 3) {
+    } else if ($step === 3) {
 
         $yform->setValueField('text', array('text1','Beispiel-Textfeld aus Schritt 3'));
         /* Füge hier die passenden Felder und serverseitigen Validierungen zu Schritt 3 ein */
@@ -104,7 +104,7 @@ Als nächstes definieren wir das Grundgerüst des YForm-Formulars.
         $yform->setObjectparams("form_action", $url);
         $yform->setActionField('redirect', $url_next);
 
-    } else if ($step == 4) {
+    } else if ($step === 4) {
 
         // Ausgabe einer Dankesmeldung oder Weiterleitung auf eine andere Seite mit der Artikel-ID 1. 
         echo ("<p>Vielen Dank</p>");
