@@ -78,7 +78,7 @@ Als nächstes definieren wir das Grundgerüst des YForm-Formulars.
 
         $yform->setObjectparams('submit_btn_label','weiter');
         $yform->setObjectparams("form_action", $url);
-        $yform->setActionField('redirect', $url_next);
+        $yform->setActionField('redirect', [$url_next]);
 
         echo $yform->getForm();
 
@@ -90,7 +90,7 @@ Als nächstes definieren wir das Grundgerüst des YForm-Formulars.
         $yform->setObjectparams('submit_btn_label','weiter');
 
         $yform->setObjectparams("form_action", $url);
-        $yform->setActionField('redirect', $url_next);
+        $yform->setActionField('redirect', [$url_next]);
 
         echo $yform->getForm();
 
@@ -102,7 +102,7 @@ Als nächstes definieren wir das Grundgerüst des YForm-Formulars.
         $yform->setObjectparams('submit_btn_label','Speichern');
 
         $yform->setObjectparams("form_action", $url);
-        $yform->setActionField('redirect', $url_next);
+        $yform->setActionField('redirect', [$url_next]);
 
     } else if ($step === 4) {
 
