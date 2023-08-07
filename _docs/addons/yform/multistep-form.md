@@ -36,7 +36,7 @@ Benötigt wird zunächst das Gerüst für die einzelnen Schritte:
 
     $key = rex_session($form_name, 'string');
     if(!$key) {
-        $key = bin2hex(openssl_random_pseudo_bytes(24));
+        $key = bin2hex(random_bytes(24));
         rex_set_session($form_name, $key);
     }
     
