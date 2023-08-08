@@ -31,7 +31,7 @@ forcal kann...
 - mit beliebigen Datenfeldern in den bestehenden Tabellen erweitert werden
 - um weitere Tabellen ergänzt werden
 - das Backend kann nach eigenen Bedürfnissen umgestaltet werden
-- die Ausgabe kann über yorm Objekte und Fragmente gelöst werden
+- die Ausgabe kann über [Yorm-Objekte](https://github.com/yakamara/redaxo_yform/blob/master/docs/04_yorm.md) und Fragmente gelöst werden
 
 Das soll hier an einem Beispiel gezeigt werden.
 

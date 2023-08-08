@@ -88,7 +88,7 @@ wird der Text des delete-Buttons in einer statischen Variablen der Datensatzklas
 zeitlich danach aufgerufene EP YFORM_DATA_LIST greift darauf zu und entfernt - wenn der Datensatz
 zum Löschen gesperrt ist - den Text inkl. umgebendem `<li></li>` aus dem HTML.
 
-(Achtung: Werbung für YOrm) Das Beispiel setzt auf einer eigenen YOrm-Datensatzklasse (`mytable`) auf,
+Das Beispiel setzt auf einer eigenen [YOrm-Datensatzklasse](https://github.com/yakamara/redaxo_yform/blob/master/docs/04_yorm.md) (`mytable`) auf,
 die auf `rex_yform_manager_dataset` basiert.
 
 Damit YForm die private Dataset-Klasse statt der Default-Klasse verwendet, muss sie dem System
