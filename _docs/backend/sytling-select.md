@@ -69,7 +69,8 @@ Anwendung unter **Individuelle Attribute**:
 {"class": "form-control selectpicker","data-live-search": "true"}
 ```
 
-> Die Selects können mit weitaus mehr Funktionen ausgestattet werden, mehr dazu unter: [silviomoreto.github.io/bootstrap-select/examples/](https://silviomoreto.github.io/bootstrap-select/examples/)
+> Die Selects können mit weitaus mehr Funktionen ausgestattet werden, mehr dazu unter: [
+https://developer.snapappointments.com/bootstrap-select/](https://developer.snapappointments.com/bootstrap-select/)
 
 
 
