@@ -26,7 +26,7 @@ $now = date('Y-m-d H:i:s');
 foreach($entries as $entry) {
     $sql->addRecord(function (rex_sql $record) use ($entry, $now) {
         foreach (['date', 'hour', 'class', 'teacher', 'createdate', 'status'] as $key) {
-            $record->setValue($key, $entry['key']);
+            $record->setValue($key, $entry[$key]);
         }
 
         $record->setValue('updatedate', $now);

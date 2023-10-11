@@ -69,10 +69,6 @@ Anwendung unter **Individuelle Attribute**:
 {"class": "form-control selectpicker","data-live-search": "true"}
 ```
 
-> Die Selects können mit weitaus mehr Funktionen ausgestattet werden, mehr dazu unter: [silviomoreto.github.io/bootstrap-select/examples/](https://silviomoreto.github.io/bootstrap-select/examples/)
+> Die Selects können mit weitaus mehr Funktionen ausgestattet werden, mehr dazu unter: [
+https://developer.snapappointments.com/bootstrap-select/](https://developer.snapappointments.com/bootstrap-select/)
 
-
-
-## Select2
-Im Tools-Plugin von yForm wird select2 mitgeliefert. Dieses bietet ebenfalls weitreichende Lösungen zur Verbesserung der Selects.
-Eine Anleitung findet man in der Dokumentation von yForm.

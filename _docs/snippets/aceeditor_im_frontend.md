@@ -1,16 +1,16 @@
 ---
-title: AceEditor im Frontend einbinden
+title: Ace-Editor im Frontend einbinden
 authors: [aeberhard]
 prio:
 ---
 
-# AceEditor im Frontend einbinden
+# Ace-Editor im Frontend einbinden
 
-Das AddOn **aceeditor** (https://github.com/FriendsOfREDAXO/aceeditor) muss natürlich installiert sein. Getestet mit der Version 1.0.3.
+Das AddOn **aceeditor** (https://github.com/FriendsOfREDAXO/aceeditor) muss natürlich installiert sein. Getestet mit der Version 1.2.0.
 
 Das AddOn **aceeditor** hat keine Abhängigkeiten zu jQuery (nur im Backend) und kann daher recht einfach auch im Frontend ohne jQuery verwendet werden.
 
-> **Hinweis:** Weitere Informationen zum AceEditor gibt es hier: [https://ace.c9.io/](https://ace.c9.io/)
+> **Hinweis:** Weitere Informationen zum Ace-Editor gibt es hier: [https://ace.c9.io/](https://ace.c9.io/)
 
 ## CSS einbinden
 
@@ -28,7 +28,7 @@ oder als Inline-Style mit
 <style><?= rex_file::get(rex_addon::get('aceeditor')->getAssetsPath('css/aceeditor.min.css')) ?></style>
 ```
 
-## Optionen für den AceEditor
+## Optionen für den Ace-Editor
 
 Im Backend werden die Standard-Optionen aus den AddOn-Einstellungen verwendet. Diese stehen nicht automatisch im Frontend zur Verfügung.
 
@@ -40,7 +40,7 @@ Die Standard-Optionen können über folgendes Snippet für die Website gesetzt u
 </script>
 ```
 
-## Textarea für den AceEditor definieren
+## Textarea für den Ace-Editor definieren
 
 Im Backend werden die entsprechenden Textareas automatisch umgewandelt z.B. bei Themes und Modulen.
 
@@ -55,7 +55,7 @@ Im Frontend bietet es sich an auch über die Klasse `aceeditor` die Textareas f�
 >Hier der PHP-Code ...</textarea>
 ```
 
-Über Attribute der Textarea kann das Verhalten und Aussehen des AceEditors geändert werden.
+Über Attribute der Textarea kann das Verhalten und Aussehen des Ace-Editors geändert werden.
 
 **Mögliche Attribute**
 
@@ -63,35 +63,37 @@ Im Frontend bietet es sich an auch über die Klasse `aceeditor` die Textareas f�
 |--------- | -------------- |
 | aceeditor-theme | Name des Themes z.B. `eclipse` (ohne ace/theme) |
 | aceeditor-themedark | Name des Themes im Dark-Mode z.B. `dracula` (ohne ace/theme) |
-| aceeditor-mode | Sprache für das Syntax-Highlighting z.B. `php`, `json`, `html` (ohne ace/mode) |
-| aceeditor-options | Weitere Optionen für den AceEditor.<br>Achtung: Die Optionen müssen im korrekten JSON-Format angegeben werden!<br>z.B. `{"showLineNumbers": true, "showGutter": true}` |
+| aceeditor-mode | Sprache für das Syntax-Highlighting z.B. `php`, `json`, `html`, `javascript`, `yaml`, `xml` (ohne ace/mode) |
+| aceeditor-options | Weitere Optionen für den Ace-Editor.<br>Achtung: Die Optionen müssen im korrekten JSON-Format angegeben werden!<br>z.B. `{"showLineNumbers": true, "showGutter": true}` |
 | aceeditor-width | Breite des Editors, z.B. `800px`, `100%` |
 | aceeditor-height | Höhe des Editors, z.B. `500px` |
 | readonly | Durch das Attribut `readonly` wird der ReadOnly-Modus gesetzt |
-| cols | Anzahl Spalten, wenn keine Breite angegeben wird (`aceeditor-width`), wird die Breite anhand der FontSize errechnet |
-| rows | Anzahl Zeilen, wenn keine Höhe angegeben wird (`aceeditor-height`), wird die Höhe anhand der FontSize errechnet |
+| cols | Anzahl Spalten, wenn keine Breite (`aceeditor-width`) angegeben wird, wird die Breite anhand der FontSize errechnet |
+| rows | Anzahl Zeilen, wenn keine Höhe (`aceeditor-height`) angegeben wird, wird die Höhe anhand der FontSize errechnet |
+| width | Breite des Editors, z.B. `800`, `100%` |
+| height | Höhe des Editors, z.B. `500`, `50%` |
 
 > **Hinweis:** Wird keine Breite angegeben (`aceeditor-width` oder `cols`) wird `100%` als Default verwendet. Wird keine Höhe angegeben (`aceeditor-height` oder `rows`) wird `200px` als Default verwendet.
 
-## AceEditor-Scripte einbinden
+## Ace-Editor-Scripte einbinden
 
-Um den AceEditor nutzen zu können müssen noch die beiden folgenden Scripte eingebunden werden.
+Um den Ace-Editor nutzen zu können müssen noch die beiden folgenden Scripte eingebunden werden.
 
 ```php
 <script src="<?= rex_addon::get('aceeditor')->getAssetsUrl('vendor/aceeditor/ace.js') ?>"></script>
 <script src="<?= rex_addon::get('aceeditor')->getAssetsUrl('js/aceeditor.min.js') ?>"></script>
 ```
 
-> **Hinweis:** `ace.js` stellt den Editor bereit. `aceeditor.min.js` stellt die Function `textAreaToAceEditor(textarea)` bereit um Textareas in einen AceEditor umzuwandeln.
+> **Hinweis:** `ace.js` stellt den Editor bereit. `aceeditor.min.js` stellt die Function `textAreaToAceEditor(textarea)` bereit um Textareas in einen Ace-Editor umzuwandeln.
 
-## AceEditor anwenden
+## Ace-Editor anwenden
 
-Den AceEditor auf eine Textarea mit ID `phpinput` anwenden
+Den Ace-Editor auf eine Textarea mit ID `phpinput` anwenden
 
 Beispiel:
 
 ```js
-<!-- AceEditor auf eine Textarea über die ID `phpinput` anwenden -->
+<!-- Ace-Editor auf eine Textarea über die ID `phpinput` anwenden -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     editor = textAreaToAceEditor(document.getElementById('phpinput'));
@@ -101,12 +103,12 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 ```
 
-Den AceEditor auf alle Textareas mit der Klasse `aceeditor` anwenden
+Den Ace-Editor auf alle Textareas mit der Klasse `aceeditor` anwenden
 
 Beispiel:
 
 ```js
-<!-- AceEditor auf alle Textareas mit der Klasse `aceeditor` anwenden -->
+<!-- Ace-Editor auf alle Textareas mit der Klasse `aceeditor` anwenden -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     let aceTextAreas = document.querySelectorAll('textarea.aceeditor');
@@ -124,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ## HTML-Beispiel
 
-Hier für die bessere Übersicht ein komplettes HTML-Beispiel für die Einbindung des AceEditors im Frontend.
+Hier für die bessere Übersicht ein komplettes HTML-Beispiel für die Einbindung des Ace-Editors im Frontend.
 
 ```html
 <!DOCTYPE html>
@@ -134,7 +136,7 @@ Hier für die bessere Übersicht ein komplettes HTML-Beispiel für die Einbindun
     <meta charset="utf-8" />
     <title>Titel der Website</title>
 
-    <!-- AceEditor-Style für Fullscreen-Modus (optional) -->
+    <!-- Ace-Editor-Style für Fullscreen-Modus (optional) -->
     <style><?= rex_file::get(rex_addon::get('aceeditor')->getAssetsPath('css/aceeditor.min.css')) ?></style>
 
     <!-- Optionen für den AceEditor (optional) -->
@@ -148,7 +150,7 @@ Hier für die bessere Übersicht ein komplettes HTML-Beispiel für die Einbindun
 
     <div class="content">
 
-        <!-- Textarea für den AceEditor mit ID `phpinput` -->
+        <!-- Textarea für den Ace-Editor mit ID `phpinput` -->
         <textarea id="phpinput"
             rows="10" cols="50" readonly
             aceeditor-width="800px" aceeditor-height="300px"
@@ -171,7 +173,7 @@ $num = trim(fgets(STDIN));
 $output = "\n\nFactorial " . $num . " = " . nfact($num) . "\n\n";
 echo $output;</textarea>
 
-        <!-- Textarea für den AceEditor mit Class `aceeditor` -->
+        <!-- Textarea für den Ace-Editor mit Class `aceeditor` -->
         <textarea class="aceeditor"
             rows="10" cols="50"
             aceeditor-width="100%" aceeditor-height="500px"
@@ -196,11 +198,11 @@ echo $output;</textarea>
 
     </div>
 
-<!-- AceEditor-Scripte  -->
+<!-- Ace-Editor-Scripte  -->
 <script src="<?= rex_addon::get('aceeditor')->getAssetsUrl('vendor/aceeditor/ace.js') ?>"></script>
 <script src="<?= rex_addon::get('aceeditor')->getAssetsUrl('js/aceeditor.min.js') ?>"></script>
 
-<!-- AceEditor auf eine Textarea über die ID `phpinput` anwenden -->
+<!-- Ace-Editor auf eine Textarea über die ID `phpinput` anwenden -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     editor = textAreaToAceEditor(document.getElementById('phpinput'));
@@ -209,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<!-- AceEditor auf alle Textareas mit der Klasse `aceeditor` anwenden -->
+<!-- Ace-Editor auf alle Textareas mit der Klasse `aceeditor` anwenden -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     let aceTextAreas = document.querySelectorAll('textarea.aceeditor');

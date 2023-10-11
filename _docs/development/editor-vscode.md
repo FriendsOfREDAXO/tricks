@@ -134,11 +134,17 @@ Das entpackte Repo umbenennen in `php-cs-fixer-custom-fixers` und komplett in da
 
 In den Einstellungen von VSCode nach php suchen und PHP CS Fixer auswählen.
 
-Hier muss bei **Config** der Pfad der in Schritt 4 angelegten Datei angegeben werden
+Hier muss bei **Config** der Pfad der in Schritt 3 angelegten Datei angegeben werden
 
-`C:\Users\[USERNAME]\.vscode\extensions\php-cs-fixer-config\.php-cs-fixer.php`
+Windows: `C:\Users\[USERNAME]\.vscode\extensions\php-cs-fixer-config\.php-cs-fixer.php`  
+Linux: `~/.vscode/extensions/php-cs-fixer-config/.php-cs-fixer.php`  
 
-Unter **Executable Path** muss der Pfad zur Datei `php-cs-fixer.phar` angegeben werden. Siehe Screenshot.
+Unter **Executable Path** muss der Pfad zur Datei `php-cs-fixer.phar` angegeben werden: `${extensionPath}/php-cs-fixer.phar`  
+
+Die Angabe `${extensionPath}` wird in VSCode intern zum Pfad der aktuellen Extension von *Junstyle PHP CS Fixer* aufgelöst. Zum Beispiel so *.vscode/extensions/junstyle.php-cs-fixer-0.3.10/*  
+So bleiben die Einstellungen auch bei Aktuallisierung der Extension aktuell. Wer eine eigene `php-cs-fixer.phar`-Datei verwenden möchte, muss hier den vollen Pfad dorthin angeben (so wie bei der Angabe der `.php-cs-fixer.php`-Datei zum Beispiel).
+
+Siehe Screenshot.
 
 ![Einstellungen php cs fixer](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/vscode/junstyle_phpcsfixer_settings.png "Einstellungen php cs fixer")
 
