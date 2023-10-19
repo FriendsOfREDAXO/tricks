@@ -38,13 +38,14 @@ echo '<div class="output">'.$yform->getForm().'</div>';
 // Aufbau des Formulars mit den gewünschten Objectparams und Valuefields
 $yform = new rex_yform();
 $yform->setObjectparams();
+
 $yform->setValueField();
-//Formular Aktionen definieren
-$yform->setActionField('html', '<h1>Formular Versand</h1>');
-$yform->setActionField('tpl2email', ["template-name", "email@reciptient.de"]);
+
 //Felder werden intialisiert und sind damit im ValuePool
 $yform->executeFields();
 
+//Dann erst die Validates einbauen! Nicht nach dem ValueField!!!
+$yform->setValidateField();
 
 //Felder/Werte ausgeben
 dump($yform->objparams['value_pool']);
@@ -53,9 +54,12 @@ dump($yform->objparams['value_pool']);
 //Anschließend kann man die Datei wieder ans Formular übergeben
 $yform->setValueField('php', array('php_attach', 'Datei anhängen', '<?php $this->params[\'value_pool\'][\'email_attachments\'][\'pdf\'] = [\'dateiname.pdf\', rex_path::data(\'/addons/yform/plugins/manager/upload/temp/datei.pdf\')]; ?>'));
 
- //Damit das neue ValueField auch verarbeitet wird muss initializeFields() zurückgesetzt werden
- $yform->initializeFields(false);
+//Formular Aktionen definieren
+$yform->setActionField('html', '<h1>Formular Versand</h1>');
+$yform->setActionField('tpl2email', ["template-name", "email@reciptient.de"]);
 
+ //Damit das neue ValueField auch verarbeitet wird muss initializeFields() zurückgesetzt werden
+ $yform->initializeFields();
 
 //Bei der Ausgabe werden die Felder jetzt erneut initalisiert und anschließend die Actions ausgeführt
 echo '<div class="output">'.$yform->getForm().'</div>';
