@@ -68,35 +68,27 @@ mit dem Datei-Namen `value.be_manager_relation.tpl.php`:
  * @psalm-scope-this rex_yform_value_be_manager_relation
  */
 
-$link = $link ?? '';
-$valueName = $valueName ?? '';
+// get filter
+$filter = [];
+if ($rawFilter = $this->getElement('filter')) {
+    $filter = $this::getFilterArray($rawFilter, $this->params['main_table'], [$this, 'getValueForKey']);
+}
+if (isset($this->params['rex_yform_set'][$this->getName()]) && is_array($this->params['rex_yform_set'][$this->getName()])) {
+    $filter = array_merge($filter, $this->params['rex_yform_set'][$this->getName()]);
+}
 
 // adapting selection for options without truncation
 if (!empty($options)) {
-
-    // get ids from $options array
-    $optionIds = [];
-    foreach ($options as $option) {
-        if (!isset($option['id']) || '' === $option['id']) continue;
-        $optionIds[] = $option['id'];
-    }
-
-    // get options from database
-    $optionSql = rex_sql::factory();
-    $optionSql->setTable($this->relation['target_table']);
-    $optionSql->setWhere('id IN (' . implode(',', $optionIds) . ')');
-    $optionSql->select();
-
-    // build options array
     $options = [];
-    foreach ($optionSql as $option) {
+    $listValues = $this::getListValues($this->relation['target_table'], $this->relation['target_field'], $filter);
+
+    foreach ($listValues as $id => $value) {
         $options[] = [
-            'id' => $option->getValue('id'),
-            'name' => rex_string::sanitizeHtml($option->getValue($this->relation['target_field'])),
+            'id' => $id,
+            'name' => $value . " [id=$id]",
         ];
     }
 }
-
 
 // template as defined in the YForm-Standard for be_manager_relation
 // yform/plugins/manager/ytemplates/bootstrap/value.be_manager_relation.tpl.php
