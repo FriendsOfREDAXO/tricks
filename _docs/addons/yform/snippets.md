@@ -14,6 +14,7 @@ prio:
 - [Choice Feld Optionen holen](#Choicefieldoptionen)
 - [YForm Menüpunkt für Redakteure ausblenden](#yform_menu)
 - [Details zum Datensatz nach dem Erstellen erhalten](#yform_created)
+- [Formular: Berechnung der Value Pools-Werte / Datenbank nach Absenden](#yform_valuepool)
 
 >Hinweis: Teile dieses Abschnitts werden ggf. in die YFORM-Doku übernommen und können daher verschwinden. Sollte das gewünschte Snippet nicht mehr hier zu finden sein, bitte in die YFORM-Doku schauen.  
 
@@ -250,3 +251,15 @@ if ($yform->getObjectparams('send') && !$yform->getObjectparams('warning')) {
 
 Wichtig ist nur, dass man die Abfrage nach `getForm()` durchführt.
 
+<a name="yform_valuepool"></a>
+### Formular: Berechnung der Value Pools-Werte / Datenbank nach Absenden
+
+ YForm Frage: wie kann ich beim Speichern eines Formulares den Wert für ein Feld berechnen und setzen, so dass es in die Datenbank gespeichert wird?
+
+```php
+$yform->setActionField('callback', [
+    function (rex_yform_base_abstract $form) {
+        $form->params['value_pool']['sql']['field_c'] = $form->params['value_pool']['sql']['field_a'] + $form->params['value_pool']['sql']['field_b'];
+    }
+]);
+```
