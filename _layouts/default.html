@@ -44,14 +44,21 @@
     <div class="cover"></div>
 
     <!-- docsearch -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-    <script type="text/javascript"> docsearch({
-     apiKey: '8151557aef4f704ed7be18edde51bc74',
-     indexName: 'redaxo_tricks',
-     inputSelector: '.searchfield__input',
-     debug: false
-    });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+    <script>docsearch({
+      appId: 'KA4S83EGGX',
+      apiKey: '27bcabae898668f3b0412435394d4ee5',
+      indexName: 'redaxo_tricks',
+      container: '#docsearch',
+      maxResultsPerGroup: 25,
+      placeholder: 'Tricks durchsuchen',
+      translations: {
+        button: {
+          buttonText: 'Tricks durchsuchen',
+          buttonAriaLabel: 'Tricks durchsuchen',
+        },
+      }
+    });</script>
 
     <!-- scripts -->
     <script src="{{ '/assets/vendor/pjax.js/pjax.min.js' | relative_url }}"></script>
