@@ -73,6 +73,7 @@ print $this->getArticle(1);
 
 ```php
 // REDAXO-Modul: RSS Feed Erstellung
+
 // Document Header definieren und initialisieren
 $xml = new SimpleXMLElement('<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom"></rss>');
 $xml->addAttribute('version', '2.0');
@@ -91,9 +92,14 @@ $atom->addAttribute('href', $base);
 $atom->addAttribute('rel', 'self');
 $atom->addAttribute('type', 'application/rss+xml');
 
-// Artikel holen und hinzufügen
+// Artikel holen
 $cat = rex_category::get('REX_VALUE[1]');
 $children = $cat->getArticles();
+
+// Sortieren nach Erstellungsdatum
+usort($children, function($a, $b) {
+    return $a->getCreateDate() < $b->getCreateDate();
+});
 
 foreach ($children as $child) {
     if ($child->isOnline()) {
@@ -110,5 +116,4 @@ foreach ($children as $child) {
 
 // Ausgabe des RSS-Feeds
 echo $xml->asXML();
-
 ```
