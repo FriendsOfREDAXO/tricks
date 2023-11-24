@@ -97,11 +97,15 @@ if (!rex_backend_login::hasSession())
 
 > Bei Verwendung von yrewrite direkt nach `RewriteRule ^imagetypes/…`
 
-	RewriteRule ^/?media/(.*)$ /index.php?ycom_file=$1 [L]
-
+```
+	RewriteRule ^/?media/(.*)$ %{ENV:BASE}/index.php?ycom_file=$1 [L]
+```
 Variante wenn nur bestimmte Dateitypen geschützt werden sollen
 
-	# RewriteRule ^/?media/(.*\.(pdf|doc|zip))$ /index.php?ycom_file=$1 [L]
+```
+	RewriteRule ^/?media/(.*\.(pdf|doc|zip))$ %{ENV:BASE}/index.php?ycom_file=$1 [L]
+```
+
 
 **NGINX**
 
