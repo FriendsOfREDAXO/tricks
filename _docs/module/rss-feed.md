@@ -72,89 +72,46 @@ print $this->getArticle(1);
 ## Ausgabe
 
 ```php
-<?php
-/*
- *=============================================
- * REDAXO-Modul: rss! make
- * Bereich: Ausgabe
- * REDAXO Version: 5.x
- *=============================================
+// REDAXO-Modul: RSS Feed Erstellung
 
- Anleitung
- Als Block einsetzen und mit einem Template mit folgendem Inhalt verbinden.
-
- rex_response::sendContentType('application/xml; charset=utf-8');
- print $this->getArticle(1);
- */
-
-// Sortierfunktion by Prio
-if (!function_exists('sortArticlesByPrio')) {
-	function sortArticlesByPrio($artA, $artB) {
-		$prioA = $artA->getPriority();
-		$prioB = $artB->getPriority();
-		if ($prioA == $prioB) {
-			return 0;
-		}
-		return $prioA > $prioB ? -1 : 1;
-	}
-}
-
-// Url zum Feed
-$base='http://'.$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI];
-
-// Document Header definieren
+// Document Header definieren und initialisieren
 $xml = new SimpleXMLElement('<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom"></rss>');
-
-// Channel.Deklaration
-$channel = $xml->addChild("channel");
-
 $xml->addAttribute('version', '2.0');
-$atom = $xml->channel->addChild('atom:atom:link'); //atom node
-$atom->addAttribute('href', $base); // atom node attribut
+
+// Channel-Deklaration
+$channel = $xml->addChild("channel");
+$base = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+$channel->addChild('title', "REX_VALUE[2]")
+        ->addChild("link", "REX_VALUE[3]")
+        ->addChild("description", "REX_VALUE[4]")
+        ->addChild("language", "de-de")
+        ->addChild('generator', 'REDAXO rss');
+
+$atom = $xml->channel->addChild('atom:link');
+$atom->addAttribute('href', $base);
 $atom->addAttribute('rel', 'self');
 $atom->addAttribute('type', 'application/rss+xml');
 
-// Seitentitel
-$channel->addChild("title", "REX_VALUE[2]");
-
-// URL der Website
-$channel->addChild("link", "REX_VALUE[3]");
-$channel->addChild("description", "REX_VALUE[4]");
-$channel->addChild("language", "de-de");
-$channel->addChild('generator', 'REDAXO rss'); // generator node
+// Artikel holen
 $cat = rex_category::get('REX_VALUE[1]');
 $children = $cat->getArticles();
 
-// Sortieren nach PRIO / Funktion weiter oben
-// usort($children, 'sortArticlesByPrio');
+// Sortieren nach Erstellungsdatum
+usort($children, function($a, $b) {
+    return $a->getCreateDate() < $b->getCreateDate();
+});
 
-if (is_array($children)) {
-	foreach ($children as $child) {
+foreach ($children as $child) {
+    if ($child->isOnline()) {
+        $item = $channel->addChild("item");
+        $url = rex_getUrl($child->getId());
 
-		//Nur wenn Artikel online
-		if ($child->isOnline()):
-
-			$item  = $channel->addChild("item");
-			$artId = $child->getId();
-
-			// Ermitteln der URL des Posting-Artikels
-			$url = rex_getUrl($artId);
-
-			// Titel des Artikels auslesen
-			$item->addChild("title", $child->getName());
-
-			// Link des Artikels generieren
-			$item->addChild("link", 'REX_VALUE[3]' . $url);
-			$item->addChild("guid", 'REX_VALUE[3]' . $url);
-
-			// Datum und Uhrezeit des Postings
-			$rssdate = date("D, d M Y H:i:s +0100", $child->getCreateDate());
-			$item->addChild('pubDate', $rssdate);
-
-			// Achtung die Beschreibung sollte mittels Metainfo-Addon angelegt sein
-			$item->addChild("description", $child->getValue('art_description'));
-		endif;
-	}
+        $item->addChild("title", $child->getName())
+             ->addChild("link", "REX_VALUE[3]" . $url)
+             ->addChild("guid", "REX_VALUE[3]" . $url)
+             ->addChild('pubDate', date("D, d M Y H:i:s +0100", $child->getCreateDate()))
+             ->addChild("description", $child->getValue('art_description'));
+    }
 }
 
 // Ausgabe des RSS-Feeds

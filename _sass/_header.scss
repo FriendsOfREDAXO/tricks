@@ -61,6 +61,9 @@
 .header__search {
   flex: 1;
   margin: 0 2vw 0 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 
   @include md {
     margin: 0 5vw;
