@@ -59,9 +59,9 @@ Als nächstes definieren wir das Grundgerüst des YForm-Formulars.
     $dataset = rex_yform_manager_table::get($table_name)->query()->where('key', $key)->findOne();
 
     if($dataset) {
-        $yform->setActionField('db', [$table_name, 'key="'.$key.'"']);
+        $yform->setActionField('db', [$table_name, '`key`="'.$key.'"']);
         $yform->setObjectparams('getdata', TRUE);
-        $yform->setObjectparams('main_where', 'key="'.$key.'"');
+        $yform->setObjectparams('main_where', '`key`="'.$key.'"');
         $yform->setObjectparams('main_table', $table_name);
     } else {
         $yform->setActionField('db', array($table_name));
