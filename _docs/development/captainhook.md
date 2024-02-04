@@ -2,6 +2,20 @@
 
 [Captain Hook](https://github.com/captainhookphp/captainhook) ist ein PHP-Tool, das es ermöglicht, Git-Hooks zu konfigurieren und zu verwenden. Es ist ein nützliches
 Tool, um sicherzustellen, dass bestimmte Standards eingehalten werden, bevor ein Commit oder ein Push durchgeführt wird.
+Captain Hook bietet eine einfache Möglichkeit, hooks zu konfigurieren und zu verwenden. Weiter lassen sich die Hooks
+einfach in ein Projekt integrieren und in einem Team verwenden.
+
+## Git-Hooks
+
+Git-Hooks sind Skripte, die automatisch ausgeführt werden, wenn bestimmte Ereignisse in einem Git-Repository auftreten.
+Es gibt verschiedene Arten von Hooks, die in verschiedenen Situationen ausgeführt werden. 
+
+Hier sind einige Beispiele für Hooks:
+
+- `pre-commit`: Wird vor einem Commit ausgeführt
+- `commit-msg`: Wird ausgeführt, nachdem eine Commit-Nachricht eingegeben wurde
+- `pre-push`: Wird vor einem Push ausgeführt
+- `post-checkout`: Wird nach einem Checkout ausgeführt
 
 ## Installation
 
