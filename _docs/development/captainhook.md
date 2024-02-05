@@ -1,3 +1,9 @@
+---
+title: Captain Hook
+authors: [eaCe]
+prio:
+---
+
 # Captain Hook
 
 [Captain Hook](https://github.com/captainhookphp/captainhook) ist ein PHP-Tool, das es ermöglicht, Git-Hooks zu konfigurieren und zu verwenden. Es ist ein nützliches
