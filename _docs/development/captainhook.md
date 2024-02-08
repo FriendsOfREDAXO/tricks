@@ -6,7 +6,7 @@ prio:
 
 # Captain Hook
 
-[Captain Hook](https://github.com/captainhookphp/captainhook) ist ein PHP-Tool, das es ermöglicht, Git-Hooks zu konfigurieren und zu verwenden. Es ist ein nützliches
+[Captain Hook](https://github.com/captainhookphp/captainhook) ist ein Tool, das es ermöglicht, Git-Hooks zu konfigurieren und zu verwenden. Es ist ein nützliches
 Tool, um sicherzustellen, dass bestimmte Standards eingehalten werden, bevor ein Commit oder ein Push durchgeführt wird.
 Captain Hook bietet eine einfache Möglichkeit, hooks zu konfigurieren und zu verwenden. Weiter lassen sich die Hooks
 einfach in ein Projekt integrieren und in einem Team verwenden.
