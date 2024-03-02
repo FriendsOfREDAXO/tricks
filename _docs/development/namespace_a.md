@@ -1,3 +1,9 @@
+---
+title: Das Addon hat "Namespace"! Und nun?
+authors: [christophboecker]
+prio:
+---
+
 # Oh! Das Addon hat "Namespace"! Und nun?
 
 > **Ruhe bewahren. Keine Panik. Tief durchatmen. Ommmmmmm!**
