@@ -21,7 +21,7 @@ zÜgig erfolgen. Irgendwann kommt das Major-Release und dann geht nur noch
 
 _Disclaimer: Diese Beschreibung richtet sich isbesondere an diejenigen, die bisher noch keine
 Erfahrungen mit Namespaces haben bzw. mit PHP nicht ganz so sattelfest sind.
-Sie ist weder eine Anleitung zum Umgang mit Namespaces (bitte die PHP-Dokumentation
+Sie ist weder eine Anleitung zum Umgang mit Namespaces an sich (bitte die PHP-Dokumentation
 oder Marjorie, die allwissende Müllhalde, fragen) noch erhebt sie den Anspruch,
 alle vorkommenden Fallvarianten in jeder Hinsicht vollständig darzustellen._
 
@@ -30,21 +30,20 @@ alle vorkommenden Fallvarianten in jeder Hinsicht vollständig darzustellen._
 Gute Frage, hängt davon ab, was es für ein Addon ist und wie man es einsetzt. 
 
 Es gibt Addons, die eher im Hintergrund arbeiten und deren Methoden
-vermutlich gar nicht außerhalb des Addons genutzt werden. Hier sind vermutlich
+wahrscheinlich gar nicht außerhalb des Addons genutzt werden. Hier sind wohl
 keine Anpassungen im eigenen Code erforderlich.
 
 ### Beispiel _Focuspoint out-of-the-box_
 
 Bei den Medien wird interaktiv der Fokuspunkt gesetzt. Die Medienausgabe
-erfolgt über einen MediaManager-Typ mit Effekt `focuspoint_fit`. Da ist
-kein eigener Code im Spiel. 
+erfolgt über einen MediaManager-Typ mit Effekt `focuspoint_fit`.
 
-Also sind auch keine Anpassungen erforderlich.
+Hier sind keine Anpassungen erforderlich.
 
 ### Beispiel _Focuspoint mit eigenen Erweiterungen_
 
-Manche nutzen Focuspoint zur Erfassung und Verwaltung der Fokuspunke. Die Werte
-werden z.B. in CSS oder in eigenen Effekten verwendet.
+Manche nutzen Focuspoint im Medienpool zur Erfassung und Verwaltung der Fokuspunke.
+Die Werte werden z.B. in CSS oder in eigenen Effekten verwendet.
 
 In so einem Fall müssen alle vorkommenden Stellen identifiziert und angepasst werden.
 
@@ -82,18 +81,19 @@ steht (z.B. Kommentare und mitunter sogar zufällig in Vendor-Verzeichnissen).
 Aus den Fundstellen müssen die relevanten herausgesucht und bearbeitet werden. 
 
 Die Textsuche findet auch Stellen in Dokumenationen und YForm-Tablesets (JSON).
-Stellen in Datenbanken (z.B. `rex_yform_fields`) werden müssen separat gesucht werden.
+Stellen in Datenbanken (z.B. `rex_yform_fields`) müssen separat gesucht werden.
 
 ### RexStan
 
 Wenn der Autor nett war, sind die alten Funktionen und Klassen noch vorhanden, aber als
-"deprecated" markiert. Man kann RexStan über die in Frage kommenden Addons laufen lassen
-(Developer, Project, Theme, ...). Als Analyseumfang wählt man nur die Extension "Deprecation Warnings".
+"deprecated" markiert. Man kann [RexStan](https://github.com/FriendsOfREDAXO/rexstan)
+über die in Frage kommenden Addons laufen lassen (Developer, Project, Theme, ...).
+Als Analyseumfang wählt man nur die Extension "Deprecation Warnings".
 
-Dann werden für Klassen und Funktionen, die "deprecated" sind, entsprechende Hinweise aufgelistet.
+Für Klassen und Funktionen, die "deprecated" sind, listet RexStan entsprechende Hinweise auf.
 Aus der Liste kann man gezielt an die Code-Stelle springen.
 
-Bitte beachten: für Code-Stellen (Literale), Passagen in Dokumenationen, Callbacks in YForm-Tablesets (JSON) oder
+Bitte beachten: für Literale in Code-Stellen, Passagen in Dokumenationen, Callbacks in YForm-Tablesets (JSON) oder
 Datenbanken (z.B. `rex_yform_fields`) muss auf die Textsuche bzw. Adminer|PhpMyAdmin zurückgegriffen werden.
 
 ### Entwicklungsumgebung (IDE)
@@ -119,15 +119,15 @@ Die Klassen liegen nun im Namespace. Der vollständige Klassenname ist der Names
 - Klasse: `FocuspointMedia`
 - vollständiger Name: `FriendsOfRedaxo\Focuspoint\FocuspointMedia`
 
-Für Funktionen gelten keine neuen Namensregeln. Gleichwohl müssen die den vollständigen Namen mit Namespace bekommen.
+Für Funktionen gelten keine neuen Namensregeln. Gleichwohl müssen sie den vollständigen Namen mit Namespace bekommen.
 
 ### Änderungen im Code
 
-Es gibt zwei Varianten,von denen die USE-Variante meist die bessere ist. An den Anfang der eigenen
+Es gibt zwei Varianten, von denen die USE-Variante meist die bessere ist. An den Anfang des eigenen
 Codes in Modulen, Templates etc., der Objekte aus dem Addon nutzt, wird ein Use-Statement für die
-jeweilige Klasse gesetzt. Die Klasse kann dann ohne den Namespacezusatz benutzt werden.
+jeweilige Klasse gesetzt. Die Klasse kann danach ohne den Namespace-Zusatz benutzt werden.
 
-Hier ein Beispiel für eine Geolocation-Karte im Modul:
+Hier ein Beispiel für eine Geolocation-Code im Modul:
 
 ```php
 use FriendsOfRedaxo\Geolocation\Mapset;
@@ -144,8 +144,8 @@ echo Mapset::take()
     ->parse();
 ```
 
-Alternativ kann wie oben beschrieben der vollständige Name genutzt werden. Das wird aber schnell
-unübersichtlich, insbesondere wenn Klassen mehrfach benutzt werden.
+Alternativ kann wie oben beschrieben der vollständige Name genutzt werden. Der resultierende Code
+wird schnell unübersichtlich, insbesondere wenn Klassen mehrfach benutzt werden.
 
 ```php
 $konstanz = FriendsOfRedaxo\Geolocation\Calc\Point::byLatLng([47.658968, 9.178456]);
@@ -164,12 +164,12 @@ echo FriendsOfRedaxo\Geolocation\Mapset::take()
 
 Klassen- und Methoden-Namen in Literalen müssen etwas anders gehandhabt werden.
 Ein vorgeschaltetes `use ...` wirkt sich nicht auf Literale aus. Eine einfache
-Lösung wäre, den vollständihen Namen einzusetzen
+Lösung wäre, den vollständihen Namen einzusetzen:
 
 - alt: `is_a($media,'focuspoint_media')`
 - neu: `is_a($media,'FriendsOfRedaxo\Focuspoint\FocuspointMedia')`
 
-Bitte macht das nicht. Das Grundproblem ist, dass diese Literale von der Code-Analyse
+Bitte macht das nicht! Das Grundproblem ist, dass diese Literale von der Code-Analyse
 der IDE oder RexStan nicht als Klassen erkannt werden. Die Code-Analyse kann Fehler an
 solchen Stellen nicht erkennen!
 
@@ -179,9 +179,10 @@ Die Literale sollte immer in eine moderne, genau dafür geschaffene Variante ge�
 - neu: `is_a($media,FriendsOfRedaxo\Focuspoint\FocuspointMedia::class)`
 
 Dann ist es kein Literal mehr, sondern eine reguläre Klassen-Referenz. Die IDE bzw. RexStan
-machen dann auf Fehler aufmerksam.
+können die Stellen erkennen und machen auf Fehler aufmerksam.
 
 In der Variante greif auch das Use-Statement:
+
 ```php
 use FriendsOfRedaxo\Focuspoint\FocuspointMedia;
 ...
@@ -210,12 +211,7 @@ die Methode. Das erweitert noch einmal die Möglichkeiten der Code-Analyse durch
 
 In Tablesets (Yform, JSON-Format) in interaktiv verwalteten YForm-Felddefinitionen, in
 Tabellen wie `rex_yform_fields` usw. muss generell der komplette Namespace mit aufgenommen
-werden. 
-
-Beide Lang-Schreibweisen funktionieren:
-
-- `namespace\klasse::methode` z.B. `FriendsOfRedaxo\Geolocation\Layer::verifySubdomain`
-- `namespace\klasse::methode(...)` z.B. `FriendsOfRedaxo\Geolocation\Layer::verifySubdomain(...)`
+werden. Die "First class callable syntax" funktioniert nicht.
 
 ## Bei der Gelegenheit: den Code modernisieren
 
