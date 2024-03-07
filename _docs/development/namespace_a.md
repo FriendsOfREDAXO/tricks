@@ -16,11 +16,11 @@ neues Major-Release gebaut hat, sondern ...
 
 Das Addon sollte also mit hoher Wahrscheinlichkeit auch so funktionieren.
 Aber dennoch sollte die Umstellung auf die Namespace-Variante halbwegs
-zÜgig erfolgen. Irgendwann kommt das Major-Release und dann geht nur noch
+zügig erfolgen. Irgendwann kommt das Major-Release und dann geht nur noch
 "Namespace". 
 
-_Disclaimer: Diese Beschreibung richtet sich isbesondere an diejenigen, die bisher noch keine
-Erfahrungen mit Namespaces haben bzw. mit PHP nicht ganz so sattelfest sind.
+_Disclaimer: Diese Beschreibung richtet sich insbesondere an diejenigen, die bisher noch keine
+Erfahrungen mit Namespaces haben bzw. bei der Programmierung mit PHP nicht ganz so sattelfest sind.
 Sie ist weder eine Anleitung zum Umgang mit Namespaces an sich (bitte die PHP-Dokumentation
 oder Marjorie, die allwissende Müllhalde, fragen) noch erhebt sie den Anspruch,
 alle vorkommenden Fallvarianten in jeder Hinsicht vollständig darzustellen._
@@ -75,7 +75,7 @@ Auf jeden Fall wird eine Textsuche mit der IDE in den relevanten Verzeichnissen 
 
 Da die meisten Addons ohne Namespace eindeutige Namen über einen Namens-Präfix hergestellt
 haben (z.B. MarkItUp, Focuspoint) bietet sich die Suche nach diesem Präfix an. Leider wird
-man wird auch genügend Stellen finden, in denen das Wort in einem ganz anderen Kontext
+man auch genügend Stellen finden, in denen das Wort in einem ganz anderen Kontext
 steht (z.B. Kommentare und mitunter sogar zufällig in Vendor-Verzeichnissen).
 
 Aus den Fundstellen müssen die relevanten herausgesucht und bearbeitet werden. 
