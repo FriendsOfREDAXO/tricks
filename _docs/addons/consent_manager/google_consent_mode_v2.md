@@ -307,19 +307,19 @@ oder ihn direkt nach Einbindung des oben genannten Snippets ins Template ausfüh
 
 Der Ausgangszustand sollte so aussehen:
 
-![Bild 1](/screenshots/cm_google_cm_v2_01_initial_state.png "01 - Ausgangszustand")
+![Bild 1](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/cm_google_cm_v2_01_initial_state.png "01 - Ausgangszustand")
 
 -----
 
 Wählt man nur **notwendige Dienste** aus, werden `functionality_storage`, `personalization_storage` und `security_storage`
 auf `true` gesetzt:
 
-![Bild 2](/screenshots/cm_google_cm_v2_02_additional_flags.png "02 - Einschalten notwendiger Werte")
+![Bild 2](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/cm_google_cm_v2_02_additional_flags.png "02 - Einschalten notwendiger Werte")
 
 -----
 
 Wählt man die **Statistik-Gruppe** aus, werden die Flags gesetzt, der Tag Manager eingeladen und (wegen der aktivierten
 Flags) auch Google Analytics geladen:
 
-![Bild 3](/screenshots/cm_google_cm_v2_03_analytics_group.png "03 - Einschalten Statistik-Gruppe / Laden des Tag Managers und Aktivierung Analytics")
+![Bild 3](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/cm_google_cm_v2_03_analytics_group.png "03 - Einschalten Statistik-Gruppe / Laden des Tag Managers und Aktivierung Analytics")
 
