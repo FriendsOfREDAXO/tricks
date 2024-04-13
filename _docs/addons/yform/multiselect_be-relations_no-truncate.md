@@ -1,5 +1,5 @@
 ---
-title: YForm Formulare: Multiple (select) für "be_manager_relations"-Feld ungekürzt
+title: 'YForm Formulare: Multiple (select) für "be_manager_relations"-Feld ungekürzt'
 authors: [eaCe, madiko]
 prio: 
 ---
