@@ -12,7 +12,7 @@ Benötigte AddOns:
 
 ### Wie kann man Dateien in Verbindung mit YCom (Community Addon) einfach schützen?
 
-> Ab ycom Version 3.0 wird das Plugin media_auth mitgeliefert. Hiermit lassen sich einzelne Dateien ohne weitere Anpassungen schützen. Die nachfolgende Anleitung zeigt einen alternativen Weg.
+> Diese Anleitung ist veraltet: Seit YCOM 4.x ist dieser Trick nicht mehr nötig.
 
 Da REDAXO aktuell nur einen Medienordner hat und so von außen alle Dateien in diesem Ordner öffentlich zugänglich sind, benötigt man eine Lösung, die den Dateiaufruf überprüft und entscheidet ob es sich um eine geschützte Datei oder einer öffentlichen Datei handelt.
 
