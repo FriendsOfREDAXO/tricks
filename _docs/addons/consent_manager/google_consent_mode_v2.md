@@ -118,7 +118,6 @@ function setConsent(consent) {
  * helper to bring in PHP's array_combine function
  * @param keys
  * @param values
- * @return {{}|boolean}
  */
 function array_combine(keys, values) {
     const newArray = {}
