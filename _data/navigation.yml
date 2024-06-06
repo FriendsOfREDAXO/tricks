@@ -7,7 +7,7 @@
   url: /addons
   subitems:
     - title: Consent-Manager
-      url: /addons/consent-manager
+      url: /addons/consent_manager
     - title: Cookie Gedöns
       url: /addons/iwcc
     - title: Cronjob
