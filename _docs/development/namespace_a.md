@@ -8,44 +8,34 @@ prio:
 
 > **Ruhe bewahren. Keine Panik. Tief durchatmen. Ommmmmmm!**
 
-Nehmen wir an, dass der Maintainer nett ist und nicht sofort ein
-neues Major-Release gebaut hat, sondern ...
+Nehmen wir an, dass der Maintainer nett ist und nicht sofort ein neues Major-Release gebaut hat, sondern ...
 
 1. im Changelog Hinweise zur Umstellung auf die Namespace-Variante gibt und
 2. alle alten Klassen und Funktionen weiterhin funktionieren, aber als "deprecated" markiert sind.
 
-Das Addon sollte also mit hoher Wahrscheinlichkeit auch so funktionieren.
-Aber dennoch sollte die Umstellung auf die Namespace-Variante halbwegs
-zügig erfolgen. Irgendwann kommt das Major-Release und dann geht nur noch
-"Namespace". 
+Das Addon sollte also mit hoher Wahrscheinlichkeit auch so funktionieren. Aber dennoch sollte die Umstellung auf die Namespace-Variante halbwegs zügig erfolgen. Irgendwann kommt das Major-Release und dann geht nur noch "mit Namespace". 
 
-_Disclaimer: Diese Beschreibung richtet sich insbesondere an diejenigen, die bisher noch keine
-Erfahrungen mit Namespaces haben bzw. bei der Programmierung mit PHP nicht ganz so sattelfest sind.
-Sie ist weder eine Anleitung zum Umgang mit Namespaces an sich (bitte die PHP-Dokumentation
-oder Marjorie, die allwissende Müllhalde, fragen) noch erhebt sie den Anspruch,
-alle vorkommenden Fallvarianten in jeder Hinsicht vollständig darzustellen._
+_Disclaimer: Diese Beschreibung richtet sich insbesondere an diejenigen, die bisher noch keine Erfahrungen mit Namespaces haben bzw. bei der Programmierung mit PHP nicht ganz so sattelfest sind. Sie ist weder eine Anleitung zum Umgang mit Namespaces an sich (bitte die PHP-Dokumentation oder Marjorie, die allwissende Müllhalde, fragen) noch erhebt sie den Anspruch, alle vorkommenden Fallvarianten in jeder Hinsicht vollständig darzustellen._
 
 ## Muss ich überhaupt etwas ändern?
 
-Gute Frage, hängt davon ab, was es für ein Addon ist und wie man es einsetzt. 
+Gute Frage, hängt davon ab, was es für ein Addon ist und wie man es einsetzt.
 
-Es gibt Addons, die eher im Hintergrund arbeiten und deren Methoden
-wahrscheinlich gar nicht außerhalb des Addons genutzt werden. Hier sind wohl
-keine Anpassungen im eigenen Code erforderlich.
+Es gibt Addons, die eher im Hintergrund arbeiten und deren Methoden wahrscheinlich gar nicht außerhalb des Addons genutzt werden. Hier sind wohl keine Anpassungen im eigenen Code erforderlich.
+
+>**Faustregel:** Du nutzt im Modul-Code, Template-Code oder Projekt-Code keine Klassen, Methoden und Funktionen des Addons? Dann musst du vermutlich nichts ändern.
+
+>**Faustregel:** Du nutzt im Modul-Code, Template-Code oder Projekt-Code Klassen, Methoden und Funktionen des Addons? Dann musst du vermutlich etwas ändern.
+
+>**Tipp:** Nutze eine IDE oder einen Editor mit statischer Codeanalyse, z.B. PHPStorm oder VS Code mit entsprechenden Plugins oder über [rexstan](https://github.com/FriendsOfREDAXO/rexstan). Sie zeigen dir, welche Methoden deprecated sind. Weitere Hinweise dazu nachfolgend.
 
 ### Beispiel _Focuspoint out-of-the-box_
 
-Bei den Medien wird interaktiv der Fokuspunkt gesetzt. Die Medienausgabe
-erfolgt über einen MediaManager-Typ mit Effekt `focuspoint_fit`.
-
-Hier sind keine Anpassungen erforderlich.
+Bei den Medien wird interaktiv der Fokuspunkt gesetzt. Die Medienausgabe erfolgt über einen MediaManager-Typ mit Effekt `focuspoint_fit`. Hier sind keine Anpassungen erforderlich.
 
 ### Beispiel _Focuspoint mit eigenen Erweiterungen_
 
-Manche nutzen Focuspoint im Medienpool zur Erfassung und Verwaltung der Fokuspunke.
-Die Werte werden z.B. in CSS oder in eigenen Effekten verwendet.
-
-In so einem Fall müssen alle vorkommenden Stellen identifiziert und angepasst werden.
+Manche nutzen Focuspoint im Medienpool zur Erfassung und Verwaltung der Fokuspunke. Die Werte werden z.B. in CSS oder in eigenen Effekten verwendet. In so einem Fall müssen alle vorkommenden Stellen identifiziert und angepasst werden.
 
 ## Wie finde ich anzupassende Stellen
 
@@ -70,27 +60,23 @@ Auf jeden Fall wird eine Textsuche mit der IDE in den relevanten Verzeichnissen 
 - Developer-Addon: Data-Verzeichnis für Module und Templates
 - Project-Addon
 - Theme-Addon
-- evtl. weitere eigene Addons
+- evtl. weitere eigene Addons, abhängige Addons die nicht auf die Umstellung vorbereitet sind
 - evtl. auch Data-Verzeichnisse?
 
-Da die meisten Addons ohne Namespace eindeutige Namen über einen Namens-Präfix hergestellt
-haben (z.B. MarkItUp, Focuspoint) bietet sich die Suche nach diesem Präfix an. Leider wird
-man auch genügend Stellen finden, in denen das Wort in einem ganz anderen Kontext
-steht (z.B. Kommentare und mitunter sogar zufällig in Vendor-Verzeichnissen).
+Da die meisten Addons ohne Namespace eindeutige Namen über einen Namens-Präfix hergestellt haben (z.B. MarkItUp, Focuspoint) bietet sich die Suche nach diesem Präfix an. Leider wird man auch genügend Stellen finden, in denen das Wort in einem ganz anderen Kontext steht (z.B. Kommentare und mitunter sogar zufällig in Vendor-Verzeichnissen).
 
 Aus den Fundstellen müssen die relevanten herausgesucht und bearbeitet werden. 
 
-Die Textsuche findet auch Stellen in Dokumenationen und YForm-Tablesets (JSON).
-Stellen in Datenbanken (z.B. `rex_yform_fields`) müssen separat gesucht werden.
+Die Textsuche findet auch Stellen in Dokumenationen und YForm-Tablesets (JSON). Stellen in Datenbanken (z.B. `rex_yform_fields`) müssen separat gesucht werden.
 
-### RexStan
+### Statische Codeanalyse
 
 Wenn der Autor nett war, sind die alten Funktionen und Klassen noch vorhanden, aber als
-"deprecated" markiert. Man kann [RexStan](https://github.com/FriendsOfREDAXO/rexstan)
+"deprecated" markiert. Man kann z.B. [rexstan](https://github.com/FriendsOfREDAXO/rexstan)
 über die in Frage kommenden Addons laufen lassen (Developer, Project, Theme, ...).
 Als Analyseumfang wählt man nur die Extension "Deprecation Warnings".
 
-Für Klassen und Funktionen, die "deprecated" sind, listet RexStan entsprechende Hinweise auf.
+Für Klassen und Funktionen, die "deprecated" sind, listet rexstan entsprechende Hinweise auf.
 Aus der Liste kann man gezielt an die Code-Stelle springen.
 
 Bitte beachten: für Literale in Code-Stellen, Passagen in Dokumenationen, Callbacks in YForm-Tablesets (JSON) oder
@@ -225,11 +211,10 @@ ergeben sich handfeste Vorteile: Fehler werden besser gefunden, der Code ist zuk
 
 Beispiele:
 
-- aus `'klasse'` wird `klasse::class`
-- aus `'klasse::methode'`, `array('klasse','methode')` oder `['klasse','methode']` wird `klasse::methode(...)`
+- aus `'meine_klasse'` wird `MeineKlasse::class`
+- aus `'meine_klasse::methode'`, `array('MeineKlasse','Methode')` oder `['meine_klasse','methode']` wird `MeineKlasse::methode(...)`
 - aus `array(...)` sollte man `[...]` machen.
 
 Die Suche mit RexStan nach "Deprecation Warnings" wird u.U. noch weitere Fundstellen generieren, z.B.
 PHP-Funktionen oder Hinweise auf weitere modernisierte Addons. Auch an diesen Stellen sollte
 der Code bereinigt werden.
-
