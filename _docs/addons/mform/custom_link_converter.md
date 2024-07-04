@@ -6,7 +6,7 @@ prio:
 
 # MForm CustomLink Converter 
 
-Mit diesem Skript können alte Custom-Links in das neue Format ab mform 8 konvertieert werden. 
+Mit diesem Skript können alte Custom-Links in das neue Format ab MForm 8 konvertieert werden. 
 
 1. Lege in `$column` das REDAXO Value fest in dem gesucht werden soll
 2. Wähle das node das konvertiert werden soll. Angenommen das Feld war so definiert `$mform->addCustomLinkField("$id.0.mylink", array('label' => 'Link'));`, dann lautet das node: `mylink`
