@@ -9,7 +9,7 @@ prio:
 Mit diesem Skript können alte Custom-Links in das neue Format ab MForm 8 konvertieert werden. 
 
 1. **DB-Backup** anlegen
-2. Mdul oder Template mit dem nachfolgenden SkriptCode anlegen
+2. Modul oder Template mit dem nachfolgenden SkriptCode anlegen
 3. Lege in `$column` das REDAXO Value fest in dem gesucht werden soll
 4. Wähle das `$node` das konvertiert werden soll. Angenommen das Feld war so definiert `$mform->addCustomLinkField("$id.0.mylink", array('label' => 'Link'));`, dann lautet das node: `mylink`
 5. Lege die `$moduleId` fest des Moduls in dem gesucht werden soll. 
