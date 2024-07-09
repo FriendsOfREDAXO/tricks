@@ -325,7 +325,7 @@ echo Mapset::take()
 
 #### Beispiel: ein Kriterium (Branche)
 
-[MarkerFilter Beispiel 1](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/geolocation_05.jpg)
+![MarkerFilter Beispiel 1](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/geolocation_05.jpg)
 
 #### Beispiel: zwei Kriterien (Bundesland, Freitext)
 
