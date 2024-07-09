@@ -40,10 +40,13 @@ ein Array mit den Filter-Kriterien bzw. den Eigenschaften dieses Markers
 
 ```php
 $dataset = [
-    [breitengrad,längengrad],  // übliche Koordinatenangabe
-    popup_text,                // Der anzuzeigende Popup-Text
-    [ filter1, ...]            // Array mit Filterwerten
-    marker_farbe               // optional die Markerfarbe; Default: Geolocation.default.positionColor
+    [
+        [breitengrad,längengrad],  // übliche Koordinatenangabe
+        popup_text,                // Der anzuzeigende Popup-Text
+        [ filter1, ...]            // Array mit Filterwerten
+        marker_farbe               // optional die Markerfarbe; Default: Geolocation.default.positionColor
+    ],
+    ....
 ];
 ```
 
