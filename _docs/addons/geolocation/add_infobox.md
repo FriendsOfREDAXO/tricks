@@ -4,7 +4,7 @@ authors: [tobiaskrais, christophboecker]
 prio:
 ---
 
-# Custom-Tools zur Kartengstaltung
+# Custom-Tools zur Kartengestaltung
 
 > Dieser Trick-Artikel ist als ein Sammelbecken für Custom-Tools gedacht. Es muss ja nicht jeder das Rad neu erfinden. Wenn ihr was Tolles habt: bitte gerne teilen.
 > - [Lies mich](#readme)
@@ -12,6 +12,7 @@ prio:
 > - [Markerliste mit Popup-Text](#markerplus)
 > - [Nummerierte Markerliste mit Popup-Text](#nrmarkerplus)
 > - [Markerliste als Karten-Overlay](#markeroverlay)
+> - [Markerliste mit interaktivem Filter](tool_markerfilter.md)
 
 (In Geolocation 2.0 wurde der Namespace von `Geolocation` in `FriendsOfRedaxo\Geolocation` geändert!)
 
