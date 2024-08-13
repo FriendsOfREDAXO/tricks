@@ -63,7 +63,7 @@ erstelltes *class*-Attribut zusammengesetzt werden aus einem festen Teil und ein
 aus dem Datensatz:
 
 ```php
-$list->setRowAttributes(['class','xyz-privacy-###privacy###']);
+$list->setRowAttributes(['class'=>'xyz-privacy-###privacy###']);
 ```
 
 ```css
