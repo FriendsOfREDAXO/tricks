@@ -1,5 +1,5 @@
 ---
-title: "Artikel einbinden mit rex_article::get"
+title: "Artikel einbinden"
 authors: [skerbis]
 prio:
 ---
