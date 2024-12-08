@@ -1,6 +1,6 @@
 ---
 title: Nützliche YForm-Snippets
-authors: [skerbis,isospin,netzproductions,pschuchmann,rotzek,alxndr-w]
+authors: [skerbis,isospin,netzproductions,pschuchmann,rotzek,alxndr-w,danspringer,christophboecker]
 prio:
 ---
 
@@ -11,6 +11,7 @@ prio:
 - [Table Manager: Spalteninhalt vor Anzeige in Übersicht ändern](#Spalteninhalt)
 - [Table Manager: Bilderspalte in Tabellenansicht (Bild statt Dateiname)](#ytbilder)
 - [Table Manager: Extensionpoint / Listensortierung beeinflussen)](#ytlistsort)
+- [Table Manager: Paginierung auch am Tabellenende](#yform_table_manager_paginierung)
 - [Choice Feld Optionen holen](#Choicefieldoptionen)
 - [YForm Menüpunkt für Redakteure ausblenden](#yform_menu)
 - [Details zum Datensatz nach dem Erstellen erhalten](#yform_created)
@@ -179,6 +180,26 @@ if (
 
 ```
 Einfach `<TABLE_NAME>` und `<SOMETHING ELSE>` wie gewünscht austauschen.
+
+<a name="yform_table_manager_paginierung"></a>
+## Table Manager: Paginierung auch am Tabellenende
+In der boot.php des project-Addons oder wo es sonst passt:
+```php
+rex_yform_list::setFactoryClass(RexYformList::class);
+```
+Und im Lib-Verzeichnis diese Klasse:
+```php
+class RexYformList extends rex_yform_list
+{
+    /**
+     * @return string
+     */
+    public function get()
+    {
+        return parent::get() . $this->getPagination();
+    }
+}
+```
 
 
 <a name="Choicefieldoptionen"></a>
