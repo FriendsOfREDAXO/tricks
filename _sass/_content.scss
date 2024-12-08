@@ -9,6 +9,11 @@
   margin-top: 60px;
   word-break: break-word;
 
+  tbody th, 
+  tbody td {
+    word-break: normal;
+  }
+
   > :first-child {
     margin-top: 0;
   }
