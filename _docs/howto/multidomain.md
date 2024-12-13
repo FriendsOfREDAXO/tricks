@@ -1,4 +1,10 @@
-# REDAXO Multidomain-Setup - Aufbau und Tipps
+---
+title: REDAXO Multidomain-Setup - Aufbau und Tipps
+authors: [alexplusde]
+prio:
+---
+
+# Multidomain-Setup - Aufbau und Tipps
 
 REDAXO ist standardmäßig als Single-Domain CMS konzipiert, kann aber durch entsprechende AddOns zu einer vollwertigen Multidomain-Lösung erweitert werden. Diese Dokumentation beschreibt die technischen Konzepte, Möglichkeiten und Grenzen von Multidomain-Setups in REDAXO.
 
