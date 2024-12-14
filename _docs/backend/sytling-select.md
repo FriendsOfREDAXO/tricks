@@ -208,4 +208,4 @@ Bootstrap-Select passt sich automatisch an mobile Geräte an. Für eine bessere 
 </select>
 ```
 
-> **Hinweis**: Die Selects können mit weitaus mehr Funktionen ausgestattet werden. Die vollständige Dokumentation finden Sie unter: [https://developer.snapappointments.com/bootstrap-select/](https://developer.snapappointments.com/bootstrap-select/)
+> **Hinweis**: Die Selects können mit weitaus mehr Funktionen ausgestattet werden. Die vollständige Dokumentation  unter: [https://developer.snapappointments.com/bootstrap-select/](https://developer.snapappointments.com/bootstrap-select/)
