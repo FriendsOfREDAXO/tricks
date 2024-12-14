@@ -1,113 +1,97 @@
----
-title: Weiterführende Tipps nach Konvertierung von REDAXO 4.x zu 5
-authors: [skerbis,alexplusde]
-prio:
---- 
+# Tipps zur Migration von REDAXO 4 nach REDAXO 5
 
-# Weiterführende Tipps nach Konvertierung von REDAXO 4.x zu 5
+## Fehlersuche und -behebung
 
-## Fehler erkennen und Beseitigen
+Das Cache Warm-Up AddOn vereinfacht die Fehlersuche nach der Migration erheblich. Sie müssen nicht mehr manuell alle Seiten durchklicken, um Fehler zu finden. Das AddOn durchsucht automatisch Ihre Website und stoppt, sobald es einen Fehler findet. Sie erhalten dann eine detaillierte Fehlermeldung im Whoops-Format.
 
-Durch Verwendung des Cache Warm-Up AddOns ist es nicht nötig die Website "abzusurfen" um eventuelle Fehler zu finden. Wenn Cache-Warm-Up einen fehler findet bricht es ab und bietet an sich den Fehler anzuschauen. Man erhält dann die gewohnte Whoops-Meldung. 
+## AddOn-Kompatibilität und Alternativen
 
-## Addons und Module
+Nicht alle AddOns aus REDAXO 4 wurden für REDAXO 5 aktualisiert. Hier finden Sie eine Übersicht zu Alternativen für häufig genutzte AddOns:
 
-Einige AddOns wurden bislang nicht nach REDAXO 5 überführt und stehen nicht mehr zur Verfügung. Nachfolgend listen wir einen Überblick darüber welche AddOns gleiche oder ähnliche Funktionen liefern: 
+### SEO-Funktionalität
+- Das SEO42-AddOn wird nicht mehr unterstützt
+- Alle `SEO42::`-Aufrufe in Templates und Modulen müssen manuell entfernt werden
+- Alternative: **YRewrite** (empfohlen) oder **YRewrite** in Kombination mit **YRewrite Scheme**
 
-### SEO42
-Nach der Konvertierung sollten sämtliche `SEO42::`-Codes in den Templates und Modulen entfernt werden. YConverter wird diese nicht konvertieren, so dass dies manuell durchgeführt werden muss.  
+### Artikel-Slices aktivieren/deaktivieren
+- Ab REDAXO 5.10 ist diese Funktion bereits im Core integriert
+- Für ältere Versionen: AddOn `bloecks` mit Plugin `status` verwenden
+- Migration der Daten:
+  1. `bloecks` und das Plugin `status` installieren
+  2. Alte Werte in der Datenbank übertragen: `UPDATE rex_article_slice SET status = a356_is_online`
+  3. Spalte `a356_is_online` kann danach aus der Tabelle `rex_article_slice` gelöscht werden
 
-SEO42 kann nahezu vollständig durch **YRewrite** ersetzt werden (empfohlen), oder in Kombination mit **YRewrite Scheme** ersetzt werden. 
+### Text-Editoren
+Folgende Editoren stehen zur Verfügung:
+- **Markitup-AddOn** für Textile und Markdown
+- WYSIWYG-Editoren: **CKEditor 4**, **CKE5**, **Redactor2** oder **TinyMCE**
 
-### Slice on / off
-
-Ab REDAXO 5.10 ist diese Funktion nativ im Core integriert.
-
-Dies Funktion wird in REDAXO 5 vom Addon `bloecks` übernommen 
-* `bloecks` installieren und unter Addons das bloecks-plugin `status` installieren.
-* Über die Datenbank (PHPMyAdmin oder REDAXO 5-Addon `adminer`) die alten Werte kopieren: `UPDATE rex_article_slice SET status = a356_is_online`
-* Anschließend kann das Feld „a356_is_online“ in der Tabelle `rex_article_slice` entfernt werden
-
-
-### Editoren
-Die in REDAXO 4 bekannten Text-Editoren finden sich auch im REDAXO 5-Installer. 
-
-- Für die Verwendung von **Textile oder Markdown** steht das **Markitup-AddOn** zur Verfügung.
-- Als WYSIWYG-Editoren bieten sich **CKEDITOR 4, CKE5, Redactor2** und **TinyMCE** an. 
-
-### Suchmaschine
-Nutzer der Suchmaschine xsearch und rex_search finden mit search_it einen geeigneten Ersatz. Wer von REX_Search kommt, muss nur den Aufruf der PHP Class ändern, dann funktioniert die Suche meist wie gewohnt. Es empfieht sich jedoch, im Anschluss die Dokumentation zu konsultieren, da es dort einige wichtige Hinweise zur Code-Anpassung hinsichtlich Sicherheit gibt. 
+### Suchfunktion
+- Das AddOn **search_it** ersetzt xsearch und rex_search
+- Bei Migration von REX_Search muss nur der PHP-Klassenaufruf angepasst werden
+- Wichtig: Dokumentation zur sicheren Code-Anpassung beachten
 
 ### Formulare
+- **YForm** ist der Nachfolger von **XForm**
+- Tabellen und Einstellungen werden durch den YConverter automatisch migriert
+- Für **do form!** Nutzer: Nachfolger auf [GitHub](https://github.com/skerbis/doform-6) verfügbar
+- Bei wenigen Formularen empfiehlt sich eine Umstellung auf YForm
 
-Der Nachfolger von **XForm** heißt in REDAXO 5 **YForm**. Die Tabellen und Einstellungen werden bei der xform-Konvertierung im YConverter übernommen und importiert. Nutzer von **do form!**, finden bei [GitHub](https://github.com/skerbis/doform-6) einen Nachfolger. Wenn nur wenige Formulare verwendet werden, sollte man über einen Umbau nach YForm nachdenken.  
+### Datei-Uploads
+Für Mehrfach-Uploads stehen zwei Alternativen zur Verfügung:
+- AddOn **uploader**
+- AddOn **multiuploader**
 
-### Multiuploads
+## Migration der Benutzer-Passwörter
 
-Als Lösung und Ersatz des Multiuploader-AddOn stehen die AddOns ***uploader*** und **multiuploader** zur Verfügung. 
+### Wichtige Vorbereitungen
+1. Backup der Tabellen `rex_user` und `rex_xcom_user` erstellen
+2. Verschlüsselungsmethode der alten Passwörter prüfen
 
-### Benutzer Passwörter in REDAXO 5 importieren
-- **WICHTIG: rex_user / rex_xcom_user Tabelle zu Beginn sichern!** 
-- **WICHTIG: Alte Passwortverschlüsselung auf Typ prüfen**
+### Schritte zur Migration
 
-Passwörter aus REDAXO 4 können mit folgendem Snippet REDAXO 5 kompatibel gemacht werden.
+#### 1. Datenbank anpassen
 
-#### Schritt 1: Tabelle
-Folgende Schritte sind notwendig um alte Passwörter aus REDAXO 4 auch in REDAXO 5 verwenden zu können.
+Die Benutzerdaten aus REDAXO 4 müssen für REDAXO 5 angepasst werden:
 
-- Zunächst wird der Export der `rex_user`, bzw. `rex_xcom_user`, Datenbank aus der REDAXO 4 Instanz benötigt. Der könnte beispielsweise so aussehen:
+- Feldänderungen:
+  - `user_id` wird zu `id` (muss eindeutig sein)
+  - `psw` wird zu `password`
+  - Zeitstempel-Felder müssen in datetime-Format konvertiert werden
+  - `rights`-Feld kann entfernt werden (REDAXO 5 nutzt Rollen)
+  - `session_id` kann entfernt werden
 
-```mysql
-INSERT INTO `rex_user` (`user_id`, `name`, `description`, `login`, `psw`, `status`, `rights`, `login_tries`, `createuser`, `updateuser`, `createdate`, `updatedate`, `lasttrydate`, `session_id`) VALUES
-(2, 'REDAXO 4 Redakteur', '', 'redaktion', 'f616d7c4c54614b51f5d0bfa877e1a3ae63d31e3', '1', '#admin[]#clang[0]#', 0, 'admin', '', 1574436072, 0, 0, '');
-```
-
-  - Das Feld `rights` kann entfernt werden. REDAXO 5 verwendet nun Rollen um die Rechte der Nutzer zu verwalten.
-  - Das Feld `user_id` heißt in REDAXO 5 nun `id` und ist unique. Sollte eine Id bereits vorhanden sein, wird der Insert nicht klappen. Entweder wird die Id selbst vergeben oder entfernt.
-  - Das Feld `psw` heißt in REDAXO 5 nun `password`
-  - Die Felder `createdate`, `updatedate`, `lasttrydate` sind nun `datetime` Felder und müssen von Unix Timestamp umgewandelt werden.
-  - `session_id` sollte entfernt werden.
-  
-Beispiel Insert:
-```mysql
-INSERT INTO `rex_user` (`id`, `name`, `description`, `login`, `password`, `status`, `login_tries`, `createuser`, `updateuser`, `createdate`, `updatedate`, `lasttrydate`) VALUES
-(2, 'REDAXO 4 Redakteur', '', 'redaktion', 'f616d7c4c54614b51f5d0bfa877e1a3ae63d31e3', '1', 0, 'admin', '', FROM_UNIXTIME(1574436072), 0, 0);
-```
-Beispiel minimaler Insert:
-```mysql
+Beispiel für minimalen Import:
+```sql
 INSERT INTO `rex_user` (`login`, `password`) VALUES
 ('redaktion', 'f616d7c4c54614b51f5d0bfa877e1a3ae63d31e3');
 ```
 
-Der Insert kann jetzt in die REDAXO 5 Tabelle eingespielt werden. Die Ids der neuen Datensätze sollte man sich merken, da sie später für das Update der Passwörter gebraucht werden.
+#### 2. Passwörter konvertieren
 
-#### Schritt 2: Template / Module
-- `$users` **muss** in der setWhere() Funktion beschränkt werden! Es dürfen nur die Ids mit REDAXO 4 Passwörtern selektiert werden, andernfalls werden bereits korrekte Passwörter erneut gehasht und funktionieren nicht mehr.
-- Das Snippet darf nur einmal aufgerufen werden, innerhalb eines Modules oder Templates.
-- Sollten bereits gehashte als auch ungehashte Passwörter vorlieren, empfiehlt es sich `$users` bereits entsprechend zu selektieren für den nächsten Schritt.
-
+Fügen Sie folgenden Code in ein Modul oder Template ein (nur einmalig ausführen!):
 
 ```php
 <?php
+// Nur die zu migrierenden REDAXO 4 Benutzer auswählen
 $users = rex_sql::factory()
     ->setDebug(true)
     ->setTable(rex::getTable('user'))
-     //REDAXO 4 Redakteur aus dem Beispiel wurde mit der Id 2 in die Tabelle rex_user importiert
-     //natürlich sind auch mehrere Datensätze gleichzeitig selektierbar, es dürfen allerdings nur die importierten REDAXO 4 User sein!
-    ->setWhere(['id' => 2])
+    ->setWhere(['id' => 2]) // IDs der migrierten Benutzer angeben
     ->select();
-```
-Sobald `$users` alle zu migrierenden REDAXO 4 Accounts enthält, kann folgendes Script in einem Modul oder Template **einmalig** ausgeführt werden. Alte Passwörter aus REDAXO 4 werden dadurch umgewandelt. Sollten die Passwörter nicht verschlüsselt vorliegen, muss mittels der Umstellung der Variable `$isPreHashed = false;` eine Vorverschlüsselung vorgenommen werden.
-```php
 
-$isPreHashed = true;
+// Passwörter konvertieren
+$isPreHashed = true; // auf false setzen, wenn Passwörter unverschlüsselt sind
 foreach ($users as $user) {
-    $sql = rex_sql::factory()
+    rex_sql::factory()
         ->setDebug(true)
         ->setTable(rex::getTable('user'))
         ->setWhere(['login' => $user->getValue('login')])
         ->setValue('password', rex_login::passwordHash($user->getValue('password'), $isPreHashed))
         ->update();
 }
-
 ```
+
+**Wichtig**: 
+- Nur die IDs der migrierten REDAXO 4 Benutzer in der WHERE-Klausel angeben
+- Code nur einmal ausführen, sonst werden bereits korrekte Passwörter erneut gehasht
