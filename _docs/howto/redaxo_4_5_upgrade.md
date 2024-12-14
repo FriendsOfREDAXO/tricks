@@ -1,4 +1,10 @@
-# Tipps zur Migration von REDAXO 4 nach REDAXO 5
+---
+title: Weiterführende Tipps nach Konvertierung von REDAXO 4.x zu 5
+authors: [skerbis,alexplusde]
+prio:
+--- 
+
+# Weiterführende Tipps nach Konvertierung von REDAXO 4.x zu 5
 
 ## Fehlersuche und -behebung
 
