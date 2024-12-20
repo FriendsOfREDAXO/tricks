@@ -152,7 +152,7 @@ public function getNext()
 Nützlich bei `select`-Feldtypen im **MetaInfo** AddOn oder im **YFormbuilder**
 
 ```php
-SELECT name, filename AS id FROM rex_project_icon UNION SELECT ' Bitte wählen' AS name, "" AS id ORDER BY name
+SELECT 'Bitte wählen' AS name, "" AS id UNION (SELECT name, filename AS id FROM rex_project_icon ORDER BY name)
 ```
 
 ### Beispielausgabe in der Sidebar eines Artikels
