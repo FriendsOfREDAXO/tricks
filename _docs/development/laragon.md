@@ -1,3 +1,9 @@
+---
+title: REDAXO CMS + Laragon = 🦖💚 Lokale Entwicklung in Windows
+authors: [alxndr-w]
+prio:
+---
+
 # REDAXO CMS + Laragon = 🦖💚
 
 Laragon ist eine Alternative zu XAMPP/MAMP unter Windows, um eine lokale Entwicklungsumgebung für PHP-Projekte zu erstellen. 
