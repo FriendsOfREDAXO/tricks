@@ -48,3 +48,5 @@
   url: /snippets
 - title: Development
   url: /development
+- title: Barrierefreiheit (a11y)
+  url: /a11y
