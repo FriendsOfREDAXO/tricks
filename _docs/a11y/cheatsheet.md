@@ -1,5 +1,5 @@
 ---
-title: Captain Hook
+title: Cheatsheet Barrierefreiheit
 authors: [FriendsOfREDAXO,skerbis,KLXM]
 prio: 0
 ---
