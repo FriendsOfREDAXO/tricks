@@ -6,7 +6,6 @@ prio: 0
 
 # Cheatsheet: Barrierefreies Webdesign
 
-
 | **Kategorie**                      | **Best Practice**                                                                                         | **Beispiel/Code**                                                                 |
 |------------------------------------|-----------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 | **HTML Struktur**                  | Verwende semantische HTML5-Elemente wie `<header>`, `<main>`, `<footer>`, `<nav>`, etc.                      | `<main>` für Hauptinhalt, `<nav>` für Navigation                                |
@@ -30,48 +29,49 @@ prio: 0
 
 
 ## Inhaltsverzeichnis: Barrierefreies Webdesign Cheatsheet
+<a name="inhaltsverzeichnis"></a>
 
-1. [Struktur und Semantik](#1-struktur-und-semantik)
-    - [Grundlegende HTML-Struktur](#11-grundlegende-html-struktur)
-    - [Überschriftenhierarchie](#12-überschriftenhierarchie)
-    - [Landmarks](#13-landmarks)
-    - [Von Screenreadern ignorierte oder speziell behandelte Tags](#14-von-screenreadern-ignorierte-oder-speziell-behandelte-tags)
+1.  [Struktur und Semantik](#1-struktur-und-semantik)
+    -   [Grundlegende HTML-Struktur](#11-grundlegende-html-struktur)
+    -   [Überschriftenhierarchie](#12-überschriftenhierarchie)
+    -   [Landmarks](#13-landmarks)
+    -   [Von Screenreadern ignorierte oder speziell behandelte Tags](#14-von-screenreadern-ignorierte-oder-speziell-behandelte-tags)
 
-2. [Inhalte](#2-inhalte)
-    - [Bilder](#21-bilder)
-    - [Links](#22-links)
-    - [Tabellen](#23-tabellen)
+2.  [Inhalte](#2-inhalte)
+    -   [Bilder](#21-bilder)
+    -   [Links](#22-links)
+    -   [Tabellen](#23-tabellen)
 
-3. [Formulare](#3-formulare)
-    - [Grundstruktur](#31-grundstruktur)
-    - [Fehlerbehandlung](#32-fehlerbehandlung)
+3.  [Formulare](#3-formulare)
+    -   [Grundstruktur](#31-grundstruktur)
+    -   [Fehlerbehandlung](#32-fehlerbehandlung)
 
-4. [Tastaturzugänglichkeit](#4-tastaturzugänglichkeit)
-    - [Fokus-Management](#41-fokus-management)
-    - [Skiplinks](#42-skiplinks)
+4.  [Tastaturzugänglichkeit](#4-tastaturzugänglichkeit)
+    -   [Fokus-Management](#41-fokus-management)
+    -   [Skiplinks](#42-skiplinks)
 
-5. [ARIA (Accessible Rich Internet Applications)](#5-aria-accessible-rich-internet-applications)
-    - [Dynamischer Inhalt](#51-dynamischer-inhalt)
-    - [Erweiterte Widgets](#52-erweiterte-widgets)
+5.  [ARIA (Accessible Rich Internet Applications)](#5-aria-accessible-rich-internet-applications)
+    -   [Dynamischer Inhalt](#51-dynamischer-inhalt)
+    -   [Erweiterte Widgets](#52-erweiterte-widgets)
 
-6. [Visuelles Design](#6-visuelles-design)
-    - [Farben und Kontrast](#61-farben-und-kontrast)
-    - [Responsive Design](#62-responsive-design)
-    - [Schriftgrößen](#63-schriftgrößen)
-    - [Zeilenabstand und Textausrichtung](#64-zeilenabstand-und-textausrichtung)
+6.  [Visuelles Design](#6-visuelles-design)
+    -   [Farben und Kontrast](#61-farben-und-kontrast)
+    -   [Responsive Design](#62-responsive-design)
+    -   [Schriftgrößen](#63-schriftgrößen)
+    -   [Zeilenabstand und Textausrichtung](#64-zeilenabstand-und-textausrichtung)
 
-7. [Multimedia](#7-multimedia)
-    - [Video-Untertitel](#71-video-untertitel)
-    - [Audiobeschreibungen](#72-audiobeschreibungen)
+7.  [Multimedia](#7-multimedia)
+    -   [Video-Untertitel](#71-video-untertitel)
+    -   [Audiobeschreibungen](#72-audiobeschreibungen)
 
-8. [Testing](#8-testing)
-    - [Automatisierte Tests](#81-automatisierte-tests)
-    - [Manuelle Tests](#82-manuelle-tests)
-    - [Nutzertests](#83-nutzertests)
+8.  [Testing](#8-testing)
+    -   [Automatisierte Tests](#81-automatisierte-tests)
+    -   [Manuelle Tests](#82-manuelle-tests)
+    -   [Nutzertests](#83-nutzertests)
 
-9. [Fortgeschrittene ARIA-Techniken](#9-fortgeschrittene-aria-techniken)
-    - [Komplexe Interaktive Komponenten](#91-komplexe-interaktive-komponenten)
-    - [Dynamische Inhalte und Single-Page Applications (SPAs)](#92-dynamische-inhalte-und-single-page-applications-spas)
+9.  [Fortgeschrittene ARIA-Techniken](#9-fortgeschrittene-aria-techniken)
+    -   [Komplexe Interaktive Komponenten](#91-komplexe-interaktive-komponenten)
+    -   [Dynamische Inhalte und Single-Page Applications (SPAs)](#92-dynamische-inhalte-und-single-page-applications-spas)
 
 10. [Internationalisierung und Lokalisierung](#10-internationalisierung-und-lokalisierung)
     - [Sprachunterstützung](#101-sprachunterstützung)
@@ -81,7 +81,7 @@ prio: 0
 
 12. [Rechtliche Aspekte und Richtlinien](#12-rechtliche-aspekte-und-richtlinien)
     - [Compliance und Standards](#121-compliance-und-standards)
-    - [Dokumentation und Erklärungen](#122-dokumentation-und-erklärungen)
+    - [Dokumentation und Erklärungen](#122-dokumentation-und-erklaerungen)
 
 13. [Barrierefreiheit mit CSS-Frameworks und Komponentenbibliotheken](#13-barrierefreiheit-mit-css-frameworks-und-komponentenbibliotheken)
     - [Tailwind CSS](#131-tailwind-css)
@@ -99,9 +99,9 @@ prio: 0
     - [Unterstützung von JavaScript durch Screenreader](#151-unterstützung-von-javascript-durch-screenreader)
     - [Best Practices für barrierefreies JavaScript](#152-best-practices-für-barrierefreies-javascript)
 
-## 1. Struktur und Semantik
+## <a name="1-struktur-und-semantik"></a>1. Struktur und Semantik
 
-### 1.1 Grundlegende HTML-Struktur
+### <a name="11-grundlegende-html-struktur"></a>1.1 Grundlegende HTML-Struktur
 - Verwenden Sie semantische HTML5-Elemente
 
 | Element | Zweck | Tipps |
@@ -130,7 +130,7 @@ prio: 0
 </footer>
 ```
 
-### 1.2 Überschriftenhierarchie
+### <a name="12-überschriftenhierarchie"></a>1.2 Überschriftenhierarchie
 - Verwenden Sie `<h1>` bis `<h6>` in korrekter Reihenfolge
 
 | Überschrift | Verwendung | Tipp |
@@ -145,7 +145,7 @@ prio: 0
 <h3>Abschnittsüberschrift</h3>
 ```
 
-### 1.3 Landmarks
+### <a name="13-landmarks"></a>1.3 Landmarks
 - Nutzen Sie ARIA-Landmarks für wichtige Seitenabschnitte
 
 | Landmark Role | Verwendung | HTML5 Äquivalent |
@@ -167,7 +167,7 @@ prio: 0
 
 Tipp: Bei semantischen HTML5-Elementen ist die explizite Angabe der Landmark-Rolle oft redundant. Verwenden Sie sie nur, wenn nötig oder zur Verdeutlichung.
 
-## 1.4 Von Screenreadern ignorierte oder speziell behandelte Tags
+## <a name="14-von-screenreadern-ignorierte-oder-speziell-behandelte-tags"></a>1.4 Von Screenreadern ignorierte oder speziell behandelte Tags
 
 Screenreader behandeln verschiedene HTML-Tags unterschiedlich. 
 
@@ -195,9 +195,9 @@ Screenreader behandeln verschiedene HTML-Tags unterschiedlich.
 
 Tipp: Verwenden Sie semantisches HTML und ARIA-Attribute, um sicherzustellen, dass Ihre Inhalte korrekt interpretiert werden. Testen Sie mit verschiedenen Screenreadern, da es Unterschiede in der Behandlung geben kann.
 
-## 2. Inhalte
+## <a name="2-inhalte"></a>2. Inhalte
 
-### 2.1 Bilder
+### <a name="21-bilder"></a>2.1 Bilder
 - Fügen Sie alternative Texte hinzu
 
 | Attribut | Verwendung | Tipp |
@@ -216,7 +216,7 @@ Tipp: Verwenden Sie semantisches HTML und ARIA-Attribute, um sicherzustellen, da
 
 Tipp: Verwenden Sie leere `alt`-Attribute nur für rein dekorative Bilder, die keine relevanten Informationen vermitteln.
 
-### 2.2 Links
+### <a name="22-links"></a>2.2 Links
 - Verwenden Sie beschreibende Linktexte
 
 | Attribut | Verwendung | Tipp |
@@ -235,7 +235,7 @@ Tipp: Verwenden Sie leere `alt`-Attribute nur für rein dekorative Bilder, die k
 
 Tipp: Vermeiden Sie generische Linktexte wie "Klicken Sie hier" oder "Mehr". Der Linktext sollte das Ziel oder den Zweck des Links klar beschreiben.
 
-### 2.3 Tabellen
+### <a name="23-tabellen"></a>2.3 Tabellen
 - Strukturieren Sie Tabellen korrekt
 
 | Element | Verwendung | Tipp |
@@ -266,9 +266,9 @@ Tipp: Vermeiden Sie generische Linktexte wie "Klicken Sie hier" oder "Mehr". Der
 
 Tipp: Verwenden Sie Tabellen nur für tabellarische Daten, nicht für Layout-Zwecke.
 
-## 3. Formulare
+## <a name="3-formulare"></a>3. Formulare
 
-### 3.1 Grundstruktur
+### <a name="31-grundstruktur"></a>3.1 Grundstruktur
 - Verwenden Sie Labels und gruppieren Sie Formularelemente
 
 | Element/Attribut | Verwendung | Tipp |
@@ -292,7 +292,7 @@ Tipp: Verwenden Sie Tabellen nur für tabellarische Daten, nicht für Layout-Zwe
 </form>
 ```
 
-### 3.2 Fehlerbehandlung
+### <a name="32-fehlerbehandlung"></a>3.2 Fehlerbehandlung
 - Verknüpfen Sie Fehlermeldungen mit den entsprechenden Feldern
 
 | Attribut | Verwendung | Tipp |
@@ -309,9 +309,9 @@ Tipp: Verwenden Sie Tabellen nur für tabellarische Daten, nicht für Layout-Zwe
 
 Tipp: Geben Sie klare Anweisungen zur Fehlerbehebung und positionieren Sie Fehlermeldungen nahe den betroffenen Feldern.
 
-## 4. Tastaturzugänglichkeit
+## <a name="4-tastaturzugänglichkeit"></a>4. Tastaturzugänglichkeit
 
-### 4.1 Fokus-Management
+### <a name="41-fokus-management"></a>4.1 Fokus-Management
 - Stellen Sie eine logische Tab-Reihenfolge sicher
 - Implementieren Sie einen sichtbaren Fokus-Indikator
 
@@ -331,7 +331,7 @@ Tipp: Geben Sie klare Anweisungen zur Fehlerbehebung und positionieren Sie Fehle
 
 Tipp: Entfernen Sie niemals den Fokus-Indikator vollständig. Wenn Sie ihn anpassen, stellen Sie sicher, dass er gut sichtbar bleibt.
 
-### 4.2 Skiplinks
+### <a name="42-skiplinks"></a>4.2 Skiplinks
 - Bieten Sie Skiplinks für Screenreader-Nutzer an
 
 | Attribut | Verwendung | Tipp |
@@ -345,9 +345,9 @@ Tipp: Entfernen Sie niemals den Fokus-Indikator vollständig. Wenn Sie ihn anpas
 
 Tipp: Positionieren Sie Skiplinks als erste fokussierbare Elemente auf der Seite.
 
-## 5. ARIA (Accessible Rich Internet Applications)
+## <a name="5-aria-accessible-rich-internet-applications"></a>5. ARIA (Accessible Rich Internet Applications)
 
-### 5.1 Dynamischer Inhalt
+### <a name="51-dynamischer-inhalt"></a>5.1 Dynamischer Inhalt
 - Verwenden Sie `aria-live` für dynamische Inhalte
 
 | Attribut | Wert | Verwendung |
@@ -366,7 +366,7 @@ Tipp: Positionieren Sie Skiplinks als erste fokussierbare Elemente auf der Seite
 
 Tipp: Verwenden Sie `aria-live="assertive"` sparsam, da es die aktuelle Benutzeraktion unterbricht.
 
-### 5.2 Erweiterte Widgets
+### <a name="52-erweiterte-widgets"></a>5.2 Erweiterte Widgets
 - Nutzen Sie ARIA-Attribute für komplexe Komponenten
 
 | Attribut | Verwendung | Tipp |
@@ -388,9 +388,9 @@ Tipp: Verwenden Sie `aria-live="assertive"` sparsam, da es die aktuelle Benutzer
 
 Tipp: Testen Sie komplexe Widgets gründlich mit verschiedenen Screenreadern, da die Unterstützung variieren kann.
 
-## 6. Visuelles Design
+## <a name="6-visuelles-design"></a>6. Visuelles Design
 
-### 6.1 Farben und Kontrast
+### <a name="61-farben-und-kontrast"></a>6.1 Farben und Kontrast
 - Stellen Sie ausreichenden Farbkontrast sicher
 
 | Kontrastwert | Verwendung | Tipp |
@@ -408,7 +408,7 @@ body {
 
 Tipp: Verwenden Sie Tools wie den WebAIM Contrast Checker, um Ihre Farbkombinationen zu testen.
 
-### 6.2 Responsive Design
+### <a name="62-responsive-design"></a>6.2 Responsive Design
 - Implementieren Sie ein flexibles Layout
 
 | CSS-Eigenschaft | Verwendung | Tipp |
@@ -429,7 +429,7 @@ Tipp: Verwenden Sie Tools wie den WebAIM Contrast Checker, um Ihre Farbkombinati
 
 Tipp: Testen Sie Ihr Design auf verschiedenen Geräten und Bildschirmgrößen.
 
-### 6.3 Schriftgrößen
+### <a name="63-schriftgrößen"></a>6.3 Schriftgrößen
 - Verwenden Sie relative Einheiten für Schriftgrößen
 
 | Einheit | Beschreibung | Tipp |
@@ -450,7 +450,7 @@ h1 {
 
 Tipp: Eine Basis-Schriftgröße von 16px ist ein guter Ausgangspunkt. Stellen Sie sicher, dass Text auch bei 200% Zoom noch lesbar ist.
 
-### 6.4 Zeilenabstand und Textausrichtung
+### <a name="64-zeilenabstand-und-textausrichtung"></a>6.4 Zeilenabstand und Textausrichtung
 
 | Eigenschaft | Empfehlung | Tipp |
 |-------------|------------|------|
@@ -470,9 +470,9 @@ p {
 
 Tipp: Vermeiden Sie vollständig gerechtfertigten Text (`text-align: justify`), da ungleichmäßige Wortabstände die Lesbarkeit beeinträchtigen können.
 
-## 7. Multimedia
+## <a name="7-multimedia"></a>7. Multimedia
 
-### 7.1 Video-Untertitel
+### <a name="71-video-untertitel"></a>7.1 Video-Untertitel
 - Fügen Sie Untertitel zu Videos hinzu
 
 | Attribut/Element | Verwendung | Tipp |
@@ -491,7 +491,7 @@ Tipp: Vermeiden Sie vollständig gerechtfertigten Text (`text-align: justify`), 
 
 Tipp: Bieten Sie, wenn möglich, Untertitel in mehreren Sprachen an. Stellen Sie sicher, dass die Untertitel synchron zum Gesprochenen sind.
 
-### 7.2 Audiobeschreibungen
+### <a name="72-audiobeschreibungen"></a>7.2 Audiobeschreibungen
 - Bieten Sie Transkripte für Audioinhalte an
 
 | Element/Attribut | Verwendung | Tipp |
@@ -511,9 +511,9 @@ Tipp: Bieten Sie, wenn möglich, Untertitel in mehreren Sprachen an. Stellen Sie
 
 Tipp: Stellen Sie Transkripte in einem zugänglichen Textformat bereit, idealerweise auf derselben Seite wie der Audioinhalt.
 
-## 8. Testing
+## <a name="8-testing"></a>8. Testing
 
-### 8.1 Automatisierte Tests
+### <a name="81-automatisierte-tests"></a>8.1 Automatisierte Tests
 - Nutzen Sie Tools wie axe oder WAVE für erste Überprüfungen
 
 | Tool | Verwendung | Tipp |
@@ -524,7 +524,7 @@ Tipp: Stellen Sie Transkripte in einem zugänglichen Textformat bereit, idealerw
 
 Tipp: Automatisierte Tests sind ein guter Ausgangspunkt, ersetzen aber keine manuellen Tests und Nutzertests.
 
-### 8.2 Manuelle Tests
+### <a name="82-manuelle-tests"></a>8.2 Manuelle Tests
 - Führen Sie Tastatur-Navigation-Tests durch
 - Testen Sie mit Screenreadern (z.B. NVDA, JAWS)
 
@@ -537,7 +537,7 @@ Tipp: Automatisierte Tests sind ein guter Ausgangspunkt, ersetzen aber keine man
 
 Tipp: Erstellen Sie eine Checkliste für manuelle Tests und führen Sie diese regelmäßig durch, besonders nach größeren Änderungen.
 
-### 8.3 Nutzertests
+### <a name="83-nutzertests"></a>8.3 Nutzertests
 - Beziehen Sie Menschen mit Behinderungen in Ihre Testprozesse ein
 
 | Testgruppe | Fokus | Tipp |
@@ -549,9 +549,9 @@ Tipp: Erstellen Sie eine Checkliste für manuelle Tests und führen Sie diese re
 
 Tipp: Planen Sie Nutzertests frühzeitig ein und führen Sie sie regelmäßig durch. Das Feedback von echten Nutzern ist unersetzlich für die Verbesserung der Barrierefreiheit.
 
-## 9. Fortgeschrittene ARIA-Techniken
+## <a name="9-fortgeschrittene-aria-techniken"></a>9. Fortgeschrittene ARIA-Techniken
 
-### 9.1 Komplexe Interaktive Komponenten
+### <a name="91-komplexe-interaktive-komponenten"></a>9.1 Komplexe Interaktive Komponenten
 
 | ARIA-Attribut | Verwendung | Tipp |
 |---------------|------------|------|
@@ -571,7 +571,7 @@ Tipp: Planen Sie Nutzertests frühzeitig ein und führen Sie sie regelmäßig du
 
 Tipp: Verwenden Sie ARIA sparsam und nur dann, wenn native HTML-Elemente nicht ausreichen. Zu viel ARIA kann die Zugänglichkeit verschlechtern.
 
-### 9.2 Dynamische Inhalte und Single-Page Applications (SPAs)
+### <a name="92-dynamische-inhalte-und-single-page-applications-spas"></a>9.2 Dynamische Inhalte und Single-Page Applications (SPAs)
 
 | Technik | Verwendung | Tipp |
 |---------|------------|------|
@@ -592,9 +592,9 @@ function navigateToPage(pageId) {
 
 Tipp: Testen Sie SPAs gründlich mit Screenreadern, um sicherzustellen, dass Seitenwechsel und dynamische Updates korrekt angekündigt werden.
 
-## 10. Internationalisierung und Lokalisierung
+## <a name="10-internationalisierung-und-lokalisierung"></a>10. Internationalisierung und Lokalisierung
 
-### 10.1 Sprachunterstützung
+### <a name="101-sprachunterstützung"></a>10.1 Sprachunterstützung
 
 | Attribut/Technik | Verwendung | Tipp |
 |------------------|------------|------|
@@ -619,9 +619,9 @@ Tipp: Testen Sie SPAs gründlich mit Screenreadern, um sicherzustellen, dass Sei
 
 Tipp: Berücksichtigen Sie bei der Gestaltung des Layouts, dass sich Textlängen in verschiedenen Sprachen stark unterscheiden können.
 
-## 11. Performance und Barrierefreiheit
+## <a name="11-performance-und-barrierefreiheit"></a>11. Performance und Barrierefreiheit
 
-### 11.1 Ladezeiten und Nutzererfahrung
+### <a name="111-ladezeiten-und-nutzererfahrung"></a>11.1 Ladezeiten und Nutzererfahrung
 
 | Technik | Verwendung | Tipp |
 |---------|------------|------|
@@ -635,9 +635,9 @@ Tipp: Berücksichtigen Sie bei der Gestaltung des Layouts, dass sich Textlängen
 
 Tipp: Schnelle Ladezeiten sind besonders wichtig für Nutzer mit langsamen Internetverbindungen oder älteren Geräten. Optimieren Sie die Performance, ohne die Zugänglichkeit zu beeinträchtigen.
 
-## 12. Rechtliche Aspekte und Richtlinien
+## <a name="12-rechtliche-aspekte-und-richtlinien"></a>12. Rechtliche Aspekte und Richtlinien
 
-### 12.1 Compliance und Standards
+### <a name="121-compliance-und-standards"></a>12.1 Compliance und Standards
 
 | Standard/Richtlinie | Beschreibung | Tipp |
 |---------------------|--------------|------|
@@ -647,7 +647,7 @@ Tipp: Schnelle Ladezeiten sind besonders wichtig für Nutzer mit langsamen Inter
 
 Tipp: Halten Sie sich über Aktualisierungen der Richtlinien auf dem Laufenden. WCAG 2.2 ist in Vorbereitung und wird neue Erfolgskriterien einführen.
 
-### 12.2 Dokumentation und Erklärungen
+### <a name="122-dokumentation-und-erklaerungen"></a>12.2 Dokumentation und Erklärungen
 
 | Dokument | Zweck | Tipp |
 |----------|-------|------|
@@ -663,9 +663,9 @@ Tipp: Halten Sie sich über Aktualisierungen der Richtlinien auf dem Laufenden. 
 
 Tipp: Eine offene und transparente Kommunikation über den Stand der Barrierefreiheit kann das Vertrauen der Nutzer stärken und hilft bei der kontinuierlichen Verbesserung.
 
-## 13. Barrierefreiheit mit CSS-Frameworks und Komponentenbibliotheken
+## <a name="13-barrierefreiheit-mit-css-frameworks-und-komponentenbibliotheken"></a>13. Barrierefreiheit mit CSS-Frameworks und Komponentenbibliotheken
 
-### 13.1 Tailwind CSS
+### <a name="131-tailwind-css"></a>13.1 Tailwind CSS
 
 | Aspekt | Tipp | Beispiel |
 |--------|------|----------|
@@ -685,7 +685,7 @@ Tipp: Eine offene und transparente Kommunikation über den Stand der Barrierefre
 
 Tipp: Tailwind bietet viele nützliche Utility-Klassen für Barrierefreiheit. Nutzen Sie diese, aber achten Sie darauf, die semantische Struktur Ihres HTML nicht zu vernachlässigen.
 
-### 13.2 Shoelace
+### <a name="132-shoelace"></a>13.2 Shoelace
 
 | Komponente | Barrierefreiheits-Tipp | Beispiel |
 |------------|------------------------|----------|
@@ -704,7 +704,7 @@ Tipp: Tailwind bietet viele nützliche Utility-Klassen für Barrierefreiheit. Nu
 
 Tipp: Shoelace-Komponenten sind standardmäßig barrierefrei gestaltet. Achten Sie trotzdem darauf, Labels und Beschreibungen korrekt zu setzen.
 
-### 13.3 Bootstrap
+### <a name="133-bootstrap"></a>13.3 Bootstrap
 
 | Komponente | Barrierefreiheits-Tipp | Beispiel |
 |------------|------------------------|----------|
@@ -734,7 +734,7 @@ Tipp: Shoelace-Komponenten sind standardmäßig barrierefrei gestaltet. Achten S
 
 Tipp: Bootstrap bietet viele eingebaute Barrierefreiheitsfunktionen. Stellen Sie sicher, dass Sie die empfohlenen ARIA-Attribute und Klassen verwenden.
 
-### 13.4 UIkit 3
+### <a name="134-uikit-3"></a>13.4 UIkit 3
 
 | Komponente | Barrierefreiheits-Tipp | Beispiel |
 |------------|------------------------|----------|
@@ -758,27 +758,27 @@ Tipp: Bootstrap bietet viele eingebaute Barrierefreiheitsfunktionen. Stellen Sie
 
 Tipp: UIkit 3 bietet gute Grundlagen für Barrierefreiheit, aber überprüfen Sie immer die generierten ARIA-Attribute und passen Sie sie bei Bedarf an.
 
-### 13.5 Allgemeine Tipps für die Arbeit mit CSS-Frameworks
+### <a name="135-allgemeine-tipps-für-die-arbeit-mit-css-frameworks"></a>13.5 Allgemeine Tipps für die Arbeit mit CSS-Frameworks
 
-1. **Semantisches HTML**: Achten Sie darauf, dass die Verwendung von Framework-Klassen nicht die semantische Struktur Ihres HTML beeinträchtigt.
+1.  **Semantisches HTML**: Achten Sie darauf, dass die Verwendung von Framework-Klassen nicht die semantische Struktur Ihres HTML beeinträchtigt.
 
-2. **Anpassung der Farbschemata**: Überprüfen Sie immer die Kontrastwerte, auch wenn Sie vordefinierte Farbschemata verwenden.
+2.  **Anpassung der Farbschemata**: Überprüfen Sie immer die Kontrastwerte, auch wenn Sie vordefinierte Farbschemata verwenden.
 
-3. **Responsive Design**: Nutzen Sie die responsive Funktionen der Frameworks, um eine gute Benutzererfahrung auf allen Geräten sicherzustellen.
+3.  **Responsive Design**: Nutzen Sie die responsive Funktionen der Frameworks, um eine gute Benutzererfahrung auf allen Geräten sicherzustellen.
 
-4. **Tastaturnavigation**: Testen Sie gründlich, ob alle interaktiven Elemente mit der Tastatur bedienbar sind.
+4.  **Tastaturnavigation**: Testen Sie gründlich, ob alle interaktiven Elemente mit der Tastatur bedienbar sind.
 
-5. **ARIA-Attribute**: Ergänzen Sie bei Bedarf ARIA-Attribute, besonders bei komplexen, interaktiven Komponenten.
+5.  **ARIA-Attribute**: Ergänzen Sie bei Bedarf ARIA-Attribute, besonders bei komplexen, interaktiven Komponenten.
 
-6. **Screenreader-Tests**: Führen Sie regelmäßige Tests mit Screenreadern durch, um sicherzustellen, dass die Framework-Komponenten wie erwartet funktionieren.
+6.  **Screenreader-Tests**: Führen Sie regelmäßige Tests mit Screenreadern durch, um sicherzustellen, dass die Framework-Komponenten wie erwartet funktionieren.
 
-7. **Dokumentation**: Lesen Sie die Barrierefreiheits-Dokumentation des jeweiligen Frameworks sorgfältig.
+7.  **Dokumentation**: Lesen Sie die Barrierefreiheits-Dokumentation des jeweiligen Frameworks sorgfältig.
 
-8. **Customizing**: Beim Anpassen von Komponenten achten Sie darauf, keine Barrierefreiheitsfunktionen zu beeinträchtigen.
+8.  **Customizing**: Beim Anpassen von Komponenten achten Sie darauf, keine Barrierefreiheitsfunktionen zu beeinträchtigen.
 
-## 14. Open-Source-Lösungen für Barrierefreiheitstests und -verbesserungen
+## <a name="14-open-source-lösungen-für-barrierefreiheitstests-und--verbesserungen"></a>14. Open-Source-Lösungen für Barrierefreiheitstests und -verbesserungen
 
-### 14.1 Übersicht der Tools
+### <a name="141-übersicht-der-tools"></a>14.1 Übersicht der Tools
 
 | Tool | Typ | Hauptfunktionen | Anwendungsbereich |
 |------|-----|-----------------|-------------------|
@@ -789,7 +789,7 @@ Tipp: UIkit 3 bietet gute Grundlagen für Barrierefreiheit, aber überprüfen Si
 | Lighthouse | Integriert in Chrome DevTools | Performance, SEO und Barrierefreiheit | Entwicklung, Audits |
 | tota11y | JavaScript-Plugin | Visuelle Annotationen, leichtgewichtig | Entwicklung, schnelles Feedback |
 
-### 14.2 Detaillierte Beschreibungen und Tipps
+### <a name="142-detaillierte-beschreibungen-und-tipps"></a>14.2 Detaillierte Beschreibungen und Tipps
 
 #### Sa11y
 
@@ -889,22 +889,19 @@ tota11y ist ein leichtgewichtiges JavaScript-Plugin, das visuelle Annotationen f
 <script src="https://cdn.jsdelivr.net/npm/tota11y@0.1.6/build/tota11y.min.js"></script>
 ```
 
-### 14.3 Allgemeine Tipps zur Nutzung von Open-Source-Barrierefreiheitstools
+### <a name="143-allgemeine-tipps-zur-nutzung-von-open-source-barrierefreiheitstools"></a>14.3 Allgemeine Tipps zur Nutzung von Open-Source-Barrierefreiheitstools
 
-1. **Kombination von Tools**: Verwenden Sie mehrere Tools, da jedes seine Stärken und Schwächen hat.
-2. **Regelmäßige Tests**: Integrieren Sie Barrierefreiheitstests in Ihren regulären Entwicklungsprozess.
-3. **Automatisierung**: Nutzen Sie CI/CD-Integrationen für kontinuierliche Überwachung.
-4. **Manuelle Überprüfung**: Verlassen Sie sich nicht ausschließlich auf automatisierte Tests. Manuelle Prüfungen bleiben wichtig.
-5. **Schulung**: Nutzen Sie diese Tools, um Ihr Team in Barrierefreiheitspraktiken zu schulen.
-6. **Dokumentation**: Halten Sie die Ergebnisse Ihrer Tests fest und dokumentieren Sie Verbesserungen.
-7. **Community-Engagement**: Beteiligen Sie sich an den Open-Source-Communities dieser Tools, um von Erfahrungen anderer zu profitieren und beizutragen.
+1.  **Kombination von Tools**: Verwenden Sie mehrere Tools, da jedes seine Stärken und Schwächen hat.
+2.  **Regelmäßige Tests**: Integrieren Sie Barrierefreiheitstests in Ihren regulären Entwicklungsprozess.
+3.  **Automatisierung**: Nutzen Sie CI/CD-Integrationen für kontinuierliche Überwachung.
+4.  **Manuelle Überprüfung**: Verlassen Sie sich nicht ausschließlich auf automatisierte Tests. Manuelle Prüfungen bleiben wichtig.
+5.  **Schulung**: Nutzen Sie diese Tools, um Ihr Team in Barrierefreiheitspraktiken zu schulen.
+6.  **Dokumentation**: Halten Sie die Ergebnisse Ihrer Tests fest und dokumentieren Sie Verbesserungen.
+7.  **Community-Engagement**: Beteiligen Sie sich an den Open-Source-Communities dieser Tools, um von Erfahrungen anderer zu profitieren und beizutragen.
 
-Natürlich, ich werde den Abschnitt 15 über JavaScript und Screenreader noch einmal komplett und detaillierter ausarbeiten:
+## <a name="15-javascript-und-screenreader"></a>15. JavaScript und Screenreader
 
-
-## 15. JavaScript und Screenreader
-
-### 15.1 Unterstützung von JavaScript durch Screenreader
+### <a name="151-unterstützung-von-javascript-durch-screenreader"></a>15.1 Unterstützung von JavaScript durch Screenreader
 
 Die Unterstützung von JavaScript durch Screenreader hat sich in den letzten Jahren erheblich verbessert, aber es gibt immer noch einige wichtige Punkte zu beachten:
 
@@ -920,7 +917,7 @@ Die Unterstützung von JavaScript durch Screenreader hat sich in den letzten Jah
 | VoiceOver    | Gut                      |
 | Narrator     | Verbessert sich stetig   |
 
-### 15.2 Best Practices für barrierefreies JavaScript
+### <a name="152-best-practices-für-barrierefreies-javascript"></a>15.2 Best Practices für barrierefreies JavaScript
 
 1. **Progressive Enhancement**
    - Stellen Sie sicher, dass die Kernfunktionalität ohne JavaScript verfügbar ist.
