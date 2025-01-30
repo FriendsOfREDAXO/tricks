@@ -59,7 +59,7 @@ YDeploy ist ein Addon, das auf Deployer aufbaut und bei der Synchronisation von 
 
 Empfehlung: MAMP
 
-1. nstallieren: Downloads - MAMP & MAMP PRO 
+1. Installieren: Downloads - MAMP & MAMP PRO 
 2. Anleitung in Screenshots: siehe Notizblatt 
 3. Kurzer Test mit PHP (`<?php php_info() ?>`) 
 4. Ggf. Test-Domain einrichten hier: (example.org.test:8888) 
