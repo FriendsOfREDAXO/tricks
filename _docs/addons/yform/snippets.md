@@ -136,12 +136,14 @@ Der Code kommt entweder in die boot Datei des Projekt AddOns oder in die Boot Da
 if (rex::isBackend() && rex_request('table_name') == 'rex_test') {
     // am Extensionpoint YFORM_DATA_LIST einklinken
     rex_extension::register('YFORM_DATA_LIST', function( $ep ) {
+        $fieldName = 'bild';
         // die Liste holen
         $list = $ep->getSubject();
-        // die Spalte bild (ggf. eigenen Spaltennamen verwenden) soll mit einer custom Funktion umformatiert werden
-        $list->setColumnFormat('bild', 'custom', function ($params ) {
+        // die Spalte  soll mit einer custom Funktion umformatiert werden
+        $list->setColumnFormat($fieldName, 'custom', function ($params ) {
             // das passiert hier. Ggf. eigenen Medientyp setzen.
-            return '<img src="/images/rex_medialistbutton_preview/'.$params['list']->getValue('bild').'">';                
+            $mediaUrl = rex_media_manager::getUrl('rex_media_small',$params['list']->getValue($fieldName));
+            return '<img src="'.$mediaUrl.'">';                
         });            
     });        
 }
