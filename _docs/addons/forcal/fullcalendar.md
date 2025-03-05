@@ -247,9 +247,10 @@ document.addEventListener("DOMContentLoaded", function() {
     // API-Basis-URL
     const apiBaseUrl = window.location.origin + "/index.php?rex-api-call=forcal_exchange";
 
-    // Aktuelle Sprache ermitteln (für Lokalisierung)
+    // Aktuelle Sprache fest auf Deutsch setzen
     let locale = "de";
-    ' . (rex_clang::getCurrentId() > 1 ? 'locale = "en";' : '') . '
+    // Die folgende Zeile auskommentiert, damit die Sprache immer Deutsch bleibt
+    // ' . (rex_clang::getCurrentId() > 1 ? 'locale = "en";' : '') . '
 
     // Startdatum (heute)
     const today = new Date();
@@ -273,7 +274,17 @@ document.addEventListener("DOMContentLoaded", function() {
             center: "title",
             right: "' . ($showViewSwitcher ? 'dayGridMonth,timeGridWeek,timeGridDay,listMonth' : '') . '"
         },
-        locale: locale,
+        locale: "de",  // Fest auf Deutsch setzen
+        firstDay: 1, // 1 = Montag als erster Tag der Woche
+        buttonText: {
+            today: "Heute",
+            month: "Monat",
+            week: "Woche",
+            day: "Tag",
+            list: "Liste"
+        },
+        dayHeaderFormat: { weekday: "short", day: "numeric" },
+        titleFormat: { year: "numeric", month: "long" },
         events: function(info, successCallback, failureCallback) {
             // Events von der forCal-API laden
             fetch(apiUrl)
@@ -376,13 +387,10 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>';
 ?>
 
-
-
 <!-- FullCalendar 6.x via CDN - cdnjs.com -->
-
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.15/index.global.min.js" integrity="sha512-PneTXNl1XRcU6n5B1PGTDe3rBXY04Ht+Eddn/NESwvyc+uV903kiyuXCWgL/OfSUgnr8HLSGqotxe6L8/fOvwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.15/index.global.js" integrity="sha512-3I+0zIxy2IkeeCvvhXUEu+AFT3zAGuHslHLDmM8JBv6FT7IW6WjhGpUZ55DyGXArYHD0NshixtmNUWJzt0K32w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- Zusätzlich deutsche Lokalisierung hinzufügen -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.15/locales-all.global.min.js" integrity="sha512-2ZYKoWwHUDYzbpwJluVQkWJBMQjbQYZvfS3wQOTnVE+3xNxT39RIETz/lju5/B3ARdUGJj3U5F8whQRQ+1NkQQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <?= $css ?>
 <?= $js ?>
