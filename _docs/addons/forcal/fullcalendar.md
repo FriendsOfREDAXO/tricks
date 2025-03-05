@@ -6,7 +6,9 @@ prio:
 
 # FOR calendar - FullCalendar Modul
 
-Frameworkunabhängige Umsetzung 
+Frameworkunabhängige Umsetzung. 
+
+> Achtung, für einen produktiven Einsatz sollte man FullCalendar lokal installieren. 
 
 ## Eingabe 
 
