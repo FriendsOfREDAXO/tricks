@@ -391,8 +391,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <!-- FullCalendar 6.x via CDN - cdnjs.com -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.15/index.global.min.js" integrity="sha512-PneTXNl1XRcU6n5B1PGTDe3rBXY04Ht+Eddn/NESwvyc+uV903kiyuXCWgL/OfSUgnr8HLSGqotxe6L8/fOvwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<!-- Zusätzlich deutsche Lokalisierung hinzufügen -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.15/locales-all.global.min.js" integrity="sha512-2ZYKoWwHUDYzbpwJluVQkWJBMQjbQYZvfS3wQOTnVE+3xNxT39RIETz/lju5/B3ARdUGJj3U5F8whQRQ+1NkQQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <?= $css ?>
 <?= $js ?>
