@@ -77,6 +77,11 @@ Empfehlung: MAMP
 * 5.4 MSQL DUMP Verlinken -> wird nur für das erste Deployment benöötigt um die Datenbank von lokal nach Live zu schieben, kann ansonsten ignoriert werden `sudo ln -s /Applications/MAMP/Library/bin/mysqldump /usr/local/bin/mysqldump `
 6. Deployer installieren und global verfügbar machen:  `curl -LO https://deployer.org/deployer.phar` `sudo mv deployer.phar /usr/local/bin/dep` `sudo chmod +x /usr/local/bin/dep`
 
+### Windows 
+
+Empfehlung: Laragon
+
+
 ### IDE / Editor installieren
 
 Am Beispiel von VSCode:
@@ -231,3 +236,127 @@ Update-Befehle
 `npm update`  - wann? 
 
 `dep build` + `dep release` = `dep deploy`
+
+### Yak mit YDeploy unter Windows (WSL2) einrichten
+
+#### Grundvoraussetzungen
+
+- [X] MySQL statt MariaDB (dies führt sonst zu Problemen bei Datenbank-Migrationen)
+- [X] WSL 2 
+- [X] GitHub-Account
+- [X] Dein SSH-Key, der auf dem Zielserver und auf GitHub im persönlichen Account hinterlegt wurde. Für GitHub hier: <https://github.com/settings/keys>
+
+#### WAMP (Laragon, XAMPP o.ä.) einrichten
+
+Stelle sicher, dass eine Test- oder Subdomain eingerichtet ist.
+
+#### WSL installieren
+
+In PowerShell eingeben
+
+```
+> wsl.exe --list --online
+```
+
+Findet die aktuell verfügbaren Distributionen, z.B.
+
+```
+> wsl --install Ubuntu-24.04
+```
+
+Installiert Ubuntu 24.04 LTS. Anschließend sind folgende Schritte erforderlich:
+
+* Benutzername erstellen, z.B. `alexplus`
+* Passwort festlegen und bestätigen
+
+Als nächstes Ubuntu auf den aktuellen Stand bringen. Empfohlen Turnusmäßig, bspw. ein Serientermin 1x im Monat
+
+```
+> sudo apt update
+```
+
+Nach dem Updaten der Minor-Versionen der Linux-Komponenten upgraden
+
+```
+> sudo apt upgrade
+```
+
+Und nochmals nach Updates suchen
+
+
+```
+> sudo apt update
+```
+
+#### Deployer installieren
+
+Deployer benötigt PHP. Also erst PHP installieren
+
+```
+WSL > sudo apt install php8.3
+WSL > sudo apt install php8.3-curl
+```
+
+Anschließend Deployer ^7.5 global installieren
+
+```
+WSL > composer global require deployer/deployer
+```
+
+#### SSH-Schlüssel hinterlegen
+
+Im Ordner `~/.ssh` (User-Verzeichnis) liegen die privaten Schlüssel - das passende Gegenstück zu den Public Keys, die auf dem entfernten Server hinterlegt sein müssen.
+
+```
+WSL > nano ~/.ssh/id_rsa
+```
+
+Öffnen und den Private Key hineinkopieren sowie speichern.
+
+Anschließend dieser Datei noch die korrekten Dateiberechtigungen zuweisen, sonst werden sie ignoriert.
+
+```
+WSL > chmod 600 ~/.ssh/id_rsa
+```
+
+Damit diese beim Start des Terminals (bash) automatisch hinzugefügt werden, müssen diese automatisch registiert werden:
+
+```
+WSL > nano ~/.bashrc
+```
+
+Folgendes einfügen:
+
+```
+eval $(ssh-agent)                 
+ssh-add ~/.ssh/id_rsa
+```
+
+Und speichern, mit `exit` die WSL-Session beenden. Beim nächsten Starten sollte dann eine Meldung wie diese kommen:
+
+```
+Identity added: /home/<benutzer>/.ssh/id_rsa (/home/<benutzer>/.ssh/id_rsa)
+```
+
+#### Yarn, Gulp und Co. installieren
+
+Yak mit YDeploy benötigt Gulp. Gulp benötigt Yarn. Yarn benötigt usw..., also müssen wir jetzt verschiedene Tools installieren.
+
+**Achtung! Windows bringt bereits Node mit, deswegen müssen wir sicherstellen, dass immer die in der WSL installierte Version verwendet wird, nicht die aus Windows.** 
+
+```
+WSL > nvm install 20
+WSL > which npm 
+# sollte /home/<user>/.nvm/versions/node/v20.18.3/bin/npm ausgeben
+# falsch: /mnt/c/largon/…
+
+WSL $ npm install --global yarn 
+WSL $ which yarn
+# sollte /home/<user>/.nvm/versions/node/v20.18.3/bin/yarn ausgeben
+# falsch: /mnt/c/largon/…
+
+WSL > npm install -g gulp-cli
+WSL $ which gulp
+# sollte /home/<user>/.nvm/versions/node/v20.18.3/bin/gulp ausgeben
+# falsch: /mnt/c/largon/…
+```
