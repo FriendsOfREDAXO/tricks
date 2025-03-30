@@ -52,35 +52,33 @@ YDeploy ist ein Addon, das auf Deployer aufbaut und bei der Synchronisation von 
 3. Data-Verzeichnisse
 4. Cache-Verzeichnisse
 
-
 ## Lokale Entwciklungsumgebung einrichten
 
 ### Mac OS
 
-Empfehlung: MAMP
+Empfehlung: <MAMP>
 
-1. Installieren: Downloads - MAMP & MAMP PRO 
-2. Anleitung in Screenshots: siehe Notizblatt 
+1. Installieren: [MAMP & MAMP PRO](https://www.mamp.info/de/mac/) 
+2. Eine Webspace-Instanz in MAMP einrichten
 3. Kurzer Test mit PHP (`<?php php_info() ?>`) 
-4. Ggf. Test-Domain einrichten hier: (example.org.test:8888) 
+4. Ggf. Test-Domain einrichten hier: (example.org.test:8888) - in den Einstellungen auf Ports 80 / 443 umstellen, falls gewünscht. (empfohlen) 
 5. Datenbank einrichten 
-6. opt. SSL aktivieren 
+6. opt. SSL aktivieren (empfohlen)
 
--- Ab hier weitere Erklärungen und Screesnhots nötig --
-* Für die weiteren Schritte muss PHP verfügbar gemacht sein und mysqldump: 
-* Übers Terminal den Ordner user/local/bin anlegen: 
-* `sudo mkdir -p /usr/local/bin`
-* Bash-Profile Datei Editieren: `sudo nano ~/.bash_profile` und `alias php="/usr/local/bin/php"`-> Datei schließen mit Tastenkombination "Contro" + "X" (MAC) 
-* `sudo ln -s /Applications/MAMP/bin/php/php8.3.14/bin/php /usr/local/bin/php` # PHP Verzeichnis durch aktuell verwendete Version ersetzen 
-* prüfen ob die Verlinkung geklappt hat 
-* `php –version`
-* 5.4 MSQL DUMP Verlinken -> wird nur für das erste Deployment benöötigt um die Datenbank von lokal nach Live zu schieben, kann ansonsten ignoriert werden `sudo ln -s /Applications/MAMP/Library/bin/mysqldump /usr/local/bin/mysqldump `
-6. Deployer installieren und global verfügbar machen:  `curl -LO https://deployer.org/deployer.phar` `sudo mv deployer.phar /usr/local/bin/dep` `sudo chmod +x /usr/local/bin/dep`
+#### Vorbereitungen
+
+* Übers Terminal den Ordner user/local/bin anlegen: `sudo mkdir -p /usr/local/bin`
+* Bash-Profile Datei Editieren: `sudo nano ~/.bash_profile` und `alias php="/usr/local/bin/php"`-> Datei schließen mit Tastenkombination "Control" + "X" (MAC) 
+* `sudo ln -s /Applications/MAMP/bin/php/php8.3.14/bin/php /usr/local/bin/php` <- PHP Verzeichnis durch aktuell verwendete Version ersetzen 
+* prüfen ob die Verlinkung geklappt hat: `php –version`
+* MSQL DUMP Verlinken -> wird nur für das erste Deployment benöötigt um die Datenbank von lokal nach Live zu schieben, kann ansonsten ignoriert werden `sudo ln -s /Applications/MAMP/Library/bin/mysqldump /usr/local/bin/mysqldump `
+* Deployer installieren und global verfügbar machen:  `curl -LO https://deployer.org/deployer.phar` `sudo mv deployer.phar /usr/local/bin/dep` `sudo chmod +x /usr/local/bin/dep`
+
+Fertig!
 
 ### Windows 
 
 Empfehlung: Laragon
-
 
 ### IDE / Editor installieren
 
