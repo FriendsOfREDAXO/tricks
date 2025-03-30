@@ -58,16 +58,8 @@ Folgende AddOns bieten eingebaute Multidomain-Funktionen:
 
 * [FriendsOfREDAXO/yrewrite_metainfo](https://github.com/FriendsOfREDAXO/yrewrite_metainfo): Meta-Informationen auf Domain-Ebene, z.B. für Domainspezifische Anpassungen (Logos, Farben, Footer etc.)
 
-* [alexplusde/ycom_fast_forward](https://github.com/alexplusde/ycom_fast_forward): YCom-Konfiguration pro Domain und Domain-übergreifendes Frontend-Login (geplant)
 
 ### Add-ons, die den Multidomain-Betrieb verbessern
-
-* **yform & yform-basierte AddOns**: Domain-übergreifende Datenverwaltung von Daten und Formularen. Optional: Domain-Beschränkung möglich (z.B. durch yform_field, siehe nachfogelnden Abschnitt)
-
-* **yform_field**: Bietet ein Domain-Auswahlfeld für YForm-Datensätze und ist damit die ideale Basis für eigene Add-ons. Wird genutzt in
-* * [FriendsOfREDAXO/neues](https://github.com/FriendsOfREDAXO/neues) (News-System)
-* * [alexplusde/events](https://github.com/alexplusde/events) (Termine und Veranstaltungen)
-* * [alexplusde/qanda](https://github.com/alexplusde/qanda) (FAQ-System)
 
 * [FriendsOfREDAXO/mailer_profile](https://github.com/FriendsOfREDAXO/mailer_profile): Domain-spezifische Mail-Konfigurationen, z.B. für unterschiedliche SMTP-Profile
 
@@ -75,4 +67,4 @@ Folgende AddOns bieten eingebaute Multidomain-Funktionen:
 
 * [tbaddade/redaxo_url](https://github.com/tbaddade/redaxo_url): Datensatz-Trennung nach Domain, Domain-spezifische URL-Generierung möglich.
 
-* [alexplusde/be_style_fluent](https://github.com/alexplusde/be_style_fluent): Backend-Styles mit Domain-Schnellauswahl im Backend (Direktlinks zum Frontend)
+
