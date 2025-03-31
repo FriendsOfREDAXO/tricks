@@ -35,12 +35,13 @@ GEM
       ffi (>= 1.15.0)
     eventmachine (1.2.7)
     execjs (2.9.1)
-    faraday (2.10.1)
-      faraday-net_http (>= 2.0, < 3.2)
+    faraday (2.12.2)
+      faraday-net_http (>= 2.0, < 3.5)
+      json
       logger
-    faraday-net_http (3.1.1)
-      net-http
-    faraday-retry (2.2.1)
+    faraday-net_http (3.4.0)
+      net-http (>= 0.5.0)
+    faraday-retry (2.3.0)
       faraday (~> 2.0)
     ffi (1.17.0-aarch64-linux-gnu)
     ffi (1.17.0-arm-linux-gnu)
@@ -218,6 +219,7 @@ GEM
       gemoji (>= 3, < 5)
       html-pipeline (~> 2.2)
       jekyll (>= 3.0, < 5.0)
+    json (2.10.2)
     kramdown (2.4.0)
       rexml
     kramdown-parser-gfm (1.1.0)
@@ -226,7 +228,7 @@ GEM
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    logger (1.6.0)
+    logger (1.7.0)
     mercenary (0.3.6)
     mini_portile2 (2.8.8)
     minima (2.5.1)
@@ -234,7 +236,7 @@ GEM
       jekyll-feed (~> 0.9)
       jekyll-seo-tag (~> 2.1)
     minitest (5.24.1)
-    net-http (0.4.1)
+    net-http (0.6.0)
       uri
     nokogiri (1.18.4)
       mini_portile2 (~> 2.8.2)
@@ -280,7 +282,7 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (1.8.0)
-    uri (0.13.2)
+    uri (1.0.3)
     webrick (1.9.1)
 
 PLATFORMS
@@ -292,7 +294,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  faraday-retry (~> 2.2)
+  faraday-retry (~> 2.3)
   github-pages
   webrick (~> 1.9)
 
