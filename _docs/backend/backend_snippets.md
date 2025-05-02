@@ -165,6 +165,8 @@ Danach gabe es einen Bug der dazu führte dass es erst ab 5.13.3 wieder genutzt 
 
 ### Ab REDAXO 5.13.3
 
+> Seit Vesion 8.2.0 im QuickNavigation-AddOn enthalten. 
+
 ```php
 // Sortierung Medienpool aufsteigend
 if (rex::isBackend() && rex::getUser()) {
