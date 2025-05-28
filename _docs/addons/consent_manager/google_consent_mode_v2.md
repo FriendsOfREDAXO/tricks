@@ -8,10 +8,10 @@ prio:
 
 ## Voraussetzungen
 
-Für die Umsetzung dieses Tricks wird von **Version 4.3+** des REDAXO Consent Manager AddOns ausgegangen. Diese ist zum Zeitpunkt
-der Erstellung dieses Tricks unter Umständen noch nicht veröffentlicht worden. Wichtigste Neuerung und Teil dieses Tricks
-ist die Erweiterung der Dienst-Konfiguration um _Skripte, die nach Abwahl eines Dienstes geladen werden_ sollen. Dies
-wird für die Umsetzung von Opt-Out-Szenarien benötigt und agiert insofern wie eine Art Event Handler.
+Für die Umsetzung dieses Tricks wird von **Version 4.3+** des REDAXO Consent Manager AddOns ausgegangen. Wichtigste 
+Neuerung und Teil dieses Tricks ist die Erweiterung der Dienst-Konfiguration um _Skripte, die nach Abwahl eines Dienstes
+geladen werden_ sollen. Dies wird für die Umsetzung von Opt-Out-Szenarien benötigt und agiert insofern wie eine Art Event
+Handler.
 
 ## Integration
 
