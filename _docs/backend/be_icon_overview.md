@@ -6,6 +6,10 @@ prio:
 
 ## Durchsuchbare Icon-Übersicht
 
+> Achtung: Seit der Umstellung aus FontAwesome 6 funktioniert das Verfahren nur noch sehr eingeschränkt. Die
+> Zugrunde liegenden Informationen sind auf mehrere Dateien verteilt; die Auswertung recht komplex.
+> Eine angepasste Version dieses Tricks ist nicht geplant. CB.
+
 In der CSS-Datei `style.css`, die vom Addon 'be_style' bereitgestellt wird, sind Icons aus mehreren
 Quellen enthalten.
 
