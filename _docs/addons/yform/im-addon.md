@@ -42,7 +42,7 @@ Im Geolocation-Addon, aus dem die Bilder stammen, wäre das
 
 Die Einbindung basiert auf zwei Komponenten:
 - in der **package.yml** des eigenen Addons wird eine Sub-Seite für die Tabelle definiert
-- Ein (optionaler) Eintrag in der **boot.php des Addons.
+- Ein (optionaler) Eintrag in der **boot.php** des Addons.
 
 Den Seitenaufbau an sich übernimmt ein Original-Script des YForm-Addons: **data_edit.php**
 
@@ -89,9 +89,9 @@ Wie man sehen kann wird für (jede) einzubindende Tabelle unter `subpages: ...` 
 - `subPath: ...` um an Stelle des Scriptes **pages/seitenname.php** den Aufruf auf **data_edit.php** umzubiegen.
 - `href: ...` um die Seite (`page=meinaddon/seitenname`) initial mit der gewünschten Tabelle (`table_name=rex_meinaddon_tabelle`) zu verbinden.
 
-> Ab YForm 5.0 gilt `subPath: ../yform/pages/manager.data_edit.php`, da die Plugins aufgelöst wurden.
+> Ab YForm 5.0 gilt `subPath: ../yform/pages/manager.data_edit.php`, da die Plugins aufgelöst wurden. Soll sowohl YForm 4 als auch YForm 5 addressiert werden, ist dieses einfache Verfahren nicht einsetzbar. In dem Fall muss auf die nachstehend beschriebene ["Große Lösung"](#c) zurückgegriffen werden.
 
-Das Ergebnis hat einen kleinen Schönheitsfehler. Zwischen dem Seitenmenü des Addons und der Tabelle wird auch noch die Tabellenüberschrift eingeblendet, die **data_edit.php** üblicherweise erzeugt (siehe rote Markierung).
+Das Ergebnis hat noch einen kleinen Schönheitsfehler. Zwischen dem Seitenmenü des Addons und der Tabelle wird auch noch die Tabellenüberschrift eingeblendet, die **data_edit.php** üblicherweise erzeugt (siehe rote Markierung).
 
 ![Beispiel mit Zwischenüberschrift](https://raw.githubusercontent.com/FriendsOfREDAXO/tricks/master/screenshots/yform_im-addon_screenhot_02.png "Beispiel mit Zwischenüberschrift")
 
@@ -250,7 +250,11 @@ if ('' !== $wrapper_class) {
     echo '<div class="',$wrapper_class,'">';
 }
 
-include rex_path::plugin('yform', 'manager', 'pages/data_edit.php');
+if (is_file(rex_path::addon('yform', 'pages/manager.data_edit.php'))) {
+    include rex_path::addon('yform', 'pages/manager.data_edit.php'); // YForm 5
+} else {
+    include rex_path::plugin('yform', 'manager', 'pages/data_edit.php'); // YForm 4
+}
 
 if ('' !== $wrapper_class) {
     echo '</div>';
@@ -259,17 +263,15 @@ if ('' !== $wrapper_class) {
 
 Das Script muss im Addon als `pages/yform.php` gespeichert werden, damit es gemäß `package.yml` (siehe `subPath: pages/yform.php`) gefunden wird.
 
-> YForm 5: Die Zeile `include rex_path::plugin('yform', 'manager', 'pages/data_edit.php');` muss in `include rex_path::addon('yform', 'pages/manager.data_edit.php');` geändert werden.
-
 <a name="changelog"></a>
 ## Changelog:
+- **V 3.0 / 10.07.2025**
+  - Neu erstellt (einfache Lösung vorab ohne viel Erklärung)
+  - Berücksichtigt YForm-Versionen mit Plugins (vor V4) und ohne (ab V5).
 - **V 2.0 / 30.01.2021**
   - benötigt YForm ab V3.4: Titel per EP ausblenden
   - neue Struktur der Properties in *package.yml*
   - Text und Musterscript komplett neu
-- **V 3.0 / 22.06.2025**
-  - Neu erstellt (einfache Lösung vorab ohne viel Erklärung)
-  - Berücksichtigt YForm-Versionen mit Plugins (vor V4) und ohne (ab V5).
 
 
 
