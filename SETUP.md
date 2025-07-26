@@ -1,5 +1,22 @@
 # Setup
 
+## a) Docker 🐳
+
+Falls du kein Ruby installieren möchtest, um die Website lokal laufen zu lassen, bietet sich Docker an.
+
+Zunächst das Image aus dem `Dockerfile` bauen:
+
+    $ docker compose build
+
+Anschließend den Container starten:
+
+    $ docker compose up -d
+
+Im Container wird noch das Entrypoint-Script ausgeführt, das alle notwendigen Pakete installiert — das kann einen Moment dauern, achte ggfls. auf die Logs! —, bevor schließlich Jekyll startet und die Website erreichbar ist unter http://localhost:4000/tricks/.
+
+
+## b) Lokales Setup ohne Docker
+
 Alles Nachfolgende muss in einer Konsole ausgeführt werden.
 
 Um die Website lokal einzurichten, sind folgende Schritte notwendig:
