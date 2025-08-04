@@ -6,23 +6,22 @@ prio:
 
 # Artikel einbinden mit `rex_article::get`
 
-Hin und wieder möchte man auf zentrale Daten zurückgreifen. Das können beispielsweise Öffnungszeiten oder Adressen sein. 
-Eine Möglichkeit ist das Einbinden zentral abgelegter Artikel. 
+Zentrale Daten wie Öffnungszeiten oder Adressen lassen sich effizient durch das Einbinden zentral abgelegter Artikel wiederverwenden.
 
-Das nachfolgende Beispiel bindet den ausgewählten Artikel als Block ein. Darüber hinaus wird für eingeloggte Redakteure ein Bearbeitungssymbol (fontawsome) im Frontend eingebaut. Dadurch kann der Redakteur leicht erkennen, dass es sich um einen eingebundenen Artikel handelt und kann direkt ins Backend zur Bearbeitung springen. 
+Das folgende Beispiel bindet den ausgewählten Artikel als Block ein. Für eingeloggte Redakteure wird zusätzlich ein Bearbeitungssymbol (FontAwesome) im Frontend angezeigt. Dadurch lässt sich leicht erkennen, dass es sich um einen eingebundenen Artikel handelt, und ermöglicht direkten Zugang zur Backend-Bearbeitung.
 
-Die Abfrage ob wir uns im Backend oder Frontend befinden erfolgt durch `if (rex::isBackend() == 1) {...`
+Die Unterscheidung zwischen Backend und Frontend erfolgt über `rex::isBackend()`.
 
 ## Moduleingabe
 
 ```html
 <div class="form-horizontal">
-	<div class="form-group">
-		<label class="col-sm-2 control-label">Artikelauswahl:</label>
-		<div class="col-sm-8">
-			REX_LINK[id=1 widget=1]
-		</div>
-	</div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Artikelauswahl:</label>
+        <div class="col-sm-8">
+            REX_LINK[id=1 widget=1]
+        </div>
+    </div>
 </div>
 ```
 
@@ -30,57 +29,61 @@ Die Abfrage ob wir uns im Backend oder Frontend befinden erfolgt durch `if (rex:
 
 ```php
 <?php
-// Prüfen ob der aktuelle Artikel mit sich selbst verlinkt ist
+// Variablen initialisieren
+$art = null;
+$article = null;
+$editUrl = '';
+$showError = false;
+$isValidArticle = false;
+
+// Prüfen ob der Artikel existiert und nicht mit sich selbst verlinkt ist
 if ("REX_ARTICLE_ID" != "REX_LINK[id=1]" && "REX_LINK[id=1]" != "") {
-
-	// Artikeldatensatz ermitteln
-	$art = rex_article::get('REX_LINK[id=1]');
-	
-	// Artikelinhalt auslesen inkl. aktuelle Sprache
-	$article = new rex_article_content($art->getId() , $art->getClang());
-	
-	// Weitere Informationen auslesen z.B. Titel, Beschreibung
-	$art_title = $art->getName();
-	
-	// Weitere Daten der MetaInfos können wie folgt ausgelesen werden
-	// z.B. Beschreibung
-	// $art_description =  $art->getValue('art_description');
+    // Artikel laden
+    $art = rex_article::get('REX_LINK[id=1]');
+    
+    if ($art) {
+        $isValidArticle = true;
+        // Artikelinhalt auslesen
+        $article = new rex_article_content($art->getId(), $art->getClang());
+        
+        // Edit-URL für Backend vorbereiten
+        if (rex::isBackend()) {
+            $editUrl = rex_url::backendPage('content/edit', [
+                'mode' => 'edit',
+                'clang' => rex_clang::getCurrentId(),
+                'article_id' => $art->getId()
+            ]);
+        }
+        
+        // Weitere Informationen bei Bedarf:
+        // $art_title = $art->getName();
+        // $art_description = $art->getValue('art_description');
+    }
+} else {
+    $showError = true;
 }
+?>
 
-// Ausgabe Backend
-if (rex::isBackend() == 1) {
+<!-- Fehlerausgabe für Backend -->
+<?php if ($showError && rex::isBackend()): ?>
+    <div class="alert alert-warning">
+        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+        Bitte einen gültigen Artikel auswählen. Selbstreferenzierung ist nicht möglich.
+    </div>
+<?php endif; ?>
 
-	// Es handelt sich nicht um denselben Artikel
-	if ("REX_ARTICLE_ID" != "REX_LINK[id=1]" && "REX_LINK[id=1]" != "") {
-		echo '
-			<div class="alert alert-info">
-				<a href="' . rex_url::backendPage('content/edit',
-					['mode' => 'edit',
-					'clang' => rex_clang::getCurrentId() ,
-					'article_id' => 'REX_LINK[id=1]']) . '">
-					<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-					Eingebundener Artikel: ' . $art->getName() . '
-				</a>
-			</div>';
-	}
+<!-- Backend-Ausgabe mit Edit-Link -->
+<?php if ($isValidArticle && rex::isBackend()): ?>
+    <div class="alert alert-info">
+        <a href="<?= $editUrl ?>" class="alert-link">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            Eingebundener Artikel: <?= $art->getName() ?>
+        </a>
+    </div>
+<?php endif; ?>
 
-	// Es handelt sich um denselben Artikel
-	else {
-
-		// Was soll passieren wenn der Artikel nicht eingebunden werden kann?
-		echo "Bitte prüfe den ausgewählten Artikel. Du scheinst auf diesen Artikel hier zu verlinken.";
-	}
-}
-
-// Ausgabe Frontend
-else {
-
-	// Es handelt sich nicht um denselben Artikel
-	if ("REX_ARTICLE_ID" != "REX_LINK[id=1]" && "REX_LINK[id=1]" != "") {
-
-		// Artikel ausgeben, für andere ctypes Zahl ändern.
-		// Für den gesamten Artikel inkl. aller Ctypes, die 1 entfernen
-		echo $article->getArticle(1);
-	}
-}
+<!-- Frontend-Ausgabe -->
+<?php if ($isValidArticle && rex::isFrontend()): ?>
+    <?= $article->getArticle(1) ?>
+<?php endif; ?>
 ```
