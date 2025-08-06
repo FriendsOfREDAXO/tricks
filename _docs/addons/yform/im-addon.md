@@ -115,7 +115,7 @@ if (str_starts_with(rex_be_controller::getCurrentPage(), 'meinaddon/')) {
 <a name="c"></a>
 ## Die große Lösung
 
-Mehr Flexibiliäte bietet eine universelle Lösung, die am Ende nur über die **package.yml** konfiguriert wird. Die Tabellen-bezogenen Angaben müssen - REDAXO lässt anderes nicht zu - über eine eigene Sektion der **package.yml** erfolgen.
+Mehr Flexibiliät bietet eine universelle Lösung, die am Ende nur über die **package.yml** konfiguriert wird. Die Tabellen-bezogenen Angaben müssen - REDAXO lässt anderes nicht zu - über eine eigene Sektion der **package.yml** erfolgen.
 
 Die Einbindung basiert auf zwei Komponenten:
 - In der **package.yml** des Addons erfolgen die Seiten-Definition und die zugehörige Tabellen-Konfiguration.
@@ -267,7 +267,7 @@ Das Script muss im Addon als `pages/yform.php` gespeichert werden, damit es gem�
 ## Changelog:
 - **V 3.0 / 10.07.2025**
   - Neu erstellt (einfache Lösung vorab ohne viel Erklärung)
-  - Berücksichtigt YForm-Versionen mit Plugins (vor V4) und ohne (ab V5).
+  - Berücksichtigt YForm-Versionen mit Plugins (bis V4) und ohne (ab V5).
 - **V 2.0 / 30.01.2021**
   - benötigt YForm ab V3.4: Titel per EP ausblenden
   - neue Struktur der Properties in *package.yml*
