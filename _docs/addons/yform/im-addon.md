@@ -16,7 +16,7 @@ prio:
 <a name="a"></a>
 ## Zielsetzung
 
-Statt der klassischen Variante mit rex_list/rex_form steht mit dem Addon **YForm** eine Alternative
+Statt der klassischen Variante mit `rex_list` und `rex_form` steht mit dem Addon **YForm** eine Alternative
 zur Verfügung, die über wesentlich mehr Datentypen und weitere Features (z.B. Suchfunktion,
 Massenänderung) verfügt. Der Artikel befasst sich mit YForm-Tabellen, die mit dem Table-Manager
 angelegt und verwaltet werden.
