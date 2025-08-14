@@ -89,4 +89,4 @@ Variante 2: Siehe [Laragon Wiki](https://github.com/leokhoa/laragon/wiki)
 
 Es spricht aktuell nichts dagegen, die kostenlose Variante von Laragon (Laragon 6) zu verwenden, dabei müssen die Komponenten (PHP, MySQL, Apache) jedoch manuell geupdatet werden. 
 
-Die FriendsOfREDAXO-Community kann von einem Rabatt auf die Lifetime-Lizenz für Laragon 7 profitieren, dazu einfach [@alxndr-w](https://www.alexplus.de/) ansprechen.
+Die FriendsOfREDAXO-Community kann von einem Rabatt auf die Lifetime-Lizenz für Laragon 7 profitieren, dazu einfach [@alxndr-w](https://github.com/alexplusde/) ansprechen.
