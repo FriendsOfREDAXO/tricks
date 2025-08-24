@@ -34,6 +34,9 @@
       url: /addons/ycom
     - title: YForm
       url: /addons/yform
+      subitems:
+        - title: Erweiterte Konfiguration
+          url: /addons/yform/erweiterte_konfiguration
     - title: YRewrite
       url: /addons/yrewrite
 - title: Module
