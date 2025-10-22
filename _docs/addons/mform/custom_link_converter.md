@@ -45,7 +45,12 @@ foreach ($sql as $row) {
                 $isNewFormat = is_array($value) && isset($value['name']) && isset($value['id']);
 
                 if (!$isNewFormat) {
-                    if (is_numeric($value)) {
+                    if ((is_array($value) && empty($value)) || $value === '') {
+                        $item[$node] = [
+                            'name' => '',
+                            'id' => ''
+                        ];
+                    } else if (is_numeric($value)) {
 
                         $articleId = (int)$value;
     
