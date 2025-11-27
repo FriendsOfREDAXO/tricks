@@ -4,22 +4,16 @@ authors: [eaCe, madiko]
 prio: 
 ---
 
-Anleitung für:  
-REDAXO 5.15.1  
-AddOn YForm 4.1.1  
-[ AddOn Theme 1.4.0 wird mit erklärt ]  
-(andere Versionen ungetestet)  
-
-Letztes Update: 2023-10-11  
+Letztes Update: 2025-11-27
 
   
 # Die Anleitung im Überblick
 
-- [Vorbereiten: Eigene(s) YTemplates einbinden](#boot)
-- [Angepasstes Template](#template)
+- [Vorbereiten: Eigene(s) YTemplate(s) einbinden](#boot)
+- [Anleitung REX 5.20.1 + YForm 5.0.1 + Theme 1.4.0: Angepasstes Template](#templateyform5)
+- [Anleitung REX 5.15.1 + YForm 4.1.1 + Theme 1.4.0: Angepasstes Template](#templateyform4)
 
->**Hinweis**: Diese Anleitung funktioniert (noch) nicht, wenn Du beim Tabellen-Feld `"be_manager_relation"` unter `"Ziel Tabellenfeld(er) zur Anzeige oder Feld, das die Relations-ID enthält."` mehr als nur *ein* Tabellen-Feld auswählst. Wir freuen uns über sachdienliche Hinweise, die dieses Problem auch noch lösen. Danke.  
-Derweil kannst Du prüfen, ob die Quick&Dirty-Lösung von [olien](https://github.com/olien) vorübergehend in Frage kommt: [YForm issue 1259](https://github.com/yakamara/yform/issues/1259#issuecomment-1079632786). Achtung: das ist nicht update-sicher und wird beim nächsten YForm Update überschrieben!
+
 
 <a name="boot"></a>
 
@@ -43,16 +37,167 @@ Füge das Code-Snippet unten ein in die `boot.php` unter
      YForm Tabellen Templates anpassen
      * Autor / copy: Anleitung aus der Doku von YForm
         https://github.com/yakamara/yform/blob/master/docs/07_formbuilder.md#ein-eigenes-template--framework-f%C3%BCr-formularcode-verwenden
-* last update:  2023-10-11
-    * last review:  2023-10-11
+     * last update:  2023-10-11
+     * last review:  2025-11-27
 **************************************************************************/
 
 rex_yform::addTemplatePath($this->getPath('ytemplates'));
 ```
 
-<a name="template"></a>
+---
 
-## Template
+<a name="templateyform5"></a>
+
+## Anleitung für YForm5: Template
+
+>**Hinweis**: getestet mit REDAXO 5.20.1 / YForm 5.0.1 / Theme 1.4.0
+
+Nun legst Du folgendes Template ab  
+unter `theme/private/ytemplates/bootstrap`  
+mit dem Datei-Namen `value.be_manager_relation.tpl.php`:  
+
+>**Hinweis**: Das sollte direkt funktionieren. Falls nicht, lösche unter `System` den `Cache` und versuche es erneut.
+```
+<?php
+/*************************************************************************
+* Funktion für: YForm
+     YForm Tabellen Templates anpassen
+     Gekürzte Ausgabe der Einträge im be_manager_relation aufheben
+     Autor / copy: Anleitung aus der Doku von YForm
+     https://github.com/yakamara/yform/blob/master/docs/07_formbuilder.md#ein-eigenes-template--framework-f%C3%BCr-formularcode-verwenden
+     
+     Adaption Thorben Jaworr (eaCe), Franziska Köppe (madiko)
+     https://friendsofredaxo.github.io/tricks/addons/yform/multiselect_be-relations_no-truncate
+     
+     * last update:  2025-11-27
+     * last review:  2025-11-27
+**************************************************************************/
+/**
+ * @var rex_yform_value_be_manager_relation $this
+ * @psalm-scope-this rex_yform_value_be_manager_relation
+ */
+$options ??= [];
+$link ??= '';
+$valueName ??= '';
+// get filter
+$filter = [];
+if ($rawFilter = $this->getElement('filter')) {
+    $filter = $this::getFilterArray($rawFilter, $this->params['main_table'], [$this, 'getValueForKey']);
+}
+if (isset($this->params['rex_yform_set'][$this->getName()]) && is_array($this->params['rex_yform_set'][$this->getName()])) {
+    $filter = array_merge($filter, $this->params['rex_yform_set'][$this->getName()]);
+}
+// adapting selection for options without truncation
+    // default empty (please select, please adapt text to your needs)
+    $options[] = [
+        'id' => '',
+        'name' => 'Bitte wählen...',
+    ];
+    // selection from the relation table
+    $listValues = $this::getListValues($this->relation['target_table'], $this->relation['target_field'], $filter);
+    if (!empty($listValues)) {
+        foreach ($listValues as $id => $value) {
+            $options[] = [
+                'id' => $id,
+                'name' => $value . " [id=$id]",
+            ];
+        }
+    }
+// further on with the template as defined in the YForm-Standard for be_manager_relation
+// yform/plugins/manager/ytemplates/bootstrap/value.be_manager_relation.tpl.php
+/**
+ * @var rex_yform_value_be_manager_relation $this
+ * @psalm-scope-this rex_yform_value_be_manager_relation
+ */
+$class_group = trim('form-group ' . $this->getHTMLClass() . ' ' . $this->getWarningClass());
+$id = sprintf('%u', crc32($this->params['form_name'] . random_int(0, 100) . $this->getId()));
+$notice = [];
+if ('' != $this->getElement('notice')) {
+    $notice[] = rex_i18n::translate($this->getElement('notice'), false);
+}
+if (isset($this->params['warning_messages'][$this->getId()]) && !$this->params['hide_field_warning_messages']) {
+    $notice[] = '<span class="text-warning">' . rex_i18n::translate($this->params['warning_messages'][$this->getId()], false) . '</span>'; //    var_dump();
+}
+if (count($notice) > 0) {
+    $notice = '<p class="help-block small">' . implode('<br />', $notice) . '</p>';
+} else {
+    $notice = '';
+}
+?>
+<?php if ($this->getRelationType() < 2): ?>
+    <div data-be-relation-wrapper="<?= $this->getFieldName() ?>" class="<?= $class_group ?>" id="<?= $this->getHTMLId() ?>">
+        <label class="control-label" for="<?= $this->getFieldId() ?>"><?= $this->getLabel() ?></label>
+        <?php
+        $attributes = [];
+    $attributes['class'] = 'form-control';
+    $attributes['id'] = $this->getFieldId();
+    $select = new rex_select();
+    if (1 == $this->getRelationType()) {
+        $select->setName($this->getFieldName() . '[]');
+        $select->setMultiple();
+        $select->setSize($this->getRelationSize());
+    } else {
+        $select->setName($this->getFieldName());
+    }
+$attributes = $this->getAttributeArray($attributes, ['required', 'readonly', 'disabled']);
+$select->setAttributes($attributes);
+foreach ($options as $option) {
+    $select->addOption($option['name'], $option['id']);
+}
+$select->setSelected($this->getValue());
+echo $select->get();
+?>
+        <?= $notice ?>
+    </div>
+<?php else: ?>
+    <div data-be-relation-wrapper="<?= $this->getFieldName() ?>" class="<?= $class_group ?>" id="<?= $this->getHTMLId() ?>">
+        <label class="control-label" for="<?= $this->getFieldId() ?>"><?= $this->getLabel() ?></label>
+        <?php
+$e = [];
+    if (4 == $this->getRelationType()) {
+        echo \rex_var_yform_table_data::getRelationWidget($id, $this->getFieldName(), $this->getValue(), $link, $this->params['main_id']);
+    } elseif (2 == $this->getRelationType()) {
+        $name = $this->getFieldName();
+        $args = [];
+        $args['link'] = $link;
+        $args['fieldName'] = $this->getRelationSourceTableName() . '.' . $this->getName();
+        $args['valueName'] = $valueName;
+        $_csrf_key = rex_yform_manager_table::get($this->relation['target_table'])->getCSRFKey();
+        $args += rex_csrf_token::factory($_csrf_key)->getUrlParams();
+        $value = implode(',', $this->getValue());
+        echo \rex_var_yform_table_data::getSingleWidget($id, $name, $value, $args);
+    } else {
+        $name = $this->getFieldName();
+        $args = [];
+        $args['link'] = $link;
+        $args['options'] = $options;
+        $args['fieldName'] = $this->getRelationSourceTableName() . '.' . $this->getName();
+        $args['size'] = $this->getRelationSize();
+        $args['attributes'] = $this->getAttributeArray([], ['required', 'readonly']);
+        $_csrf_key = rex_yform_manager_table::get($this->relation['target_table'])->getCSRFKey();
+        $args += rex_csrf_token::factory($_csrf_key)->getUrlParams();
+        $value = implode(',', $this->getValue());
+        echo \rex_var_yform_table_data::getMultipleWidget($id, $name, $value, $args);
+    }
+    ?>
+        <?= $notice ?>
+    </div>
+<?php endif;
+```
+
+---
+
+<a name="templateyform4"></a>
+
+## Anleitung für YForm4: Template
+
+Letztes Update: 2023-10-11
+
+>**Hinweis**: getestet mit REDAXO 5.15.1 / YForm 4.1.1 / Theme 1.4.0
+
+>**Hinweis**: Diese Anleitung funktioniert (noch) nicht, wenn Du beim Tabellen-Feld `"be_manager_relation"` unter `"Ziel Tabellenfeld(er) zur Anzeige oder Feld, das die Relations-ID enthält."` mehr als nur *ein* Tabellen-Feld auswählst. Wir freuen uns über sachdienliche Hinweise, die dieses Problem auch noch lösen. Danke.  
+Derweil kannst Du prüfen, ob die Quick&Dirty-Lösung von [olien](https://github.com/olien) vorübergehend in Frage kommt: [YForm issue 1259](https://github.com/yakamara/yform/issues/1259#issuecomment-1079632786). Achtung: das ist nicht update-sicher und wird beim nächsten YForm Update überschrieben!
+
 
 Nun legst Du folgendes Template ab  
 unter `theme/private/ytemplates/bootstrap`  
