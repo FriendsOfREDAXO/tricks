@@ -6,7 +6,7 @@ prio:
 
 # Editor-Einstellungen Visual Studio Code (VSCode)
 
-[ letztes update: 2023-02-06 ]
+[ letztes update: 2025-11-27 ]
 
 [Visual Studio Code](https://code.visualstudio.com/) ist ein Quelltext-Editor von Microsoft. Er kann plattformübergreifend und kostenfrei genutzt werden (Windows, macOS, Linux). 
 
@@ -15,6 +15,7 @@ Anfangs als schlanker Editor für die Quellcode-Entwicklung gedacht, hat sich VS
 Für die Software-Entwicklung im Kontext von REDAXO empfehlen wir:  
 
 - [PHP - REDAXO-Coding-Standards](#vscode-php)
+- [PHP - REDAXO-Coding-Standards via Homebrew (Mac)](#vscode-php-mac)
 - [YAML - Schema für config.yml und package.yml](#vscode-yaml)
 - [Nützliche Erweiterungen für VSCode](#vscode-erweiterungen)
 
@@ -170,6 +171,59 @@ Screenshot Ausgabe der Erweiterung
 
 > **Tipp:** Es gibt noch einige weitere Einstellungen für die Erweiterung - diese einfach nach den eigenen Wünschen konfigurieren :)
 
+
+
+
+<a name="vscode-php-mac"></a>
+
+## PHP - REDAXO-Coding-Standards via Homebrew (Mac)
+
+Eine alternative, einfachere Einrichtung für Mac-Benutzer basierend auf **Homebrew** und **Composer**. Diese Variante erfordert keinen zusätzlichen Ladecode, da das CLI-PHP von Homebrew die Autoload-Datei von Composer berücksichtigt.
+
+### Voraussetzungen auf System-Ebene
+
+1. **Homebrew** muss installiert sein. Optional kann **CakeBrew** als grafisches Verwaltungswerkzeug verwendet werden.
+2. Über Homebrew ist **PHP** für die Command-Line installiert.
+
+### REDAXO PHP_CS_FIXER_CONFIG bereitstellen
+
+3. Über Homebrew **Composer** installieren:
+   ```bash
+   brew install composer
+   ```
+   Composer wird seine geladenen Pakete in `~/vendor` ablegen.
+
+4. Im Terminal den Composer-Befehl gemäß [redaxo/php-cs-fixer-config](https://github.com/redaxo/php-cs-fixer-config) eingeben:
+   ```bash
+   composer require --dev redaxo/php-cs-fixer-config
+   ```
+   Dadurch werden alle notwendigen Komponenten geladen, inklusive `php-cs-fixer`.
+
+### Erweiterung junstyle.php-cs-fixer in VSCode installieren
+
+5. Die Erweiterung `junstyle.php-cs-fixer` installieren.
+
+6. In den VSCode-Einstellungen (`settings.json`) folgende Konfiguration eintragen:
+
+   ```json
+   "php-cs-fixer.executablePath": "~/vendor/friendsofphp/php-cs-fixer/php-cs-fixer",
+   "php-cs-fixer.config": ".php-cs-fixer.php;.php-cs-fixer.dist.php;~/vendor/redaxo/php-cs-fixer-config/.php-cs-fixer.dist.php",
+   "[php]": {
+       "editor.defaultFormatter": "junstyle.php-cs-fixer"
+   }
+   ```
+
+   **Erklärungen:**
+   - **executablePath**: Direkter Pfad zur ausführbaren Datei statt der mitgelieferten `.phar`-Datei – bessere Performance, da keine Entpackung erforderlich ist.
+   - **config**: Sucht zuerst nach einer individuellen Konfigurationsdatei im Workspace (`.php-cs-fixer.php` oder `.php-cs-fixer.dist.php`), und fällt andernfalls auf die REDAXO-Konfiguration zurück.
+   - **defaultFormatter**: Macht `junstyle.php-cs-fixer` zum Standard-Formatter für PHP-Dateien.
+
+### Updates
+
+7. Um die Pakete zu aktualisieren, im Terminal eingeben:
+   ```bash
+   composer update
+   ```
 
 
 
