@@ -214,7 +214,7 @@ Eine alternative, einfachere Einrichtung für Mac-Benutzer basierend auf **Homeb
    ```
 
    **Erklärungen:**
-   - **executablePath**: Direkter Pfad zur ausführbaren Datei statt der mitgelieferten `.phar`-Datei – bessere Performance, da keine Entpackung erforderlich ist.
+   - **executablePath**: Direkter Pfad zur ausführbaren Datei anstatt der `.phar`-Datei, die die Junstyle-Extension mitliefert – bessere Performance, da keine Entpackung erforderlich ist. Der Pfad `~/vendor/...` entspricht dem Standard-Installationsverzeichnis von Composer im Home-Verzeichnis.
    - **config**: Sucht zuerst nach einer individuellen Konfigurationsdatei im Workspace (`.php-cs-fixer.php` oder `.php-cs-fixer.dist.php`), und fällt andernfalls auf die REDAXO-Konfiguration zurück.
    - **defaultFormatter**: Macht `junstyle.php-cs-fixer` zum Standard-Formatter für PHP-Dateien.
 
