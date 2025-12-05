@@ -10,14 +10,14 @@ Letztes Update: 2025-11-27
 # Die Anleitung im Überblick
 
 - [Vorbereiten: Eigene(s) YTemplate(s) einbinden](#boot)
-- [Anleitung REX 5.20.1 + YForm 5.0.1 + Theme 1.4.0: Angepasstes Template](#templateyform5)
-- [Anleitung REX 5.15.1 + YForm 4.1.1 + Theme 1.4.0: Angepasstes Template](#templateyform4)
+- [Anleitung REX 5.20.1 + YForm 5.0.1 + Theme 1.4.0: Angepasstes YTemplate](#templateyform5)
+- [Anleitung REX 5.15.1 + YForm 4.1.1 + Theme 1.4.0: Angepasstes YTemplate](#templateyform4)
 
 
 
 <a name="boot"></a>
 
-## Eigene(s) YTemplates einbinden
+## Eigene(s) YTemplate(s) einbinden
 
 Zunächst hinterlegst Du für REDAXO die generelle Anweisung, dass eigene YForm-Templates geladen werden sollen. Die Anleitung dazu findest Du [in der YForm-Doku unter "Formbuilder – ein eigenes Template verwenden"](https://github.com/yakamara/yform/blob/master/docs/07_formbuilder.md#ein-eigenes-template--framework-f%C3%BCr-formularcode-verwenden):
 
@@ -43,6 +43,8 @@ Füge das Code-Snippet unten ein in die `boot.php` unter
 
 rex_yform::addTemplatePath($this->getPath('ytemplates'));
 ```
+
+Springen zur [Anleitung REX 5.15.1 + YForm 4.1.1 + Theme 1.4.0: Angepasstes YTemplate](#templateyform4).
 
 ---
 
@@ -129,16 +131,16 @@ if (count($notice) > 0) {
         <label class="control-label" for="<?= $this->getFieldId() ?>"><?= $this->getLabel() ?></label>
         <?php
         $attributes = [];
-    $attributes['class'] = 'form-control';
-    $attributes['id'] = $this->getFieldId();
-    $select = new rex_select();
-    if (1 == $this->getRelationType()) {
-        $select->setName($this->getFieldName() . '[]');
-        $select->setMultiple();
-        $select->setSize($this->getRelationSize());
-    } else {
-        $select->setName($this->getFieldName());
-    }
+        $attributes['class'] = 'form-control';
+        $attributes['id'] = $this->getFieldId();
+        $select = new rex_select();
+        if (1 == $this->getRelationType()) {
+            $select->setName($this->getFieldName() . '[]');
+            $select->setMultiple();
+            $select->setSize($this->getRelationSize());
+        } else {
+            $select->setName($this->getFieldName());
+        }
 $attributes = $this->getAttributeArray($attributes, ['required', 'readonly', 'disabled']);
 $select->setAttributes($attributes);
 foreach ($options as $option) {
