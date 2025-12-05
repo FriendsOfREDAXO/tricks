@@ -68,11 +68,11 @@ mit dem Datei-Namen `value.be_manager_relation.tpl.php`:
      Autor / copy: Anleitung aus der Doku von YForm
      https://github.com/yakamara/yform/blob/master/docs/07_formbuilder.md#ein-eigenes-template--framework-f%C3%BCr-formularcode-verwenden
      
-     Adaption Thorben Jaworr (eaCe), Franziska Köppe (madiko)
+     Adaption eaCe, madiko
      https://friendsofredaxo.github.io/tricks/addons/yform/multiselect_be-relations_no-truncate
      
-     * last update:  2025-11-27
-     * last review:  2025-11-27
+     * last update:  2025-12-05
+     * last review:  2025-12-05
 **************************************************************************/
 /**
  * @var rex_yform_value_be_manager_relation $this
