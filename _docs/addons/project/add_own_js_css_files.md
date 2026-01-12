@@ -14,21 +14,15 @@ Die Daten des AddOns befinden sich unter `/redaxo/src/addons/project`.
 
 ## Struktur
 
-	/boot.php
-	/package.yml
-	/lib/.redaxo
+	/redaxo/src/addons/project/boot.php
+	/redaxo/src/addons/project/package.yml
+	/redaxo/src/addons/project/lib/.redaxo
     
-## Assets
-
-Das `/assets/` Verzeichnis muss noch angelegt werden. Darin können die JS/CSS Dateien abgelegt werden.
-
-Nach einem Reinstall des AddOns werden alle dort abgelegten Dateien zusätzlich auch im Verzeichnis `/assets/addons/project/` abgelegt. Somit können diese, bei Bedarf, auch innerhalb des Frontends verwendet werden.
-
 ## Eigene JS/CSS Dateien includen
 
-Die im `project/assets/` Verzeichnis abgelegten Dateien in der boot.php einfügen
+Unter /assets/addons/project/ (also vom Webroot ausgehend – anlegen, wenn noch nicht vorhanden) können die JS-/CSS-Dateien abgelegt werden.
 
-`/redaxo/src/addons/project/boot.php`
+Diese Dateien in der boot.php (`/redaxo/src/addons/project/boot.php`) so einfügen:
 
 ```php
 <?php
