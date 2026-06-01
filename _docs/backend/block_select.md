@@ -3,9 +3,12 @@ title: Blockauswahl mit Vorschau
 authors: [tbaddade,anveno]
 prio:
 --- 
+
+# Blockauswahl mit Vorschau
+
 Man kann das Modul_Preview-AddOn https://github.com/FriendsOfREDAXO/module_preview nutzen oder die folgenden Varianten für eigene Lösungen übernehmen. 
 
-# Variante 1: Blockauswahl mit Vorschau via CSS
+## Variante 1: Blockauswahl mit Vorschau via CSS
 
 **Screenshots**
 Screenshots des Layouts machen und speichern als
@@ -87,7 +90,7 @@ AddOn project re-installieren, damit die assets übertragen werden.
 
 Das war es.
 
-# Variante 2: Blockauswahl mit Bildern via Fragmente
+## Variante 2: Blockauswahl mit Bildern via Fragmente
 
 Eine weitere Möglichkeit besteht darin via Fragmente das Dropdown seinen eigenen Wünschen anzupassen.
 
