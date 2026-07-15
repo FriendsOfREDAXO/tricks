@@ -1,7 +1,11 @@
 # https://github.com/actions/starter-workflows/blob/main/pages/jekyll-gh-pages.yml
 name: Test build within pull requests
 
-on: pull_request
+on:
+  pull_request:
+  push:
+    branches:
+      - main
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
