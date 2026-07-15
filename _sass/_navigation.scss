@@ -103,6 +103,14 @@
 .navigation__item {
   display: block;
 
+  .navigation > .navigation__list > & {
+    margin-top: 10px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
   & & {
     .navigation__link,
     .navigation__toggle {
@@ -176,7 +184,6 @@
 }
 
 .navigation__toggle {
-  margin-top: 10px;
   font-weight: 600;
   -webkit-user-select: none;
      -moz-user-select: none;
