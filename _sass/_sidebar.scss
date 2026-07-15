@@ -36,9 +36,9 @@
   overflow: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 30px 2vw;
+  padding: 78px 2vw 30px;
 
   @include md {
-    padding: 30px 5vw;
+    padding: 78px 5vw 30px;
   }
 }
