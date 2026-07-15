@@ -2,7 +2,7 @@
 title: Nützliche YForm-Snippets
 authors: [skerbis,isospin,netzproductions,pschuchmann,rotzek,alxndr-w,danspringer,christophboecker]
 toc: true
-prio:
+prio: 1
 ---
 
 # Nützliche YForm-Snippets
