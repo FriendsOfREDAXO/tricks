@@ -1,6 +1,7 @@
 ---
 title: Gefilterte Liste - Anzahl Sätze anzeigen (x von Y)
 authors: [christophboecker]
+toc: true
 prio:
 ---
 
