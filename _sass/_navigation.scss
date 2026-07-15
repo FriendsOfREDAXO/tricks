@@ -183,6 +183,10 @@
   }
 }
 
+.navigation > .navigation__list > .navigation__item > .navigation__link[href$="/dokumentation/"] {
+  margin-top: 2px;
+}
+
 .navigation__toggle {
   font-weight: 600;
   -webkit-user-select: none;
