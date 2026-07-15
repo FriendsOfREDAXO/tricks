@@ -1,24 +1,19 @@
 ---
-- title: Nützliche YForm-Snippets
-  url: "/addons/yform/snippets"
-  path: _docs/addons/yform/snippets.md
+- title: REX_LIST-Zeilen datenabhängig formatieren
+  url: "/backend/rex_list_row_marker"
+  path: _docs/backend/rex_list_row_marker.md
+  authors:
+  - christophboecker
+  updated_at: '2026-07-15T15:28:48+02:00'
+- title: YForm YOrm-Tutorial
+  url: "/addons/yform/yorm_tutorial"
+  path: _docs/addons/yform/yorm_tutorial.md
   authors:
   - skerbis
-  - isospin
-  - netzproductions
-  - pschuchmann
-  - rotzek
-  - alxndr-w
-  - danspringer
+  updated_at: '2026-07-15T15:26:48+02:00'
+- title: Gefilterte Liste - Anzahl Sätze anzeigen (x von Y)
+  url: "/addons/yform/yf_datatable_XofY"
+  path: _docs/addons/yform/yf_datatable_XofY.md
+  authors:
   - christophboecker
-  updated_at: '2026-07-15T11:51:31+02:00'
-- title: Seitenüberschrift
-  url: "/vorlage"
-  path: _docs/vorlage.md
-  authors: []
-  updated_at: '2026-07-15T11:35:27+02:00'
-- title: Mitmachen
-  url: "/dokumentation"
-  path: _docs/dokumentation.md
-  authors: []
-  updated_at: '2026-07-15T11:35:27+02:00'
+  updated_at: '2026-07-15T15:25:28+02:00'
