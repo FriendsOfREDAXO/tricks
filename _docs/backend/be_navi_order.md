@@ -1,6 +1,7 @@
 ---
 title: Reihenfolge der Backend Navigation ändern
 authors: [IngoWinter]
+toc: true
 prio:
 ---
 
