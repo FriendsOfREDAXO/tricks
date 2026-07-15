@@ -24,14 +24,12 @@
   width: 40px;
   height: 40px;
   border-radius: $ui-radius-pill;
-  border: 1px solid rgba(#5b98d7, 0.25);
   background: rgba(255, 255, 255, 0.95);
-  transition: background-color 120ms ease-out, border-color 120ms ease-out;
+  transition: background-color 120ms ease-out;
 
   &:hover,
   &:focus {
     background: rgba(#5b98d7, 0.12);
-    border-color: rgba(#5b98d7, 0.55);
   }
 }
 
