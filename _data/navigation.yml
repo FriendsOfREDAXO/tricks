@@ -1,8 +1,6 @@
 # Navigation
 # important: the URLs must represent the docs folder structure!
 
-- title: Startseite
-  url: /
 - title: AddOns
   url: /addons
   subitems:
@@ -50,3 +48,5 @@
   url: /development
 - title: Barrierefreiheit (a11y)
   url: /a11y
+- title: 🙌 Mitmachen
+  url: /dokumentation/

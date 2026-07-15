@@ -6,6 +6,8 @@ Diese Website sammelt Lösungen und hilfreiche Code-Beispiele, die es aus versch
 
 ![REDAXO Screenshots](https://raw.githubusercontent.com/redaxo/redaxo/assets/redaxo_02.png)
 
+<div id="recent-articles-placeholder"></div>
+
 ## ✋ Mitmachen
 
 1. __Öffne GitHub-Issues mit neuen Tricks, Ideen oder Anregungen__  
@@ -18,3 +20,7 @@ Diese Website sammelt Lösungen und hilfreiche Code-Beispiele, die es aus versch
 Wenn du Fragen hast oder Hilfe benötigst, eröffne eine [Diskussion](https://github.com/orgs/FriendsOfREDAXO/discussions) auf Github oder melde dich im Slack-Chat. Eine Einladung erhältst du hier: [redaxo.org/slack/](https://redaxo.org/slack/)
 
 Danke! ❤️
+
+## Aktuelle Artikel auf der Startseite
+
+Die Startseite listet die drei zuletzt geänderten Artikel anhand der Git-Historie der Dateien unter `_docs`. Dafür ist kein zusätzliches Front-Matter-Feld nötig.

@@ -12,9 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Setup Pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v5
+      - name: Generate recent article data
+        run: ruby generate_recent_articles.rb
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:

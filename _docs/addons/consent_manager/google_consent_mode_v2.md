@@ -1,6 +1,7 @@
 ---
 title: Google Consent Mode V2 Integration
 authors: [bitshiftersgmbh]
+toc: true
 prio:
 ---
 

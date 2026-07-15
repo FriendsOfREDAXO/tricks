@@ -4,6 +4,13 @@
 
 {% for c in categories %}
 
+  {% if c.url == '/' or c.url == '/dokumentation/' %}
+    <li class="navigation__item{% if page.url == c.url or page.url == c.url | append: '.html' %} navigation__item--current{% endif %}">
+      <a class="navigation__link" href="{{ c.url | prepend: site.baseurl }}">{{ c.title }}</a>
+    </li>
+    {% continue %}
+  {% endif %}
+
   {% capture html %}
     {%- for p in pages -%}
 

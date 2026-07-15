@@ -38,7 +38,9 @@ layout: default
 </div>
 
 
-{{ content }}
+<article class="doc-article" data-toc="{% if page.toc %}true{% else %}false{% endif %}">
+  {{ content }}
+</article>
 
 
 <div class="metainfos">

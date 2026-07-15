@@ -2,4 +2,42 @@
 layout: default
 ---
 
-{{ content }}
+{% assign recent_articles = site.data.recent_articles | default: empty %}
+
+{% capture recent_section %}
+<section class="home-recent">
+	<h2>Aktuelle Artikel</h2>
+	<ul class="home-recent__list">
+		{% for article in recent_articles %}
+			<li class="home-recent__item">
+				<div class="home-recent__card">
+					<div class="home-recent__header">
+						<a class="home-recent__link" href="{{ article.url | relative_url }}">{{ article.title }}</a>
+						<span class="home-recent__meta">{{ article.updated_at | date: "%d.%m.%Y" }}</span>
+					</div>
+					{% if article.authors.size > 0 %}
+						<div class="home-recent__authors authors">
+							<ul class="authors__list">
+								{% for author in article.authors %}
+									<li class="authors__item">
+										<a class="authors__link" href="https://github.com/{{ author }}" title="{{ author }}">
+											{% avatar user=author size=28 %}
+										</a>
+									</li>
+								{% endfor %}
+							</ul>
+						</div>
+					{% endif %}
+				</div>
+			</li>
+		{% endfor %}
+		{% if recent_articles == empty %}
+			<li class="home-recent__item">
+				<span>Keine Artikeldaten aus der Git-Historie verfügbar.</span>
+			</li>
+		{% endif %}
+	</ul>
+</section>
+{% endcapture %}
+
+{{ content | replace: '<div id="recent-articles-placeholder"></div>', recent_section }}

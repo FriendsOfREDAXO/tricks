@@ -1,4 +1,12 @@
 <nav class="navigation">
+  <div class="navigation-search">
+    <label class="navigation-search__label" for="navigation-search">Menüpunkt finden</label>
+    <div class="navigation-search__field">
+      <i class="navigation-search__icon">{% include svg/search.svg %}</i>
+      <input class="navigation-search__input" id="navigation-search" type="search" placeholder="Navigation filtern" autocomplete="off">
+    </div>
+    <p class="navigation-search__empty" hidden>Kein Menüpunkt gefunden.</p>
+  </div>
   <ul class="navigation__list">
     <li class="navigation__item navigation__item--home{% if page.url == "/" %} navigation__item--current{% endif %}">
       <a class="navigation__link" href="{{ "/" | relative_url }}">Startseite</a>
