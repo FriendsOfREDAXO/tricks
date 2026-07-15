@@ -1,6 +1,7 @@
 ---
 title: REX_LIST-Zeilen datenabhängig formatieren
 authors: [christophboecker]
+toc: true
 prio:
 ---
 
@@ -8,25 +9,6 @@ prio:
 
 Einzelne Zellen können per Callback bei der Ausgabe der rex_list angepasst und bedingt formatiert werden. Aber die ganze Zeile anders einfärben wenn bestimmte Werte im Datensatz stehen? 
 Geht? Geht! Auch für YForm.
-
-- [Grundannahmen und Beispiel](#basic)
-- [Ab REDAXO 5.12](#neu)
-    - [Eine Klasse mit Feldwerten zuweisen](#neu1)
-    - [Eine Klasse aus komplexen Abfragen zuweisen](#neu2)
-    - [YForm-Beispiel: den aktuellen Datensatz markieren](#neu3)
-- [Bis REDAXO 5.11.2](#alt)
-    - [\<td>-Tag um eine Klasse erweitern](#weg_class)
-        - [Aufruf des EP](#weg_class_ep)
-        - [Die Callback-Funktion *rex_list_set_row_class*](#weg_class_cb)
-        - [Das CSS](#weg_class_css)
-    - [\<td>-Tag um ein Attribut erweitern](#weg_attr)
-        - [Aufruf des EP](#weg_attr_ep)
-        - [Die Callback-Funktion *rex_list_set_row_class*](#weg_attr_cb)
-        - [Das CSS](#weg_attr_css)
-
-    - [Optionen](#opt)
-        - [YForm](#yform)
-        - [Komplexe Basisdaten](#kompl)
 
 <a name="basic"></a>
 ## Grundannahmen und Beispiel
