@@ -1,41 +1,12 @@
 ---
 title: YForm YOrm-Tutorial
 authors: [skerbis]
+toc: true
 prio:
 ---
 
 <!-- TOC --><a name="yorm-tutorial"></a>
 # YORM Tutorial
-
-<!-- TOC --><a name="yorm-tutorial-inhaltsverzeichnis"></a>
-# YORM Tutorial - Inhaltsverzeichnis
-
-- [YORM Tutorial](#yorm-tutorial)
-   * [Teil 1: Grundlagen mit rex_yform_manager_dataset](#teil-1-grundlagen-mit-rex_yform_manager_dataset)
-      + [Datensätze laden und auslesen](#datensätze-laden-und-auslesen)
-      + [Mit Collections arbeiten](#mit-collections-arbeiten)
-      + [Filtern und Sortieren](#filtern-und-sortieren)
-      + [Mit Relationen arbeiten](#mit-relationen-arbeiten)
-      + [Komplexe Abfragen](#komplexe-abfragen)
-      + [Datensätze zählen und prüfen](#datensätze-zählen-und-prüfen)
-      + [Pagination](#pagination)
-   * [Teil 2: Arbeiten mit Model-Classes](#teil-2-arbeiten-mit-model-classes)
-      + [Vergleich: Ohne vs. Mit Model-Class](#vergleich-ohne-vs-mit-model-class)
-      + [Eine Model-Class erstellen](#eine-model-class-erstellen)
-      + [Die Model-Class verwenden](#die-model-class-verwenden)
-      + [Praktisches Beispiel: News-Ausgabe](#praktisches-beispiel-news-ausgabe)
-   * [Teil 3: Komplettes News-System & Tipps](#teil-3-komplettes-news-system-tipps)
-      + [Table Manager Setup](#table-manager-setup)
-      + [Die erweiterte Model-Class](#die-erweiterte-model-class)
-      + [Frontend Module](#frontend-module)
-   * [Tipps & Tricks](#tipps-tricks)
-      + [Performance Optimierung](#performance-optimierung)
-      + [Debugging](#debugging)
-      + [Nützliche Queries](#nützliche-queries)
-      + [Utility Methoden](#utility-methoden)
-      + [Häufige Probleme](#häufige-probleme)
-      + [Best Practices](#best-practices)
-
 
 
 <!-- TOC --><a name="teil-1-grundlagen-mit-rex_yform_manager_dataset"></a>
