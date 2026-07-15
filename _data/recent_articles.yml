@@ -1,20 +1,24 @@
 ---
-- title: Blockauswahl mit Vorschau
-  url: "/backend/block_select"
-  path: _docs/backend/block_select.md
+- title: Nützliche YForm-Snippets
+  url: "/addons/yform/snippets"
+  path: _docs/addons/yform/snippets.md
   authors:
-  - tbaddade
-  - anveno
-  updated_at: '2026-06-01T14:26:54+02:00'
-- title: Eigene JS/CSS-Dateien im Addon 'project'
-  url: "/addons/project/add_own_js_css_files"
-  path: _docs/addons/project/add_own_js_css_files.md
+  - skerbis
+  - isospin
+  - netzproductions
+  - pschuchmann
+  - rotzek
+  - alxndr-w
+  - danspringer
+  - christophboecker
+  updated_at: '2026-07-15T11:51:31+02:00'
+- title: Seitenüberschrift
+  url: "/vorlage"
+  path: _docs/vorlage.md
   authors: []
-  updated_at: '2026-01-12T17:01:20+01:00'
-- title: 'YForm Formulare: Multiple (select) für "be_manager_relations"-Feld ungekürzt'
-  url: "/addons/yform/multiselect_be-relations_no-truncate"
-  path: _docs/addons/yform/multiselect_be-relations_no-truncate.md
-  authors:
-  - eaCe
-  - madiko
-  updated_at: '2025-12-05T16:46:38+01:00'
+  updated_at: '2026-07-15T11:35:27+02:00'
+- title: Mitmachen
+  url: "/dokumentation"
+  path: _docs/dokumentation.md
+  authors: []
+  updated_at: '2026-07-15T11:35:27+02:00'
