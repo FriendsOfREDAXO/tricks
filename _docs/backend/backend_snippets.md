@@ -1,20 +1,11 @@
 ---
 title: Backend Snippets
 authors: [alexplusde,ansichtsache,eaCe,skerbis,]
+toc: true
 prio:
 ---
 
 # Backend Snippets
-
-Snippets und Tweaks zur Modifikation des Backends
-1. [Navigation ausblenden](#navhide)
-1. [AddOn ausblenden](#addonhide)
-2. [Seite eines AddOns durch eigene austauschen/ersetzen](#replacepage)
-3. [Subpage eines AddOns durch eigene entsprechend Recht austauschen/ersetzenn](#replacepage2)
-4. [Sortierung des Medienpools ändern](#mediasort)
-5. [Nur zugelassenen IPs Zugriff aufs Backend gewähren](#blockIP)
-6. [Theme erzwingen ohne config.yml zu ändern](#theme)
-
 
 <a name="navhide"></a>
 ## Navigation ausblenden
