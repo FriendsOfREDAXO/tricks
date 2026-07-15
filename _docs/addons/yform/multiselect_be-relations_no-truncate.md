@@ -4,13 +4,13 @@ authors: [eaCe, madiko]
 prio: 
 ---
 
-Letztes Update: 2025-11-27
+Letztes Update: 2026-05-01
 
   
 # Die Anleitung im Überblick
 
 - [Vorbereiten: Eigene(s) YTemplate(s) einbinden](#boot)
-- [Anleitung REX 5.20.1 + YForm 5.0.1 + Theme 1.4.0: Angepasstes YTemplate](#templateyform5)
+- [Anleitung REX 5.21.0 + YForm 5.0.1 + Theme 1.4.0: Angepasstes YTemplate](#templateyform5)
 - [Anleitung REX 5.15.1 + YForm 4.1.1 + Theme 1.4.0: Angepasstes YTemplate](#templateyform4)
 
 
@@ -52,7 +52,7 @@ Springen zur [Anleitung REX 5.15.1 + YForm 4.1.1 + Theme 1.4.0: Angepasstes YTem
 
 ## Anleitung für YForm5: Template
 
->**Hinweis**: getestet mit REDAXO 5.20.1 / YForm 5.0.1 / Theme 1.4.0
+>**Hinweis**: getestet mit REDAXO 5.21.0 / YForm 5.0.1 / Theme 1.4.0
 
 Nun legst Du folgendes Template ab  
 unter `theme/private/ytemplates/bootstrap`  
@@ -61,26 +61,32 @@ mit dem Datei-Namen `value.be_manager_relation.tpl.php`:
 >**Hinweis**: Das sollte direkt funktionieren. Falls nicht, lösche unter `System` den `Cache` und versuche es erneut.
 ```
 <?php
+
 /*************************************************************************
 * Funktion für: YForm
      YForm Tabellen Templates anpassen
      Gekürzte Ausgabe der Einträge im be_manager_relation aufheben
+
      Autor / copy: Anleitung aus der Doku von YForm
      https://github.com/yakamara/yform/blob/master/docs/07_formbuilder.md#ein-eigenes-template--framework-f%C3%BCr-formularcode-verwenden
      
-     Adaption eaCe, madiko
+     Adaption: eaCe, madiko
      https://friendsofredaxo.github.io/tricks/addons/yform/multiselect_be-relations_no-truncate
      
-     * last update:  2025-12-05
-     * last review:  2025-12-05
+     * last update:  2026-04-30
+     * last review:  2026-04-30
 **************************************************************************/
+
+
 /**
  * @var rex_yform_value_be_manager_relation $this
  * @psalm-scope-this rex_yform_value_be_manager_relation
  */
+
 $options ??= [];
 $link ??= '';
 $valueName ??= '';
+
 // get filter
 $filter = [];
 if ($rawFilter = $this->getElement('filter')) {
@@ -89,12 +95,12 @@ if ($rawFilter = $this->getElement('filter')) {
 if (isset($this->params['rex_yform_set'][$this->getName()]) && is_array($this->params['rex_yform_set'][$this->getName()])) {
     $filter = array_merge($filter, $this->params['rex_yform_set'][$this->getName()]);
 }
+
 // adapting selection for options without truncation
-    // default empty (please select, please adapt text to your needs)
-    $options[] = [
-        'id' => '',
-        'name' => 'Bitte wählen...',
-    ];
+
+    // reset options to resolve issue with duplicates
+    $options = [];
+
     // selection from the relation table
     $listValues = $this::getListValues($this->relation['target_table'], $this->relation['target_field'], $filter);
     if (!empty($listValues)) {
@@ -105,14 +111,20 @@ if (isset($this->params['rex_yform_set'][$this->getName()]) && is_array($this->p
             ];
         }
     }
+
 // further on with the template as defined in the YForm-Standard for be_manager_relation
-// yform/plugins/manager/ytemplates/bootstrap/value.be_manager_relation.tpl.php
+// yform/ytemplates/bootstrap/value.be_manager_relation.tpl.php
+
 /**
  * @var rex_yform_value_be_manager_relation $this
  * @psalm-scope-this rex_yform_value_be_manager_relation
  */
+
+
 $class_group = trim('form-group ' . $this->getHTMLClass() . ' ' . $this->getWarningClass());
+
 $id = sprintf('%u', crc32($this->params['form_name'] . random_int(0, 100) . $this->getId()));
+
 $notice = [];
 if ('' != $this->getElement('notice')) {
     $notice[] = rex_i18n::translate($this->getElement('notice'), false);
@@ -125,27 +137,63 @@ if (count($notice) > 0) {
 } else {
     $notice = '';
 }
-?>
-<?php if ($this->getRelationType() < 2): ?>
+
+// deleted code to close and promptly open php 
+
+if ($this->getRelationType() < 2): ?>
     <div data-be-relation-wrapper="<?= $this->getFieldName() ?>" class="<?= $class_group ?>" id="<?= $this->getHTMLId() ?>">
         <label class="control-label" for="<?= $this->getFieldId() ?>"><?= $this->getLabel() ?></label>
         <?php
+
         $attributes = [];
         $attributes['class'] = 'form-control';
         $attributes['id'] = $this->getFieldId();
+
         $select = new rex_select();
-        if (1 == $this->getRelationType()) {
-            $select->setName($this->getFieldName() . '[]');
-            $select->setMultiple();
-            $select->setSize($this->getRelationSize());
-        } else {
-            $select->setName($this->getFieldName());
-        }
+
+        // customise options (without truncation)
+
+            // multiple select
+            if (1 == $this->getRelationType()) {
+                $select->setName($this->getFieldName() . '[]');
+                $select->setMultiple();
+                $select->setSize($this->getRelationSize());
+            } 
+            
+            // single select
+            else {
+                $select->setName($this->getFieldName());
+
+                // add an empty option as default
+                $select->addOption('', '');
+            }
+
 $attributes = $this->getAttributeArray($attributes, ['required', 'readonly', 'disabled']);
 $select->setAttributes($attributes);
-foreach ($options as $option) {
-    $select->addOption($option['name'], $option['id']);
-}
+
+
+
+    // Leere Option als Standard hinzufügen
+    $select->addOption('', ''); // leere Option mit leerem Wert
+
+    // Nun erst die bestehenden Optionen (oben korrigiert) hinzufügen
+    foreach ($options as $option) {
+        $select->addOption($option['name'], $option['id']);
+    }
+
+    // set default option to empty as long no data was set
+
+        // multiple select
+        if (1== $this->getRelationType()) {
+            $select->setSelected(empty($this->getValue()) ? [] : $this->getValue()); // empty array as long as no value is selected
+        }
+
+        // single select
+        else {
+            $select->setSelected(empty($this->getValue()) ? '' : $this->getValue()); // empty string as long as no value is selected
+        }
+
+// Weiter mit Standard-YForm-Template
 $select->setSelected($this->getValue());
 echo $select->get();
 ?>
@@ -184,7 +232,8 @@ $e = [];
     ?>
         <?= $notice ?>
     </div>
-<?php endif;
+<?php endif; ?>
+
 ```
 
 ---
