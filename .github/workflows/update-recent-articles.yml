@@ -1,0 +1,44 @@
+name: Update recent articles data
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "_docs/**/*.md"
+      - "generate_recent_articles.rb"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+
+      - name: Generate recent article data
+        run: ruby generate_recent_articles.rb
+
+      - name: Commit recent article data
+        run: |
+          if git diff --quiet -- _data/recent_articles.yml; then
+            echo "No recent article changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _data/recent_articles.yml
+          git commit -m "chore: aktualisiere aktuelle artikel"
+          git push
