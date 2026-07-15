@@ -16,6 +16,21 @@
   }
 }
 
+.fold-navigation--inline {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+
+  &:hover,
+  &:focus {
+    background: rgba(#5b98d7, 0.12);
+  }
+}
+
 .fold-navigation__expand,
 .fold-navigation__compress {
   position: absolute;

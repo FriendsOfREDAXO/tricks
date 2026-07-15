@@ -4,8 +4,14 @@
     <div class="navigation-search__field">
       <i class="navigation-search__icon">{% include svg/search.svg %}</i>
       <input class="navigation-search__input" id="navigation-search" type="search" placeholder="Navigation filtern" autocomplete="off">
+      <button class="fold-navigation fold-navigation--inline" type="button" aria-label="Navigation klappen">
+        <i class="fold-navigation__expand">{% include svg/expand.svg %}</i>
+        <i class="fold-navigation__compress">{% include svg/compress.svg %}</i>
+        <span class="fold-navigation__title">Navigation klappen</span>
+      </button>
     </div>
     <p class="navigation-search__empty" hidden>Kein Menüpunkt gefunden.</p>
+    <ul class="navigation-search__results" hidden></ul>
   </div>
   <ul class="navigation__list">
     <li class="navigation__item navigation__item--home{% if page.url == "/" %} navigation__item--current{% endif %}">

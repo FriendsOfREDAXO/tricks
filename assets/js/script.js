@@ -117,25 +117,59 @@ function scrollToAnchor() {
 function initNavigationSearch() {
   var searchInput = document.querySelector("#navigation-search");
   var emptyState = document.querySelector(".navigation-search__empty");
+  var resultList = document.querySelector(".navigation-search__results");
+  var mainList = document.querySelector(".navigation > .navigation__list");
+  var foldButton = document.querySelector(".fold-navigation");
 
-  if (!searchInput || searchInput.dataset.initialized === "true") {
+  if (!searchInput || !emptyState || !resultList || !mainList || searchInput.dataset.initialized === "true") {
     return;
   }
+
+  var navigationLinks = Array.from(document.querySelectorAll(".navigation .navigation__link"));
 
   searchInput.dataset.initialized = "true";
   searchInput.addEventListener("input", function() {
     var query = this.value.trim().toLowerCase();
-    var items = document.querySelectorAll(".navigation > .navigation__list > .navigation__item");
-    var visibleCount = 0;
+    resultList.innerHTML = "";
 
-    for (var item of items) {
-      if (filterNavigationItem(item, query)) {
-        visibleCount++;
+    if (query === "") {
+      mainList.hidden = false;
+      resultList.hidden = true;
+      emptyState.hidden = true;
+      if (foldButton) {
+        foldButton.disabled = false;
       }
+      return;
     }
 
-    emptyState.hidden = visibleCount > 0;
+    var matches = navigationLinks.filter(function(link) {
+      return getOriginalNavigationLabel(link).toLowerCase().indexOf(query) !== -1;
+    });
+
+    for (var link of matches) {
+      resultList.appendChild(createNavigationSearchResultItem(link));
+    }
+
+    mainList.hidden = true;
+    resultList.hidden = matches.length === 0;
+    emptyState.hidden = matches.length > 0;
+    if (foldButton) {
+      foldButton.disabled = true;
+    }
   });
+}
+
+function createNavigationSearchResultItem(sourceLink) {
+  var item = document.createElement("li");
+  item.className = "navigation-search__result-item";
+
+  var link = document.createElement("a");
+  link.className = "navigation__link";
+  link.href = sourceLink.href;
+  link.textContent = getOriginalNavigationLabel(sourceLink);
+
+  item.appendChild(link);
+  return item;
 }
 
 function filterNavigationItem(item, query) {
