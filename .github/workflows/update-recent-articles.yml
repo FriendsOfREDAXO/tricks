@@ -11,6 +11,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   update:
@@ -30,15 +31,15 @@ jobs:
       - name: Generate recent article data
         run: ruby generate_recent_articles.rb
 
-      - name: Commit recent article data
-        run: |
-          if git diff --quiet -- _data/recent_articles.yml; then
-            echo "No recent article changes to commit."
-            exit 0
-          fi
-
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add _data/recent_articles.yml
-          git commit -m "chore: aktualisiere aktuelle artikel"
-          git push
+      - name: Create pull request for recent article data
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: "chore: aktualisiere aktuelle artikel"
+          title: "chore: aktualisiere aktuelle artikel"
+          body: |
+            Automatisch erzeugtes Update der Datei `_data/recent_articles.yml`
+            basierend auf der Git-Historie der Artikel unter `_docs`.
+          branch: "chore/update-recent-articles"
+          delete-branch: true
+          add-paths: |
+            _data/recent_articles.yml
