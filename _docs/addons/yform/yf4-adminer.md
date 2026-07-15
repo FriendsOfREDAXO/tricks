@@ -1,6 +1,7 @@
 ---
 title: Adminer in YForm verlinken
 authors: [christophboecker]
+toc: true
 prio:
 ---
 
