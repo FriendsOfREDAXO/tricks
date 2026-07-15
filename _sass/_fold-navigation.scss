@@ -23,7 +23,7 @@
   transform: translateY(-50%);
   width: 34px;
   height: 34px;
-  border-radius: 8px;
+  border-radius: $ui-radius;
 
   &:hover,
   &:focus {

@@ -68,7 +68,7 @@
   margin: 0 0 2rem;
   padding: 1.25rem 1.5rem;
   border: 1px solid rgba(91, 152, 215, 0.18);
-  border-radius: 14px;
+  border-radius: $ui-radius;
   background: #f7fbff;
 }
 
@@ -95,8 +95,7 @@
 
 .home-recent {
   margin-top: 3rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 0;
 }
 
 .home-recent__list {
@@ -106,19 +105,15 @@
 }
 
 .home-recent__item {
-  margin: 0 0 1rem;
+  margin: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .home-recent__card {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 0.85rem;
-  padding: 1.1rem 1.2rem 1rem;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.72);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
-  backdrop-filter: blur(6px);
+  padding: 1.05rem 0;
 }
 
 .home-recent__header {

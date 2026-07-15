@@ -31,7 +31,7 @@
   min-height: 44px;
   padding: 0.7rem 2.7rem 0.7rem 2.7rem;
   border: 1px solid rgba(91, 152, 215, 0.25);
-  border-radius: 10px;
+  border-radius: $ui-radius;
   background: rgba(255, 255, 255, 0.95);
   color: rgba(0, 0, 0, 0.75);
   font-size: 0.95rem;
@@ -74,7 +74,7 @@
   margin: 0.75rem 0 0;
   padding: 0;
   list-style: none;
-  border-radius: 10px;
+  border-radius: $ui-radius;
   overflow: hidden;
 }
 
@@ -186,8 +186,8 @@
 
 .navigation__label--matched {
   background: rgba(255, 217, 102, 0.45);
-  box-shadow: inset 0 0 0 1px rgba(214, 163, 0, 0.28);
-  border-radius: 0.35rem;
+  box-shadow: $ui-shadow-inset;
+  border-radius: $ui-radius;
   color: #2f6fae;
 }
 

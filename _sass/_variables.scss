@@ -5,3 +5,7 @@
  $easeInCirc: cubic-bezier(0.6, 0.04, 0.98, 0.335);
  $easeOutCirc: cubic-bezier(0.075, 0.82, 0.165, 1);
  $easeInOutCirc: cubic-bezier(0.075, 0.82, 0.165, 1);
+
+ $ui-radius: 12px;
+ $ui-shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.06);
+ $ui-shadow-inset: inset 0 0 0 1px rgba(214, 163, 0, 0.28);
