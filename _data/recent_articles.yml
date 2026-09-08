@@ -1,19 +1,21 @@
 ---
+- title: 'YForm Formulare: Multiple (select) für "be_manager_relations"-Feld ungekürzt'
+  url: "/addons/yform/multiselect_be-relations_no-truncate"
+  path: _docs/addons/yform/multiselect_be-relations_no-truncate.md
+  authors:
+  - eaCe
+  - madiko
+  updated_at: '2026-09-08T10:29:35+02:00'
+- title: Zuletzt aktualisiert
+  url: "/snippets/zuletzt_aktualisiert"
+  path: _docs/snippets/zuletzt_aktualisiert.md
+  authors:
+  - polarpixel
+  - madiko
+  updated_at: '2026-09-05T19:38:59+02:00'
 - title: REX_LIST-Zeilen datenabhängig formatieren
   url: "/backend/rex_list_row_marker"
   path: _docs/backend/rex_list_row_marker.md
   authors:
   - christophboecker
   updated_at: '2026-07-15T15:28:48+02:00'
-- title: YForm YOrm-Tutorial
-  url: "/addons/yform/yorm_tutorial"
-  path: _docs/addons/yform/yorm_tutorial.md
-  authors:
-  - skerbis
-  updated_at: '2026-07-15T15:26:48+02:00'
-- title: Gefilterte Liste - Anzahl Sätze anzeigen (x von Y)
-  url: "/addons/yform/yf_datatable_XofY"
-  path: _docs/addons/yform/yf_datatable_XofY.md
-  authors:
-  - christophboecker
-  updated_at: '2026-07-15T15:25:28+02:00'
