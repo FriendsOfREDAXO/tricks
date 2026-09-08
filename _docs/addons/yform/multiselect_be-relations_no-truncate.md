@@ -4,16 +4,14 @@ authors: [eaCe, madiko]
 prio: 
 ---
 
-Letztes Update: 2026-09-03
 
-  
 # Die Anleitung im Überblick
 
 - [Vorbereiten: Eigene(s) YTemplate(s) einbinden](#boot)
 - [Anleitung REX 5.21.0 + YForm 5.0.1 + Theme 1.4.0: Angepasstes YTemplate](#templateyform5)
 - [Anleitung REX 5.15.1 + YForm 4.1.1 + Theme 1.4.0: Angepasstes YTemplate](#templateyform4)
 
-
+Letztes Update: 2026-09-03
 
 <a name="boot"></a>
 
