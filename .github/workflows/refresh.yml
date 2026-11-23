@@ -5,17 +5,20 @@ on:
     - cron: '30 */4 * * *' # every 4 hrs at minute 30
   workflow_dispatch:
 
+# Built-in GITHUB_TOKEN may request Pages builds with this permission – no personal access token needed
+permissions:
+  pages: write
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger GitHub Pages rebuild
         # https://docs.github.com/en/rest/reference/repos#request-a-github-pages-build
-        # requires Personal Access Token (PAT) since GITHUB_TOKEN has no permission to trigger page builds
         run: |
           curl \
             --fail \
             --header "Accept: application/vnd.github.v3+json" \
-            --header "Authorization: Bearer ${{ secrets.GH_WORKFLOW }}" \
+            --header "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
             --request POST \
             --url https://api.github.com/repos/${{ github.repository }}/pages/builds
